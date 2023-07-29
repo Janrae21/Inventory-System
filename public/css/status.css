@@ -374,10 +374,6 @@ main {
 }
 
 
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -552,7 +548,7 @@ select {
     font-size: 14px;
 }
 
-select option[value="1"] {
+/* select option[value="1"] {
     background: rgba(110, 255, 105, 0.911);
 }
 
@@ -562,7 +558,7 @@ select option[value="2"] {
 
 select option[value="3"] {
     background: rgb(248, 30, 30);
-}
+} */
 
 /* the down arrow */
 &:after {
@@ -613,14 +609,6 @@ select option[value="3"] {
 /* MAIN */
 /* CONTENT */
 
-
-
-
-
-
-
-
-
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -635,11 +623,6 @@ select option[value="3"] {
         display: none;
     }
 }
-
-
-
-
-
 
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {
