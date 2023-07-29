@@ -21,7 +21,7 @@
 		</a>
 		<ul class="side-menu top">
 			<li >
-				<a href="{{ url('/') }}">
+				<a href="{{ asset('/admin/home')}}">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text" >Dashboard</span>
 				</a>
