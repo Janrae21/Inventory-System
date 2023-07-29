@@ -27,6 +27,9 @@ Route::get('/status', function () {
 Route::get('/ranking', function () {
     return view('ranking');
 });
+Route::get('/customer', function () {
+    return view('customerList');
+});
   
 /*------------------------------------------
 --------------------------------------------
