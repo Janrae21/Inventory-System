@@ -39,7 +39,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="{{ asset('/customer') }}">
 					<i class='bx bxs-group' ></i>
 					<span class="text">Customer Lists</span>
 				</a>
