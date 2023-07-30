@@ -21,15 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/status', function () {
-    return view('productstatus');
- });
-Route::get('/ranking', function () {
-    return view('ranking');
-});
-Route::get('/customer', function () {
-    return view('customerList');
-});
+
   
 /*------------------------------------------
 --------------------------------------------
@@ -49,6 +41,16 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    
+    Route::get('/status', function () {
+        return view('productstatus');
+     });
+    Route::get('/ranking', function () {
+        return view('ranking');
+    });
+    Route::get('/customer', function () {
+        return view('customerList');
+    });
     
 });
   
