@@ -15,6 +15,10 @@ li {
     list-style: none;
 }
 
+li a {
+    text-decoration: none;
+}
+
 :root {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
@@ -45,10 +49,6 @@ body.dark {
 body {
     background: var(--grey);
     overflow-x: hidden;
-}
-
-li a {
-    text-decoration: none;
 }
 
 
@@ -529,42 +529,90 @@ main {
     background: var(--orange);
 }
 
-
-#content main .table-data .todo {
-    flex-grow: 1;
-    flex-basis: 300px;
+.custom-select {
+    /* wrapper style */
+    position: relative;
+    display: block;
+    max-width: 400px;
+    min-width: 180px;
+    margin: 0 auto;
 }
 
-#content main .table-data .todo .todo-list {
-    width: 100%;
-}
-
-#content main .table-data .todo .todo-list li {
-    width: 100%;
-    margin-bottom: 16px;
-    background: var(--grey);
-    border-radius: 10px;
-    padding: 14px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#content main .table-data .todo .todo-list li .bx {
+select {
+    /* Select Reset */
+    outline: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 8px;
+    margin: 0;
+    display: block;
+    width: 50%;
     cursor: pointer;
+
+    /* custom select appearance */
+    padding: 12px 55px 15px 15px;
+    font-size: 14px;
 }
 
-#content main .table-data .todo .todo-list li.completed {
-    border-left: 10px solid var(--blue);
+select option[value="1"] {
+    background: rgba(110, 255, 105, 0.911);
 }
 
-#content main .table-data .todo .todo-list li.not-completed {
-    border-left: 10px solid var(--orange);
+select option[value="2"] {
+    background: rgba(252, 255, 69, 0.986);
 }
 
-#content main .table-data .todo .todo-list li:last-child {
-    margin-bottom: 0;
+select option[value="3"] {
+    background: rgb(248, 30, 30);
 }
+
+/* the down arrow */
+&:after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    line-height: 50px;
+    content: '\25BC';
+    text-align: center;
+    z-index: -1;
+    font-size: 18px;
+}
+
+.ok {
+    background-color: rgba(110, 255, 105, 0.911);
+}
+
+.btn {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 5px;
+    border-style: none;
+    float: right;
+    cursor: pointer;
+
+}
+
+.btn-primary:hover {
+    background-color: #90ee90;
+    ;
+
+}
+
+.btn-secondary:hover {
+    background-color: #d62929;
+}
+
 
 /* MAIN */
 /* CONTENT */
@@ -642,5 +690,21 @@ main {
 
     #content main .table-data .todo .todo-list {
         min-width: 420px;
+    }
+}
+
+.drop-item {
+    display: none;
+    animation: drop .7s ease-in-out;
+}
+.drop-item.show-item {
+    display: block;
+}
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

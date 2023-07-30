@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('css/status.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Eloading.css') }}" rel="stylesheet">
+
     <title>Dashboard</title>
 </head>
 
@@ -20,19 +21,51 @@
             <img src="{{asset('images/logo.png')}}">
         </a>
         <ul class="side-menu top">
-            <li>
+            <li class="active">
                 <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+
+            <li class="dropdown-btn">
+                <a href="{{ url('#') }}">
                     <i class='bx bxs-cart'></i>
-                    <span class="text">Products</span>
+                    <span class="text">Product</span>
                 </a>
             </li>
-            <li class="active">
+            <li class="drop-item">
+                <a href="{{ url('/pisowifi') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Pisowifi</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/router') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Router</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('#') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Parts Of Pisonet</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/EloadingPart') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading Parts</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/Eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading</span>
+                </a>
+            </li>
+
+            <li>
                 <a href="{{ url('/status') }}">
                     <i class='bx bxs-cart'></i>
                     <span class="text">Product Status</span>
@@ -91,15 +124,14 @@
             </li>
         </nav>
         <!-- NAVBAR -->
-
         <!-- MAIN -->
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Product Status</h1>
+                    <h1>Eloading</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Product Status</a>
+                            <a href="#">Eloading</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
@@ -115,122 +147,93 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Product Status</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
+                        <h3>Eloading</h3>
+                        <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
+                        <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Product Name</th>
                                 <th>Quantity</th>
-                                <th>Category</th>
-                                <th>Ordered Date</th>
-                                <th>Status</th>
+                                <th>Stocks Purchased</th>
+                                <th>Actual Stocks <br> (Based on actual <br> checking(EDUD))</th>
+                                <th>Damage or Missing <br>or for Testing</th>
+                                <th>Remaining Stocks</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>
-                                    <p>Mary Grace Elias</p>
-                                </td>
-                                <td>4</td>
-                                <td>Piso Wifi</td>
-                                <td>01-10-2021</td>
-                                <td>
-                                    <label class="custom-select">
-                                        <select name='options' id="select">
-                                            <option value="0" id="">Select Status</option>
-                                            <option value="1" id="1">Ok</option>
-                                            <option value="2" id="2">For Testing</option>
-                                            <option value="3" id="3">With Damage</option>
-                                        </select>
-                                    </label>
-                                <td>
-                            </tr>
-                            <tr>
-                                <td>
 
-                                    <p>Mary Joy Reambonanza</p>
+                                    <p>Product Name</p>
                                 </td>
-                                <td>1</td>
-                                <td>E-Loading Machine</td>
-                                <td>01-10-2021</td>
-
-                                <td><label class="custom-select">
-                                        <select name='options' id="select">
-                                            <option value="0" id="">Select Status</option>
-                                            <option value="1" id="1">Ok</option>
-                                            <option value="2" id="2">For Testing</option>
-                                            <option value="3" id="3">With Damage</option>
-                                        </select>
-                                    </label></td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>John Doe</p>
-                                </td>
-                                <td>5</td>
-                                <td>Piso Wifi</td>
-                                <td>01-10-2021</td>
-                                <td><label class="custom-select">
-                                        <select name='options' id="select">
-                                            <option value="0" id="">Select Status</option>
-                                            <option value="1" id="1">Ok</option>
-                                            <option value="2" id="2">For Testing</option>
-                                            <option value="3" id="3">With Damage</option>
-                                        </select>
-                                    </label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>Rogina Rolloque</p>
-                                </td>
+                                <td>40</td>
+                                <td>40</td>
                                 <td>2</td>
-                                <td>Cellphone</td>
-                                <td>01-10-2021</td>
-                                <td><label class="custom-select">
-                                        <select name='options' id="select">
-                                            <option value="0" id="">Select Status</option>
-                                            <option value="1" id="1">Ok</option>
-                                            <option value="2" id="2">For Testing</option>
-                                            <option value="3" id="3">With Damage</option>
-                                        </select>
-                                    </label></td>
+                                <td>50</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Seth Obenita</p>
+
+                                    <p>Product Name</p>
                                 </td>
-                                <td>8</td>
-                                <td>E-Loading Parts</td>
-                                <td>01-10-2021</td>
-                                <td><label class="custom-select">
-                                        <select name='options' id="select">
-                                            <option value="0" id="">Select Status</option>
-                                            <option value="1" id="1">Ok</option>
-                                            <option value="2" id="2">For Testing</option>
-                                            <option value="3" id="3">With Damage</option>
-                                        </select>
-                                    </label>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Product Name</p>
                                 </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Product Name</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Product Name</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                            </tr>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div class="btn">
-                <button type="button" class="btn btn-primary">Save Changes</button>
+                <button type="button" class="btn btn-primary">Update</button>
                 <button type="button" class="btn btn-secondary">Cancel</button>
             </div>
         </main>
+
         <!-- MAIN -->
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="{{ asset('js/status.js') }}"></script>
+    <script src="{{ asset('js/Eloading.js') }}"></script>
+
+
+
+
 </body>
 
 </html>

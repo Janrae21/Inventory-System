@@ -15,6 +15,10 @@ li {
     list-style: none;
 }
 
+li a {
+    text-decoration: none;
+}
+
 :root {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
