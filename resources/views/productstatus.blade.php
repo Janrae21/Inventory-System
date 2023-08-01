@@ -119,7 +119,7 @@
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="{{ url('/') }}">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -278,4 +278,3 @@
 </body>
 
 </html>
-@endsection

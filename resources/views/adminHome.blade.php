@@ -27,10 +27,41 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            
+            <li class="dropdown-btn">
+                <a href="{{ url('#') }}">
                     <i class='bx bxs-cart'></i>
-                    <span class="text">Products</span>
+                    <span class="text">Product</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/pisowifi') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Pisowifi</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/router') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Router</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('#') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Parts Of Pisonet</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/EloadingPart') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading Parts</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/Eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading</span>
                 </a>
             </li>
             <li>
@@ -104,7 +135,7 @@
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -292,6 +323,4 @@
     <!-- CONTENT -->
     <script src="{{ asset('js/admin.js') }}"></script>
 </body>
-
 </html>
-@endsection

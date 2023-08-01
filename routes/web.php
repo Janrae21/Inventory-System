@@ -75,6 +75,31 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('customerList');
     });
     
+    Route::get('/status', function () {
+        return view('productstatus');
+     });
+    Route::get('/ranking', function () {
+        return view('ranking');
+    });
+    
+    Route::get('/pisowifi', function () {
+        return view('pisowifi');
+    });
+
+    Route::get('/Eloading', function () {
+        return view('Eloading');
+    });
+
+    Route::get('/router', function () {
+        return view('router');
+    });
+
+    Route::get('/EloadingPart', function () {
+        return view('EloadingPart');
+    });
+    
+
+
 });
   
 /*------------------------------------------

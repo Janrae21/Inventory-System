@@ -47,6 +47,10 @@ body {
     overflow-x: hidden;
 }
 
+li a {
+    text-decoration: none;
+}
+
 
 
 
