@@ -21,15 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/status', function () {
-    return view('productstatus');
- });
-Route::get('/ranking', function () {
-    return view('ranking');
-});
-Route::get('/customer', function () {
-    return view('customerList');
-});
+
   
 /*------------------------------------------
 --------------------------------------------
@@ -71,6 +63,16 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/EloadingPart', function () {
         return view('EloadingPart');
+    });
+    
+    Route::get('/status', function () {
+        return view('productstatus');
+     });
+    Route::get('/ranking', function () {
+        return view('ranking');
+    });
+    Route::get('/customer', function () {
+        return view('customerList');
     });
     
 });
