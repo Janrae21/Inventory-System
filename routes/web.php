@@ -49,6 +49,29 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+
+    Route::get('/status', function () {
+        return view('productstatus');
+     });
+    Route::get('/ranking', function () {
+        return view('ranking');
+    });
+    
+    Route::get('/pisowifi', function () {
+        return view('pisowifi');
+    });
+
+    Route::get('/Eloading', function () {
+        return view('Eloading');
+    });
+
+    Route::get('/router', function () {
+        return view('router');
+    });
+
+    Route::get('/EloadingPart', function () {
+        return view('EloadingPart');
+    });
     
 });
   
