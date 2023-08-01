@@ -19,6 +19,10 @@ li a {
     text-decoration: none;
 }
 
+.btn-download {
+    text-decoration: none;
+}
+
 :root {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -22,15 +22,45 @@
         </a>
         <ul class="side-menu top">
             <li>
-                <a href="{{ url('/') }}">
+                <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="dropdown-btn">
+                <a href="{{ url('#') }}">
                     <i class='bx bxs-cart'></i>
-                    <span class="text">Products</span>
+                    <span class="text">Product</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/pisowifi') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Pisowifi</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/router') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Router</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('#') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Parts Of Pisonet</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/EloadingPart') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading Parts</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/Eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading</span>
                 </a>
             </li>
             <li>
@@ -250,4 +280,3 @@
 </body>
 
 </html>
-@endsection

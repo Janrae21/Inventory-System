@@ -174,10 +174,24 @@ var barChartOptions = {
   barChart.render();
 
 
-const selectElement = document.getElementById('select');
-selectElement.addEventListener('change', function() {
-  const optionElement = document.querySelector('option[value="1"]');
-  if (optionElement) {
-    optionElement.style.color = rgba(110, 255, 105, 0.911);
-  }
+// const selectElement = document.getElementById('select');
+// selectElement.addEventListener('change', function() {
+//   const optionElement = document.querySelector('option[value="1"]');
+//   if (optionElement) {
+//     optionElement.style.color = rgba(110, 255, 105, 0.911);
+//   }
+// });
+
+
+const dropBtn = document.querySelector('.dropdown-btn'),
+dropdown = document.querySelectorAll('.drop-item');
+
+dropBtn.addEventListener('click', () => {
+	dropdown.forEach(drop => {
+		if(drop.classList.contains('show-item')) {
+			drop.classList.remove('show-item');
+		} else {
+			drop.classList.add('show-item');
+		}
+	});
 });
