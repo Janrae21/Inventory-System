@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
     
 Auth::routes();
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -31,6 +31,7 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
 });
   
 /*------------------------------------------
@@ -98,8 +99,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('EloadingPart');
     });
     
-
-
 });
   
 /*------------------------------------------
