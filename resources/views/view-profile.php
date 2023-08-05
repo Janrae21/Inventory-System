@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/css/view-profile.css') }}" rel="stylesheet">
 
     <title>Dashboard</title>
 </head>
@@ -35,33 +35,33 @@
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/pisowifi-parts-accessories') }}">
+                <a href="{{ url('/pisowifi') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Pisowifi Parts & Accessories</span>
+                    <span class="text">Pisowifi</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/packaging-monitoring') }}">
+                <a href="{{ url('/router') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Packaging Monitoring</span>
+                    <span class="text">Router</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/Parts-of-eloading') }}">
+                <a href="{{ url('#') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Parts Of Eloading</span>
+                    <span class="text">Parts Of Pisonet</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/eloading-best-seller') }}">
+                <a href="{{ url('/EloadingPart') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading Best Seller</span>
+                    <span class="text">Eloading Parts</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
+                <a href="{{ url('/Eloading') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Physical Store Computer Stocks Monitoring</span>
+                    <span class="text">Eloading</span>
                 </a>
             </li>
             <li>

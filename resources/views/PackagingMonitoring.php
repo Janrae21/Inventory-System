@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/EloadingBestSeller.css') }}" rel="stylesheet">
 
     <title>Dashboard</title>
 </head>
@@ -35,33 +35,33 @@
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/pisowifi') }}">
+                <a href="{{ url('/packaging-monitoring') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Pisowifi</span>
+                    <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/router') }}">
+                <a href="{{ url('/eloading-best-seller') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Router</span>
+                    <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('#') }}">
+                <a href="{{ url('/Parts-of-eloading') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Parts Of Pisonet</span>
+                    <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/EloadingPart') }}">
+                <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading Parts</span>
+                    <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/Eloading') }}">
+                <a href="{{ url('/pisowifi-parts-accessories') }}">
                     <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading</span>
+                    <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
             <li>
@@ -128,10 +128,10 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Piso WiFi</h1>
+                    <h1>Packaging Monitoring</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Piso WiFi</a>
+                            <a href="#">Packaging Monitoring</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
@@ -147,19 +147,22 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Piso WiFi</h3>
+                        <h3>Packaging Monitoring</h3>
                         <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
                         <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Stocks Purchased</th>
-                                <th>Actual Stocks <br> (Based on actual <br> checking(EDUD))</th>
-                                <th>Damage or Missing <br>or for Testing</th>
+                                <th>ITEMS Name</th>
+                                <th>STATUS</th>
                                 <th>Remaining Stocks</th>
+                                <th>Item Sold As Of</th>
+                                <th>Stocks Purchased</th>
+                                <th>Actual Stocks<br>Based on actual</br><br>checking(EDUD)</br></th>
+                                <th>Damage or missing or <br>for Testing</br></th>
+                                <th>Upcoming Stocks</th>
+                                <th>Remarks Updated <br>As Of</br></th>
 
                             </tr>
                         </thead>
@@ -167,53 +170,144 @@
                             <tr>
                                 <td>
 
-                                    <p>Product Name</p>
+                                    <p>Fragile scotch tape</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
 
-                                    <p>Product Name</p>
+                                    <p>Packaging tape (brown tape)</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
 
-                                    <p>Product Name</p>
+                                    <p>Scotch tape big (clear tape)</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
 
-                                    <p>Product Name</p>
+                                    <p>Clear tape small</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
 
-                                    <p>Product Name</p>
+                                    <p>Box for Machine (495.3mm X 330.2 mm X 266.7 mm )</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
                             </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Box for Kit (282.58 mm X 219.08 mm X 177.8 mm)</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Box for Kit</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Box for Custom Board ( 101.6 mm X 38.1 mm X 88.9 mm)</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Bubble wrap White</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <p>Bubble wrap Black</p>
+                                </td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>2</td>
+                                <td>50</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                                <td>40</td>
+                            </tr>
+                            
                             </tr>
                         </tbody>
                     </table>
@@ -229,7 +323,7 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="{{ asset('js/pisowifi.js') }}"></script>
+    <script src="{{ asset('js/router.js') }}"></script>
 
 </body>
 

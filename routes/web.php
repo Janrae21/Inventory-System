@@ -21,8 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-  
+Route::get('/view-profile', function () {
+    return view('view-profile');
+});
+ 
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
@@ -50,20 +52,23 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('ranking');
     });
     
-    Route::get('/pisowifi', function () {
-        return view('pisowifi');
+    Route::get('/pisowifi-parts-accessories', function () {
+        return view('PisoWifiPartsAccessories');
     });
 
-    Route::get('/Eloading', function () {
-        return view('Eloading');
+    Route::get('/Parts-of-eloading', function () {
+        return view('PartsOfEloading');
     });
 
-    Route::get('/router', function () {
-        return view('router');
+    Route::get('/physical-store-computer-stocks-monitoring', function () {
+        return view('PhysicalStoreComputerStocksMonitoring');
     });
 
-    Route::get('/EloadingPart', function () {
-        return view('EloadingPart');
+    Route::get('/packaging-monitoring', function () {
+        return view('PackagingMonitoring');
+    });
+    Route::get('/eloading-best-seller', function () {
+        return view('EloadingBestSeller');
     });
     
     Route::get('/status', function () {
@@ -81,22 +86,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
      });
     Route::get('/ranking', function () {
         return view('ranking');
-    });
-    
-    Route::get('/pisowifi', function () {
-        return view('pisowifi');
-    });
-
-    Route::get('/Eloading', function () {
-        return view('Eloading');
-    });
-
-    Route::get('/router', function () {
-        return view('router');
-    });
-
-    Route::get('/EloadingPart', function () {
-        return view('EloadingPart');
     });
     
 });
