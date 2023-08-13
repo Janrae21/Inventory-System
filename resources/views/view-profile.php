@@ -9,79 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('public/css/view-profile.css') }}" rel="stylesheet">
+    <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
+    <link href="http://127.0.0.1:8000/css/view-profile.css" rel="stylesheet">
 
-    <title>Dashboard</title>
+    <title>View Profile</title>
 </head>
 
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img src="{{asset('images/logo.png')}}">
+            <img src="http://127.0.0.1:8000/images/logo.png">
         </a>
         <ul class="side-menu top">
             <li class="active">
                 <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
-                    <span class="text">Dashboard</span>
+                    <span class="text">View Profile</span>
                 </a>
             </li>
-            
-            <li class="dropdown-btn">
-                <a href="{{ url('#') }}">
-                    <i class='bx bxs-cart'></i>
-                    <span class="text">Product</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('/pisowifi') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Pisowifi</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('/router') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Router</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('#') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Parts Of Pisonet</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('/EloadingPart') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading Parts</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('/Eloading') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('/status') }}">
-                    <i class='bx bxs-cart'></i>
-                    <span class="text">Product Status</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ asset('/customer') }}">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Customer Lists</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('/ranking') }}">
-                    <i class='bx bxs-bar-chart-alt-2'></i>
-                    <span class="text">Ranking</span>
-                </a>
-            </li>
+
         </ul>
     </section>
     <!-- SIDEBAR -->
@@ -91,12 +38,8 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
             <form action="#">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
+                <!-- Empty -->
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
@@ -128,199 +71,38 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Dashboard</h1>
+                    <h1>View Profile</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Dashboard</a>
+                            <a href="#">View Profile</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
+                            <a class="active" href="http://127.0.0.1:8000/admin/home">Home</a>
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="btn-download">
-                    <i class='bx bxs-cloud-download'></i>
-                    <span class="text">Download Excel</span>
-                </a>
             </div>
 
             <ul class="box-info">
-                <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>58</h3>
-                        <p>Total Monthly Order</p>
-                    </span>
-                </li>
 
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>232</h3>
-                        <p>Total Purchased Products</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-dollar-circle'></i>
-                    <span class="text">
-                        <h3>58</h3>
-                        <p>Total List of New Customer</p>
-                    </span>
-                </li>
             </ul>
             <ul class="box-info">
-                <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>4</h3>
-                        <p>Order Day</p>
-                    </span>
-                </li>
 
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>4</h3>
-                        <p>Purchased/Day</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-dollar-circle'></i>
-                    <span class="text">
-                        <h3>1543</h3>
-                        <p>Total Customers</p>
-                    </span>
-                </li>
+
+
             </ul>
 
 
             <div class="table-data">
-                <div class="order">
-                    <div class="charts">
-                        <div class="charts-card">
-                            <p class="chart-title">Sales for the last 5 months</p>
-                            <div id="bar-chart"></div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="todo">
-                    <div class="order">
-                        <div class="head">
-                            <h3>Recently Added Products</h3>
-                            <i class='bx bx-plus'></i>
-                            <i class='bx bx-filter'></i>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Date Purchased</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Piso Wifi</td>
-                                    <td>4</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>E-Loading Machine</td>
-                                    <td>1</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>Piso Wifi</td>
-                                    <td>5</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>Cellphone</td>
-                                    <td>2</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>E-Loading Parts</td>
-                                    <td>8</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="table-data">
-                    <div class="order">
-                        <div class="head">
-                            <h3>Recently Purchased Products</h3>
-                            <i class='bx bx-search'></i>
-                            <i class='bx bx-filter'></i>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Category</th>
-                                    <th>Date Purchased</th>
+            </div>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>Mary Grace Elias</p>
-                                    </td>
-                                    <td>4</td>
-                                    <td>Piso Wifi</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Mary Joy Reambonanza</p>
-                                    </td>
-                                    <td>1</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>John Doe</p>
-                                    </td>
-                                    <td>5</td>
-                                    <td>Piso Wifi</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Rogina Rolloque</p>
-                                    </td>
-                                    <td>2</td>
-                                    <td>Cellphone</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Seth Obenita</p>
-                                    </td>
-                                    <td>8</td>
-                                    <td>E-Loading Parts</td>
-                                    <td>01-10-2021</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
         </main>
         <!-- MAIN -->
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="{{ asset('js/admin.js') }}"></script>
+    <script src="http://127.0.0.1:8000/js/view-profile.js"></script>
 </body>
 </html>

@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
     <link href="{{ asset('css/EloadingBestSeller.css') }}" rel="stylesheet">
 
     <title>Dashboard</title>
@@ -148,55 +151,77 @@
                 <div class="order">
                     <div class="head">
                         <h3>Eloading Best Sellers</h3>
-                        <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
-                        <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
+                        <!-- Button trigger modal -->
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class='bx bx-plus-circle' style="font-size:20px; color:green;">Add</i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Testing
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Button trigger modal -->
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Remove</i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <table>
                         <thead>
                             <tr>
+                                <th>ITEMS</th>
                                 <th>QUANTITY</th>
-                                <th>ITEM</th>
-                                
-
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($_eloading_best_seller as $cd)
                             <tr>
                                 <td>
-
-                                    <p>Fragile scotch tape</p>
+                                    <p>{{$cd->Item}}</p>
+                                <td>{{$cd->Quantity}}</td>
                                 </td>
-                                <td>40</td>
                             </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Packaging tape (brown tape)</p>
-                                </td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Scotch tape big (clear tape)</p>
-                                </td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Clear tape small</p>
-                                </td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Box for Machine (495.3mm X 330.2 mm X 266.7 mm )</p>
-                                </td>
-                                <td>40</td>
-                            </tr>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -211,6 +236,9 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script src="{{ asset('js/router.js') }}"></script>
 
 </body>

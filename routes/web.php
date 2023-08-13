@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
   
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EloadingBestSeller_Controller;
+use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
   
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +89,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/ranking', function () {
         return view('ranking');
     });
+
+    Route::get('eloading-best-seller',[EloadingBestSeller_Controller:: class,'showData']);
+    Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
     
 });
   

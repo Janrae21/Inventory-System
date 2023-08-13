@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('css/pisowifipartsAccessories.css') }}" rel="stylesheet">
-
+    <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
+    <link href="http://127.0.0.1:8000/css/pisowifipartsAccessories.css" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
@@ -18,66 +18,61 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img src="{{asset('images/logo.png')}}">
+            <img src="http://127.0.0.1:8000/images/logo.png">
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="{{ asset('/admin/home')}}">
+                <a href="http://127.0.0.1:8000/admin/home">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
 
             <li class="dropdown-btn">
-                <a href="{{ url('#') }}">
+                <a href="#">
                     <i class='bx bxs-cart'></i>
                     <span class="text">Product</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/packaging-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+                <a href="http://127.0.0.1:8000/packaging-monitoring">
                     <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/EloadingBestSeller') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+                <a href="http://127.0.0.1:8000/eloading-best-seller">
                     <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/Parts-of-eloading') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+                <a href="http://127.0.0.1:8000/Parts-of-eloading">
                     <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+                <a href="http://127.0.0.1:8000/physical-store-computer-stocks-monitoring">
                     <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/pisowifi-parts-accessories') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+                <a href="http://127.0.0.1:8000/pisowifi-parts-accessories">
                     <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url('/status') }}">
+                <a href="http://127.0.0.1:8000/status">
                     <i class='bx bxs-cart'></i>
                     <span class="text">Product Status</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="http://127.0.0.1:8000/customer">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>
             </li>
             <li>
-                <a href="{{ url('/ranking') }}">
+                <a href="http://127.0.0.1:8000/ranking">
                     <i class='bx bxs-bar-chart-alt-2'></i>
                     <span class="text">Ranking</span>
                 </a>
@@ -135,7 +130,7 @@
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
+                            <a class="active" href="http://127.0.0.1:8000/admin/home">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -251,6 +246,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -261,6 +257,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -277,6 +274,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -287,6 +285,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -303,6 +302,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -313,6 +313,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -329,6 +330,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -339,6 +341,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -355,6 +358,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -365,6 +369,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -381,6 +386,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -391,6 +397,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -407,6 +414,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -417,6 +425,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -433,6 +442,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -443,6 +453,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -459,6 +470,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -469,6 +481,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -485,6 +498,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -495,6 +509,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -511,6 +526,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -521,6 +537,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -537,6 +554,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -547,6 +565,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -563,6 +582,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -573,6 +593,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -589,6 +610,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -599,6 +621,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -615,6 +638,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -625,6 +649,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -641,6 +666,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -651,6 +677,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -667,6 +694,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -680,6 +708,7 @@
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
+                                <td>40</td>
                             </tr>
                             <tr>
                                 <td>
@@ -690,6 +719,7 @@
                                 <td>40</td>
                                 <td>2</td>
                                 <td>50</td>
+                                <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
                                 <td>40</td>
@@ -709,8 +739,7 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="{{ asset('js/pisowifi.js') }}"></script>
-
+    <script src="http://127.0.0.1:8000/js/pisowifi.js"></script>
 </body>
 
 </html>

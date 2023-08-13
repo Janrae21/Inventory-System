@@ -10,7 +10,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
     <title>Dashboard</title>
 </head>
 
@@ -27,7 +27,7 @@
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            
+
             <li class="dropdown-btn">
                 <a href="{{ url('#') }}">
                     <i class='bx bxs-cart'></i>
@@ -36,31 +36,27 @@
             </li>
             <li class="drop-item">
                 <a href="{{ url('/pisowifi-parts-accessories') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Pisowifi Parts & Accessories</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/packaging-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/Parts-of-eloading') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/eloading-best-seller') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
+
                     <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
@@ -107,7 +103,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a href="#">
+                    <a href="{{ url('/view-profile') }}">
                         <i class='bx bxs-user'></i>
                         <span class="text">View Profile</span>
                     </a>
@@ -319,8 +315,18 @@
         </main>
         <!-- MAIN -->
     </section>
+
+
+    
+
+
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
     <script src="{{ asset('js/admin.js') }}"></script>
 </body>
+
 </html>
