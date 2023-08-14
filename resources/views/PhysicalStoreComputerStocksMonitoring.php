@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
     <link href="http://127.0.0.1:8000/css/physicalstorecomputerstocksmonitoring.css" rel="stylesheet">
+
+    <!-- <link href="http://127.0.0.1:8000/css/" rel="stylesheet"> -->
     <title>Dashboard</title>
 </head>
 

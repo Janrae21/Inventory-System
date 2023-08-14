@@ -12,8 +12,7 @@
     <link href="http://127.0.0.1:8000/images/logo.png" ref="icon">
     <link href="http://127.0.0.1:8000/css/EloadingBestSeller.css" rel="stylesheet">
 
-
-    <title>Dashboard</title>
+    <title>Parts of Eloading</title>
 </head>
 
 <body>
