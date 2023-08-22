@@ -391,7 +391,7 @@ form.sign-in-form {
   }
 }
 
-@media (max-width: 570px) {
+/* @media (max-width: 570px) {
   form {
     padding: 0 1.5rem;
   }
@@ -415,4 +415,4 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
-}
+} */

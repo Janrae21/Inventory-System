@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
-    <link href="http://127.0.0.1:8000/css/physicalstorecomputerstocksmonitoring.css" rel="stylesheet">
-
-    <!-- <link href="http://127.0.0.1:8000/css/" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
+    <link href="{{ asset('css/PackagingMonitoring.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
@@ -20,11 +20,11 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img src="http://127.0.0.1:8000/images/logo.png">
+            <img src="{{asset('images/logo.png')}}">
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="http://127.0.0.1:8000/admin/home">
+                <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -37,44 +37,50 @@
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/packaging-monitoring">
+                <a href="{{ url('/packaging-monitoring') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/eloading-best-seller">
+                <a href="{{ url('/eloading-best-seller') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/Parts-of-eloading">
+                <a href="{{ url('/Parts-of-eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/physical-store-computer-stocks-monitoring">
+                <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/pisowifi-parts-accessories">
+                <a href="{{ url('/pisowifi-parts-accessories') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/status">
+                <a href="{{ url('/status') }}">
+
                     <i class='bx bxs-cart'></i>
                     <span class="text">Product Status</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/customer">
+                <a href="{{ asset('/customer') }}">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/ranking">
+                <a href="{{ url('/ranking') }}">
                     <i class='bx bxs-bar-chart-alt-2'></i>
                     <span class="text">Ranking</span>
                 </a>
@@ -125,14 +131,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Physical Store Computer Stocks Monitoring</h1>
+                    <h1>Packaging Monitoring</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Physical Store Computer Stocks Monitoring</a>
+                            <a href="#">Packaging Monitoring</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="http://127.0.0.1:8000/admin/home">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -144,7 +150,7 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Physical Store Computer Stocks Monitoring</h3>
+                        <h3>Packaging Monitoring</h3>
                         <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
                         <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
@@ -156,7 +162,7 @@
                                 <th>Remaining Stocks</th>
                                 <th>Item Sold As Of</th>
                                 <th>Stocks Purchased</th>
-                                <th>Actual Stocks<br>Based on actual</br><br>checking(EDUD)</br></th>
+                                <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
                                 <th>Damage or missing or <br>for Testing</br></th>
                                 <th>Upcoming Stocks</th>
                                 <th>Remarks Updated <br>As Of</br></th>
@@ -164,23 +170,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($_physical_store_computer_stocks_monitoring as $ps)
+                            @foreach($_packaging_monitoring as $pm)
                             <tr>
                                 <td>
-                                    <p>{{$cd->ItemsName}}</p>
+                                    <p>{{$pm->ItemsName}}</p>
                                 </td>
-                                <td>{{$ps->Status}}</td>
-                                <td>{{$ps->Remaining Stocks}}</td>
-                                <td>{{$ps->ItemSoldAsOf}}</td>
-                                <td>{{$ps->Stocks Purchased}}</td>
-                                <td>{{$ps->ActualStocksBasedonactualchecking(EDUD)}}</td>
-                                <td>{{$ps->Damageormissingorforesting}}</td>
-                                <td>{{$ps->UpcomingStocks}}</td>
-                                <td>{{$ps->RemarksUpdatedAsOf}}</td>
+                                <td>{{$pm->Status}}</td>
+                                <td>{{$pm->RemainingStocks}}</td>
+                                <td>{{$pm->ItemSoldAsOf}}</td>
+                                <td>{{$pm->StocksPurchased}}</td>
+                                <td>{{$pm->ActualStocksBasedonactualchecking}}</td>
+                                <td>{{$pm->Damageormissingorforesting}}</td>
+                                <td>{{$pm->UpcomingStocks}}</td>
+                                <td>{{$pm->RemarksUpdatedAsOf}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{$_packaging_monitoring ->links('pagination::bootstrap-5')}}
                 </div>
             </div>
             <div class="btn">
@@ -193,7 +200,11 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="http://127.0.0.1:8000/js/Eloading.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('js/router.js') }}"></script>
+
 </body>
 
 </html>

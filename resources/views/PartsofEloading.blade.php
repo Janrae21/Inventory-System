@@ -9,20 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
-    <link href="http://127.0.0.1:8000/css/pisowifipartsAccessories.css" rel="stylesheet">
-    <title>Dashboard</title>
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
+    <link href="{{ asset('css/EloadingBestSeller.css') }}" rel="stylesheet">
+
+    <title>Parts of Eloading</title>
 </head>
 
 <body>
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
-            <img src="http://127.0.0.1:8000/images/logo.png">
+            <img src="{{asset('images/logo.png')}}">
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a href="http://127.0.0.1:8000/admin/home">
+                <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -35,44 +36,49 @@
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/packaging-monitoring">
+                <a href="{{ url('/packaging-monitoring') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/eloading-best-seller">
+                <a href="{{ url('/eloading-best-seller') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/Parts-of-eloading">
+                <a href="{{ url('/Parts-of-eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/physical-store-computer-stocks-monitoring">
+                <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="http://127.0.0.1:8000/pisowifi-parts-accessories">
+                <a href="{{ url('/pisowifi-parts-accessories') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/status">
+                <a href="{{ url('/status') }}">
                     <i class='bx bxs-cart'></i>
                     <span class="text">Product Status</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/customer">
+                <a href="{{ asset('/customer') }}">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>
             </li>
             <li>
-                <a href="http://127.0.0.1:8000/ranking">
+                <a href="{{ url('/ranking') }}">
                     <i class='bx bxs-bar-chart-alt-2'></i>
                     <span class="text">Ranking</span>
                 </a>
@@ -119,18 +125,17 @@
         </nav>
         <!-- NAVBAR -->
 
-        <!-- MAIN -->
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Piso WiFi Parts & Accessories</h1>
+                    <h1>Parts of Eloading</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Piso WiFi Parts & Accessories</a>
+                            <a href="#">Parts of Eloading</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="http://127.0.0.1:8000/admin/home">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">>>Home</a>
                         </li>
                     </ul>
                 </div>
@@ -142,7 +147,7 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Piso WiFi Parts & Accessories</h3>
+                        <h3>Parts of Eloading</h3>
                         <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
                         <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
@@ -154,7 +159,7 @@
                                 <th>Remaining Stocks</th>
                                 <th>Item Sold As Of</th>
                                 <th>Stocks Purchased</th>
-                                <th>Actual Stocks<br>Based on actual</br><br>checking(EDUD)</br></th>
+                                <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
                                 <th>Damage or missing or <br>for Testing</br></th>
                                 <th>Upcoming Stocks</th>
                                 <th>Remarks Updated <br>As Of</br></th>
@@ -165,7 +170,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Custom Board for Piso Wifi</p>
+                                    <p>Eloading Custom board (ECB)</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -179,7 +184,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Custom Board for Piso Wifi with Bill Acceptor</p>
+                                    <p>Eloading Customboard (Non Android)</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -193,37 +198,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Custom Board for Piso Wifi (Power cut)</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Orange Pi One H3 quadcore 512MB</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Raspberry Pi 3 Model B+</p>
+                                    <p>ESP 32</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -237,7 +212,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Raspberry Pi Model B</p>
+                                    <p>Globe Simcard</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -251,7 +226,7 @@
                             <tr>
                                 <td>
 
-                                    <p>UTP Cable - CAT6</p>
+                                    <p>TNT Sim card</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -265,7 +240,7 @@
                             <tr>
                                 <td>
 
-                                    <p>USB to LAN (USB 3.0 to Gb Switch)</p>
+                                    <p>Cellphone</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -279,7 +254,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Tp-Link Eap110</p>
+                                    <p>LCD Module (ST7920)</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -293,7 +268,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Comfast CF-EW71 300 mbps,coverege: 100 meters</p>
+                                    <p>Keypad Module</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -307,7 +282,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Comfast CF-EW73 300 mbps</p>
+                                    <p>GSM Module</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -321,7 +296,7 @@
                             <tr>
                                 <td>
 
-                                    <p>32GB Sandisk SD Card/ Memory Card</p>
+                                    <p>TP 70</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -335,7 +310,7 @@
                             <tr>
                                 <td>
 
-                                    <p>SD Card 16GB Strontium</p>
+                                    <p>TB 74</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -349,7 +324,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Wireless Sub Vendo</p>
+                                    <p>12VDC 3A Boontech Power supply 240VAC Adaptor</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -363,7 +338,7 @@
                             <tr>
                                 <td>
 
-                                    <p>ESP8266 NodeMCU LUA CP2102 ESP-12E</p>
+                                    <p>12V 5A AC/ DC Power Supply Adapter/LCD Power Adapter</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -377,49 +352,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Wired Sub Vendo</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>ETHERNET FOR WIRED SUB-VENDO</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Arduino (NANO) w/ cords - for wired sub-vendo</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Arduino Uno w/ cords</p>
+                                    <p>Switching Power supply 12V.3A</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -461,7 +394,7 @@
                             <tr>
                                 <td>
 
-                                    <p>LED Frame for Coinslot</p>
+                                    <p>Eloading keypad coinslot only</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -475,7 +408,7 @@
                             <tr>
                                 <td>
 
-                                    <p>12V 5A AC/ DC Power Supply Adapter/LCD Power Adapter</p>
+                                    <p>Eloading keypad coinslot and bill acceptor</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -489,7 +422,7 @@
                             <tr>
                                 <td>
 
-                                    <p>12VDC 3A Boontech Power supply 240VAC Adaptor</p>
+                                    <p>Eloading Android coinslot only</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -503,7 +436,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Switching Power supply 12V.3A</p>
+                                    <p>Eloading Android coinslot and bill acceptor</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -517,7 +450,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Switch hub TP-Link 8 Ports</p>
+                                    <p>Power Surge</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -531,7 +464,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Switch hub TP-Link 5 Ports</p>
+                                    <p>FT Timer</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -545,7 +478,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Switch hub TP-Link 5 Ports GIGABITS</p>
+                                    <p>Cord</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -559,63 +492,7 @@
                             <tr>
                                 <td>
 
-                                    <p>LAN CABLE</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>RJ 45</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>FLASH DRIVE</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Ugreen card reader</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Channel Relay</p>
+                                    <p>DUPONT WIRES</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -643,7 +520,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Dupont wires</p>
+                                    <p>Tablet PC Huawei</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -657,63 +534,7 @@
                             <tr>
                                 <td>
 
-                                    <p>Tv Box rk32289</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Tv Box rk3228A</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Wifi Vendo Box small</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Wifi Vendo Machine</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Parabollic</p>
+                                    <p>LED Frame for Coinslot</p>
                                 </td>
                                 <td>40</td>
                                 <td>40</td>
@@ -739,7 +560,7 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="http://127.0.0.1:8000/js/pisowifi.js"></script>
+    <script src="http://127.0.0.1:8000/js/Eloadingparts.js"></script>
 </body>
 
 </html>

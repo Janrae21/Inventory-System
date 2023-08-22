@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="http://127.0.0.1:8000/images/logo.png" rel="icon">
-    <link href="http://127.0.0.1:8000/css/view-profile.css" rel="stylesheet">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
+    <link href="{{ asset('css/view-profile.css') }}" rel="stylesheet">
 
     <title>View Profile</title>
 </head>

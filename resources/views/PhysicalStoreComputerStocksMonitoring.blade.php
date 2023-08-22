@@ -12,8 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="{{ asset('images/logo.png') }}" rel="icon">
-    <link href="{{ asset('css/EloadingBestSeller.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/physicalstorecomputerstocksmonitoring.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
@@ -39,31 +38,26 @@
             </li>
             <li class="drop-item">
                 <a href="{{ url('/packaging-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/eloading-best-seller') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/Parts-of-eloading') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
                 <a href="{{ url('/pisowifi-parts-accessories') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
                     <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
@@ -74,7 +68,7 @@
                 </a>
             </li>
             <li>
-            <a href="{{ asset('/customer') }}">
+                <a href="{{ asset('/customer') }}">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>
@@ -131,14 +125,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Eloading Best Sellers</h1>
+                    <h1>Physical Store Computer Stocks Monitoring</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Eloading Best Sellers</a>
+                            <a href="#">Physical Store Computer Stocks Monitoring</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">>Home</a>
                         </li>
                     </ul>
                 </div>
@@ -150,80 +144,44 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Eloading Best Sellers</h3>
-                        <!-- Button trigger modal -->
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class='bx bx-plus-circle' style="font-size:20px; color:green;">Add</i>
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Testing
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Button trigger modal -->
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Remove</i>
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Remove Items</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <h3>Physical Store Computer Stocks Monitoring</h3>
+                        <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
+                        <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>ITEMS</th>
-                                <th>QUANTITY</th>
+                                <th>ITEMS Name</th>
+                                <th>STATUS</th>
+                                <th>Remaining Stocks</th>
+                                <th>Item Sold As Of</th>
+                                <th>Stocks Purchased</th>
+                                <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
+                                <th>Damage or missing or <br>for Testing</br></th>
+                                <th>Upcoming Stocks</th>
+                                <th>Remarks Updated <br>As Of</br></th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($_eloading_best_seller as $cd)
+                            @foreach ($_physical_store_computer_stocks_monitoring as $ps)
                             <tr>
                                 <td>
-                                    <p>{{$cd->Item}}</p>
-                                    <td>{{$cd->Quantity}}</td>
+                                    <p>{{$ps->ItemsName}}</p>
                                 </td>
+                                <td>{{$ps->Status}}</td>
+                                <td>{{$ps->RemainingStocks}}</td>
+                                <td>{{$ps->ItemSoldAsOf}}</td>
+                                <td>{{$ps->StocksPurchased}}</td>
+                                <td>{{$ps->ActualStocksBasedonactualchecking}}</td>
+                                <td>{{$ps->Damageormissingorforesting}}</td>
+                                <td>{{$ps->UpcomingStocks}}</td>
+                                <td>{{$ps->RemarksUpdatedAsOf}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $_physical_store_computer_stocks_monitoring->links('pagination::bootstrap-5')}}
                 </div>
             </div>
             <div class="btn">
@@ -239,8 +197,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('js/router.js') }}"></script>
-
+    <script src="http://127.0.0.1:8000/js/Eloading.js"></script>
 </body>
 
 </html>
