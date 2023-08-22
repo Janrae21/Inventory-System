@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
   
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EloadingBestSeller_Controller;
+use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
+use App\Http\Controllers\PackagingMonitoring_Controller;
+
   
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +25,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-  
+Route::get('/view-profile', function () {
+    return view('view-profile');
+});
+ 
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
@@ -31,6 +37,7 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
 });
   
 /*------------------------------------------
@@ -41,30 +48,27 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-
     Route::get('/status', function () {
         return view('productstatus');
      });
     Route::get('/ranking', function () {
         return view('ranking');
     });
-    
-    Route::get('/pisowifi', function () {
-        return view('pisowifi');
+    Route::get('/pisowifi-parts-accessories', function () {
+        return view('PisoWifiPartsAccessories');
     });
-
-    Route::get('/Eloading', function () {
-        return view('Eloading');
+    Route::get('/Parts-of-eloading', function () {
+        return view('PartsOfEloading');
     });
-
-    Route::get('/router', function () {
-        return view('router');
+    Route::get('/physical-store-computer-stocks-monitoring', function () {
+        return view('PhysicalStoreComputerStocksMonitoring');
     });
-
-    Route::get('/EloadingPart', function () {
-        return view('EloadingPart');
+    Route::get('/packaging-monitoring', function () {
+        return view('PackagingMonitoring');
     });
-    
+    Route::get('/eloading-best-seller', function () {
+        return view('EloadingBestSeller');
+    });
     Route::get('/status', function () {
         return view('productstatus');
      });
@@ -74,32 +78,18 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/customer', function () {
         return view('customerList');
     });
-    
     Route::get('/status', function () {
         return view('productstatus');
      });
     Route::get('/ranking', function () {
         return view('ranking');
     });
+
+    Route::get('eloading-best-seller',[EloadingBestSeller_Controller:: class,'showData']);
+    Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
+    Route::get('packaging-monitoring',[PackagingMonitoring_Controller::class, 'ShowPackagingMonitoring']);
     
-    Route::get('/pisowifi', function () {
-        return view('pisowifi');
-    });
-
-    Route::get('/Eloading', function () {
-        return view('Eloading');
-    });
-
-    Route::get('/router', function () {
-        return view('router');
-    });
-
-    Route::get('/EloadingPart', function () {
-        return view('EloadingPart');
-    });
     
-
-
 });
   
 /*------------------------------------------

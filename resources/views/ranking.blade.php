@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
     <link href="{{ asset('css/ranking.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -39,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ asset('/customer') }}">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>

@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
     <link href="{{ asset('css/status.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -51,24 +52,9 @@
                 </a>
             </li>
         </ul>
-        <ul class="side-menu">
-            <li>
-                <a href="#">
-                    <i class='bx bxs-user'></i>
-                    <span class="text">View Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
-                    <span class="text">Logout</span>
-                </a>
-            </li>
-        </ul>
+        
     </section>
     <!-- SIDEBAR -->
-
-
 
     <!-- CONTENT -->
     <section id="content">

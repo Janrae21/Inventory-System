@@ -19,6 +19,11 @@ li a {
     text-decoration: none;
 }
 
+.btn-download {
+    text-decoration: none;
+}
+
+
 :root {
     --poppins: 'Poppins', sans-serif;
     --lato: 'Lato', sans-serif;
@@ -50,9 +55,6 @@ body {
     background: var(--grey);
     overflow-x: hidden;
 }
-
-
-
 
 
 /* SIDEBAR */
@@ -283,6 +285,35 @@ body {
     cursor: pointer;
 }
 
+#content nav .notification {
+    font-size: 20px;
+    position: relative;
+}
+
+#content nav .notification .num {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    background: var(--red);
+    color: var(--light);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content nav .profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 #content nav .switch-mode {
     display: block;
     min-width: 50px;
@@ -377,11 +408,6 @@ main {
     font-weight: 500;
 }
 
-
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -432,10 +458,6 @@ main {
 #content main .box-info li .text p {
     color: var(--dark);
 }
-
-
-
-
 
 #content main .table-data {
     display: flex;
@@ -529,101 +551,45 @@ main {
     background: var(--orange);
 }
 
-.custom-select {
-    /* wrapper style */
-    position: relative;
-    display: block;
-    max-width: 400px;
-    min-width: 180px;
-    margin: 0 auto;
+
+#content main .table-data .todo {
+    flex-grow: 1;
+    flex-basis: 300px;
 }
 
-select {
-    /* Select Reset */
-    outline: none;
-    background: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 8px;
-    margin: 0;
-    display: block;
-    width: 50%;
-    cursor: pointer;
-
-    /* custom select appearance */
-    padding: 12px 55px 15px 15px;
-    font-size: 14px;
+#content main .table-data .todo .todo-list {
+    width: 100%;
 }
 
-select option[value="1"] {
-    background: rgba(110, 255, 105, 0.911);
-}
-
-select option[value="2"] {
-    background: rgba(252, 255, 69, 0.986);
-}
-
-select option[value="3"] {
-    background: rgb(248, 30, 30);
-}
-
-/* the down arrow */
-&:after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    line-height: 50px;
-    content: '\25BC';
-    text-align: center;
-    z-index: -1;
-    font-size: 18px;
-}
-
-.ok {
-    background-color: rgba(110, 255, 105, 0.911);
-}
-
-.btn {
-    margin-left: 10px;
-    margin-top: 10px;
-    width: 300px;
-    height: 50px;
+#content main .table-data .todo .todo-list li {
+    width: 100%;
+    margin-bottom: 16px;
+    background: var(--grey);
+    border-radius: 10px;
+    padding: 14px 20px;
     display: flex;
-    padding: 5px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    border-radius: 5px;
-    border-style: none;
-    float: right;
+}
+
+#content main .table-data .todo .todo-list li .bx {
     cursor: pointer;
-
 }
 
-.btn-primary:hover {
-    background-color: #90ee90;
-    ;
-
+#content main .table-data .todo .todo-list li.completed {
+    border-left: 10px solid var(--blue);
 }
 
-.btn-secondary:hover {
-    background-color: #d62929;
+#content main .table-data .todo .todo-list li.not-completed {
+    border-left: 10px solid var(--orange);
 }
 
+#content main .table-data .todo .todo-list li:last-child {
+    margin-bottom: 0;
+}
 
 /* MAIN */
 /* CONTENT */
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 768px) {
     #sidebar {
@@ -639,11 +605,6 @@ select option[value="3"] {
         display: none;
     }
 }
-
-
-
-
-
 
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {
@@ -692,7 +653,6 @@ select option[value="3"] {
         min-width: 420px;
     }
 }
-
 .drop-item {
     display: none;
     animation: drop .7s ease-in-out;

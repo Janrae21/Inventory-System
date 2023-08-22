@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link href="{{ asset('css/router.css') }}" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
+    <link href="{{ asset('css/physicalstorecomputerstocksmonitoring.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 
@@ -35,39 +37,28 @@
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/pisowifi') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Pisowifi</span>
+                <a href="{{ url('/packaging-monitoring') }}">
+                    <span class="text">Packaging Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/router') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Router</span>
+                <a href="{{ url('/eloading-best-seller') }}">
+                    <span class="text">Eloading Best Seller</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('#') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Parts Of Pisonet</span>
+                <a href="{{ url('/Parts-of-eloading') }}">
+                    <span class="text">Parts Of Eloading</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/EloadingPart') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading Parts</span>
+                <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
+                    <span class="text">Physical Store Computer Stocks Monitoring</span>
                 </a>
             </li>
             <li class="drop-item">
-                <a href="{{ url('/Eloading') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Eloading</span>
-                </a>
-            </li>
-            <li class="drop-item">
-                <a href="{{ url('#') }}">
-                    <!-- <i class='bx bxs-cart'></i> -->
-                    <span class="text">Parts Of Pisonet</span>
+                <a href="{{ url('/pisowifi-parts-accessories') }}">
+                    <span class="text">Piso WiFi Parts and Accessories</span>
                 </a>
             </li>
             <li>
@@ -77,7 +68,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ asset('/customer') }}">
                     <i class='bx bxs-group'></i>
                     <span class="text">Customer Lists</span>
                 </a>
@@ -134,14 +125,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Router</h1>
+                    <h1>Physical Store Computer Stocks Monitoring</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="#">Router</a>
+                            <a href="#">Physical Store Computer Stocks Monitoring</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="{{ asset('/admin/home')}}">Home</a>
+                            <a class="active" href="{{ asset('/admin/home')}}">>Home</a>
                         </li>
                     </ul>
                 </div>
@@ -153,76 +144,44 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Router</h3>
+                        <h3>Physical Store Computer Stocks Monitoring</h3>
                         <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
                         <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>Product Name</th>
-                                <th>Quantity</th>
-                                <th>Stocks Purchased</th>
-                                <th>Actual Stocks <br> (Based on actual <br> checking(EDUD))</th>
-                                <th>Damage or Missing <br>or for Testing</th>
+                                <th>ITEMS Name</th>
+                                <th>STATUS</th>
                                 <th>Remaining Stocks</th>
+                                <th>Item Sold As Of</th>
+                                <th>Stocks Purchased</th>
+                                <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
+                                <th>Damage or missing or <br>for Testing</br></th>
+                                <th>Upcoming Stocks</th>
+                                <th>Remarks Updated <br>As Of</br></th>
 
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($_physical_store_computer_stocks_monitoring as $ps)
                             <tr>
                                 <td>
-
-                                    <p>Product Name</p>
+                                    <p>{{$ps->ItemsName}}</p>
                                 </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
+                                <td>{{$ps->Status}}</td>
+                                <td>{{$ps->RemainingStocks}}</td>
+                                <td>{{$ps->ItemSoldAsOf}}</td>
+                                <td>{{$ps->StocksPurchased}}</td>
+                                <td>{{$ps->ActualStocksBasedonactualchecking}}</td>
+                                <td>{{$ps->Damageormissingorforesting}}</td>
+                                <td>{{$ps->UpcomingStocks}}</td>
+                                <td>{{$ps->RemarksUpdatedAsOf}}</td>
                             </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Product Name</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Product Name</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Product Name</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <p>Product Name</p>
-                                </td>
-                                <td>40</td>
-                                <td>40</td>
-                                <td>2</td>
-                                <td>50</td>
-                            </tr>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
+                    {{ $_physical_store_computer_stocks_monitoring->links('pagination::bootstrap-5')}}
                 </div>
             </div>
             <div class="btn">
@@ -235,8 +194,10 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
     <!-- CONTENT -->
-    <script src="{{ asset('js/router.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="http://127.0.0.1:8000/js/Eloading.js"></script>
 </body>
 
 </html>

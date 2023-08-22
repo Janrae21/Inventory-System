@@ -2,14 +2,15 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="{{ asset('images/logo.png') }}" rel="icon">
     <link href="{{ asset('css/customer.css') }}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
@@ -22,15 +23,45 @@
         </a>
         <ul class="side-menu top">
             <li>
-                <a href="{{ url('/') }}">
+                <a href="{{ asset('/admin/home')}}">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="dropdown-btn">
+                <a href="{{ url('#') }}">
                     <i class='bx bxs-cart'></i>
-                    <span class="text">Products</span>
+                    <span class="text">Product</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/pisowifi') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Pisowifi</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/router') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Router</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('#') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Parts Of Pisonet</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/EloadingPart') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading Parts</span>
+                </a>
+            </li>
+            <li class="drop-item">
+                <a href="{{ url('/Eloading') }}">
+                    <!-- <i class='bx bxs-cart'></i> -->
+                    <span class="text">Eloading</span>
                 </a>
             </li>
             <li>
@@ -250,4 +281,3 @@
 </body>
 
 </html>
-@endsection
