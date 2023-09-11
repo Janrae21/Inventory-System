@@ -201,6 +201,13 @@ body {
     left: 60px;
 }
 
+/* buttons under navigation bar */
+button {
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    border-color: rgba(55, 55, 228, 0.869);
+}
 
 
 
@@ -677,5 +684,34 @@ select option[value="3"] {
 
     #content main .table-data .todo .todo-list {
         min-width: 420px;
+    }
+}
+
+.drop-item {
+    display: none;
+    animation: drop .7s ease-in-out;
+}
+
+.drop-item.show-item {
+    display: block;
+}
+
+
+.drop-item {
+    display: none;
+    animation: drop .7s ease-in-out;
+}
+
+.drop-item.show-item {
+    display: block;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

@@ -11,10 +11,16 @@ class EloadingBestSeller_Controller extends Controller
 {
     function showData(){
 
-        $inventory = EloadingBestSellerModel::all();
-
+        $inventory = EloadingBestSellerModel::paginate(10);
         return view('EloadingBestSeller', ['_eloading_best_seller'=> $inventory]);
 
-      
     }
+
+
+
+
+
+
+
+
 }

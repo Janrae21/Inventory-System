@@ -312,7 +312,13 @@ body {
 
 /* NAVBAR */
 
-
+/* buttons under navigation bar */
+button {
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    border-color: rgba(55, 55, 228, 0.869);
+}
 
 
 

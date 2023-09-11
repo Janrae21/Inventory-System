@@ -167,12 +167,43 @@ var barChartOptions = {
 	  }
 	}
   };
-  
+
   var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
   barChart.render();
   var barChart = new ApexCharts(document.querySelector("#chart"), barChartOpt);
   barChart.render();
 
+  /* Profile */
 
+  function toggleEditMode() {
+    var editButton = document.getElementById("editButton");
+    var profileElements = document.getElementsByClassName("profile")[0].querySelectorAll("h1, h3, p, ul li span");
+
+    if (editButton.innerHTML === "Edit") {
+      editButton.innerHTML = "Save";
+      editButton.classList.add("edit-mode");
+
+      for (var i = 0; i < profileElements.length; i++) {
+        var element = profileElements[i];
+        var text = element.innerHTML;
+        var input = document.createElement("input");
+        input.value = text;
+
+        element.parentNode.replaceChild(input, element);
+      }
+    } else {
+      editButton.innerHTML = "Edit";
+      editButton.classList.remove("edit-mode");
+
+      for (var i = 0; i < profileElements.length; i++) {
+        var element = profileElements[i];
+        var input = element.parentNode.querySelector("input");
+        var text = input.value;
+
+        input.parentNode.replaceChild(element, input);
+        element.innerHTML = text;
+      }
+    }
+  }
 
 

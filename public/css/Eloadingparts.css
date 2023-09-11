@@ -315,7 +315,13 @@ body {
 
 /* NAVBAR */
 
-
+/* buttons under navigation bar */
+button {
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    border-color: rgba(55, 55, 228, 0.869);
+}
 
 
 
@@ -717,13 +723,13 @@ table {
     border-collapse: collapse;
     width: 100%;
   }
-  
+
   td, th {
     border: 1px solid #060606;
     text-align: center;
     padding: 15px;
   }
-  
+
   tr:nth-child(even) {
     background-color: #b5e1eb;
   }

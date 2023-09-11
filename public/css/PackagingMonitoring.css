@@ -625,10 +625,6 @@ select option[value="3"] {
 
 
 
-
-
-
-
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -642,6 +638,13 @@ select option[value="3"] {
     #content nav .nav-link {
         display: none;
     }
+}
+/* buttons under navigation bar */
+button {
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    border-color: rgba(55, 55, 228, 0.869);
 }
 
 
@@ -701,29 +704,19 @@ select option[value="3"] {
     display: none;
     animation: drop .7s ease-in-out;
 }
+
 .drop-item.show-item {
     display: block;
 }
+
 @keyframes drop {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #060606;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #b5e1eb;
-  }
+
+

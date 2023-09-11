@@ -23,11 +23,6 @@ menuBar.addEventListener('click', function () {
 })
 
 
-
-
-
-
-
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
 const searchForm = document.querySelector('#content nav form');
@@ -167,21 +162,11 @@ var barChartOptions = {
 	  }
 	}
   };
-  
+
   var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
   barChart.render();
   var barChart = new ApexCharts(document.querySelector("#chart"), barChartOpt);
   barChart.render();
-
-
-// const selectElement = document.getElementById('select');
-// selectElement.addEventListener('change', function() {
-//   const optionElement = document.querySelector('option[value="1"]');
-//   if (optionElement) {
-//     optionElement.style.color = rgba(110, 255, 105, 0.911);
-//   }
-// });
-
 
 const dropBtn = document.querySelector('.dropdown-btn'),
 dropdown = document.querySelectorAll('.drop-item');

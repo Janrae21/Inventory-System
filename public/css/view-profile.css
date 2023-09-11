@@ -343,7 +343,51 @@ body {
 /* NAVBAR */
 
 
+/*profile*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
+.profile {
+    text-align: center;
+    padding: 20px;
+    border-radius: 100px;
+    width: 1000px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h3 {
+    margin-top: 5;
+    color: #151212;
+}
+
+ul {
+    list-style-type: none;
+    padding: 2;
+}
+
+li {
+    margin-bottom: 40px;
+}
+
+.edit-mode input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#editButton {
+    padding: 5px;
+    color: #04010b;
+    height: 10%;
+    width: 10%;
+    border-radius:50px;
+}
 
 
 /* MAIN */
@@ -653,17 +697,21 @@ main {
         min-width: 420px;
     }
 }
+
 .drop-item {
     display: none;
     animation: drop .7s ease-in-out;
 }
+
 .drop-item.show-item {
     display: block;
 }
+
 @keyframes drop {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }

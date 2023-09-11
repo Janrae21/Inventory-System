@@ -1,24 +1,15 @@
-// const selectElement = document.getElementById('select');
-// selectElement.addEventListener('change', function() {
-//   const optionElement = document.querySelector('option[value="1"]');
-//   if (optionElement) {
-//     optionElement.style.color = rgba(110, 255, 105, 0.911);
-//   }
-// });
-
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-allSideMenu.forEach(item=> {
+allSideMenu.forEach(item => {
 	const li = item.parentElement;
 
 	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
+		allSideMenu.forEach(i => {
+			i.parentElement.classList.remove('drop-item-active');
 		})
-		li.classList.add('active');
+		li.classList.add('drop-item-active');
 	})
 });
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -27,15 +18,16 @@ menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
 
+
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
 const searchForm = document.querySelector('#content nav form');
 
 searchButton.addEventListener('click', function (e) {
-	if(window.innerWidth < 576) {
+	if (window.innerWidth < 576) {
 		e.preventDefault();
 		searchForm.classList.toggle('show');
-		if(searchForm.classList.contains('show')) {
+		if (searchForm.classList.contains('show')) {
 			searchButtonIcon.classList.replace('bx-search', 'bx-x');
 		} else {
 			searchButtonIcon.classList.replace('bx-x', 'bx-search');
@@ -43,15 +35,16 @@ searchButton.addEventListener('click', function (e) {
 	}
 })
 
-if(window.innerWidth < 768) {
+if (window.innerWidth < 768) {
 	sidebar.classList.add('hide');
-} else if(window.innerWidth > 576) {
+} else if (window.innerWidth > 576) {
 	searchButtonIcon.classList.replace('bx-x', 'bx-search');
 	searchForm.classList.remove('show');
 }
 
+
 window.addEventListener('resize', function () {
-	if(this.innerWidth > 576) {
+	if (this.innerWidth > 576) {
 		searchButtonIcon.classList.replace('bx-x', 'bx-search');
 		searchForm.classList.remove('show');
 	}
@@ -60,7 +53,7 @@ window.addEventListener('resize', function () {
 const switchMode = document.getElementById('switch-mode');
 
 switchMode.addEventListener('change', function () {
-	if(this.checked) {
+	if (this.checked) {
 		document.body.classList.add('dark');
 	} else {
 		document.body.classList.remove('dark');
@@ -79,6 +72,3 @@ dropBtn.addEventListener('click', () => {
         }
     });
 });
-
-
-

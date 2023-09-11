@@ -314,8 +314,6 @@ body {
 
 
 
-
-
 /* MAIN */
 main {
     background-color: #6DD5ED;
@@ -377,9 +375,12 @@ main {
     grid-gap: 10px;
     font-weight: 500;
 }
-
-
-
+button {
+    border-radius: 5px;
+    width: 10%;
+    height: 40px;
+    border-color: rgba(55, 55, 228, 0.869);
+}
 
 
 

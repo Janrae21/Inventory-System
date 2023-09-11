@@ -648,3 +648,33 @@ main {
         min-width: 420px;
     }
 }
+
+
+.drop-item {
+    display: none;
+    animation: drop .7s ease-in-out;
+}
+
+.drop-item.show-item {
+    display: block;
+}
+
+
+.drop-item {
+    display: none;
+    animation: drop .7s ease-in-out;
+}
+
+.drop-item.show-item {
+    display: block;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

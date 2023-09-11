@@ -167,7 +167,7 @@ var barChartOptions = {
 	  }
 	}
   };
-  
+
   var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
   barChart.render();
   var barChart = new ApexCharts(document.querySelector("#chart"), barChartOpt);

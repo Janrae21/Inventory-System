@@ -17,54 +17,50 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
-    
+
 </head>
 
 <body>
-    <div id="app">
+    {{-- <div id="app">
         <nav class="navbar">
-            <div class="container">
-                <!-- <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container"> --}}
+    <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a> -->
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <!-- <ul class="navbar-nav me-auto">
+    {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
+    <!-- Left Side Of Navbar -->
+    <!-- <ul class="navbar-nav me-auto">
 
                     </ul> -->
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
+    <!-- Right Side Of Navbar -->
+    {{-- <ul class="navbar-nav ms-auto">
+        <!-- Authentication Links -->
+        @guest
+            @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+            @endif
 
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
+            @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                </li>
+            @endif
+        @else
+        @endguest
+    </ul> --}}
 
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <main class="py-4">
+        @yield('content')
+    </main>
     </div>
 </body>
 

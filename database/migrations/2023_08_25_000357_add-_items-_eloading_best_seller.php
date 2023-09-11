@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('_eloading_best_seller', function (Blueprint $table) {
-            $table->id();
-            $table->string('Item');        
-            $table->double('Quantity');
-            $table->timestamps();
+        Schema::table('_eloading_best_seller', function (Blueprint $table) {
+            $table->string('Category');
+            $table->float('Date');
         });
     }
 
@@ -28,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_eloading_best_seller');
+        Schema::table('_eloading_best_seller', function (Blueprint $table) {
+            $table->dropColumn('category');
+            $table->dropColumn('Date');
+        });
     }
 };

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class physical_Store_Computer_StocksMonitoring extends Model
 {
-    use HasFactory;
+    
 
     public $table = '_physical_store_computer_stocks_monitoring';
         public $primaryKey = 'id';
