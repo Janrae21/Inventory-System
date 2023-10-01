@@ -66,7 +66,7 @@
 
 
 
-                    <form method="POST" action="{{ route('register') }}">
+                    {{-- <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <h2 class="title">Sign up</h2>
                         <div class="input-field">
@@ -114,7 +114,7 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Register') }}
                         </button>
-
+ --}}
 
 
                         {{-- <input type="submit" class="btn" value="Sign up" /> --}}
