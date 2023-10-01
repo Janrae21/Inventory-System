@@ -162,7 +162,7 @@
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog" style="width: 50%">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
@@ -271,10 +271,13 @@
                                     <th>Remaining Stocks</th>
                                     <th>Item Sold As Of</th>
                                     <th>Stocks Purchased</th>
-                                    <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
-                                    <th>Damage or missing or <br>for Testing</br></th>
+                                    <th>Actual Stocks</th>
+                                    {{-- <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th> --}}
+                                    {{-- <th>Damage or missing or <br>for Testing</br></th> --}}
+                                    <th>DMT (Damage, Missing, Testing)</th>
                                     <th>Upcoming Stocks</th>
-                                    <th>Remarks Updated <br>As Of</br></th>
+                                    {{-- <th>Remarks Updated <br>As Of</br></th> --}}
+                                    <th>Remarks</th>
 
                                 </tr>
                             </thead>
