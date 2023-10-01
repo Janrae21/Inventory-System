@@ -268,16 +268,17 @@
                                 <tr>
                                     <th>ITEMS Name</th>
                                     <th>STATUS</th>
-                                    <th>Remaining Stocks</th>
+                                    {{-- <th>Remaining Stocks</th>
                                     <th>Item Sold As Of</th>
                                     <th>Stocks Purchased</th>
-                                    <th>Actual Stocks</th>
+                                    <th>Actual Stocks</th> --}}
                                     {{-- <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th> --}}
                                     {{-- <th>Damage or missing or <br>for Testing</br></th> --}}
-                                    <th>DMT (Damage, Missing, Testing)</th>
-                                    <th>Upcoming Stocks</th>
+                                    {{-- <th>DMT (Damage, Missing, Testing)</th> --}}
+                                    {{-- <th>Upcoming Stocks</th> --}}
                                     {{-- <th>Remarks Updated <br>As Of</br></th> --}}
                                     <th>Remarks</th>
+                                    <th>Actions</th>
 
                                 </tr>
                             </thead>
@@ -288,13 +289,19 @@
                                             <p>{{ $pisoWifi->ItemsName }}</p>
                                         </td>
                                         <td>{{ $pisoWifi->Status }}</td>
-                                        <td>{{ $pisoWifi->RemainingStocks }}</td>
+                                        {{-- <td>{{ $pisoWifi->RemainingStocks }}</td>
                                         <td>{{ $pisoWifi->ItemSoldAsOf }}</td>
                                         <td>{{ $pisoWifi->StocksPurchased }}</td>
                                         <td>{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}</td>
                                         <td>{{ $pisoWifi->Damageormissingorforesting }}</td>
-                                        <td>{{ $pisoWifi->UpcomingStocks }}</td>
+                                        <td>{{ $pisoWifi->UpcomingStocks }}</td> --}}
                                         <td>{{ $pisoWifi->RemarksUpdatedAsOf }}</td>
+                                        <td>
+                                            <button>Purchase Item</button>
+                                            <button>View</button>
+                                            <button> Edit</button>
+                                            <button>  Delete </button>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

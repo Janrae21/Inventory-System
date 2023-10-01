@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\PisoWifi_parts_accessories;
 use Illuminate\Http\Request;
+
 class PisoWifi_parts_accessories_Controller extends Controller
 {
-    public function PisoWifiShow(){
-
+    public function PisoWifiShow()
+    {
         $pisowifiData = PisoWifi_parts_accessories::paginate(10);
-        return view('PisoWiFiPartsAccessories', ['pisowifi_parts_accessories'=> $pisowifiData]);
+
+        return view('PisoWiFiPartsAccessories', ['pisowifi_parts_accessories' => $pisowifiData]);
     }
 
-
-
-    public function store(Request $request){
-
+    public function store(Request $request)
+    {
         $request->validate([
 
             'ItemsName' => 'required',
@@ -29,7 +30,6 @@ class PisoWifi_parts_accessories_Controller extends Controller
 
         ]);
 
-
         $PisoWifiAccessories = new PisoWifi_parts_accessories();
 
         $PisoWifiAccessories->ItemsName = $request->input('ItemsName');
@@ -41,24 +41,11 @@ class PisoWifi_parts_accessories_Controller extends Controller
         $PisoWifiAccessories->Damageormissingorforesting = $request->input('Damageormissingorforesting');
         $PisoWifiAccessories->UpcomingStocks = $request->input('UpcomingStocks');
         $PisoWifiAccessories->RemarksUpdatedAsOf = $request->input('RemarksUpdatedAsOf');
+        $PisoWifiAccessories->created_at = now();
+        $PisoWifiAccessories->updated_at = now();
 
         $PisoWifiAccessories->save();
 
         return redirect()->back()->with('message', 'Add Items Successfully');
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

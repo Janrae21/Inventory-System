@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\EloadingBestSeller_Controller;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
-use App\Http\Controllers\PartsOfEloadingController;
-use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
 use App\Http\Controllers\PackagingMonitoringController;
+use App\Http\Controllers\PartsOfEloadingController;
+use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
+use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::redirect('/', 'admin/home');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -87,34 +89,23 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
     Route::post('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'store']);
 
-
     //Packaging Monitoring Crud//
     Route::get('packaging-monitoring', [PackagingMonitoringController::class, 'ShowPackaging']);
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
 
-
     //Parts of Eloading Crud//
     Route::get('Parts-of-eloading', [PartsOfEloadingController::class, 'showEloading']);
     Route::post('Parts-of-eloading', [PartsOfEloadingController::class, 'store']);
-    Route::get('Parts-of-eloading/{id}',[PartsofEloadingController::class, 'edit']);
-
+    Route::get('Parts-of-eloading/{id}', [PartsofEloadingController::class, 'edit']);
 
     //Eloading Best Seller Crud //
     Route::get('eloading-best-seller', [EloadingBestSeller_Controller::class, 'showData']);
-    Route::post('eloading-best-seller',[EloadingBestSeller_Controller::class, 'store']);
-    Route::put('eloading-best-seller/{id}',[EloadingBestSeller_Controller::class, 'updateItem']);
-
-
-
-
-
-
+    Route::post('eloading-best-seller', [EloadingBestSeller_Controller::class, 'store']);
+    Route::put('eloading-best-seller/{id}', [EloadingBestSeller_Controller::class, 'updateItem']);
 
     // Physical Store Computer Stocks Monitoring Crud//
     Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
     Route::post('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'store']);
-
-
 });
 
 /*------------------------------------------
