@@ -1,13 +1,13 @@
 <?php
-  
+
 namespace App\Http\Controllers\Auth;
-  
+
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-  
+
 class LoginController extends Controller
 {
     /*
@@ -20,16 +20,16 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-  
+
     use AuthenticatesUsers;
-  
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-  
+
     /**
      * Create a new controller instance.
      *
@@ -39,21 +39,23 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    
+
     /**
      * Create a new controller instance.
      *
      * @return RedirectResponse
      */
     public function login(Request $request): RedirectResponse
-    {   
+    {
         $input = $request->all();
-     
+
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-     
+
+            
+
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->type == 'admin') {
@@ -67,6 +69,6 @@ class LoginController extends Controller
             return redirect()->route('login')
                 ->with('error','Email-Address And Password Are Wrong.');
         }
-          
+
     }
 }

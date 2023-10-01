@@ -8,6 +8,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -35,36 +38,36 @@
                         <i class='bx bxs-cart'></i>
                         <span class="text">Product</span>
                     </a>
-                    <li class="active">
-                        <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Pisowifi Parts & Accessories</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/packaging-monitoring') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Packaging Monitoring</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/Parts-of-eloading') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Parts Of Eloading</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/eloading-best-seller') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Eloading Best Seller</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/pisowifi-parts-accessories') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Physical Store Computer Stocks Monitoring</span>
-                        </a>
-                    </li>
+                <li class="drop-item">
+                    <a href="{{ url('/pisowifi-parts-accessories') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Pisowifi Parts & Accessories</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{{ url('/packaging-monitoring') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Packaging Monitoring</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/Parts-of-eloading') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Parts Of Eloading</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/eloading-best-seller') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Eloading Best Seller</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Physical Store Computer Stocks Monitoring</span>
+                    </a>
+                </li>
                 </li>
                 <li>
                     <a href="{{ url('/status') }}">
@@ -151,152 +154,116 @@
                     <div class="order">
                         <div class="head">
                             <h3>Packaging Monitoring</h3>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
                             </button>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="" method="">
-                                            <div class="modal-body">
-                                                <div class="input-group input-group-sm mb-3">
-                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Items</span>
-                                                    <input type="text" name="Items" class="form-control"
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-sm">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Category</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option value="Category">Category</option>
-                                                        <option value="PisoWifi">PisoWifi</option>
-                                                        <option value="E-Loading">E-Loading</option>
-                                                        <option value="Gadgets">Gadgets</option>
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <span>Date</span>
-                                                <input type="date" name="Date" class="form-control">
-
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Quantity</label>
-                                                    <input class="form-control" id="exampleFormControlSelect1">
-                                                    {{-- < <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option> --}}
-                                                    </input>
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <!-- Button trigger modal -->
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Edit</i>
-                            </button>
-
-                            <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Edit Items</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="" method="">
+
+                                        <form action="{{ url('packaging-monitoring') }}" method="POST">
+                                            @csrf
+
                                             <div class="modal-body">
-                                                <div class="input-group input-group-sm mb-3">
-                                                    <span class="input-group-text" id="inputGroup-sizing-sm">Items</span>
-                                                    <input type="text" name="Items" class="form-control"
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-sm">
+
+                                                <div class="form-group mb-3">
+                                                    <label>ITEMS Name</label>
+                                                    <input type="text" name="ItemsName" required class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Category</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option value="Category">Category</option>
-                                                        <option value="PisoWifi">PisoWifi</option>
-                                                        <option value="E-Loading">E-Loading</option>
-                                                        <option value="Gadgets">Gadgets</option>
+                                                    <select name="Status" required class="form-control">
+                                                        <option value="">---STATUS---</option>
+                                                        <option value="Okay">Okay</option>
+                                                        <option value="Error">Error</option>
                                                     </select>
                                                 </div>
-                                                <br>
-                                                <span>Date</span>
-                                                <input type="date" name="Date" class="form-control">
 
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Quantity</label>
-                                                    <input class="form-control" id="exampleFormControlSelect1">
-                                                    {{-- < <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option> --}}
-                                                    </input>
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="text" name="RemainingStocks" required
+                                                        class="form-control">
                                                 </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Item Sold As Of</label>
+                                                    <input type="text" name="ItemSoldAsOf" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="text" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                        required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="text" name="Damageormissingorforesting" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="text" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remarks Updated
+                                                        As Of
+                                                    </label>
+                                                    <input type="text" name="RemarksUpdatedAsOf" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="modal-footer ">
+                                                    <div class="btn">
+                                                        <button type="submit" class="btn btn-primary">Save
+                                                            Changes</button>
+                                                        <button type="submit" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+
                                             </div>
                                         </form>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save Changes</button>
-                                        </div>
+                                        @if (Session::has('message'))
+                                            <script>
+                                                swal("message", "Successfuly Added Item", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
+
                                     </div>
+
                                 </div>
+
                             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Edit</i>
-                            </button>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Remove</i>
-                            </button>
                         </div>
+
                         <table>
                             <thead>
                                 <tr>
@@ -313,11 +280,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-
-
+                                @foreach ($packagingmonitoring as $pm)
+                                    <tr>
+                                        <td>
+                                            <p>{{ $pm->ItemsName }}</p>
+                                        </td>
+                                        <td>{{ $pm->Status }}</td>
+                                        <td>{{ $pm->RemainingStocks }}</td>
+                                        <td>{{ $pm->ItemSoldAsOf }}</td>
+                                        <td>{{ $pm->StocksPurchased }}</td>
+                                        <td>{{ $pm->ActualStocksBasedonactualcheckingEDUD }}</td>
+                                        <td>{{ $pm->Damageormissingorforesting }}</td>
+                                        <td>{{ $pm->UpcomingStocks }}</td>
+                                        <td>{{ $pm->RemarksUpdatedAsOf }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{ $packagingmonitoring->links('pagination::bootstrap-5') }}
 
                     </div>
                 </div>

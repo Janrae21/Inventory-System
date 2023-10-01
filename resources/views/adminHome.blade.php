@@ -9,9 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
-            integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
         <link href="{{ asset('images/logo.png') }}" rel="icon">
         <title>Dashboard</title>
@@ -36,32 +35,32 @@
                         <i class='bx bxs-cart'></i>
                         <span class="text">Product</span>
                     </a>
-                    <li class="drop-item">
-                        <a href="{{ url('/pisowifi-parts-accessories') }}">
-                            <span class="text">Pisowifi Parts & Accessories</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/packaging-monitoring') }}">
-                            <span class="text">Packaging Monitoring</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/Parts-of-eloading') }}">
-                            <span class="text">Parts Of Eloading</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/eloading-best-seller') }}">
-                            <span class="text">Eloading Best Seller</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
+                <li class="drop-item">
+                    <a href="{{ url('/pisowifi-parts-accessories') }}">
+                        <span class="text">Pisowifi Parts & Accessories</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/packaging-monitoring') }}">
+                        <span class="text">Packaging Monitoring</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/Parts-of-eloading') }}">
+                        <span class="text">Parts Of Eloading</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/eloading-best-seller') }}">
+                        <span class="text">Eloading Best Seller</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
 
-                            <span class="text">Physical Store Computer Stocks Monitoring</span>
-                        </a>
-                    </li>
+                        <span class="text">Physical Store Computer Stocks Monitoring</span>
+                    </a>
+                </li>
                 </li>
                 <li>
                     <a href="{{ url('/status') }}">
@@ -323,17 +322,15 @@
             <!-- MAIN -->
         </section>
 
-
-
-
-
-
-
-
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/http-client/4.3.1/http-client.min.js"
+            integrity="sha512-aUW0cZ27r9aV+oMky81TH0hgTMD+NEPaDFM1BR9b6sOR6vsxpmJHbtwQMfCbekXh83CU8R5nWX+pVDYptoK5wQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="{{ asset('js/admin.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
     </body>
 
     </html>

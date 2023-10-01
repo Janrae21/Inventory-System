@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -54,22 +53,9 @@
                                 </a>
                             @endif
                         </div>
-                        <p class="social-text">Or Sign in with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
                     </form>
+
+
                     <form action="/dashboard" class="sign-up-form">
                         <h2 class="title">Sign up</h2>
                         <div class="input-field">
@@ -85,22 +71,10 @@
                             <input type="password" placeholder="Password" />
                         </div>
                         <input type="submit" class="btn" value="Sign up" />
-                        <p class="social-text">Or Sign up with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+
                     </form>
+
+
                 </div>
             </div>
 

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('_eloading_best_seller', function (Blueprint $table) {
             $table->string('Category');
-            $table->float('Date');
+            $table->date('Date');
         });
     }
 

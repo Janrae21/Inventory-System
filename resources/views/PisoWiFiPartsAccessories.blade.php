@@ -8,7 +8,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{{ asset('images/logo.png') }}" rel="icon">
         <link href="{{ asset('css/pisowifipartsAccessories.css') }}" rel="stylesheet">
         <title>PisoWifi-Parts-Accessories</title>
@@ -17,7 +22,7 @@
     <body>
         <!-- SIDEBAR -->
         <section id="sidebar">
-            <a href="#" class="brand">
+            <a href="{{ asset('/admin/home') }}" class="brand">
                 <img src="{{ asset('images/logo.png') }}">
             </a>
             <ul class="side-menu top">
@@ -33,36 +38,36 @@
                         <i class='bx bxs-cart'></i>
                         <span class="text">Product</span>
                     </a>
-                    <li class="active">
-                        <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Pisowifi Parts & Accessories</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/packaging-monitoring') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Packaging Monitoring</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/Parts-of-eloading') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Parts Of Eloading</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/eloading-best-seller') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Eloading Best Seller</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/pisowifi-parts-accessories') }}">
-                            <!-- <i class='bx bxs-cart'></i> -->
-                            <span class="text">Physical Store Computer Stocks Monitoring</span>
-                        </a>
-                    </li>
+                <li class="active">
+                    <a href="{{ url('/pisowifi-parts-accessories') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Pisowifi Parts & Accessories</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/packaging-monitoring') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Packaging Monitoring</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/Parts-of-eloading') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Parts Of Eloading</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('/eloading-best-seller') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Eloading Best Seller</span>
+                    </a>
+                </li>
+                <li class="drop-item">
+                    <a href="{{ url('physical-store-computer-stocks-monitoring') }}">
+                        <!-- <i class='bx bxs-cart'></i> -->
+                        <span class="text">Physical Store Computer Stocks Monitoring</span>
+                    </a>
+                </li>
                 </li>
                 <li>
                     <a href="{{ url('/status') }}">
@@ -129,7 +134,6 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        {{-- <h1>Piso WiFi Parts & Accessories</h1> --}}
                         <ul class="breadcrumb">
                             <li>
                                 <a href="#">Piso WiFi Parts & Accessories</a>
@@ -149,19 +153,115 @@
                     <div class="order">
                         <div class="head">
                             <h3>Piso WiFi Parts & Accessories</h3>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
+
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
                             </button>
 
-                            {{-- START Modal --}}
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
 
-                            {{-- END Modal --}}
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Edit</i>
-                            </button>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:red;">Remove</i>
-                            </button>
+                                        <form action="{{ url('pisowifi-parts-accessories') }}" method="POST">
+                                            @csrf
+
+                                            <div class="modal-body">
+
+                                                <div class="form-group mb-3">
+                                                    <label>ITEMS Name</label>
+                                                    <input type="text" name="ItemsName" required class="form-control">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <select name="Status" required class="form-control">
+                                                        <option value="">---STATUS---</option>
+                                                        <option value="Okay">Okay</option>
+                                                        <option value="Error">Error</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="text" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Item Sold As Of</label>
+                                                    <input type="text" name="ItemSoldAsOf" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="text" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                        required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="text" name="Damageormissingorforesting" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="text" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remarks Updated
+                                                        As Of
+                                                    </label>
+                                                    <input type="text" name="RemarksUpdatedAsOf" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="modal-footer ">
+                                                    <div class="btn">
+                                                        <button type="submit" class="btn btn-primary">Save
+                                                            Changes</button>
+                                                        <button type="submit" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </form>
+
+                                        @if (Session::has('message'))
+                                            <script>
+                                                swal("message", "Successfuly Added Item", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
                         <table>
                             <thead>
@@ -179,571 +279,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-
-                                        <p>Custom Board for Piso Wifi</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Custom Board for Piso Wifi with Bill Acceptor</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Custom Board for Piso Wifi (Power cut)</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Orange Pi One H3 quadcore 512MB</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Raspberry Pi 3 Model B+</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Raspberry Pi Model B</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>UTP Cable - CAT6</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>USB to LAN (USB 3.0 to Gb Switch)</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Tp-Link Eap110</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Comfast CF-EW71 300 mbps,coverege: 100 meters</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Comfast CF-EW73 300 mbps</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>32GB Sandisk SD Card/ Memory Card</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>SD Card 16GB Strontium</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Wireless Sub Vendo</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>ESP8266 NodeMCU LUA CP2102 ESP-12E</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Wired Sub Vendo</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>ETHERNET FOR WIRED SUB-VENDO</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Arduino (NANO) w/ cords - for wired sub-vendo</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Arduino Uno w/ cords</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Heavy Duty Coinslot</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Anti-Hooking Coinslot</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>LED Frame for Coinslot</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>12V 5A AC/ DC Power Supply Adapter/LCD Power Adapter</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>12VDC 3A Boontech Power supply 240VAC Adaptor</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Switching Power supply 12V.3A</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Switch hub TP-Link 8 Ports</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Switch hub TP-Link 5 Ports</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Switch hub TP-Link 5 Ports GIGABITS</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>LAN CABLE</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>RJ 45</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>FLASH DRIVE</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Ugreen card reader</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Channel Relay</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Buck Converter 12V to 5V</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Dupont wires</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Tv Box rk32289</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Tv Box rk3228A</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Wifi Vendo Box small</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Wifi Vendo Machine</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>Parabollic</p>
-                                    </td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>2</td>
-                                    <td>50</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                    <td>40</td>
-                                </tr>
-                                </tr>
+                                @foreach ($pisowifi_parts_accessories as $pisoWifi)
+                                    <tr>
+                                        <td>
+                                            <p>{{ $pisoWifi->ItemsName }}</p>
+                                        </td>
+                                        <td>{{ $pisoWifi->Status }}</td>
+                                        <td>{{ $pisoWifi->RemainingStocks }}</td>
+                                        <td>{{ $pisoWifi->ItemSoldAsOf }}</td>
+                                        <td>{{ $pisoWifi->StocksPurchased }}</td>
+                                        <td>{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}</td>
+                                        <td>{{ $pisoWifi->Damageormissingorforesting }}</td>
+                                        <td>{{ $pisoWifi->UpcomingStocks }}</td>
+                                        <td>{{ $pisoWifi->RemarksUpdatedAsOf }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{ $pisowifi_parts_accessories->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
                 <div class="btn">
@@ -755,7 +309,10 @@
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
-        <script src="http://127.0.0.1:8000/js/pisowifi.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('js/pisowifi.js') }}"></script>
     </body>
 
     </html>

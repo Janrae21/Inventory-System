@@ -55,10 +55,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
-
-
 /* SIDEBAR */
 #sidebar {
     position: fixed;
@@ -184,10 +180,6 @@ body {
 
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
     position: relative;
@@ -204,12 +196,11 @@ body {
 /* buttons under navigation bar */
 button {
     border-radius: 5px;
-    width: 10%;
+    width: 160px;
     height: 40px;
     border-color: rgba(55, 55, 228, 0.869);
+    border-style: none;
 }
-
-
 
 /* NAVBAR */
 #content nav {
@@ -321,10 +312,6 @@ button {
 }
 
 /* NAVBAR */
-
-
-
-
 
 /* MAIN */
 main {
@@ -439,10 +426,6 @@ main {
 #content main .box-info li .text p {
     color: var(--dark);
 }
-
-
-
-
 
 #content main .table-data {
     display: flex;
@@ -563,18 +546,6 @@ select {
     font-size: 14px;
 }
 
-/* select option[value="1"] {
-    background: rgba(110, 255, 105, 0.911);
-}
-
-select option[value="2"] {
-    background: rgba(252, 255, 69, 0.986);
-}
-
-select option[value="3"] {
-    background: rgb(248, 30, 30);
-} */
-
 /* the down arrow */
 &:after {
     position: absolute;
@@ -644,7 +615,7 @@ select option[value="3"] {
         display: none;
     }
 
-    #content nav form .form-input button {
+    #content nav form .form-input{
         width: auto;
         height: auto;
         background: transparent;

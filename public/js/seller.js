@@ -11,9 +11,6 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -21,12 +18,6 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
 
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
@@ -44,10 +35,6 @@ searchButton.addEventListener('click', function (e) {
 	}
 })
 
-
-
-
-
 if(window.innerWidth < 768) {
 	sidebar.classList.add('hide');
 } else if(window.innerWidth > 576) {
@@ -63,8 +50,6 @@ window.addEventListener('resize', function () {
 	}
 })
 
-
-
 const switchMode = document.getElementById('switch-mode');
 
 switchMode.addEventListener('change', function () {
@@ -74,114 +59,6 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
-
-// BAR CHART
-var barChartOptions = {
-	series: [{
-	  data: [54, 48, 45, 41, 37]
-	}],
-	chart: {
-	  type: 'bar',
-	  height: 350,
-	  toolbar: {
-		show: false
-	  },
-	},
-	colors: [
-	  "#246dec",
-	  "#cc3c43",
-	  "#367952",
-	  "#f5b74f",
-	  "#4f35a1"
-	],
-	plotOptions: {
-	  bar: {
-		distributed: true,
-		borderRadius: 4,
-		horizontal: false,
-		columnWidth: '40%',
-	  }
-	},
-	dataLabels: {
-	  enabled: false
-	},
-	legend: {
-	  show: false
-	},
-	xaxis: {
-	  categories: ["Piso Wifi", "E-Loading Machine", "Piso Wifi", "Cellphone", "E-Loading Parts"],
-	  title:{
-		text:"Product Name"
-	  }
-	},
-	yaxis: {
-	  title: {
-		text: "Total Sales"
-	  }
-	}
-  };
-
-
-  //Customer Ranking
-  var barChartOpt = {
-	series: [{
-	  data: [15, 12, 11, 7, 5]
-	}],
-	chart: {
-	  type: 'bar',
-	  height: 350,
-	  toolbar: {
-		show: false
-	  },
-	},
-	colors: [
-	  "#246dec",
-	  "#cc3c43",
-	  "#367952",
-	  "#f5b74f",
-	  "#4f35a1"
-	],
-	plotOptions: {
-	  bar: {
-		distributed: true,
-		borderRadius: 4,
-		horizontal: false,
-		columnWidth: '40%',
-	  }
-	},
-	dataLabels: {
-	  enabled: false
-	},
-	legend: {
-	  show: false
-	},
-	xaxis: {
-	  categories: ["Seth Obenita", "Rogina Rolloque", "Mary Joy Reambonanza", "John Doe", "Jean Ros"],
-	  title:{
-		text:"Customer Name"
-	  }
-	},
-	yaxis: {
-	  title: {
-		text: "Total Purchased Products"
-	  }
-	}
-  };
-
-  var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
-  barChart.render();
-  var barChart = new ApexCharts(document.querySelector("#chart"), barChartOpt);
-  barChart.render();
-
-
-// const selectElement = document.getElementById('select');
-// selectElement.addEventListener('change', function() {
-//   const optionElement = document.querySelector('option[value="1"]');
-//   if (optionElement) {
-//     optionElement.style.color = rgba(110, 255, 105, 0.911);
-//   }
-// });
-
 
 const dropBtn = document.querySelector('.dropdown-btn'),
 dropdown = document.querySelectorAll('.drop-item');
@@ -195,3 +72,50 @@ dropBtn.addEventListener('click', () => {
 		}
 	});
 });
+
+$(document).ready(function () {
+    // Listen for a click on the single "Edit" button
+    $(".edit-button").click(function () {
+        // Retrieve the item ID from the button's data-id attribute
+        var itemId = $(this).data("id");
+
+        // Set the form action with the correct URL
+        $("#editItemForm").attr("action", "/eloading-best-seller/update/" + itemId);
+
+        // Fetch item data by ID via AJAX and populate the modal fields
+        $.ajax({
+            url: "/eloading-best-seller/" + itemId,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                // Populate the modal fields with the fetched data
+                $("#editItemId").val(data.id);
+                $("#editItemName").val(data.Item);
+                // Populate other fields as needed
+            },
+            error: function () {
+                alert("Item not found");
+            },
+        });
+    });
+
+    // Submit the form using Axios when the "Save Changes" button is clicked
+    $("#editItemForm").submit(function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        var action = $(this).attr("action");
+
+        axios
+            .put(action, formData)
+            .then(function (response) {
+                // Handle the response as needed
+                console.log(response);
+            })
+            .catch(function (error) {
+                // Handle errors
+                console.error(error);
+            });
+    });
+});
+
+
