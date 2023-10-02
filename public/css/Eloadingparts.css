@@ -55,10 +55,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
-
-
 /* SIDEBAR */
 #sidebar {
     position: fixed;
@@ -184,10 +180,6 @@ body {
 
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
     position: relative;
@@ -200,9 +192,6 @@ body {
     width: calc(100% - 60px);
     left: 60px;
 }
-
-
-
 
 /* NAVBAR */
 #content nav {
@@ -323,8 +312,6 @@ button {
     border-color: rgba(55, 55, 228, 0.869);
 }
 
-
-
 /* MAIN */
 main {
     background-color: #6DD5ED;
@@ -387,11 +374,6 @@ main {
     font-weight: 500;
 }
 
-
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -442,10 +424,6 @@ main {
 #content main .box-info li .text p {
     color: var(--dark);
 }
-
-
-
-
 
 #content main .table-data {
     display: flex;
@@ -627,14 +605,6 @@ select option[value="3"] {
 /* MAIN */
 /* CONTENT */
 
-
-
-
-
-
-
-
-
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -649,11 +619,6 @@ select option[value="3"] {
         display: none;
     }
 }
-
-
-
-
-
 
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {

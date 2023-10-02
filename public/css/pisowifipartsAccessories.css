@@ -727,9 +727,9 @@ table {
 
 td,
 th {
-    border: 1px solid #060606;
+    border: 1px solid #bebebe;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 tr:nth-child(even) {

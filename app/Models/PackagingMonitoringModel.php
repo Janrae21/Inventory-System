@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class physical_Store_Computer_StocksMonitoring extends Model
+class PackagingMonitoringModel extends Model
 {
-
-
-    protected $table = '_physical_store_computer_stocks_monitoring';
+    protected $table = 'packagingmonitoring';
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
@@ -26,9 +24,7 @@ class physical_Store_Computer_StocksMonitoring extends Model
         'Damageormissingorforesting',
          'UpcomingStocks',
         'RemarksUpdatedAsOf',
-
     ];
-
 
 
 }

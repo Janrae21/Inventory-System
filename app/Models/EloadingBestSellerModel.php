@@ -10,16 +10,19 @@ class EloadingBestSellerModel extends Model
 {
     use HasFactory;
 
-
-        public $table = '_eloading_best_seller';
-        public $primaryKey = 'id';
-        public $incrementing = 'true';
-        public $timestamps = 'false';
-
-
-       
+    protected $table = '_eloading_best_seller';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = false;
 
 
+    protected $fillable = [
 
+        'Item',
+        'Quantity',
+        'Category',
+        'Date',
+
+    ];
 
 }

@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('_eloading_best_seller', function (Blueprint $table) {
-            $table->string('Category');
-            $table->date('Date');
+        Schema::create('customers', function (Blueprint $table) {
+            $table->id()->autoIncrement();
+            $table->string('name');
+            $table->string('address');
+            $table->string('age');
+            $table->string('email');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('_eloading_best_seller', function (Blueprint $table) {
-            $table->dropColumn('category');
-            $table->dropColumn('Date');
-        });
+        Schema::dropIfExists('customers');
     }
 };

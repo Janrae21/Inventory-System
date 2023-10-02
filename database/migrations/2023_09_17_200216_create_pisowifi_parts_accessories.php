@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('_piso_wifi_parts_accessories', function (Blueprint $table) {
+        Schema::create('pisowifi_parts_accessories', function (Blueprint $table) {
             $table->id();
             $table->string('ItemsName');
             $table->string('Status');
-            $table->float('Remaining Stocks');
-            $table->float('ItemSoldAsOf');
-            $table->float('Stocks Purchased');
-            $table->float('ActualStocksBasedonactualchecking(EDUD)');
-            $table->float('Damageormissingorforesting');
+            $table->double('Remaining Stocks');
+            $table->double('ItemSoldAsOf');
+            $table->double('Stocks Purchased');
+            $table->double('ActualStocksBasedonactualchecking(EDUD)');
+            $table->double('Damageormissingorforesting');
             $table->string('UpcomingStocks');
             $table->string('RemarksUpdatedAsOf');
             $table->timestamps();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_piso_wifi_parts_accessories');
+        Schema::dropIfExists('pisowifi_parts_accessories');
     }
 };

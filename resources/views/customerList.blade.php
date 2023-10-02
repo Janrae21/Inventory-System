@@ -10,6 +10,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{{ asset('images/logo.png') }}" rel="icon">
         <link href="{{ asset('css/customer.css') }}" rel="stylesheet">
         <title>Customer-List</title>
@@ -94,11 +96,10 @@
             <!-- NAVBAR -->
             <nav>
                 <i class='bx bx-menu'></i>
-                <a href="#" class="nav-link">Categories</a>
+
                 <form action="#">
                     <div class="form-input">
-                        <input type="search" placeholder="Search...">
-                        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+
                     </div>
                 </form>
                 <input type="checkbox" id="switch-mode" hidden>
@@ -152,9 +153,9 @@
                     <div class="order">
                         <div class="head">
                             <h3>Customer Lists</h3>
-                            <i class='bx bx-plus-circle' style="font-size:24px; color:green;">Add</i>
-                            <i class='bx bx-minus-circle' style="font-size:24px; color:red;">Remove</i>
+
                         </div>
+
                         <table>
                             <thead>
                                 <tr>
@@ -164,7 +165,6 @@
                                     <th>Payment Method</th>
                                     <th>Order Number</th>
                                     <th>Shipment Status</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -176,15 +176,48 @@
                                     <td>Mary Joy</td>
                                     <td>E-Loading Machine</td>
                                     <td>
-                                        <button class="button">
-                                            Select Payment Method
-                                        </button>
+
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method">Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                     <td>230201U1XKYPSP</td>
                                     <td>
-                                        <button class="button">
-                                            Select Shipment Status
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method">Select Shipment Status</option>
+                                            <option value="For Delivery">For Delivery</option>
+                                            <option value="Received">Received</option>
+                                            <option value="Return to Seller">Return to Seller</option>
+                                            <option value="Cancel">Cancel</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>10/05/22</p>
+                                    </td>
+                                    <td>Mary Joy</td>
+                                    <td>E-Loading Machine</td>
+                                    <td>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method"> Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
+                                    </td>
+                                    <td>230201U1XKYPSP</td>
+                                    <td>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method">Select Shipment Status</option>
+                                            <option value="For Delivery">For Delivery</option>
+                                            <option value="Received">Received</option>
+                                            <option value="Return to Seller">Return to Seller</option>
+                                            <option value="Cancel">Cancel</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -195,15 +228,22 @@
                                     <td>Mary Joy</td>
                                     <td>E-Loading Machine</td>
                                     <td>
-                                        <button class="button">
-                                            Select Payment Method
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method"> Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                     <td>230201U1XKYPSP</td>
                                     <td>
-                                        <button class="button">
-                                            Select Shipment Status
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method">Select Shipment Status</option>
+                                            <option value="For Delivery">For Delivery</option>
+                                            <option value="Received">Received</option>
+                                            <option value="Return to Seller">Return to Seller</option>
+                                            <option value="Cancel">Cancel</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -214,15 +254,21 @@
                                     <td>Mary Joy</td>
                                     <td>E-Loading Machine</td>
                                     <td>
-                                        <button class="button">
-                                            Select Payment Method
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method"><br>Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                     <td>230201U1XKYPSP</td>
                                     <td>
-                                        <button class="button">
-                                            Select Shipment Status
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method"> Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
@@ -233,43 +279,26 @@
                                     <td>Mary Joy</td>
                                     <td>E-Loading Machine</td>
                                     <td>
-                                        <button class="button">
-                                            Select Payment Method
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method"> Select Payment Method</option>
+                                            <option value="Cash on Delivery">Cash on Delivery</option>
+                                            <option value="OnHand Delivery">OnHand Delivery</option>
+                                            <option value="Shoppee Payment">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                     <td>230201U1XKYPSP</td>
                                     <td>
-                                        <button class="button">
-                                            Select Shipment Status
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-                                        <button class="button">
-                                            Select Payment Method
-                                        </button>
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <button class="button">
-                                            Select Shipment Status
-                                        </button>
+                                        <select class="form-control, col-8">
+                                            <option value=" Select Payment Method">Select Shipment Status</option>
+                                            <option value="PisoWifi">Cash on Delivery</option>
+                                            <option value="E-Loading">OnHand Delivery</option>
+                                            <option value="Gadgets">Shoppee Payment</option>
+                                        </select>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="btn">
-                    <button type="button" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
                 </div>
             </main>
 
@@ -277,8 +306,10 @@
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
-        <script src="{{ asset('js/customer.js') }}"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="{{ URL::asset('js/customer.js') }}"></script>
     </body>
 
     </html>

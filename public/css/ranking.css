@@ -55,10 +55,6 @@ li a {
     text-decoration: none;
 }
 
-
-
-
-
 /* SIDEBAR */
 #sidebar {
     position: fixed;
@@ -184,10 +180,6 @@ li a {
 
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
     position: relative;
@@ -200,9 +192,6 @@ li a {
     width: calc(100% - 60px);
     left: 60px;
 }
-
-
-
 
 /* NAVBAR */
 #content nav {
@@ -381,11 +370,6 @@ main {
     font-weight: 500;
 }
 
-
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -436,10 +420,6 @@ main {
 #content main .box-info li .text p {
     color: var(--dark);
 }
-
-
-
-
 
 #content main .table-data {
     display: flex;
@@ -573,14 +553,6 @@ main {
 /* MAIN */
 /* CONTENT */
 
-
-
-
-
-
-
-
-
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -595,11 +567,6 @@ main {
         display: none;
     }
 }
-
-
-
-
-
 
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {

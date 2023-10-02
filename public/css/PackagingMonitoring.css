@@ -184,10 +184,6 @@ body {
 
 /* SIDEBAR */
 
-
-
-
-
 /* CONTENT */
 #content {
     position: relative;
@@ -200,9 +196,6 @@ body {
     width: calc(100% - 60px);
     left: 60px;
 }
-
-
-
 
 /* NAVBAR */
 #content nav {
@@ -315,10 +308,6 @@ body {
 
 /* NAVBAR */
 
-
-
-
-
 /* MAIN */
 main {
     background-color: #6DD5ED;
@@ -381,11 +370,6 @@ main {
     font-weight: 500;
 }
 
-
-
-
-
-
 #content main .box-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -436,10 +420,6 @@ main {
 #content main .box-info li .text p {
     color: var(--dark);
 }
-
-
-
-
 
 #content main .table-data {
     display: flex;
@@ -621,10 +601,6 @@ select option[value="3"] {
 /* MAIN */
 /* CONTENT */
 
-
-
-
-
 @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
@@ -646,10 +622,6 @@ button {
     height: 40px;
     border-color: rgba(55, 55, 228, 0.869);
 }
-
-
-
-
 
 
 @media screen and (max-width: 576px) {

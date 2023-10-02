@@ -11,9 +11,6 @@ allSideMenu.forEach(item=> {
 	})
 });
 
-
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -21,12 +18,6 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
 
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
@@ -44,10 +35,6 @@ searchButton.addEventListener('click', function (e) {
 	}
 })
 
-
-
-
-
 if(window.innerWidth < 768) {
 	sidebar.classList.add('hide');
 } else if(window.innerWidth > 576) {
@@ -62,8 +49,6 @@ window.addEventListener('resize', function () {
 		searchForm.classList.remove('show');
 	}
 })
-
-
 
 const switchMode = document.getElementById('switch-mode');
 
@@ -167,24 +152,15 @@ var barChartOptions = {
 	  }
 	}
   };
-  
+
   var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
   barChart.render();
   var barChart = new ApexCharts(document.querySelector("#chart"), barChartOpt);
   barChart.render();
 
-
-// const selectElement = document.getElementById('select');
-// selectElement.addEventListener('change', function() {
-//   const optionElement = document.querySelector('option[value="1"]');
-//   if (optionElement) {
-//     optionElement.style.color = rgba(110, 255, 105, 0.911);
-//   }
-// });
-
-
 const dropBtn = document.querySelector('.dropdown-btn'),
 dropdown = document.querySelectorAll('.drop-item');
+
 
 dropBtn.addEventListener('click', () => {
 	dropdown.forEach(drop => {

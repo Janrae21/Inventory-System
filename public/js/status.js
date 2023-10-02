@@ -1,10 +1,3 @@
-// const selectElement = document.getElementById('select');
-// selectElement.addEventListener('change', function() {
-//   const optionElement = document.querySelector('option[value="1"]');
-//   if (optionElement) {
-//     optionElement.style.color = rgba(110, 255, 105, 0.911);
-//   }
-// });
 
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
@@ -79,6 +72,5 @@ dropBtn.addEventListener('click', () => {
         }
     });
 });
-
 
 
