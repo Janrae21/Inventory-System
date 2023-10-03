@@ -18,7 +18,9 @@
 
     <body>
         <!-- SIDEBAR -->
-        <section id="sidebar">
+        @component('components.SidebarComponent')
+        @endcomponent
+        <!-- <section id="sidebar-dashboard">
             <a href="#" class="brand">
                 <img src="{{ asset('images/logo.png') }}">
             </a>
@@ -82,47 +84,13 @@
                 </li>
             </ul>
         </section>
-        <!-- SIDEBAR -->
+        SIDEBAR -->
 
         <!-- CONTENT -->
         <section id="content">
-            <!-- NAVBAR -->
-            <nav>
-                <i class='bx bx-menu'></i>
-                <a href="#" class="nav-link">Categories</a>
-                <form action="#">
-                    <div class="form-input">
-                        <input type="search" placeholder="Search...">
-                        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                    </div>
-                </form>
-                <input type="checkbox" id="switch-mode" hidden>
-                <label for="switch-mode" class="switch-mode"></label>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="{{ asset('view-profile') }}">
-                            <i class='bx bxs-user'></i>
-                            <span class="text">View Profile</span>
-                        </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>.
-                </li>
-            </nav>
-            <!-- NAVBAR -->
-
+            @component('components.NavbarComponent')
+            @endcomponent
+            
             <!-- MAIN -->
             <main>
                 <div class="head-title">
@@ -154,14 +122,14 @@
                     </li>
 
                     <li>
-                        <i class='bx bxs-group'></i>
+                        <i class='bx bxs-dollar-circle'></i>
                         <span class="text">
                             <h3>232</h3>
                             <p>Total Purchased Products</p>
                         </span>
                     </li>
                     <li>
-                        <i class='bx bxs-dollar-circle'></i>
+                        <i class='bx bxs-group'></i>
                         <span class="text">
                             <h3>58</h3>
                             <p>Total List of New Customer</p>
@@ -170,30 +138,20 @@
                 </ul>
                 <ul class="box-info">
                     <li>
-                        <i class='bx bxs-calendar-check'></i>
-                        <span class="text">
-                            <h3>4</h3>
-                            <p>Order Day</p>
-                        </span>
-                    </li>
-
-                    <li>
-                        <i class='bx bxs-group'></i>
+                        <i class='bx bxs-dollar-circle'></i>
                         <span class="text">
                             <h3>4</h3>
                             <p>Purchased/Day</p>
                         </span>
                     </li>
                     <li>
-                        <i class='bx bxs-dollar-circle'></i>
+                        <i class='bx bxs-group'></i>
                         <span class="text">
-                            <h3>1543</h3>
+                            <h3>1524</h3>
                             <p>Total Customers</p>
                         </span>
                     </li>
                 </ul>
-
-
                 <div class="table-data">
                     <div class="order">
                         <div class="charts">
@@ -208,8 +166,6 @@
                         <div class="order">
                             <div class="head">
                                 <h3>Recently Added Products</h3>
-                                <i class='bx bx-plus'></i>
-                                <i class='bx bx-filter'></i>
                             </div>
                             <table>
 
@@ -256,8 +212,6 @@
                         <div class="order">
                             <div class="head">
                                 <h3>Recently Purchased Products</h3>
-                                <i class='bx bx-search'></i>
-                                <i class='bx bx-filter'></i>
                             </div>
                             <table>
                                 <thead>
