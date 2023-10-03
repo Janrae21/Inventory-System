@@ -266,8 +266,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS Name</th>
-                                    <th>STATUS</th>
+                                    <th>Items Name</th>
+                                    <th>Status</th>
                                     {{-- <th>Remaining Stocks</th>
                                     <th>Item Sold As Of</th>
                                     <th>Stocks Purchased</th>
@@ -278,29 +278,29 @@
                                     {{-- <th>Upcoming Stocks</th> --}}
                                     {{-- <th>Remarks Updated <br>As Of</br></th> --}}
                                     <th>Remarks</th>
-                                    <th>Actions</th>
+                                    <th></th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($pisowifi_parts_accessories as $pisoWifi)
                                     <tr>
-                                        <td>
-                                            <p>{{ $pisoWifi->ItemsName }}</p>
+                                        <td style="border: none">
+                                            {{ $pisoWifi->ItemsName }}
                                         </td>
-                                        <td>{{ $pisoWifi->Status }}</td>
+                                        <td style="border: none">{{ $pisoWifi->Status }}</td>
                                         {{-- <td>{{ $pisoWifi->RemainingStocks }}</td>
                                         <td>{{ $pisoWifi->ItemSoldAsOf }}</td>
                                         <td>{{ $pisoWifi->StocksPurchased }}</td>
                                         <td>{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}</td>
                                         <td>{{ $pisoWifi->Damageormissingorforesting }}</td>
                                         <td>{{ $pisoWifi->UpcomingStocks }}</td> --}}
-                                        <td>{{ $pisoWifi->RemarksUpdatedAsOf }}</td>
-                                        <td>
-                                            <button>Purchase Item</button>
-                                            <button>View</button>
-                                            <button> Edit</button>
-                                            <button>  Delete </button>
+                                        <td style="border: none">{{ $pisoWifi->RemarksUpdatedAsOf }}</td>
+                                        <td style="width: 30%; border: none">
+                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                            <a style="color: #b5a55d; padding: 10px"><i class='bx bxs-show'></i> View</a>
+                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
                                 @endforeach
