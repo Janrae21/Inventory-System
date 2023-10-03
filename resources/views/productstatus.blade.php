@@ -17,111 +17,14 @@
     </head>
 
     <body>
-        <!-- SIDEBAR -->
-        <section id="sidebar">
-            <a href="{{ asset('/admin/home') }}" class="brand">
-                <img src="{{ asset('images/logo.png') }}">
-            </a>
-            <ul class="side-menu top">
-                <li>
-                    <a href="{{ asset('/admin/home') }}">
-                        <i class='bx bxs-dashboard'></i>
-                        <span class="text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="dropdown-btn">
-                    <a href="{{ url('#') }}">
-                        <i class='bx bxs-cart'></i>
-                        <span class="text">Product</span>
-                    </a>
-                    <li class="drop-item">
-                        <a href="{{ url('/pisowifi-parts-accessories') }}">
-                            <span class="text">Pisowifi Parts & Accessories</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/packaging-monitoring') }}">
-                            <span class="text">Packaging Monitoring</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/Parts-of-eloading') }}">
-                            <span class="text">Parts Of Eloading</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/eloading-best-seller') }}">
-                            <span class="text">Eloading Best Seller</span>
-                        </a>
-                    </li>
-                    <li class="drop-item">
-                        <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
-
-                            <span class="text">Physical Store Computer Stocks Monitoring</span>
-                        </a>
-                    </li>
-                </li>
-                <li class="active">
-                    <a href="{{ url('/status') }}">
-                        <i class='bx bx-stats'></i>
-                        <span class="text">Product Status</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/customer') }}">
-                        <i class='bx bxs-group'></i>
-                        <span class="text">Customer Lists</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/ranking') }}">
-                        <i class='bx bxs-bar-chart-alt-2'></i>
-                        <span class="text">Ranking</span>
-                    </a>
-                </li>
-
-            </ul>
-
-        </section>
-        <!-- SIDEBAR -->
+        @component('components.SidebarComponent')
+        @endcomponent
 
         <!-- CONTENT -->
         <section id="content">
             <!-- NAVBAR -->
-            <nav>
-                <i class='bx bx-menu'></i>
-                <a href="#" class="nav-link">Categories</a>
-                <form action="#">
-                    <div class="form-input">
-                        <input type="search" placeholder="Search...">
-                        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                    </div>
-                </form>
-                <input type="checkbox" id="switch-mode" hidden>
-                <label for="switch-mode" class="switch-mode"></label>
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#">
-                            <i class='bx bxs-user'></i>
-                            <span class="text">View Profile</span>
-                        </a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            </nav>
+            @component('components.NavbarComponent')
+            @endcomponent
             <!-- NAVBAR -->
 
             <!-- MAIN -->
