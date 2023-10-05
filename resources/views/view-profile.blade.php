@@ -51,10 +51,6 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#">
-                            <i class='bx bxs-user'></i>
-                            <span class="text">View Profile</span>
-                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -98,123 +94,115 @@
                                 <div class="card card-primary card-outline">
                                     <div class="card-body box-profile">
                                         <div class="text-center">
-                                            <img class="profile-user-img img-fluid img-circle admin_picture" src=""
-                                                alt="User profile picture">
+                                            <img class="profile-user-img img-fluid img-circle admin_picture"
+                                                src="{{ asset('images/username.png') }}" alt="User profile picture">
                                         </div>
 
                                         <h3 class="profile-username text-center admin_name"></h3>
 
                                         <p class="text-muted text-center">Admin</p>
-
-                                        <input type="file" name="admin_image" id="admin_image"
-                                            style="opacity: 0;height:1px;display:none">
-                                        <a href="javascript:void(0)" class="btn btn-primary btn-block"
-                                            id="change_picture_btn"><b>Change picture</b></a>
-
+                                        <center>
+                                            <input type="file" name="admin_image" id="admin_image"
+                                                style="opacity: 0;height:1px;display:none">
+                                            <a href="javascript:void(0)" class="btn btn-primary btn-block"
+                                                id="change_picture_btn"><b>Change picture</b></a>
+                                        </center>
                                     </div>
 
                                 </div>
-
-
 
                             </div>
 
                             <div class="col-md-9">
                                 <div class="card">
                                     <div class="card-header p-2">
+                                        <br>
                                         <ul class="nav nav-pills">
-                                            <li class="nav-item"><a class="nav-link active" href="#personal_info"
-                                                    data-toggle="tab">Personal Information</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#change_password"
-                                                    data-toggle="tab">Change Password</a></li>
+                                            <li class="nav-item"><a class="nav-link active" href="#personal_info">Personal
+                                                    Information</a></li>
                                         </ul>
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content">
                                             <div class="active tab-pane" id="personal_info">
-                                                <form class="form-horizontal" method="POST" action=""
-                                                    id="AdminInfoForm">
+                                                <form class="form-horizontal" method="POST" action="">
                                                     <div class="form-group row">
                                                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputName"
-                                                                placeholder="Name" value="" name="name">
-
-                                                            <span class="text-danger error-text name_error"></span>
+                                                                placeholder="Name" value="{{ Auth::user()->name }}"
+                                                                name="name">
                                                         </div>
                                                     </div>
+                                                    <br>
                                                     <div class="form-group row">
                                                         <label for="inputEmail"
                                                             class="col-sm-2 col-form-label">Email</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputEmail"
-                                                                placeholder="Email" value="" name="email">
-                                                            <span class="text-danger error-text email_error"></span>
+                                                                placeholder="Email" value="{{ Auth::user()->email }}"
+                                                                name="email">
                                                         </div>
                                                     </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label for="inputName" class="col-sm-2 col-form-label">Old
+                                                            Passord</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="inputName"
+                                                                placeholder="Enter current password" value="{{ Auth::user()->password }}" name="oldpassword">
+                                                            <span class="text-danger error-text oldpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label for="inputName2" class="col-sm-2 col-form-label">New
+                                                            Password</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="newpassword"
+                                                                placeholder="Enter new password" name="newpassword">
+                                                            <span class="text-danger error-text newpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label for="inputName2" class="col-sm-2 col-form-label">Confirm
+                                                            New Password</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="cnewpassword"
+                                                                placeholder="Re-Enter new password" name="cnewpassword">
+                                                            <span class="text-danger error-text cnewpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="offset-sm-2 col-sm-10">
+                                                            <button type="submit" class="btn btn-danger">Save
+                                                                Changes</button>
+                                                        </div>
+                                                    </div>
+
                                                 </form>
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                    <button type="submit" class="btn btn-danger">Save Changes</button>
-                                                </div>
-                                            </div>
-                                            </form>
+
                                         </div>
-                                        <!-- /.tab-pane -->
-                                        <div class="tab-pane" id="change_password">
-                                            <form class="form-horizontal" action="" method="POST"
-                                                id="changePasswordAdminForm">
-                                                <div class="form-group row">
-                                                    <label for="inputName" class="col-sm-2 col-form-label">Old
-                                                        Passord</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="password" class="form-control" id="inputName"
-                                                            placeholder="Enter current password" name="oldpassword">
-                                                        <span class="text-danger error-text oldpassword_error"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="inputName2" class="col-sm-2 col-form-label">New
-                                                        Password</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="password" class="form-control" id="newpassword"
-                                                            placeholder="Enter new password" name="newpassword">
-                                                        <span class="text-danger error-text newpassword_error"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="inputName2" class="col-sm-2 col-form-label">Confirm New
-                                                        Password</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="password" class="form-control" id="cnewpassword"
-                                                            placeholder="ReEnter new password" name="cnewpassword">
-                                                        <span class="text-danger error-text cnewpassword_error"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <div class="offset-sm-2 col-sm-10">
-                                                        <button type="submit" class="btn btn-danger">Update
-                                                            Password</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+
+
                                     </div>
-                                    <!-- /.tab-content -->
-                                </div><!-- /.card-body -->
+                                </div>
+
                             </div>
-                            <!-- /.card -->
                         </div>
-                        <!-- /.col -->
+
                     </div>
-                    <!-- /.row -->
-                    </div><!-- /.container-fluid -->
+
+                    </div>
+
+                    </div>
                 </section>
-                <!-- /.content -->
+
 
             </main>
-            <!-- MAIN -->
+
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
