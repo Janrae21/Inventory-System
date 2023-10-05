@@ -204,8 +204,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS</th>
-                                    <th>QUANTITY</th>
+                                    <th>Items Name</th>
+                                    <th>Status</th>
                                     <th>DATE</th>
                                 </tr>
                             </thead>

@@ -385,25 +385,10 @@ main {
 #content main .table-data .order table tbody tr:hover {
     background: var(--grey);
 }
-
-#content main .table-data .order table tr td .status {
-    font-size: 10px;
-    padding: 6px 16px;
-    color: var(--light);
-    border-radius: 20px;
-    font-weight: 700;
-}
-
-#content main .table-data .order table tr td .status.completed {
-    background: var(--blue);
-}
-
-#content main .table-data .order table tr td .status.process {
-    background: var(--yellow);
-}
-
-#content main .table-data .order table tr td .status.pending {
-    background: var(--orange);
+td,th{
+    border: 1px solid #bebebe;
+    text-align: center;
+    padding: 10px;
 }
 
 .custom-select {
@@ -576,12 +561,6 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
-
-  td, th {
-    border: 1px solid #060606;
-    text-align: center;
-    padding: 15px;
   }
 
   tr:nth-child(even) {

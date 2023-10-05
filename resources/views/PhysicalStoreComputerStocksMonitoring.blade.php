@@ -172,30 +172,37 @@
                                 <tr>
                                     <th>ITEMS Name</th>
                                     <th>STATUS</th>
-                                    <th>Remaining Stocks</th>
+                                    <!-- <th>Remaining Stocks</th>
                                     <th>Item Sold As Of</th>
                                     <th>Stocks Purchased</th>
                                     <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
                                     <th>Damage or missing or <br>for Testing</br></th>
-                                    <th>Upcoming Stocks</th>
+                                    <th>Upcoming Stocks</th> -->
                                     <th>Remarks Updated <br>As Of</br></th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($_physical_store_computer_stocks_monitoring as $ps)
                                     <tr>
-                                        <td>
-                                            <p>{{ $ps->ItemsName }}</p>
+                                        <td style="border:none;">
+                                            {{ $ps->ItemsName }}
                                         </td>
-                                        <td>{{ $ps->Status }}</td>
-                                        <td>{{ $ps->RemainingStocks }}</td>
+                                        <td style="border:none;">{{ $ps->Status }}</td>
+                                        <!-- <td>{{ $ps->RemainingStocks }}</td>
                                         <td>{{ $ps->ItemSoldAsOf }}</td>
                                         <td>{{ $ps->StocksPurchased }}</td>
                                         <td>{{ $ps->ActualStocksBasedonactualcheckingEDUD }}</td>
                                         <td>{{ $ps->Damageormissingorforesting }}</td>
-                                        <td>{{ $ps->UpcomingStocks }}</td>
-                                        <td>{{ $ps->RemarksUpdatedAsOf }}</td>
+                                        <td>{{ $ps->UpcomingStocks }}</td> -->
+                                        <td style="border:none;">{{ $ps->RemarksUpdatedAsOf }}</td>
+                                        <td style="width: 30%; border: none">
+                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                            <a style="color: #b5a55d; padding: 10px"><i class='bx bxs-show'></i> View</a>
+                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

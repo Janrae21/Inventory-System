@@ -15,7 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{{ asset('images/logo.png') }}" rel="icon">
-        <link href="{{ asset('css/EloadingBestSeller.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/Eloadingparts.css') }}" rel="stylesheet">
         <title>Parts of Eloading</title>
     </head>
 
@@ -169,13 +169,14 @@
                                 <tr>
                                     <th>ITEMS Name</th>
                                     <th>STATUS</th>
-                                    <th>Remaining Stocks</th>
+                                    <!-- <th>Remaining Stocks</th>
                                     <th>Item Sold As Of</th>
                                     <th>Stocks Purchased</th>
                                     <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
                                     <th>Damage or missing or <br>for Testing</br></th>
-                                    <th>Upcoming Stocks</th>
+                                    <th>Upcoming Stocks</th> -->
                                     <th>Remarks Updated <br>As Of</br></th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>
@@ -183,17 +184,24 @@
 
                                 @foreach ($_parts_of_eloading as $pe)
                                     <tr>
-                                        <td>
-                                            <p>{{ $pe->ItemsName }}</p>
+                                        <td style="border:none;">
+                                            {{ $pe->ItemsName }}
                                         </td>
-                                        <td>{{ $pe->Status }}</td>
-                                        <td>{{ $pe->RemainingStocks }}</td>
+                                        <td style="border:none;">{{ $pe->Status }}</td>
+                                        <!-- <td>{{ $pe->RemainingStocks }}</td>
                                         <td>{{ $pe->ItemSoldAsOf }}</td>
                                         <td>{{ $pe->StocksPurchased }}</td>
                                         <td>{{ $pe->ActualStocksBasedonactualcheckingEDUD }}</td>
                                         <td>{{ $pe->Damageormissingorforesting }}</td>
-                                        <td>{{ $pe->UpcomingStocks }}</td>
-                                        <td>{{ $pe->RemarksUpdatedAsOf }}</td>
+                                        <td>{{ $pe->UpcomingStocks }}</td> -->
+                                        <td style="border:none;">{{ $pe->RemarksUpdatedAsOf }}</td>
+                                        <td style="width: 30%; border: none">
+                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                            <a style="color: #b5a55d; padding: 10px"><i class='bx bxs-show'></i> View</a>
+                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
+                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
