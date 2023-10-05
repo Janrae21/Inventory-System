@@ -20,9 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', 'admin/home');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 

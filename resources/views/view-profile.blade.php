@@ -83,31 +83,135 @@
                     </div>
                 </div>
 
-                <ul class="box-info">
 
-                </ul>
-                <ul class="box-info">
-                    <div class="container">
-                        <div class="profile">
-                            <img src="https://o.remove.bg/downloads/85a94bf2-d4b1-43a7-85cb-490c7ff88316/user-removebg-preview.png"
-                                alt="Profile Picture">
-                            <h1 id="name">Janrae Fagaragan</h1>
-                            <h3 id="job-title">USERNAME</h3>
 
-                            <ul>
-                                <li><strong>Email:</strong> <span id="email">janrae.fagaragan@flarego.com</span></li>
-                                <li><strong>Cellphone Number:</strong> <span id="phone">09887654345</span></li>
-                                <li><strong>Change Password:</strong> <span id="phone">faggy</span></li>
-                                <li><strong>Location:</strong> <span id="location">New York, USA</span></li>
-                            </ul>
-                            <button id="editButton" onclick="toggleEditMode()">Edit</button>
+
+                <!-- Content Header (Page header) -->
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
+
+                                <!-- Profile Image -->
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle admin_picture" src=""
+                                                alt="User profile picture">
+                                        </div>
+
+                                        <h3 class="profile-username text-center admin_name"></h3>
+
+                                        <p class="text-muted text-center">Admin</p>
+
+                                        <input type="file" name="admin_image" id="admin_image"
+                                            style="opacity: 0;height:1px;display:none">
+                                        <a href="javascript:void(0)" class="btn btn-primary btn-block"
+                                            id="change_picture_btn"><b>Change picture</b></a>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header p-2">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item"><a class="nav-link active" href="#personal_info"
+                                                    data-toggle="tab">Personal Information</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="#change_password"
+                                                    data-toggle="tab">Change Password</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="active tab-pane" id="personal_info">
+                                                <form class="form-horizontal" method="POST" action=""
+                                                    id="AdminInfoForm">
+                                                    <div class="form-group row">
+                                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputName"
+                                                                placeholder="Name" value="" name="name">
+
+                                                            <span class="text-danger error-text name_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="inputEmail"
+                                                            class="col-sm-2 col-form-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputEmail"
+                                                                placeholder="Email" value="" name="email">
+                                                            <span class="text-danger error-text email_error"></span>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="offset-sm-2 col-sm-10">
+                                                    <button type="submit" class="btn btn-danger">Save Changes</button>
+                                                </div>
+                                            </div>
+                                            </form>
+                                        </div>
+                                        <!-- /.tab-pane -->
+                                        <div class="tab-pane" id="change_password">
+                                            <form class="form-horizontal" action="" method="POST"
+                                                id="changePasswordAdminForm">
+                                                <div class="form-group row">
+                                                    <label for="inputName" class="col-sm-2 col-form-label">Old
+                                                        Passord</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" class="form-control" id="inputName"
+                                                            placeholder="Enter current password" name="oldpassword">
+                                                        <span class="text-danger error-text oldpassword_error"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputName2" class="col-sm-2 col-form-label">New
+                                                        Password</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" class="form-control" id="newpassword"
+                                                            placeholder="Enter new password" name="newpassword">
+                                                        <span class="text-danger error-text newpassword_error"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputName2" class="col-sm-2 col-form-label">Confirm New
+                                                        Password</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="password" class="form-control" id="cnewpassword"
+                                                            placeholder="ReEnter new password" name="cnewpassword">
+                                                        <span class="text-danger error-text cnewpassword_error"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="offset-sm-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-danger">Update
+                                                            Password</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- /.tab-content -->
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
+                        <!-- /.col -->
                     </div>
-                </ul>
-
-                <div class="table-data">
-
-                </div>
+                    <!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
 
             </main>
             <!-- MAIN -->
