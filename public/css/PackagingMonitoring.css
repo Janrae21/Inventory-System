@@ -369,7 +369,9 @@ main {
     grid-gap: 12px;
     padding-left: 6px;
 }
-
+tr:nth-child(even){
+    background-color: #b5e1eb;
+}
 #content main .table-data .order table td img {
     width: 36px;
     height: 36px;
@@ -389,18 +391,11 @@ main {
     font-weight: 700;
 }
 
-#content main .table-data .order table tr td .status.completed {
-    background: var(--blue);
+td,th{
+    border: 1px solid #bebebe;
+    text-align: center;
+    padding: 10px;
 }
-
-#content main .table-data .order table tr td .status.process {
-    background: var(--yellow);
-}
-
-#content main .table-data .order table tr td .status.pending {
-    background: var(--orange);
-}
-
 .custom-select {
     /* wrapper style */
     position: relative;

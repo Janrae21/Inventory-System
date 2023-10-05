@@ -179,7 +179,7 @@
                                     {{-- <th>Upcoming Stocks</th> --}}
                                     {{-- <th>Remarks Updated <br>As Of</br></th> --}}
                                     <th>Remarks</th>
-                                    <th></th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>

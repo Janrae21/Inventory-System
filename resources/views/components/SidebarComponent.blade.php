@@ -31,14 +31,14 @@
                 </li>
                 <li class="drop-item">
                     <a href="{{ url('/Parts-of-eloading') }}">
-                        <span class="text">Parts Of Eloading</span>
+                        <span class="text">Eloading Parts and Accessories</span>
                     </a>
                 </li>
-                <li class="drop-item">
+                <!-- <li class="drop-item">
                     <a href="{{ url('/eloading-best-seller') }}">
                         <span class="text">Eloading Best Seller</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="drop-item">
                     <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
 

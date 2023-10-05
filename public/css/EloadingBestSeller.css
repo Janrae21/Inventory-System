@@ -506,11 +506,27 @@ select option[value="3"] {
 .drop-item.show-item {
     display: block;
 }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,th{
+    border: 1px solid #bebebe;
+    text-align: center;
+    padding: 10px;
+}
+
+tr:nth-child(even){
+    background-color: #b5e1eb;
+}
+
 
 /* MAIN */
 /* CONTENT */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     #sidebar {
         width: 200px;
     }
@@ -571,7 +587,7 @@ select option[value="3"] {
     #content main .table-data .todo .todo-list {
         min-width: 420px;
     }
-}
+} */
 
 
 
@@ -585,24 +601,3 @@ select option[value="3"] {
     }
 }
 
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td,
-th {
-    border: 1px solid #060606;
-    text-align: center;
-    padding: 15px;
-}
-
-tr:nth-child(even) {
-    background-color: #22bcdf;
-    color: #060606;
-}
-tr:nth-child(even) :hover{
-    background-color: #22bcdf;
-    color:#FFE0D3;
-}
