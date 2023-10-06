@@ -88,15 +88,16 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     //PisoWifi Parts Accessories Crud//
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
     Route::post('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'store']);
+    Route::get('/view/item/{id}', [PisoWifi_parts_accessories_Controller::class, 'viewItem'])->name('view.item');
 
     //Packaging Monitoring Crud//
     Route::get('packaging-monitoring', [PackagingMonitoringController::class, 'ShowPackaging']);
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
-
+    Route::get('/view/item/{id}', [PackagingMonitoringController::class, 'viewItem'])->name('view.item');
     //Parts of Eloading Crud//
     Route::get('Parts-of-eloading', [PartsOfEloadingController::class, 'showEloading']);
     Route::post('Parts-of-eloading', [PartsOfEloadingController::class, 'store']);
-    Route::get('Parts-of-eloading/{id}', [PartsofEloadingController::class, 'edit']);
+    Route::get('/view/item/{id}', [PartsOfEloadingController::class, 'viewItem'])->name('view.item');
 
     //Eloading Best Seller Crud //
     Route::get('eloading-best-seller', [EloadingBestSeller_Controller::class, 'showData']);
@@ -106,6 +107,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     // Physical Store Computer Stocks Monitoring Crud//
     Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
     Route::post('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'store']);
+    Route::get('/view/item/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'viewItem'])->name('view.item');
 });
 
 /*------------------------------------------

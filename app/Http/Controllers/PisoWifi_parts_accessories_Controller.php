@@ -48,4 +48,9 @@ class PisoWifi_parts_accessories_Controller extends Controller
 
         return redirect()->back()->with('message', 'Add Items Successfully');
     }
+    public function viewItem($id)
+    {
+        $pisoWifi = PisoWifi_parts_accessories::findOrFail($id);
+        return view('product_view', ['pisoWifi' => $pisoWifi]);
+    }
 }

@@ -45,10 +45,11 @@ class PackagingMonitoringController extends Controller
         $packagingMonitoring->save();
 
         return redirect()->back()->with('message', 'Add Items Successfully');
-
-
-
-
+    }
+    public function viewItem($id)
+    {
+        $pm = PackagingMonitoringModel::findOrFail($id);
+        return view('product_view', ['PackagingMonitoring' => $pm]);
     }
 
 }
