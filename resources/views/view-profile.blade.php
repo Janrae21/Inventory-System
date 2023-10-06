@@ -24,7 +24,7 @@
             </a>
             <ul class="side-menu top">
                 <li class="active">
-                    <a href="{{ asset('/admin/home') }}">
+                    <a href="{{ asset('/view-profile') }}">
                         <i class='bx bxs-dashboard'></i>
                         <span class="text">View Profile</span>
                     </a>
@@ -78,11 +78,6 @@
                         </ul>
                     </div>
                 </div>
-
-
-
-
-                <!-- Content Header (Page header) -->
 
                 <!-- Main content -->
                 <section class="content">
