@@ -49,6 +49,11 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
 
 
     }
+    public function viewItem($id)
+    {
+        $ps = physical_Store_Computer_StocksMonitoring::findOrFail($id);
+        return view('product_view', ['physical_Store_Computer_StocksMonitoring' => $ps]);
+    }
 
 
 

@@ -124,3 +124,7 @@
 .drop-item.show-item {
     display: block;
 }
+.drop-item .text{
+    left: 60px;
+    position: absolute;
+}

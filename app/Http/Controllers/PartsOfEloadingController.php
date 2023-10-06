@@ -47,6 +47,11 @@ class PartsOfEloadingController extends Controller
         return redirect()->back()->with('message', 'Add Items Successfully');
 
     }
+    public function viewItem($id)
+    {
+        $pe = PartsOfEloadingModel::findOrFail($id);
+        return view('product_view', ['PartsOfEloading' => $pe]);
+    }
 
 
 }
