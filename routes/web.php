@@ -91,23 +91,32 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/view/item/{id}', [PisoWifi_parts_accessories_Controller::class, 'viewItem'])->name('view.item');
 
     //Packaging Monitoring Crud//
-    Route::get('packaging-monitoring', [PackagingMonitoringController::class, 'ShowPackaging']);
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
     Route::get('/view/item/{id}', [PackagingMonitoringController::class, 'viewItem'])->name('view.item');
+    Route::put('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'update'])->name('packaging-monitoring.update');
+    Route::delete('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'delete'])->name('packaging-monitoring.delete');
+
+
     //Parts of Eloading Crud//
     Route::get('Parts-of-eloading', [PartsOfEloadingController::class, 'showEloading']);
     Route::post('Parts-of-eloading', [PartsOfEloadingController::class, 'store']);
     Route::get('/view/item/{id}', [PartsOfEloadingController::class, 'viewItem'])->name('view.item');
+
 
     //Eloading Best Seller Crud //
     Route::get('eloading-best-seller', [EloadingBestSeller_Controller::class, 'showData']);
     Route::post('eloading-best-seller', [EloadingBestSeller_Controller::class, 'store']);
     Route::put('eloading-best-seller/{id}', [EloadingBestSeller_Controller::class, 'updateItem']);
 
+
     // Physical Store Computer Stocks Monitoring Crud//
     Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
     Route::post('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'store']);
     Route::get('/view/item/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'viewItem'])->name('view.item');
+    Route::put('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'update'])->name('physical-store-computer-stocks-monitoring.update');
+    Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'delete'])->name('physical-store-computer-stocks-monitoring.delete');
+
+
 });
 
 /*------------------------------------------
