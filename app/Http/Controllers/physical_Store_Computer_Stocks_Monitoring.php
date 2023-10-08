@@ -13,6 +13,8 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
     }
 
 
+
+    // Add Function
     public function store(Request $request){
 
 
@@ -20,11 +22,10 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
 
             'ItemsName' => 'required',
             'Status' => 'required',
-            'RemainingStocks' => 'required|numeric',
-            'ItemSoldAsOf' => 'required|numeric',
             'StocksPurchased' => 'required|numeric',
             'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
             'Damageormissingorforesting' => 'required|numeric',
+            'RemainingStocks' => 'required|numeric',
             'UpcomingStocks' => 'required|numeric',
             'RemarksUpdatedAsOf' => 'required',
 
@@ -36,7 +37,6 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
         $physicalStockMonitoring->ItemsName = $request->input('ItemsName');
         $physicalStockMonitoring->Status = $request->input('Status');
         $physicalStockMonitoring->RemainingStocks = $request->input('RemainingStocks');
-        $physicalStockMonitoring->ItemSoldAsOf = $request->input('ItemSoldAsOf');
         $physicalStockMonitoring->StocksPurchased = $request->input('StocksPurchased');
         $physicalStockMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input('ActualStocksBasedonactualcheckingEDUD');
         $physicalStockMonitoring->Damageormissingorforesting = $request->input('Damageormissingorforesting');
@@ -53,6 +53,18 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
     {
         $ps = physical_Store_Computer_StocksMonitoring::findOrFail($id);
         return view('product_view', ['physical_Store_Computer_StocksMonitoring' => $ps]);
+    }
+
+
+
+
+    //Delete Function
+    public function delete( $id ) {
+
+        $physicalStockMonitoring = physical_Store_Computer_StocksMonitoring::findOrFail( $id );
+        $physicalStockMonitoring->delete();
+
+        return redirect()->back()->with( 'message', 'Item deleted successfully' );
     }
 
 

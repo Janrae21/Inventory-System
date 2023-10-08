@@ -53,6 +53,8 @@ class PartsOfEloadingController extends Controller
         return view('product_view', ['PartsOfEloading' => $pe]);
     }
 
+    
+
 
 }
 

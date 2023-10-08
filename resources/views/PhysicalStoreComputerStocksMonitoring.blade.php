@@ -35,7 +35,7 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                    <h1>Product</h1>
+                        <h1>Product</h1>
                         <ul class="breadcrumb">
                             <li>
                                 <a href="#">Physical Store Computer Stocks Monitoring</a>
@@ -61,11 +61,12 @@
                                 <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
                             </button>
 
-                            <!-- Modal -->
 
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true">
+
+                            <!-- Add Items Modal -->
+
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -74,7 +75,8 @@
                                                 aria-label="Close"></button>
                                         </div>
 
-                                        <form action="{{ url('physical-store-computer-stocks-monitoring') }}" method="POST">
+                                        <form action="{{ url('physical-store-computer-stocks-monitoring') }}"
+                                            method="POST">
                                             @csrf
 
                                             <div class="modal-body">
@@ -86,23 +88,13 @@
 
                                                 <div class="form-group">
                                                     <select name="Status" required class="form-control">
-                                                        <option value="">---STATUS---</option>
+                                                        <option value="">Select Status</option>
                                                         <option value="Okay">Okay</option>
                                                         <option value="Error">Error</option>
                                                     </select>
                                                 </div>
 
-                                                <div class="form-group mb-3">
-                                                    <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
-                                                        class="form-control">
-                                                </div>
 
-                                                <div class="form-group mb-3">
-                                                    <label>Item Sold As Of</label>
-                                                    <input type="text" name="ItemSoldAsOf" required
-                                                        class="form-control">
-                                                </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
@@ -124,7 +116,11 @@
                                                     <input type="text" name="Damageormissingorforesting" required
                                                         class="form-control">
                                                 </div>
-
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="text" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
                                                     <input type="text" name="UpcomingStocks" required
@@ -132,9 +128,7 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
-                                                    <label>Remarks Updated
-                                                        As Of
-                                                    </label>
+                                                    <label>Remarks</label>
                                                     <input type="text" name="RemarksUpdatedAsOf" required
                                                         class="form-control">
                                                 </div>
@@ -152,34 +146,28 @@
                                             </div>
                                         </form>
 
-                                        @if (Session::has('message'))
-                                            <script>
-                                                swal("message", "Successfuly Added Item", "success", {
-                                                    button: "okay",
-                                                });
-                                            </script>
-                                        @endif
-
                                     </div>
 
                                 </div>
 
                             </div>
+                            @if (Session::has('message'))
+                            <script>
+                                swal("message", "Successfuly Added Item", "success", {
+                                    button: "okay",
+                                });
+                            </script>
+                            @endif
 
                         </div>
+
 
                         <table>
                             <thead>
                                 <tr>
                                     <th>ITEMS Name</th>
                                     <th>STATUS</th>
-                                    <!-- <th>Remaining Stocks</th>
-                                    <th>Item Sold As Of</th>
-                                    <th>Stocks Purchased</th>
-                                    <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
-                                    <th>Damage or missing or <br>for Testing</br></th>
-                                    <th>Upcoming Stocks</th> -->
-                                    <th>Remarks Updated <br>As Of</br></th>
+                                    <th>Remarks</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -192,49 +180,197 @@
                                         </td>
                                         <td style="border:none;">{{ $ps->Status }}</td>
                                         <!-- <td>{{ $ps->RemainingStocks }}</td>
-                                        <td>{{ $ps->ItemSoldAsOf }}</td>
-                                        <td>{{ $ps->StocksPurchased }}</td>
-                                        <td>{{ $ps->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                        <td>{{ $ps->Damageormissingorforesting }}</td>
-                                        <td>{{ $ps->UpcomingStocks }}</td> -->
+                                                            <td>{{ $ps->ItemSoldAsOf }}</td>
+                                                            <td>{{ $ps->StocksPurchased }}</td>
+                                                            <td>{{ $ps->ActualStocksBasedonactualcheckingEDUD }}</td>
+                                                            <td>{{ $ps->Damageormissingorforesting }}</td>
+                                                            <td>{{ $ps->UpcomingStocks }}</td> -->
                                         <td style="border:none;">{{ $ps->RemarksUpdatedAsOf }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
-                                            <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#" data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
+                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase
+                                                Item</a>
+                                            <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                                data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
+                                                    class='bx bxs-show'></i> View</a>
+                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#productModalEdit{{ $ps->id }}"><i
+                                                    class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#deleteModal{{ $ps->id }}"><i
+                                                    class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="productModal{{ $ps->id }}" tabindex="-1" role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}" aria-hidden="true">
+
+                                    <div class="modal fade" id="productModal{{ $ps->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}"
+                                        aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="productModalLabel{{ $ps->id }}">{{ $ps->ItemsName }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <h5 class="modal-title" id="productModalLabel{{ $ps->id }}">
+                                                        {{ $ps->ItemsName }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>Status:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->Status }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->Status }}" disabled>
 
                                                     <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->StocksPurchased }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->StocksPurchased }}" disabled>
 
                                                     <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}" disabled>
 
                                                     <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->Damageormissingorforesting }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->Damageormissingorforesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->RemainingStocks }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->RemainingStocks }}" disabled>
 
                                                     <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->UpcomingStocks }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->UpcomingStocks }}" disabled>
 
-                                                    <p>Remarks Updated As Of:</p>
-                                                    <input class="form-control" type="text" value="{{ $ps->RemarksUpdatedAsOf }}" disabled>
+                                                    <p>Remarks:</p>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $ps->RemarksUpdatedAsOf }}" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <!--Edit Item Modal-->
+                                    <div class="modal fade" id="productModalEdit{{ $ps->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="productModalLabel{{ $ps->id }}">
+                                                        {{ $ps->ItemsName }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="{{ route('physical-store-computer-stocks-monitoring.update', $ps->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+
+
+
+                                                        <div class="modal-body">
+                                                            <p>Status:</p>
+                                                            <input class="form-control" type="text"
+                                                                value="{{ $ps->Status }}">
+
+                                                            {{-- <div class="form-group">
+                                                                <select name="Status" required class="form-control"
+                                                                    value="{{ $pm->Status }}">>
+                                                                    <option value="{{ $pm->Status }}"></option>
+                                                                    <option value="{{ $pm->Status }}">Okay</option>
+                                                                    <option value="{{ $pm->Status }}">Error</option>
+                                                                </select>
+                                                            </div> --}}
+
+                                                            <p>Stocks Purchased:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="StocksPurchased"
+                                                                value="{{ $ps->StocksPurchased }}">
+
+                                                            <p>Actual Stocks Based on Actual Checking:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="ActualStocksBasedonactualcheckingEDUD"
+                                                                value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}">
+
+                                                            <p>Damage or Missing or Foresting:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="Damageormissingorforesting"
+                                                                value="{{ $ps->Damageormissingorforesting }}">
+
+                                                            <p>Remaining Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="RemainingStocks"
+                                                                value="{{ $ps->RemainingStocks }}">
+
+                                                            <p>Upcoming Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="UpcomingStocks" value="{{ $ps->UpcomingStocks }}">
+
+                                                            <p>Remarks Updated As Of:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="RemarksUpdatedAsOf"
+                                                                value="{{ $ps->RemarksUpdatedAsOf }}">
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <div class="btn">
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        @if (Session::has('message'))
+                                        <script>
+                                            swal("message", "Item Edited Successfully", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
+                                    </div>
+
+
+                                    <!-- Delete Confirmation Modal -->
+                                    <div class="modal fade" id="deleteModal{{ $ps->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="deleteModalLabel{{ $ps->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $ps->id }}">
+                                                        Confirm
+                                                        Deletion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this item?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form
+                                                        action="{{ route('physical-store-computer-stocks-monitoring.delete', $ps->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
