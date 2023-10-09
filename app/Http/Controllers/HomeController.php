@@ -34,7 +34,11 @@ class HomeController extends Controller
      */
     public function adminHome(): View
     {
-        return view('adminHome');
+        // return view('adminHome');
+
+        $inventory = EloadingBestSellerModel::paginate(4);
+        return view('adminHome', ['_eloading_best_seller'=> $inventory]);
+
 
 
     }
@@ -50,7 +54,7 @@ class HomeController extends Controller
     }
 
 
-    function showData(){
+    public function showData(){
 
         $inventory = EloadingBestSellerModel::paginate(4);
 
