@@ -1,10 +1,10 @@
 <?php
-  
+
 namespace App\Http\Controllers;
- 
+use App\Models\EloadingBestSellerModel;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-  
+
 class HomeController extends Controller
 {
     /**
@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-  
+
     /**
      * Show the application dashboard.
      *
@@ -25,8 +25,8 @@ class HomeController extends Controller
     public function index(): View
     {
         return view('home');
-    } 
-  
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -35,8 +35,10 @@ class HomeController extends Controller
     public function adminHome(): View
     {
         return view('adminHome');
+
+
     }
-  
+
     /**
      * Show the application dashboard.
      *
@@ -47,5 +49,14 @@ class HomeController extends Controller
         return view('managerHome');
     }
 
-    
+
+    function showData(){
+
+        $inventory = EloadingBestSellerModel::paginate(4);
+
+        return view('adminHome', ['_eloading_best_seller'=> $inventory]);
+
+    }
+
+
 }

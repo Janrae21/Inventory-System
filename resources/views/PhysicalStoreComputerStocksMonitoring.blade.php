@@ -56,6 +56,8 @@
                         <div class="head">
                             <h3>Physical Store Computer Stocks Monitoring</h3>
 
+
+                            <!--Add Button-->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                 <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
@@ -335,7 +337,7 @@
                                         </div>
                                         @if (Session::has('message'))
                                         <script>
-                                            swal("message", "Item Edited Successfully", "success", {
+                                            swal("message", "Successfully Deleted Item", "success", {
                                                 button: "okay",
                                             });
                                         </script>

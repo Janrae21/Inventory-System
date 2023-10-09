@@ -41,7 +41,9 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
+
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    
     Route::get('/status', function () {
         return view('productstatus');
     });
@@ -82,6 +84,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/view-profile', function () {
         return view('view-profile');
     });
+
+    Route::get('adminHome', [HomeController::class, 'showData']);
 
     //CRUD Function//
 
