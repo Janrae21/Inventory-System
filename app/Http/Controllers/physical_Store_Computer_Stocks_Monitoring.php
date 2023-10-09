@@ -43,6 +43,7 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
         $physicalStockMonitoring->UpcomingStocks = $request->input('UpcomingStocks');
         $physicalStockMonitoring->RemarksUpdatedAsOf = $request->input('RemarksUpdatedAsOf');
 
+
         $physicalStockMonitoring->save();
 
         return redirect()->back()->with('message', 'Add Items Successfully');

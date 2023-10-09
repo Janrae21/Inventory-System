@@ -21,76 +21,76 @@
         @component('components.SidebarComponent')
         @endcomponent
         <!-- <section id="sidebar-dashboard">
-            <a href="#" class="brand">
-                <img src="{{ asset('images/logo.png') }}">
-            </a>
-            <ul class="side-menu top">
-                <li class="active">
-                    <a href="{{ asset('/admin/home') }}">
-                        <i class='bx bxs-dashboard'></i>
-                        <span class="text">Dashboard</span>
-                    </a>
-                </li>
+                <a href="#" class="brand">
+                    <img src="{{ asset('images/logo.png') }}">
+                </a>
+                <ul class="side-menu top">
+                    <li class="active">
+                        <a href="{{ asset('/admin/home') }}">
+                            <i class='bx bxs-dashboard'></i>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
 
-                <li class="dropdown-btn">
-                    <a href="{{ url('#') }}">
-                        <i class='bx bxs-cart'></i>
-                        <span class="text">Product</span>
-                    </a>
-                <li class="drop-item">
-                    <a href="{{ url('/pisowifi-parts-accessories') }}">
-                        <span class="text">Pisowifi Parts & Accessories</span>
-                    </a>
-                </li>
-                <li class="drop-item">
-                    <a href="{{ url('/packaging-monitoring') }}">
-                        <span class="text">Packaging Monitoring</span>
-                    </a>
-                </li>
-                <li class="drop-item">
-                    <a href="{{ url('/Parts-of-eloading') }}">
-                        <span class="text">Parts Of Eloading</span>
-                    </a>
-                </li>
-                <li class="drop-item">
-                    <a href="{{ url('/eloading-best-seller') }}">
-                        <span class="text">Eloading Best Seller</span>
-                    </a>
-                </li>
-                <li class="drop-item">
-                    <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
+                    <li class="dropdown-btn">
+                        <a href="{{ url('#') }}">
+                            <i class='bx bxs-cart'></i>
+                            <span class="text">Product</span>
+                        </a>
+                    <li class="drop-item">
+                        <a href="{{ url('/pisowifi-parts-accessories') }}">
+                            <span class="text">Pisowifi Parts & Accessories</span>
+                        </a>
+                    </li>
+                    <li class="drop-item">
+                        <a href="{{ url('/packaging-monitoring') }}">
+                            <span class="text">Packaging Monitoring</span>
+                        </a>
+                    </li>
+                    <li class="drop-item">
+                        <a href="{{ url('/Parts-of-eloading') }}">
+                            <span class="text">Parts Of Eloading</span>
+                        </a>
+                    </li>
+                    <li class="drop-item">
+                        <a href="{{ url('/eloading-best-seller') }}">
+                            <span class="text">Eloading Best Seller</span>
+                        </a>
+                    </li>
+                    <li class="drop-item">
+                        <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
 
-                        <span class="text">Physical Store Computer Stocks Monitoring</span>
-                    </a>
-                </li>
-                </li>
-                <li>
-                    <a href="{{ url('/status') }}">
-                        <i class='bx bx-stats'></i>
-                        <span class="text">Product Status</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ asset('/customer') }}">
-                        <i class='bx bxs-group'></i>
-                        <span class="text">Customer Lists</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/ranking') }}">
-                        <i class='bx bxs-bar-chart-alt-2'></i>
-                        <span class="text">Ranking</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-        SIDEBAR -->
+                            <span class="text">Physical Store Computer Stocks Monitoring</span>
+                        </a>
+                    </li>
+                    </li>
+                    <li>
+                        <a href="{{ url('/status') }}">
+                            <i class='bx bx-stats'></i>
+                            <span class="text">Product Status</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ asset('/customer') }}">
+                            <i class='bx bxs-group'></i>
+                            <span class="text">Customer Lists</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/ranking') }}">
+                            <i class='bx bxs-bar-chart-alt-2'></i>
+                            <span class="text">Ranking</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            SIDEBAR -->
 
         <!-- CONTENT -->
         <section id="content">
             @component('components.NavbarComponent')
             @endcomponent
-            
+
             <!-- MAIN -->
             <main>
                 <div class="head-title">
@@ -178,34 +178,19 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
+                                @foreach ($_eloading_best_seller as $cd)
                                     <tr>
-                                        <td>Piso Wifi</td>
-                                        <td>4</td>
-                                        <td>01-10-2021</td>
+                                        <td>
+                                            <p>{{ $cd->Item }}</p>
+                                        <td>{{ $cd->Quantity }}</td>
+                                        <td>{{ $cd->Date }}</td>
+
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>E-Loading Machine</td>
-                                        <td>1</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Piso Wifi</td>
-                                        <td>5</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cellphone</td>
-                                        <td>2</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E-Loading Parts</td>
-                                        <td>8</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                </tbody>
+                                @endforeach
                             </table>
+                            <br>
+                            {{ $_eloading_best_seller->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                     <div class="table-data">
@@ -218,58 +203,28 @@
                                     <tr>
                                         <th>Product</th>
                                         <th>Quantity</th>
-                                        <th>Category</th>
+                                        {{-- <th>Category</th> --}}
                                         <th>Date Purchased</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>Mary Grace Elias</p>
-                                        </td>
-                                        <td>4</td>
-                                        <td>Piso Wifi</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
 
-                                            <p>Mary Joy Reambonanza</p>
-                                        </td>
-                                        <td>1</td>
-                                        <td>E-Loading Machine</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                    @foreach ($_eloading_best_seller as $cd)
+                                        <tr>
+                                            <td>
+                                                <p>{{ $cd->Item }}</p>
+                                            <td>{{ $cd->Quantity }}</td>
+                                            <td>{{ $cd->Date }}</td>
 
-                                            <p>John Doe</p>
-                                        </td>
-                                        <td>5</td>
-                                        <td>Piso Wifi</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
-                                            <p>Rogina Rolloque</p>
-                                        </td>
-                                        <td>2</td>
-                                        <td>Cellphone</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-
-                                            <p>Seth Obenita</p>
-                                        </td>
-                                        <td>8</td>
-                                        <td>E-Loading Parts</td>
-                                        <td>01-10-2021</td>
-                                    </tr>
                                 </tbody>
                             </table>
+                            <br>
+                            {{ $_eloading_best_seller->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
             </main>
