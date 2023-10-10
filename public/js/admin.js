@@ -8,51 +8,8 @@ switchMode.addEventListener('change', function () {
         document.body.classList.remove('dark');
     }
 });
-// BAR CHART
-var barChartOptions = {
-	series: [{
-	  data: [54, 48, 45, 41, 37]
-	}],
-	chart: {
-	  type: 'bar',
-	  height: 350,
-	  toolbar: {
-		show: false
-	  },
-	},
-	colors: [
-	  "#246dec",
-	  "#cc3c43",
-	  "#367952",
-	  "#f5b74f",
-	  "#4f35a1"
-	],
-	plotOptions: {
-	  bar: {
-		distributed: true,
-		borderRadius: 4,
-		horizontal: false,
-		columnWidth: '40%',
-	  }
-	},
-	dataLabels: {
-	  enabled: false
-	},
-	legend: {
-	  show: false
-	},
-	xaxis: {
-	  categories: ["Piso Wifi", "E-Loading Machine", "Piso Wifi", "Cellphone", "E-Loading Parts"],
-	  title:{
-		text:"Product Name"
-	  }
-	},
-	yaxis: {
-	  title: {
-		text: "Total Sales"
-	  }
-	}
-  };
+
+
 
 
 //Customer Ranking

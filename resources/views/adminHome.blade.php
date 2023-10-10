@@ -203,7 +203,7 @@
                                     <tr>
                                         <th>Product</th>
                                         <th>Quantity</th>
-                                        {{-- <th>Category</th> --}}
+                                        <th>Category</th>
                                         <th>Date Purchased</th>
 
                                     </tr>
@@ -215,6 +215,7 @@
                                             <td>
                                                 <p>{{ $cd->Item }}</p>
                                             <td>{{ $cd->Quantity }}</td>
+                                            <td>{{ $cd->Category }}</td>
                                             <td>{{ $cd->Date }}</td>
 
                                             </td>

@@ -21,10 +21,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', 'admin/home');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 
 /*------------------------------------------
@@ -45,7 +41,8 @@ Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    
+    Route::get('adminHome', [HomeController::class, 'showData']);
+
     Route::get('/status', function () {
         return view('productstatus');
     });
@@ -87,7 +84,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
-    Route::get('adminHome', [HomeController::class, 'showData']);
+
 
     //CRUD Function//
 

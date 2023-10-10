@@ -15,8 +15,9 @@ class PackagingMonitoringController extends Controller {
         return view( 'PackagingMonitoring', [ 'packagingmonitoring'=> $packaging ] );
     }
 
-    // Store Function
 
+
+    // Store Function
     public function store( Request $request ) {
 
         $request->validate( [
@@ -82,12 +83,11 @@ class PackagingMonitoringController extends Controller {
             'RemarksUpdatedAsOf' => $request->input( 'RemarksUpdatedAsOf' ),
         ] );
 
-
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
 
-
     //Delete Function
+
     public function delete( $id ) {
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
