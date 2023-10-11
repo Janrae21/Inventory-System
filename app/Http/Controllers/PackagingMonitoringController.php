@@ -15,8 +15,8 @@ class PackagingMonitoringController extends Controller {
         return view( 'PackagingMonitoring', [ 'packagingmonitoring'=> $packaging ] );
     }
 
+    
     // Store Function
-
     public function store( Request $request ) {
 
         $request->validate( [
@@ -24,12 +24,11 @@ class PackagingMonitoringController extends Controller {
             'ItemsName' => 'required',
             'Status' => 'required',
             'RemainingStocks' => 'required|numeric',
-            'ItemSoldAsOf' => 'required|numeric',
             'StocksPurchased' => 'required|numeric',
             'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-            'Damageormissingorforesting' => 'required|numeric',
+            'Damageormissingorfortesting' => 'required|numeric',
             'UpcomingStocks' => 'required|numeric',
-            'RemarksUpdatedAsOf' => 'required',
+            'Remarks' => 'required',
 
         ] );
 
@@ -38,12 +37,13 @@ class PackagingMonitoringController extends Controller {
         $packagingMonitoring->ItemsName = $request->input( 'ItemsName' );
         $packagingMonitoring->Status = $request->input( 'Status' );
         $packagingMonitoring->RemainingStocks = $request->input( 'RemainingStocks' );
-        $packagingMonitoring->ItemSoldAsOf = $request->input( 'ItemSoldAsOf' );
         $packagingMonitoring->StocksPurchased = $request->input( 'StocksPurchased' );
         $packagingMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
-        $packagingMonitoring->Damageormissingorforesting = $request->input( 'Damageormissingorforesting' );
+        $packagingMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
         $packagingMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
-        $packagingMonitoring->RemarksUpdatedAsOf = $request->input( 'RemarksUpdatedAsOf' );
+        $packagingMonitoring->Remarks = $request->input( 'Remarks' );
+        $PisoWifiAccessories->created_at = now();
+        $PisoWifiAccessories->updated_at = now();
 
         $packagingMonitoring->save();
 
@@ -55,6 +55,7 @@ class PackagingMonitoringController extends Controller {
     public function viewItem( $id ) {
         $pm = PackagingMonitoringModel::findOrFail( $id );
         return view( 'product_view', [ 'PackagingMonitoring' => $pm ] );
+
     }
 
     // Update Function
@@ -64,10 +65,10 @@ class PackagingMonitoringController extends Controller {
             'Status' => 'required',
             'StocksPurchased' => 'required|numeric',
             'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-            'Damageormissingorforesting' => 'required|numeric',
+            'Damageormissingorfortesting' => 'required|numeric',
             'RemainingStocks' => 'required|numeric',
             'UpcomingStocks' => 'required|numeric',
-            'RemarksUpdatedAsOf' => 'required',
+            'Remark' => 'required',
         ] );
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
@@ -76,18 +77,17 @@ class PackagingMonitoringController extends Controller {
             'Status' => $request->input( 'Status' ),
             'StocksPurchased' => $request->input( 'StocksPurchased' ),
             'ActualStocksBasedonactualcheckingEDUD' => $request->input( 'ActualStocksBasedonactualcheckingEDUD' ),
-            'Damageormissingorforesting' => $request->input( 'Damageormissingorforesting' ),
+            'Damageormissingorfortesting' => $request->input( 'Damageormissingorfortesting' ),
             'RemainingStocks' => $request->input( 'RemainingStocks' ),
             'UpcomingStocks' => $request->input( 'UpcomingStocks' ),
-            'RemarksUpdatedAsOf' => $request->input( 'RemarksUpdatedAsOf' ),
+            'Remarks' => $request->input( 'Remarks' ),
         ] );
-
 
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
 
-
     //Delete Function
+
     public function delete( $id ) {
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );

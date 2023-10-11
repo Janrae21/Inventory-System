@@ -35,16 +35,8 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Product</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Physical Store Computer Stocks Monitoring</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
+                        <h1>Product- Physical Store Computer Stocks Monitoring</h1>
+
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -54,17 +46,13 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Physical Store Computer Stocks Monitoring</h3>
 
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
+                                style="width:150px;  height:50px, border-radius:5px; background-color: green; border-style:none">
+                                <i class='bx bx-plus-circle' style="font-size:24px;  color:white;">Add</i>
                             </button>
 
-
-
                             <!-- Add Items Modal -->
-
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -82,19 +70,19 @@
                                             <div class="modal-body">
 
                                                 <div class="form-group mb-3">
-                                                    <label>ITEMS Name</label>
+                                                    <label>Items Name</label>
                                                     <input type="text" name="ItemsName" required class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label>Select Status</label>
                                                     <select name="Status" required class="form-control">
                                                         <option value="">Select Status</option>
-                                                        <option value="Okay">Okay</option>
-                                                        <option value="Error">Error</option>
+                                                        <option value="Ongoing">Ongoing</option>
+                                                        <option value="Pending">Pending</option>
+                                                        <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
-
-
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
@@ -113,7 +101,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorforesting" required
+                                                    <input type="text" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group mb-3">
@@ -129,14 +117,13 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Remarks</label>
-                                                    <input type="text" name="RemarksUpdatedAsOf" required
+                                                    <input type="text" name="Remarks" required
                                                         class="form-control">
                                                 </div>
 
                                                 <div class="modal-footer ">
                                                     <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            Changes</button>
+                                                        <button type="submit" class="btn btn-primary">Add</button>
                                                         <button type="submit" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
@@ -146,27 +133,26 @@
                                             </div>
                                         </form>
 
+
                                     </div>
 
                                 </div>
 
                             </div>
-                            @if (Session::has('message'))
-                            <script>
-                                swal("message", "Successfuly Added Item", "success", {
-                                    button: "okay",
-                                });
-                            </script>
+                            @if (Session::has('message Add'))
+                                <script>
+                                    swal("message", "Successfuly Added Item", "success", {
+                                        button: "okay",
+                                    });
+                                </script>
                             @endif
-
                         </div>
-
 
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS Name</th>
-                                    <th>STATUS</th>
+                                    <th>Items Name</th>
+                                    <th>Status</th>
                                     <th>Remarks</th>
                                     <th>Action</th>
 
@@ -179,13 +165,7 @@
                                             {{ $ps->ItemsName }}
                                         </td>
                                         <td style="border:none;">{{ $ps->Status }}</td>
-                                        <!-- <td>{{ $ps->RemainingStocks }}</td>
-                                                            <td>{{ $ps->ItemSoldAsOf }}</td>
-                                                            <td>{{ $ps->StocksPurchased }}</td>
-                                                            <td>{{ $ps->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                                            <td>{{ $ps->Damageormissingorforesting }}</td>
-                                                            <td>{{ $ps->UpcomingStocks }}</td> -->
-                                        <td style="border:none;">{{ $ps->RemarksUpdatedAsOf }}</td>
+                                        <td style="border:none;">{{ $ps->Remarks }}</td>
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase
                                                 Item</a>
@@ -201,6 +181,7 @@
                                         </td>
                                     </tr>
 
+                                    <!--View Product Modal-->
                                     <div class="modal fade" id="productModal{{ $ps->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}"
                                         aria-hidden="true">
@@ -229,7 +210,7 @@
 
                                                     <p>Damage or Missing or Foresting:</p>
                                                     <input class="form-control" type="text"
-                                                        value="{{ $ps->Damageormissingorforesting }}" disabled>
+                                                        value="{{ $ps->Damageormissingorfortesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
                                                     <input class="form-control" type="text"
@@ -241,16 +222,11 @@
 
                                                     <p>Remarks:</p>
                                                     <input class="form-control" type="text"
-                                                        value="{{ $ps->RemarksUpdatedAsOf }}" disabled>
+                                                        value="{{ $ps->Remarks }}" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
 
                                     <!--Edit Item Modal-->
                                     <div class="modal fade" id="productModalEdit{{ $ps->id }}" tabindex="-1"
@@ -274,20 +250,22 @@
                                                         @method('PUT')
 
 
-
                                                         <div class="modal-body">
-                                                            <p>Status:</p>
-                                                            <input class="form-control" type="text"
-                                                                value="{{ $ps->Status }}">
+                                                            <div class="form-group mb-3">
+                                                                <label>Items Name</label>
+                                                                <input type="text" name="ItemsName" required
+                                                                    value="{{ $ps->ItemsName }}" class="form-control">
+                                                            </div>
 
-                                                            {{-- <div class="form-group">
-                                                                <select name="Status" required class="form-control"
-                                                                    value="{{ $pm->Status }}">>
-                                                                    <option value="{{ $pm->Status }}"></option>
-                                                                    <option value="{{ $pm->Status }}">Okay</option>
-                                                                    <option value="{{ $pm->Status }}">Error</option>
+                                                            <div class="form-group">
+                                                                <label>Select Status</label>
+                                                                <select name="Status" required class="form-control">
+                                                                    <option>Select Status</option>
+                                                                    <option value="Ongoing" {{ $ps->Status === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
+                                                                    <option value="Pending" {{ $ps->Status === 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                                    <option value="Decline" {{ $ps->Status === 'Decline' ? 'selected' : '' }}>Decline</option>
                                                                 </select>
-                                                            </div> --}}
+                                                            </div>
 
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="text"
@@ -301,8 +279,8 @@
 
                                                             <p>Damage or Missing or Foresting:</p>
                                                             <input class="form-control" type="text"
-                                                                name="Damageormissingorforesting"
-                                                                value="{{ $ps->Damageormissingorforesting }}">
+                                                                name="Damageormissingorfortesting"
+                                                                value="{{ $ps->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
                                                             <input class="form-control" type="text"
@@ -315,14 +293,14 @@
 
                                                             <p>Remarks Updated As Of:</p>
                                                             <input class="form-control" type="text"
-                                                                name="RemarksUpdatedAsOf"
-                                                                value="{{ $ps->RemarksUpdatedAsOf }}">
+                                                                name="Remarks"
+                                                                value="{{ $ps->Remarks }}">
                                                         </div>
 
                                                         <div class="modal-footer">
                                                             <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Edit</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
@@ -334,12 +312,12 @@
                                             </div>
                                         </div>
                                         @if (Session::has('message'))
-                                        <script>
-                                            swal("message", "Item Edited Successfully", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
+                                            <script>
+                                                swal("message", "Successfully Edited", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
                                     </div>
 
 
@@ -375,6 +353,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

@@ -17,13 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('ItemsName');
             $table->string('Status');
-            $table->double('RemainingStocks');
-            $table->double('ItemSoldAsOf');
-            $table->double('StocksPurchased');
-            $table->double('ActualStocksBasedonactualchecking(EDUD)');
-            $table->double('Damageormissingorforesting');
-            $table->string('UpcomingStocks');
-            $table->string('RemarksUpdatedAsOf');
+            $table->integer('RemainingStocks');
+            $table->integer('StocksPurchased');
+            $table->integer('ActualStocksBasedonactualcheckingEDUD');
+            $table->integer('Damageormissingorfortesting');
+            $table->integer('UpcomingStocks');
+            $table->string('Remarks');
             $table->timestamps();
         });
     }

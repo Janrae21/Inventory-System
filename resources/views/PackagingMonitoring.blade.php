@@ -35,16 +35,8 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Product</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Packaging Monitoring</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
+                        <h1>Product- Packaging Monitoring</h1>
+
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -60,8 +52,8 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS Name</th>
-                                    <th>STATUS</th>
+                                    <th>Items Name</th>
+                                    <th>Status</th>
                                     <!-- <th>Remaining Stocks</th>
                                                                                                                                                     <th>Item Sold As Of</th>
                                                                                                                                                     <th>Stocks Purchased</th>
@@ -87,7 +79,7 @@
                                                                                                                                                         <td>{{ $pm->ActualStocksBasedonactualcheckingEDUD }}</td>
                                                                                                                                                         <td>{{ $pm->Damageormissingorforesting }}</td>
                                                                                                                                                         <td>{{ $pm->UpcomingStocks }}</td> -->
-                                        <td style="border: none">{{ $pm->RemarksUpdatedAsOf }}</td>
+                                        <td style="border: none">{{ $pm->Remarks }}</td>
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px; cursor:pointer;"><i
                                                     class='bx bxs-cart'></i> Purchase
@@ -107,6 +99,8 @@
                                     </tr>
 
                                     <!--Add Item-->
+
+
 
 
 
@@ -144,7 +138,7 @@
 
                                                     <p>Damage or Missing or Foresting:</p>
                                                     <input class="form-control" type="text"
-                                                        value="{{ $pm->Damageormissingorforesting }}" disabled>
+                                                        value="{{ $pm->Damageormissingorfortesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
                                                     <input class="form-control" type="text"
@@ -156,7 +150,7 @@
 
                                                     <p>Remarks Updated As Of:</p>
                                                     <input class="form-control" type="text"
-                                                        value="{{ $pm->RemarksUpdatedAsOf }}" disabled>
+                                                        value="{{ $pm->Remarks }}" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,19 +190,16 @@
 
 
                                                         <div class="modal-body">
-                                                            <p>Status:</p>
-                                                            <input class="form-control" type="text"
-                                                                value="{{ $pm->Status }}">
-
-                                                            {{-- <div class="form-group">
-                                                                <select name="Status" required class="form-control"
-                                                                    value="{{ $pm->Status }}">>
-                                                                    <option value="{{ $pm->Status }}"></option>
-                                                                    <option value="{{ $pm->Status }}">Okay</option>
-                                                                    <option value="{{ $pm->Status }}">Error</option>
+                                                            <div class="form-group">
+                                                                <label>Select Status</label>
+                                                                <select name="Status" required class="form-control">
+                                                                    <option>Select Status</option>
+                                                                    <option value="Ongoing" {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
+                                                                    <option value="Pending" {{ $pm->Status === 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                                    <option value="Decline" {{ $pm->Status === 'Decline' ? 'selected' : '' }}>Decline</option>
                                                                 </select>
-                                                            </div> --}}
-
+                                                            </div>
+                                                            
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="text"
                                                                 name="StocksPurchased"
@@ -222,7 +213,7 @@
                                                             <p>Damage or Missing or Foresting:</p>
                                                             <input class="form-control" type="text"
                                                                 name="Damageormissingorforesting"
-                                                                value="{{ $pm->Damageormissingorforesting }}">
+                                                                value="{{ $pm->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
                                                             <input class="form-control" type="text"
@@ -236,13 +227,12 @@
                                                             <p>Remarks Updated As Of:</p>
                                                             <input class="form-control" type="text"
                                                                 name="RemarksUpdatedAsOf"
-                                                                value="{{ $pm->RemarksUpdatedAsOf }}">
+                                                                value="{{ $pm->Remarks }}">
                                                         </div>
 
                                                         <div class="modal-footer">
                                                             <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
+                                                                <button type="submit" class="btn btn-primary">Edit</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>

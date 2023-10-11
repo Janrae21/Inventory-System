@@ -32,15 +32,6 @@
                 <div class="head-title">
                     <div class="left">
                         <h1>Product Status</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Product Status</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>

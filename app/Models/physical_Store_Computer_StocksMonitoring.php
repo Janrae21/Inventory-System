@@ -20,12 +20,11 @@ class physical_Store_Computer_StocksMonitoring extends Model
         'ItemsName',
         'Status',
         'RemainingStocks',
-        'ItemSoldAsOf',
         'StocksPurchased',
         'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorforesting',
-         'UpcomingStocks',
-        'RemarksUpdatedAsOf',
+        'Damageormissingorfortesting',
+        'UpcomingStocks',
+        'Remarks',
 
     ];
 

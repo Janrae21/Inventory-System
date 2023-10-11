@@ -54,11 +54,6 @@
                 </div>
                 <div class="table-data">
                     <div class="order">
-                        <div class="head">
-                            <h3>Customer Lists</h3>
-
-                        </div>
-
                         <table>
                             <thead>
                                 <tr>

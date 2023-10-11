@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', 'admin/home');
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Auth::routes();
 
@@ -89,6 +87,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
     Route::post('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'store']);
     Route::get('/view/item/{id}', [PisoWifi_parts_accessories_Controller::class, 'viewItem'])->name('view.item');
+    Route::put('/pisowifi-parts-accessories/{id}', [PisoWifi_parts_accessories_Controller::class, 'update'])->name('pisowifi-parts-accessories.update');
+    Route::delete('/pisowifi-parts-accessories/{id}', [PisoWifi_parts_accessories_Controller::class, 'delete'])->name('pisowifi-parts-accessories.delete');
+
+
+
+
+
 
     //Packaging Monitoring Crud//
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
@@ -101,6 +106,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('Parts-of-eloading', [PartsOfEloadingController::class, 'showEloading']);
     Route::post('Parts-of-eloading', [PartsOfEloadingController::class, 'store']);
     Route::get('/view/item/{id}', [PartsOfEloadingController::class, 'viewItem'])->name('view.item');
+    Route::put('/Parts-of-eloading/{id}', [PartsOfEloadingController::class, 'update'])->name('Parts-of-eloading.update');
+    Route::delete('/Parts-of-eloading/{id}', [PartsOfEloadingController::class, 'delete'])->name('Parts-of-eloading.delete');
 
 
     //Eloading Best Seller Crud //

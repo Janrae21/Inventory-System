@@ -14,15 +14,14 @@ class PartsOfEloadingModel extends Model
 
     // Add this if your column names don't follow snake_case
     protected $fillable = [
-        
+
         'ItemsName',
         'Status',
         'RemainingStocks',
-        'ItemSoldAsOf',
         'StocksPurchased',
         'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorforesting',
+        'Damageormissingorfortesting',
         'UpcomingStocks',
-        'RemarksUpdatedAsOf',
+        'Remarks',
     ];
 }

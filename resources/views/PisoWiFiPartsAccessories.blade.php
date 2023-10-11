@@ -36,16 +36,8 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                    <h1>Product</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Piso WiFi Parts & Accessories</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
+                    <h1>Product - Piso WiFi Parts & Accessories</h1>
+
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -55,8 +47,9 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Piso WiFi Parts & Accessories</h3>
 
+
+                            <!--Add Product Modal-->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                 <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
@@ -79,28 +72,18 @@
                                             <div class="modal-body">
 
                                                 <div class="form-group mb-3">
-                                                    <label>ITEMS Name</label>
+                                                    <label>Items Name</label>
                                                     <input type="text" name="ItemsName" required class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label>Select Status</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="">---STATUS---</option>
-                                                        <option value="Okay">Okay</option>
-                                                        <option value="Error">Error</option>
+                                                        <option value="">Select Status</option>
+                                                        <option value="Ongoing">Ongoing</option>
+                                                        <option value="Pending">Pending</option>
+                                                        <option value="Decline">Decline</option>
                                                     </select>
-                                                </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
-                                                        class="form-control">
-                                                </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Item Sold As Of</label>
-                                                    <input type="text" name="ItemSoldAsOf" required
-                                                        class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -120,7 +103,14 @@
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorforesting" required
+                                                    <input type="text" name="Damageormissingorfortesting" required
+                                                        class="form-control">
+                                                </div>
+
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="text" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -131,17 +121,15 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
-                                                    <label>Remarks Updated
-                                                        As Of
+                                                    <label>Remarks
                                                     </label>
-                                                    <input type="text" name="RemarksUpdatedAsOf" required
+                                                    <input type="text" name="Remarks" required
                                                         class="form-control">
                                                 </div>
 
                                                 <div class="modal-footer ">
                                                     <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            Changes</button>
+                                                        <button type="submit" class="btn btn-primary">Add</button>
                                                         <button type="submit" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
@@ -171,15 +159,6 @@
                                 <tr>
                                     <th>Items Name</th>
                                     <th>Status</th>
-                                    {{-- <th>Remaining Stocks</th>
-                                    <th>Item Sold As Of</th>
-                                    <th>Stocks Purchased</th>
-                                    <th>Actual Stocks</th> --}}
-                                    {{-- <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th> --}}
-                                    {{-- <th>Damage or missing or <br>for Testing</br></th> --}}
-                                    {{-- <th>DMT (Damage, Missing, Testing)</th> --}}
-                                    {{-- <th>Upcoming Stocks</th> --}}
-                                    {{-- <th>Remarks Updated <br>As Of</br></th> --}}
                                     <th>Remarks</th>
                                     <th>Action</th>
 
@@ -192,18 +171,16 @@
                                             {{ $pisoWifi->ItemsName }}
                                         </td>
                                         <td style="border: none">{{ $pisoWifi->Status }}</td>
-                                        {{-- <td>{{ $pisoWifi->RemainingStocks }}</td>
-                                        <td>{{ $pisoWifi->ItemSoldAsOf }}</td>
-                                        <td>{{ $pisoWifi->StocksPurchased }}</td>
-                                        <td>{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                        <td>{{ $pisoWifi->Damageormissingorforesting }}</td>
-                                        <td>{{ $pisoWifi->UpcomingStocks }}</td> --}}
-                                        <td style="border: none">{{ $pisoWifi->RemarksUpdatedAsOf }}</td>
+                                        <td style="border: none">{{ $pisoWifi->Remarks }}</td>
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#" data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
+                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#productModalEdit{{ $pisoWifi->id }}"><i
+                                                    class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#deleteModal{{ $pisoWifi->id }}"><i
+                                                    class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
 
@@ -228,7 +205,7 @@
                                                     <input class="form-control" type="text" value="{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}" disabled>
 
                                                     <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text" value="{{ $pisoWifi->Damageormissingorforesting }}" disabled>
+                                                    <input class="form-control" type="text" value="{{ $pisoWifi->Damageormissingorfortesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
                                                     <input class="form-control" type="text" value="{{ $pisoWifi->RemainingStocks }}" disabled>
@@ -237,21 +214,150 @@
                                                     <input class="form-control" type="text" value="{{ $pisoWifi->UpcomingStocks }}" disabled>
 
                                                     <p>Remarks Updated As Of:</p>
-                                                    <input class="form-control" type="text" value="{{ $pisoWifi->RemarksUpdatedAsOf }}" disabled>
+                                                    <input class="form-control" type="text" value="{{ $pisoWifi->Remarks }}" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <!--Edit Item Modal-->
+                                    <div class="modal fade" id="productModalEdit{{ $pisoWifi->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="productModalLabel{{ $pisoWifi->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="productModalLabel{{ $pisoWifi->id }}">
+                                                        {{ $pisoWifi->ItemsName }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="{{ route('pisowifi-parts-accessories.update', $pisoWifi->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+
+                                                        <div class="modal-body">
+                                                            <div class="form-group mb-3">
+                                                                <label>Items Name</label>
+                                                                <input type="text" name="ItemsName" required
+                                                                    value="{{ $pisoWifi->ItemsName }}" class="form-control">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label>Select Status</label>
+                                                                <select name="Status" required class="form-control">
+                                                                    <option>Select Status</option>
+                                                                    <option value="Ongoing" {{ $pisoWifi->Status === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
+                                                                    <option value="Pending" {{ $pisoWifi->Status === 'Pending' ? 'selected' : '' }}>Pending</option>
+                                                                    <option value="Decline" {{ $pisoWifi->Status === 'Decline' ? 'selected' : '' }}>Decline</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <p>Stocks Purchased:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="StocksPurchased"
+                                                                value="{{ $pisoWifi->StocksPurchased }}">
+
+                                                            <p>Actual Stocks Based on Actual Checking:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="ActualStocksBasedonactualcheckingEDUD"
+                                                                value="{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}">
+
+                                                            <p>Damage or Missing or Foresting:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="Damageormissingorfortesting"
+                                                                value="{{ $pisoWifi->Damageormissingorfortesting }}">
+
+                                                            <p>Remaining Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="RemainingStocks"
+                                                                value="{{ $pisoWifi->RemainingStocks }}">
+
+                                                            <p>Upcoming Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="UpcomingStocks" value="{{ $pisoWifi->UpcomingStocks }}">
+
+                                                            <p>Remarks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="Remarks"
+                                                                value="{{ $pisoWifi->Remarks }}">
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <div class="btn">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Edit</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        @if (Session::has('message'))
+                                            <script>
+                                                swal("message", "Successfully Edited", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
+                                    </div>
+
+                                    <!-- Delete Confirmation Modal -->
+                                    <div class="modal fade" id="deleteModal{{ $pisoWifi->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="deleteModalLabel{{ $pisoWifi->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $pisoWifi->id }}">
+                                                        Confirm
+                                                        Deletion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this item?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form
+                                                        action="{{ route('pisowifi-parts-accessories.delete', $pisoWifi->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
+
                                 @endforeach
                             </tbody>
                         </table>
                         <br>
                         {{ $pisowifi_parts_accessories->links('pagination::bootstrap-5') }}
                     </div>
-                </div>
-                <div class="btn">
-                    <button type="button" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
                 </div>
             </main>
             <!-- MAIN -->
