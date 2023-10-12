@@ -7,21 +7,7 @@
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
 
-li {
-    list-style: none;
-}
-
-li a {
-    text-decoration: none;
-}
-
-.btn-download {
-    text-decoration: none;
-}
 
 
 :root {
@@ -432,18 +418,7 @@ main {
     pointer-events: unset;
 }
 
-#content main .head-title .btn-download {
-    height: 36px;
-    padding: 0 16px;
-    border-radius: 36px;
-    background: var(--blue);
-    color: var(--light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-gap: 10px;
-    font-weight: 500;
-}
+
 
 #content main .box-info {
     display: grid;

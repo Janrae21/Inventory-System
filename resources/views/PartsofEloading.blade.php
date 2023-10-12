@@ -17,7 +17,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{{ asset('images/logo.png') }}" rel="icon">
         <link href="{{ asset('css/Eloadingparts.css') }}" rel="stylesheet">
-        <title>Parts of Eloading</title>
+        <title>Eloading Parts and Accessories</title>
     </head>
 
     <body>
@@ -34,17 +34,8 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                    <h1>Product</h1>
-                        {{-- <h1>Parts of Eloading</h1> --}}
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Parts of Eloading</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">>>Home</a>
-                            </li>
-                        </ul>
+                        <h1>Product- Eloading Parts and Accessories</h1>
+
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -54,16 +45,15 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Parts of Eloading</h3>
 
+                            <!--Add Product Modal-->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                 <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
                             </button>
 
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -78,27 +68,23 @@
                                             <div class="modal-body">
 
                                                 <div class="form-group mb-3">
-                                                    <label>ITEMS Name</label>
+                                                    <label>Items Name</label>
                                                     <input type="text" name="ItemsName" required class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label>Select Status</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="">---STATUS---</option>
-                                                        <option value="Okay">Okay</option>
-                                                        <option value="Error">Error</option>
+                                                        <option>Select Status</option>
+                                                        <option value="Ongoing">Ongoing</option>
+                                                        <option value="Pending">Pending</option>
+                                                        <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
                                                     <input type="text" name="RemainingStocks" required
-                                                        class="form-control">
-                                                </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Item Sold As Of</label>
-                                                    <input type="text" name="ItemSoldAsOf" required
                                                         class="form-control">
                                                 </div>
 
@@ -119,7 +105,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorforesting" required
+                                                    <input type="text" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
 
@@ -130,17 +116,15 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
-                                                    <label>Remarks Updated
-                                                        As Of
+                                                    <label>Remarks
                                                     </label>
-                                                    <input type="text" name="RemarksUpdatedAsOf" required
-                                                        class="form-control">
+                                                    <input type="text" name="Remarks" required class="form-control">
                                                 </div>
 
                                                 <div class="modal-footer ">
                                                     <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Save
-                                                            Changes</button>
+                                                        <button type="submit" class="btn btn-primary">Add
+                                                        </button>
                                                         <button type="submit" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
@@ -150,33 +134,26 @@
                                             </div>
                                         </form>
 
-                                        @if (Session::has('message'))
-                                            <script>
-                                                swal("message", "Successfuly Added Item", "success", {
-                                                    button: "okay",
-                                                });
-                                            </script>
-                                        @endif
-
                                     </div>
 
                                 </div>
 
                             </div>
+                            @if (Session::has('message-Add'))
+                                <script>
+                                    swal("message", "Successfuly Added Item", "success", {
+                                        button: "okay",
+                                    });
+                                </script>
+                            @endif
 
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS Name</th>
-                                    <th>STATUS</th>
-                                    <!-- <th>Remaining Stocks</th>
-                                    <th>Item Sold As Of</th>
-                                    <th>Stocks Purchased</th>
-                                    <th>Actual Stocks<br>Based on actual</br>checking(EDUD)</br></th>
-                                    <th>Damage or missing or <br>for Testing</br></th>
-                                    <th>Upcoming Stocks</th> -->
-                                    <th>Remarks Updated <br>As Of</br></th>
+                                    <th>Items Name</th>
+                                    <th>Status</th>
+                                    <th>Remarks</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -189,15 +166,9 @@
                                             {{ $pe->ItemsName }}
                                         </td>
                                         <td style="border:none;">{{ $pe->Status }}</td>
-                                        <!-- <td>{{ $pe->RemainingStocks }}</td>
-                                        <td>{{ $pe->ItemSoldAsOf }}</td>
-                                        <td>{{ $pe->StocksPurchased }}</td>
-                                        <td>{{ $pe->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                        <td>{{ $pe->Damageormissingorforesting }}</td>
-                                        <td>{{ $pe->UpcomingStocks }}</td> -->
-                                        <td style="border:none;">{{ $pe->RemarksUpdatedAsOf }}</td>
+                                        <td style="border:none;">{{ $pe->Remarks }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $pe->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#" data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i class='bx bxs-show'></i> View</a>
                                             <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
                                             <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
@@ -217,7 +188,7 @@
                                         <div class="modal-body">
                                             <form action="{{ route('orders.store') }}" method="POST">
                                             @csrf
-                                            
+
                                             <div class="form-group" >
                                                 <label for="customer_id">Customer
                                                 <a href="#addCustomerModal" data-toggle="modal" data-dismiss="modal" style="color: #4CA7DF; padding: 10px;">
@@ -225,9 +196,9 @@
                                                 </label>
                                                 <select name="customer_id" id="customer_id" class="form-control">
                                                 <option value="" disabled selected>Select Customer</option>
-    
+
                                                 </select>
-                                                
+
                                             </div>
                                             <div class="form-group">
                                                 <label for="item_name">Item Name</label>
@@ -237,12 +208,12 @@
                                                 <label for="quantity_sold">Quantity</label>
                                                 <input type="number" name="quantity_sold" id="quantity_sold" class="form-control" required>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label for="category">Category</label>
                                                 <input type="text" name="category" id="category" value="Pisowifi" class="form-control" disabled>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label for="payment_method">Payment Method</label>
                                                 <select name="payment_method" id="payment_method" class="form-control">
@@ -253,7 +224,7 @@
                                                 <option value="Cash on Delivery">Cash on Delivery</option>
                                                 </select>
                                             </div>
-                                            
+
                                             <div class="form-group">
                                                 <label for="shipment_status">Shipment Status</label>
                                                 <select name="shipment_status" id="shipment_status" class="form-control">
@@ -266,9 +237,9 @@
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Purchase</button>
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                
+
                                             </div>
-                                            
+
                                             </form>
                                         </div>
                                         </div>
@@ -313,82 +284,188 @@
                                     </div>
                                 </div>
 
-                                     <!-- View Modal -->
-                                     <div class="modal fade" id="productModal{{ $pe->id }}" tabindex="-1" role="dialog" aria-labelledby="productModalLabel{{ $pe->id }}" aria-hidden="true">
+                                    <!-- View Modal -->
+                                    <div class="modal fade" id="productModal{{ $pe->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="productModalLabel{{ $pe->id }}"
+                                        aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="productModalLabel{{ $pe->id }}">{{ $pe->ItemsName }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <h5 class="modal-title" id="productModalLabel{{ $pe->id }}">
+                                                        {{ $pe->ItemsName }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <p>Status:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->Status }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->Status }}" disabled>
 
                                                     <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->StocksPurchased }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->StocksPurchased }}" disabled>
 
                                                     <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}" disabled>
 
                                                     <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->Damageormissingorforesting }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->Damageormissingorfortesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->RemainingStocks }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->RemainingStocks }}" disabled>
 
                                                     <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->UpcomingStocks }}" disabled>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->UpcomingStocks }}" disabled>
 
-                                                    <p>Remarks Updated As Of:</p>
-                                                    <input class="form-control" type="text" value="{{ $pe->RemarksUpdatedAsOf }}" disabled>
+                                                    <p>Remarks:</p>
+                                                    <input class="form-control" type="text"
+                                                        value="{{ $pe->Remarks }}" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
 
+                                    <!--Edit Item Modal-->
+                                    <div class="modal fade" id="productModalEdit{{ $pe->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="productModalLabel{{ $pe->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="productModalLabel{{ $pe->id }}">
+                                                        {{ $pe->ItemsName }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('Parts-of-eloading.update', $pe->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
 
 
+                                                        <div class="modal-body">
+                                                            <div class="form-group mb-3">
+                                                                <label>Items Name</label>
+                                                                <input type="text" name="ItemsName" required
+                                                                    value="{{ $pe->ItemsName }}" class="form-control">
+                                                            </div>
 
+                                                            <div class="form-group">
+                                                                <label>Select Status</label>
+                                                                <select name="Status" required class="form-control">
+                                                                    <option>Select Status</option>
+                                                                    <option value="Ongoing"
+                                                                        {{ $pe->Status === 'Ongoing' ? 'selected' : '' }}>
+                                                                        Ongoing</option>
+                                                                    <option value="Pending"
+                                                                        {{ $pe->Status === 'Pending' ? 'selected' : '' }}>
+                                                                        Pending</option>
+                                                                    <option value="Decline"
+                                                                        {{ $pe->Status === 'Decline' ? 'selected' : '' }}>
+                                                                        Decline</option>
+                                                                </select>
+                                                            </div>
 
+                                                            <p>Stocks Purchased:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="StocksPurchased"
+                                                                value="{{ $pe->StocksPurchased }}">
 
+                                                            <p>Actual Stocks Based on Actual Checking:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="ActualStocksBasedonactualcheckingEDUD"
+                                                                value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}">
 
+                                                            <p>Damage or Missing or Foresting:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="Damageormissingorfortesting"
+                                                                value="{{ $pe->Damageormissingorfortesting }}">
 
+                                                            <p>Remaining Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="RemainingStocks"
+                                                                value="{{ $pe->RemainingStocks }}">
 
+                                                            <p>Upcoming Stocks:</p>
+                                                            <input class="form-control" type="text"
+                                                                name="UpcomingStocks" value="{{ $pe->UpcomingStocks }}">
 
+                                                            <p>Remarks:</p>
+                                                            <input class="form-control" type="text" name="Remarks"
+                                                                value="{{ $pe->Remarks }}">
+                                                        </div>
 
+                                                        <div class="modal-footer">
+                                                            <div class="btn">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Edit</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
 
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                        @if (Session::has('message'))
+                                            <script>
+                                                swal("message", "Successfully Edited", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
+                                    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                    <!-- Delete Confirmation Modal -->
+                                    <div class="modal fade" id="deleteModal{{ $pe->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="deleteModalLabel{{ $pe->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $pe->id }}">
+                                                        Confirm
+                                                        Deletion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this item?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('Parts-of-eloading.delete', $pe->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger" style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary" style="width: 90px"
+                                                            data-dismiss="modal">Cancel</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

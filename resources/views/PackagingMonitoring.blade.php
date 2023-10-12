@@ -35,16 +35,8 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Product</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Packaging Monitoring</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
+                        <h1>Product- Packaging Monitoring</h1>
+
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -54,21 +46,14 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Packaging Monitoring</h3>
+
 
                         </div>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ITEMS Name</th>
-                                    <th>STATUS</th>
-                                    <!-- <th>Remaining Stocks</th>
-                                                                                                                                                    <th>Item Sold As Of</th>
-                                                                                                                                                    <th>Stocks Purchased</th>
-                                                                                                                                                    <th>Actual Stocks<br>Based on actual</br>checking</br></th>
-                                                                                                                                                    <th>Damage or missing or <br>for Testing</br></th>
-                                                                                                                                                    <th>Upcoming Stocks</th>
-                                                                                                                                                    <th>Remarks Updated <br>As Of</br></th> -->
+                                    <th>Items Name</th>
+                                    <th>Status</th>
                                     <th>Remarks</th>
                                     <th>Action</th>
 
@@ -81,13 +66,7 @@
                                             {{ $pm->ItemsName }}
                                         </td>
                                         <td style="border: none">{{ $pm->Status }}</td>
-                                        <!-- <td>{{ $pm->RemainingStocks }}</td>
-                                                                                                                                                        <td>{{ $pm->ItemSoldAsOf }}</td>
-                                                                                                                                                        <td>{{ $pm->StocksPurchased }}</td>
-                                                                                                                                                        <td>{{ $pm->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                                                                                                                                        <td>{{ $pm->Damageormissingorforesting }}</td>
-                                                                                                                                                        <td>{{ $pm->UpcomingStocks }}</td> -->
-                                        <td style="border: none">{{ $pm->RemarksUpdatedAsOf }}</td>
+                                        <td style="border: none">{{ $pm->Remarks }}</td>
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $pm->id }}"><i
                                                     class='bx bxs-cart'></i> Purchase
@@ -107,114 +86,7 @@
                                     </tr>
 
                                     <!--Add Item-->
-                                    <!-- Order Modal -->
-                                    <div  class="modal fade"  id="orderModal{{ $pm->id }}" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel{{ $pm->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Purchase Item</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('orders.store') }}" method="POST">
-                                            @csrf
-                                            
-                                            <div class="form-group" >
-                                                <label for="customer_id">Customer
-                                                <a href="#addCustomerModal" data-toggle="modal" data-dismiss="modal" style="color: #4CA7DF; padding: 10px;">
-                                                <i class='bx bx-plus'></i> Add Customer</a>
-                                                </label>
-                                                <select name="customer_id" id="customer_id" class="form-control">
-                                                <option value="" disabled selected>Select Customer</option>
-    
-                                                </select>
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="item_name">Item Name</label>
-                                                <input type="text" name="item_name" id="orderModalLabel{{ $pm->id }}" class="form-control"  value="{{ $pm->ItemsName }}" disabled>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="quantity_sold">Quantity</label>
-                                                <input type="number" name="quantity_sold" id="quantity_sold" class="form-control" required>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="category">Category</label>
-                                                <input type="text" name="category" id="category" value="Pisowifi" class="form-control" disabled>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="payment_method">Payment Method</label>
-                                                <select name="payment_method" id="payment_method" class="form-control">
-                                                <option value="" disabled selected>Select Payment Method</option>
-                                                <option value="Credit Card">Credit Card</option>
-                                                <option value="Credit Card">G-cash</option>
-                                                <option value="Credit Card">Other Online Banks</option>
-                                                <option value="Cash on Delivery">Cash on Delivery</option>
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="shipment_status">Shipment Status</label>
-                                                <select name="shipment_status" id="shipment_status" class="form-control">
-                                                <option value="" disabled selected>Select Shipment Status</option>
-                                                <option value="Pending">Pending</option>
-                                                <option value="Shipped">Shipped</option>
-                                                <option value="Delivered">Delivered</option>
-                                                </select>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Purchase</button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                
-                                            </div>
-                                            
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
 
-                                    <!-- Add Customer Modal -->
-                                    <div id="addCustomerModal" class="modal fade" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Add Customer</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="customer_name">Name</label>
-                                                        <input type="text" class="form-control" id="customer_name" name="customer_name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="customer_address">Address</label>
-                                                        <input type="text" class="form-control" id="customer_address" name="customer_address">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="customer_age">Age</label>
-                                                        <input type="number" class="form-control" id="customer_age" name="customer_age">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="customer_email">Email</label>
-                                                        <input type="email" class="form-control" id="customer_email" name="customer_email">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary">OK</button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
 
 
@@ -251,7 +123,7 @@
 
                                                     <p>Damage or Missing or Foresting:</p>
                                                     <input class="form-control" type="text"
-                                                        value="{{ $pm->Damageormissingorforesting }}" disabled>
+                                                        value="{{ $pm->Damageormissingorfortesting }}" disabled>
 
                                                     <p>Remaining Stocks:</p>
                                                     <input class="form-control" type="text"
@@ -261,9 +133,9 @@
                                                     <input class="form-control" type="text"
                                                         value="{{ $pm->UpcomingStocks }}" disabled>
 
-                                                    <p>Remarks Updated As Of:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->RemarksUpdatedAsOf }}" disabled>
+                                                    <p>Remarks:</p>
+                                                    <input class="form-control" type="text" value="{{ $pm->Remarks }}"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -276,11 +148,7 @@
                                         </script>
                                     @endif
 
-
-
-
                                     <!--Updated Modal-->
-
                                     <div class="modal fade" id="productModalEdit{{ $pm->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
                                         aria-hidden="true">
@@ -300,21 +168,22 @@
                                                         @csrf
                                                         @method('PUT')
 
-
-
                                                         <div class="modal-body">
-                                                            <p>Status:</p>
-                                                            <input class="form-control" type="text"
-                                                                value="{{ $pm->Status }}">
-
-                                                            {{-- <div class="form-group">
-                                                                <select name="Status" required class="form-control"
-                                                                    value="{{ $pm->Status }}">>
-                                                                    <option value="{{ $pm->Status }}"></option>
-                                                                    <option value="{{ $pm->Status }}">Okay</option>
-                                                                    <option value="{{ $pm->Status }}">Error</option>
+                                                            <div class="form-group">
+                                                                <label>Select Status</label>
+                                                                <select name="Status" required class="form-control">
+                                                                    <option>Select Status</option>
+                                                                    <option value="Ongoing"
+                                                                        {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>
+                                                                        Ongoing</option>
+                                                                    <option value="Pending"
+                                                                        {{ $pm->Status === 'Pending' ? 'selected' : '' }}>
+                                                                        Pending</option>
+                                                                    <option value="Decline"
+                                                                        {{ $pm->Status === 'Decline' ? 'selected' : '' }}>
+                                                                        Decline</option>
                                                                 </select>
-                                                            </div> --}}
+                                                            </div>
 
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="text"
@@ -329,7 +198,7 @@
                                                             <p>Damage or Missing or Foresting:</p>
                                                             <input class="form-control" type="text"
                                                                 name="Damageormissingorforesting"
-                                                                value="{{ $pm->Damageormissingorforesting }}">
+                                                                value="{{ $pm->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
                                                             <input class="form-control" type="text"
@@ -340,16 +209,15 @@
                                                             <input class="form-control" type="text"
                                                                 name="UpcomingStocks" value="{{ $pm->UpcomingStocks }}">
 
-                                                            <p>Remarks Updated As Of:</p>
+                                                            <p>Remarks:</p>
                                                             <input class="form-control" type="text"
-                                                                name="RemarksUpdatedAsOf"
-                                                                value="{{ $pm->RemarksUpdatedAsOf }}">
+                                                                name="Remarks" value="{{ $pm->Remarks }}">
                                                         </div>
 
                                                         <div class="modal-footer">
                                                             <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Edit</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
@@ -392,10 +260,11 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger"
+                                                            style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -410,10 +279,6 @@
                     </div>
                 </div>
                 </div>
-                {{-- <div class="btn">
-                    <button type="button" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
-                </div> --}}
             </main>
 
             <!-- MAIN -->

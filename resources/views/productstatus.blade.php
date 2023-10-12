@@ -32,15 +32,6 @@
                 <div class="head-title">
                     <div class="left">
                         <h1>Product Status</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Product Status</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -49,67 +40,6 @@
                 </div>
                 <div class="table-data">
                     <div class="order">
-                        <div class="head">
-                            <h3>Product Status</h3>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                <i class='bx bx-plus-circle' style="font-size:24px; color:white;">Add</i>
-                            </button>
-
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="" method="">
-                                            <div class="modal-body">
-                                                <div class="input-group input-group-sm mb-3">
-                                                    <span class="input-group-text" id="inputGroup-sizing-sm">search
-                                                        Items</span>
-                                                    <input type="text" name="Items" class="form-control"
-                                                        aria-label="Sizing example input"
-                                                        aria-describedby="inputGroup-sizing-sm">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Category</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1">
-                                                        <option value="Category">Category</option>
-                                                        <option value="PisoWifi">PisoWifi</option>
-                                                        <option value="E-Loading">E-Loading</option>
-                                                        <option value="Gadgets">Gadgets</option>
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <span>Date</span>
-                                                <input type="date" name="Date" class="form-control">
-
-                                                <div class="form-group">
-                                                    <label for="exampleFormControlSelect1">Quantity</label>
-                                                    <input class="form-control" id="exampleFormControlSelect1">
-                                                    </input>
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save Changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="width:150px; height:50px, border-radius:5px; background-color: red; border-style:none">
-                                <i class='bx bx-minus-circle' style="font-size:20px; color:white;">Remove</i>
-                            </button>
-                        </div>
                         <table>
                             <thead>
                                 <tr>
@@ -137,81 +67,14 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="button" style="background: green; color: white;">
-                                            Save Changes
-                                        </button>
                                         <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Cancel
+                                            Remove
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
 
-                                        <p>Mary Joy Reambonanza</p>
-                                    </td>
-                                    <td>1</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-                                        <button class="button">
-                                            SELECT STATUS
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="button" style="background: green; color: white;">
-                                            Save Changes
-                                        </button>
-                                        <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Cancel
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
 
-                                        <p>John Doe</p>
-                                    </td>
-                                    <td>5</td>
-                                    <td>Piso Wifi</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-                                        <button class="button">
-                                            SELECT STATUS
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="button" style="background: green; color: white;">
-                                            Save Changes
-                                        </button>
-                                        <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Cancel
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
 
-                                        <p>Rogina Rolloque</p>
-                                    </td>
-                                    <td>2</td>
-                                    <td>Cellphone</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-                                        <button class="button">
-                                            SELECT STATUS
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="button" style="background: green; color: white;">
-                                            Save Changes
-                                        </button>
-                                        <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Cancel
-                                        </button>
-                                    </td>
-
-                                </tr>
                                 <tr>
                                     <td>
 
@@ -226,11 +89,8 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="button" style="background: green; color: white;">
-                                            Save Changes
-                                        </button>
                                         <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Cancel
+                                            Remove
                                         </button>
                                     </td>
                                 </tr>

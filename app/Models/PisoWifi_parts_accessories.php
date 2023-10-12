@@ -18,12 +18,11 @@ class PisoWifi_parts_accessories extends Model
         'ItemsName',
         'Status',
         'RemainingStocks',
-        'ItemSoldAsOf',
         'StocksPurchased',
         'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorforesting',
-         'UpcomingStocks',
-        'RemarksUpdatedAsOf',
+        'Damageormissingorfortesting',
+        'UpcomingStocks',
+        'Remarks',
 
     ];
 }

@@ -18,12 +18,11 @@ class PackagingMonitoringModel extends Model
         'ItemsName',
         'Status',
         'RemainingStocks',
-        'ItemSoldAsOf',
         'StocksPurchased',
         'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorforesting',
-         'UpcomingStocks',
-        'RemarksUpdatedAsOf',
+        'Damageormissingorfortesting',
+        'UpcomingStocks',
+        'Remarks',
     ];
 
 
