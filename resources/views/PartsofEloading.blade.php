@@ -170,8 +170,12 @@
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#" data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
+                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                            data-toggle="modal" data-target="#productModalEdit{{ $pe->id }}"><i
+                                                class='bx bxs-pencil'></i> Edit</a>
+                                        <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                            data-toggle="modal" data-target="#deleteModal{{ $pe->id }}"><i
+                                                class='bx bxs-trash'></i> Delete </a>
                                         </td>
 
                                     </tr>
