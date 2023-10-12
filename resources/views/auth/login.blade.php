@@ -142,7 +142,7 @@
                             Sign up
                         </button>
                     </div>
-                    <img src="img/log.svg" class="image" alt="" />
+                    <img src="" class="image" alt="" />
                 </div>
                 <div class="panel right-panel">
 
@@ -159,7 +159,7 @@
                             Sign in
                         </button>
                     </div>
-                    <img src="img/register.svg" class="image" alt="" />
+                    <img src="" class="image" alt="" />
                 </div>
             </div>
         </div>

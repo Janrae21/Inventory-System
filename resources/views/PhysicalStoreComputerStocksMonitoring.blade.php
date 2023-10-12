@@ -48,7 +48,7 @@
                         <div class="head">
 
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="width:150px;  height:50px, border-radius:5px; background-color: green; border-style:none">
+                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                 <i class='bx bx-plus-circle' style="font-size:24px;  color:white;">Add</i>
                             </button>
 
@@ -117,8 +117,7 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Remarks</label>
-                                                    <input type="text" name="Remarks" required
-                                                        class="form-control">
+                                                    <input type="text" name="Remarks" required class="form-control">
                                                 </div>
 
                                                 <div class="modal-footer ">
@@ -133,19 +132,20 @@
                                             </div>
                                         </form>
 
-
                                     </div>
 
                                 </div>
 
+
                             </div>
-                            @if (Session::has('message Add'))
+                            @if (Session::has('message-Add'))
                                 <script>
                                     swal("message", "Successfuly Added Item", "success", {
                                         button: "okay",
                                     });
                                 </script>
                             @endif
+
                         </div>
 
                         <table>
@@ -155,7 +155,6 @@
                                     <th>Status</th>
                                     <th>Remarks</th>
                                     <th>Action</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -261,9 +260,15 @@
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
                                                                     <option>Select Status</option>
-                                                                    <option value="Ongoing" {{ $ps->Status === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                                                    <option value="Pending" {{ $ps->Status === 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                                    <option value="Decline" {{ $ps->Status === 'Decline' ? 'selected' : '' }}>Decline</option>
+                                                                    <option value="Ongoing"
+                                                                        {{ $ps->Status === 'Ongoing' ? 'selected' : '' }}>
+                                                                        Ongoing</option>
+                                                                    <option value="Pending"
+                                                                        {{ $ps->Status === 'Pending' ? 'selected' : '' }}>
+                                                                        Pending</option>
+                                                                    <option value="Decline"
+                                                                        {{ $ps->Status === 'Decline' ? 'selected' : '' }}>
+                                                                        Decline</option>
                                                                 </select>
                                                             </div>
 
@@ -291,9 +296,8 @@
                                                             <input class="form-control" type="text"
                                                                 name="UpcomingStocks" value="{{ $ps->UpcomingStocks }}">
 
-                                                            <p>Remarks Updated As Of:</p>
-                                                            <input class="form-control" type="text"
-                                                                name="Remarks"
+                                                            <p>Remarks:</p>
+                                                            <input class="form-control" type="text" name="Remarks"
                                                                 value="{{ $ps->Remarks }}">
                                                         </div>
 
@@ -320,7 +324,6 @@
                                         @endif
                                     </div>
 
-
                                     <!-- Delete Confirmation Modal -->
                                     <div class="modal fade" id="deleteModal{{ $ps->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="deleteModalLabel{{ $ps->id }}"
@@ -345,10 +348,11 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger"
+                                                            style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>

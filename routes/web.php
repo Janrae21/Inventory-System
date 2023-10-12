@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', 'admin/home');
-
-
 Auth::routes();
 
 /*------------------------------------------
@@ -39,6 +37,7 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
+
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
     Route::get('/status', function () {
         return view('productstatus');
@@ -90,17 +89,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/pisowifi-parts-accessories/{id}', [PisoWifi_parts_accessories_Controller::class, 'update'])->name('pisowifi-parts-accessories.update');
     Route::delete('/pisowifi-parts-accessories/{id}', [PisoWifi_parts_accessories_Controller::class, 'delete'])->name('pisowifi-parts-accessories.delete');
 
-
-
-
-
-
     //Packaging Monitoring Crud//
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
     Route::get('/view/item/{id}', [PackagingMonitoringController::class, 'viewItem'])->name('view.item');
     Route::put('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'update'])->name('packaging-monitoring.update');
     Route::delete('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'delete'])->name('packaging-monitoring.delete');
-
 
     //Parts of Eloading Crud//
     Route::get('Parts-of-eloading', [PartsOfEloadingController::class, 'showEloading']);
@@ -109,12 +102,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/Parts-of-eloading/{id}', [PartsOfEloadingController::class, 'update'])->name('Parts-of-eloading.update');
     Route::delete('/Parts-of-eloading/{id}', [PartsOfEloadingController::class, 'delete'])->name('Parts-of-eloading.delete');
 
-
     //Eloading Best Seller Crud //
     Route::get('eloading-best-seller', [EloadingBestSeller_Controller::class, 'showData']);
     Route::post('eloading-best-seller', [EloadingBestSeller_Controller::class, 'store']);
     Route::put('eloading-best-seller/{id}', [EloadingBestSeller_Controller::class, 'updateItem']);
-
 
     // Physical Store Computer Stocks Monitoring Crud//
     Route::get('physical-store-computer-stocks-monitoring', [physical_Store_Computer_Stocks_Monitoring::class, 'showMonitoring']);
@@ -122,7 +113,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/view/item/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'viewItem'])->name('view.item');
     Route::put('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'update'])->name('physical-store-computer-stocks-monitoring.update');
     Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'delete'])->name('physical-store-computer-stocks-monitoring.delete');
-
 
 });
 

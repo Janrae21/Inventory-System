@@ -6,6 +6,7 @@ use App\Models\PisoWifi_parts_accessories;
 use Illuminate\Http\Request;
 
 class PisoWifi_parts_accessories_Controller extends Controller {
+
     public function PisoWifiShow() {
 
         $pisowifiData = PisoWifi_parts_accessories::paginate( 10 );
@@ -49,7 +50,6 @@ class PisoWifi_parts_accessories_Controller extends Controller {
         return view( 'product_view', [ 'pisoWifi' => $pisoWifi ] );
     }
 
-
     public function update( Request $request, $id ) {
         $request->validate( [
             'ItemsName' => 'required',
@@ -76,31 +76,8 @@ class PisoWifi_parts_accessories_Controller extends Controller {
 
         ] );
 
-
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     //Delete Function
 
@@ -111,7 +88,5 @@ class PisoWifi_parts_accessories_Controller extends Controller {
 
         return redirect()->back()->with( 'message delete', 'Item deleted successfully' );
     }
-
-
 
 }

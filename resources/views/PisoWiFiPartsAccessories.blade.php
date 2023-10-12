@@ -336,10 +336,10 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger" style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary" style="width: 90px"
+                                                            data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -37,15 +37,6 @@
                 <div class="head-title">
                     <div class="left">
                         <h1>Customer Lists</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Customer Lists</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ url('/') }}">Home</a>
-                            </li>
-                        </ul>
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>

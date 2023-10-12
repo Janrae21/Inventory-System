@@ -134,14 +134,12 @@
                                             </div>
                                         </form>
 
-
-
                                     </div>
 
                                 </div>
 
                             </div>
-                            @if (Session::has('message'))
+                            @if (Session::has('message-Add'))
                                 <script>
                                     swal("message", "Successfuly Added Item", "success", {
                                         button: "okay",
@@ -175,12 +173,12 @@
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                 data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i
                                                     class='bx bxs-show'></i> View</a>
-                                                    <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                    data-toggle="modal" data-target="#productModalEdit{{ $pe->id }}"><i
-                                                        class='bx bxs-pencil'></i> Edit</a>
-                                                <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                    data-toggle="modal" data-target="#deleteModal{{ $pe->id }}"><i
-                                                        class='bx bxs-trash'></i> Delete </a>
+                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#productModalEdit{{ $pe->id }}"><i
+                                                    class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#deleteModal{{ $pe->id }}"><i
+                                                    class='bx bxs-trash'></i> Delete </a>
                                         </td>
 
                                     </tr>
@@ -329,7 +327,6 @@
                                         @endif
                                     </div>
 
-
                                     <!-- Delete Confirmation Modal -->
                                     <div class="modal fade" id="deleteModal{{ $pe->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="deleteModalLabel{{ $pe->id }}"
@@ -353,10 +350,10 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger" style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary" style="width: 90px"
+                                                            data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>

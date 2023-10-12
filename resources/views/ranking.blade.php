@@ -33,15 +33,6 @@
                 <div class="head-title">
                     <div class="left">
                         <h1>Ranking</h1>
-                        <ul class="breadcrumb">
-                            <li>
-                                <a href="#">Ranking</a>
-                            </li>
-                            <li><i class='bx bx-chevron-right'></i></li>
-                            <li>
-                                <a class="active" href="{{ asset('/admin/home') }}">Home</a>
-                            </li>
-                        </ul>
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -53,9 +44,7 @@
                     <div class="todo">
                         <div class="order">
                             <div class="head">
-                                <h3>Top Sales Products</h3>
-                                <i class='bx bx-plus'></i>
-                                <i class='bx bx-filter'></i>
+                                {{-- <h3>Top Sales Products</h3> --}}
                             </div>
                             <table>
                                 <thead>
@@ -97,7 +86,7 @@
                                         <td>Piso Wifi</td>
                                         <td>35</td>
                                     </tr>
-                                    <tr>
+                        0            <tr>
                                         <td>7</td>
                                         <td>E-Loading Machine</td>
                                         <td>32</td>
@@ -135,8 +124,6 @@
                         <div class="order">
                             <div class="head">
                                 <h3>Top Customer</h3>
-                                <i class='bx bx-search'></i>
-                                <i class='bx bx-filter'></i>
                             </div>
                             <table>
                                 <thead>

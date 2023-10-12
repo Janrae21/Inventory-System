@@ -44,7 +44,7 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller {
 
         $physicalStockMonitoring->save();
 
-        return redirect()->back()->with( 'message Add', 'Add Items Successfully' );
+        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
 
     }
 
@@ -82,12 +82,10 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller {
 
         ] );
 
-
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
 
     //Delete Function
-
     public function delete( $id ) {
 
         $physicalStockMonitoring = physical_Store_Computer_StocksMonitoring::findOrFail( $id );

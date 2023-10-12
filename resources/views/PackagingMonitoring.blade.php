@@ -46,7 +46,7 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <h3>Packaging Monitoring</h3>
+                            
 
                         </div>
                         <table>
@@ -54,13 +54,6 @@
                                 <tr>
                                     <th>Items Name</th>
                                     <th>Status</th>
-                                    <!-- <th>Remaining Stocks</th>
-                                                                                                                                                    <th>Item Sold As Of</th>
-                                                                                                                                                    <th>Stocks Purchased</th>
-                                                                                                                                                    <th>Actual Stocks<br>Based on actual</br>checking</br></th>
-                                                                                                                                                    <th>Damage or missing or <br>for Testing</br></th>
-                                                                                                                                                    <th>Upcoming Stocks</th>
-                                                                                                                                                    <th>Remarks Updated <br>As Of</br></th> -->
                                     <th>Remarks</th>
                                     <th>Action</th>
 
@@ -73,12 +66,6 @@
                                             {{ $pm->ItemsName }}
                                         </td>
                                         <td style="border: none">{{ $pm->Status }}</td>
-                                        <!-- <td>{{ $pm->RemainingStocks }}</td>
-                                                                                                                                                        <td>{{ $pm->ItemSoldAsOf }}</td>
-                                                                                                                                                        <td>{{ $pm->StocksPurchased }}</td>
-                                                                                                                                                        <td>{{ $pm->ActualStocksBasedonactualcheckingEDUD }}</td>
-                                                                                                                                                        <td>{{ $pm->Damageormissingorforesting }}</td>
-                                                                                                                                                        <td>{{ $pm->UpcomingStocks }}</td> -->
                                         <td style="border: none">{{ $pm->Remarks }}</td>
                                         <td style="width: 30%; border: none">
                                             <a style="width: 135px; padding: 10px; cursor:pointer;"><i
@@ -97,17 +84,6 @@
 
                                         </td>
                                     </tr>
-
-                                    <!--Add Item-->
-
-
-
-
-
-
-
-
-
 
                                     <!-- View Modal -->
                                     <div class="modal fade" id="productModal{{ $pm->id }}" tabindex="-1"
@@ -148,9 +124,9 @@
                                                     <input class="form-control" type="text"
                                                         value="{{ $pm->UpcomingStocks }}" disabled>
 
-                                                    <p>Remarks Updated As Of:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->Remarks }}" disabled>
+                                                    <p>Remarks:</p>
+                                                    <input class="form-control" type="text" value="{{ $pm->Remarks }}"
+                                                        disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,11 +139,7 @@
                                         </script>
                                     @endif
 
-
-
-
                                     <!--Updated Modal-->
-
                                     <div class="modal fade" id="productModalEdit{{ $pm->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
                                         aria-hidden="true">
@@ -187,19 +159,23 @@
                                                         @csrf
                                                         @method('PUT')
 
-
-
                                                         <div class="modal-body">
                                                             <div class="form-group">
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
                                                                     <option>Select Status</option>
-                                                                    <option value="Ongoing" {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-                                                                    <option value="Pending" {{ $pm->Status === 'Pending' ? 'selected' : '' }}>Pending</option>
-                                                                    <option value="Decline" {{ $pm->Status === 'Decline' ? 'selected' : '' }}>Decline</option>
+                                                                    <option value="Ongoing"
+                                                                        {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>
+                                                                        Ongoing</option>
+                                                                    <option value="Pending"
+                                                                        {{ $pm->Status === 'Pending' ? 'selected' : '' }}>
+                                                                        Pending</option>
+                                                                    <option value="Decline"
+                                                                        {{ $pm->Status === 'Decline' ? 'selected' : '' }}>
+                                                                        Decline</option>
                                                                 </select>
                                                             </div>
-                                                            
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="text"
                                                                 name="StocksPurchased"
@@ -224,15 +200,15 @@
                                                             <input class="form-control" type="text"
                                                                 name="UpcomingStocks" value="{{ $pm->UpcomingStocks }}">
 
-                                                            <p>Remarks Updated As Of:</p>
+                                                            <p>Remarks:</p>
                                                             <input class="form-control" type="text"
-                                                                name="RemarksUpdatedAsOf"
-                                                                value="{{ $pm->Remarks }}">
+                                                                name="Remarks" value="{{ $pm->Remarks }}">
                                                         </div>
 
                                                         <div class="modal-footer">
                                                             <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Edit</button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Edit</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
@@ -275,10 +251,11 @@
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger"
+                                                            style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -293,10 +270,6 @@
                     </div>
                 </div>
                 </div>
-                {{-- <div class="btn">
-                    <button type="button" class="btn btn-primary">Update</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
-                </div> --}}
             </main>
 
             <!-- MAIN -->

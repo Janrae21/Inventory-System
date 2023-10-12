@@ -8,14 +8,13 @@ use Illuminate\Http\Request;
 class PackagingMonitoringController extends Controller {
 
     // ShowPackaging Data
-
     public function ShowPackaging() {
 
         $packaging = PackagingMonitoringModel::paginate( 10 );
         return view( 'PackagingMonitoring', [ 'packagingmonitoring'=> $packaging ] );
     }
 
-    
+
     // Store Function
     public function store( Request $request ) {
 
@@ -51,17 +50,16 @@ class PackagingMonitoringController extends Controller {
     }
 
     // View Function
-
     public function viewItem( $id ) {
         $pm = PackagingMonitoringModel::findOrFail( $id );
-        return view( 'product_view', [ 'PackagingMonitoring' => $pm ] );
+        return view( 'product_view', ['PackagingMonitoringModel' => $pm ] );
 
     }
 
     // Update Function
-
     public function update( Request $request, $id ) {
         $request->validate( [
+            'ItemsName' => 'required',
             'Status' => 'required',
             'StocksPurchased' => 'required|numeric',
             'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
@@ -74,6 +72,8 @@ class PackagingMonitoringController extends Controller {
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
 
         $packagingMonitoring->update( [
+
+            'ItemsName' => $request->input('ItemsName'),
             'Status' => $request->input( 'Status' ),
             'StocksPurchased' => $request->input( 'StocksPurchased' ),
             'ActualStocksBasedonactualcheckingEDUD' => $request->input( 'ActualStocksBasedonactualcheckingEDUD' ),
@@ -81,13 +81,13 @@ class PackagingMonitoringController extends Controller {
             'RemainingStocks' => $request->input( 'RemainingStocks' ),
             'UpcomingStocks' => $request->input( 'UpcomingStocks' ),
             'Remarks' => $request->input( 'Remarks' ),
+
         ] );
 
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
 
     //Delete Function
-
     public function delete( $id ) {
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );

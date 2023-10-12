@@ -5,6 +5,7 @@ use App\Models\PartsOfEloadingModel;
 use Illuminate\Http\Request;
 
 class PartsOfEloadingController extends Controller {
+
     public function showEloading() {
         $DataEloading = PartsOfEloadingModel::paginate( 10 );
 
@@ -41,7 +42,7 @@ class PartsOfEloadingController extends Controller {
 
         $partsofEloading->save();
 
-        return redirect()->back()->with( 'message', 'Add Items Successfully' );
+        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
 
     }
 
@@ -50,8 +51,8 @@ class PartsOfEloadingController extends Controller {
         return view( 'product_view', [ 'PartsOfEloading' => $pe ] );
     }
 
-     // Update Function
 
+     // Update Function
      public function update( Request $request, $id ) {
         $request->validate( [
             'ItemsName' => 'required',
@@ -79,15 +80,14 @@ class PartsOfEloadingController extends Controller {
 
         ] );
 
-
         return redirect()->back()->with( 'message', 'Item updated successfully' );
     }
 
-    //Delete Function
 
+    //Delete Function
     public function delete( $id ) {
 
-        $partsofEloading = PartsOfEloadingModel::findOrFail( $id ); 
+        $partsofEloading = PartsOfEloadingModel::findOrFail( $id );
         $partsofEloading->delete();
 
         return redirect()->back()->with( 'message delete', 'Item deleted successfully' );
