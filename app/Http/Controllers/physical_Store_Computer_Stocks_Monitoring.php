@@ -42,6 +42,7 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller {
         $physicalStockMonitoring->created_at = now();
         $physicalStockMonitoring->updated_at = now();
 
+
         $physicalStockMonitoring->save();
 
         return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );

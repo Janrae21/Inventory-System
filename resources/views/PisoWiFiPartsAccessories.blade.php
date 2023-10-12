@@ -173,14 +173,10 @@
                                         <td style="border: none">{{ $pisoWifi->Status }}</td>
                                         <td style="border: none">{{ $pisoWifi->Remarks }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $pisoWifi->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#" data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModalEdit{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-trash'></i> Delete </a>
+                                            <a style="color: #4CA7DF; padding: 10px"><i class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #FF6767; padding: 10px"><i class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
 
@@ -344,14 +340,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @if (Session::has('message delete'))
-                                        <script>
-                                            swal("message", "Successfully Deleted", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
-
                                 @endforeach
                             </tbody>
                         </table>

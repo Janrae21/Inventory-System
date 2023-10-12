@@ -47,6 +47,8 @@
                     <div class="order">
                         <div class="head">
 
+
+                            <!--Add Button-->
                             <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                 style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                 <i class='bx bx-plus-circle' style="font-size:24px;  color:white;">Add</i>
@@ -166,7 +168,7 @@
                                         <td style="border:none;">{{ $ps->Status }}</td>
                                         <td style="border:none;">{{ $ps->Remarks }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px"><i class='bx bxs-cart'></i> Purchase
+                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $ps->id }}"><i class='bx bxs-cart'></i> Purchase
                                                 Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                 data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
@@ -316,12 +318,12 @@
                                             </div>
                                         </div>
                                         @if (Session::has('message'))
-                                            <script>
-                                                swal("message", "Successfully Edited", "success", {
-                                                    button: "okay",
-                                                });
-                                            </script>
-                                        @endif
+                                        <script>
+                                            swal("message", "Item Edited Successfully", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
                                     </div>
 
                                     <!-- Delete Confirmation Modal -->
@@ -353,17 +355,12 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @if (Session::has('message delete'))
-                                        <script>
-                                            swal("message", "Successfully Deleted", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

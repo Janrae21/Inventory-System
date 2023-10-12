@@ -6,6 +6,7 @@ use App\Http\Controllers\PackagingMonitoringController;
 use App\Http\Controllers\PartsOfEloadingController;
 use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +37,11 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    
     Route::get('/status', function () {
         return view('productstatus');
     });
@@ -79,6 +82,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/view-profile', function () {
         return view('view-profile');
     });
+
+    Route::get('adminHome', [HomeController::class, 'showData']);
 
     //CRUD Function//
 

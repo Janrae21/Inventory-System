@@ -46,7 +46,7 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            
+
 
                         </div>
                         <table>
@@ -68,7 +68,7 @@
                                         <td style="border: none">{{ $pm->Status }}</td>
                                         <td style="border: none">{{ $pm->Remarks }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px; cursor:pointer;"><i
+                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $pm->id }}"><i
                                                     class='bx bxs-cart'></i> Purchase
                                                 Item</a>
                                             <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
@@ -84,6 +84,15 @@
 
                                         </td>
                                     </tr>
+
+                                    <!--Add Item-->
+
+
+
+
+
+
+
 
                                     <!-- View Modal -->
                                     <div class="modal fade" id="productModal{{ $pm->id }}" tabindex="-1"
