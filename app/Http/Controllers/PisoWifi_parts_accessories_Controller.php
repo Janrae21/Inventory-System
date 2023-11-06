@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PisoWifi_parts_accessories;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 
 class PisoWifi_parts_accessories_Controller extends Controller {
@@ -14,6 +15,7 @@ class PisoWifi_parts_accessories_Controller extends Controller {
     }
 
     public function store( Request $request ) {
+
         $request->validate( [
 
             'ItemsName' => 'required',
@@ -42,7 +44,7 @@ class PisoWifi_parts_accessories_Controller extends Controller {
 
         $PisoWifiAccessories->save();
 
-        return redirect()->back()->with( 'message', 'Add Items Successfully' );
+        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
     }
 
     public function viewItem( $id ) {
@@ -50,8 +52,10 @@ class PisoWifi_parts_accessories_Controller extends Controller {
         return view( 'product_view', [ 'pisoWifi' => $pisoWifi ] );
     }
 
+
     public function update( Request $request, $id ) {
         $request->validate( [
+
             'ItemsName' => 'required',
             'Status' => 'required',
             'StocksPurchased' => 'required|numeric',
@@ -60,27 +64,29 @@ class PisoWifi_parts_accessories_Controller extends Controller {
             'RemainingStocks' => 'required|numeric',
             'UpcomingStocks' => 'required|numeric',
             'Remarks' => 'required',
+
         ] );
 
         $PisoWifiAccessories = PisoWifi_parts_accessories::findOrFail( $id );
 
         $PisoWifiAccessories->update( [
-            'ItemsName' => $request->input( 'ItemsName' ),
-            'Status' => $request->input( 'Status' ),
-            'StocksPurchased' => $request->input( 'StocksPurchased' ),
-            'ActualStocksBasedonactualcheckingEDUD' => $request->input( 'ActualStocksBasedonactualcheckingEDUD' ),
-            'Damageormissingorfortesting' => $request->input( 'Damageormissingorfortesting' ),
-            'RemainingStocks' => $request->input( 'RemainingStocks' ),
-            'UpcomingStocks' => $request->input( 'UpcomingStocks' ),
-            'Remarks' => $request->input( 'Remarks' ),
+
+            'ItemsName' => $request->input('ItemsName'),
+            'Status' => $request->input('Status'),
+            'StocksPurchased' => $request->input('StocksPurchased'),
+            'ActualStocksBasedonactualcheckingEDUD' => $request->input('ActualStocksBasedonactualcheckingEDUD'),
+            'Damageormissingorfortesting' => $request->input('Damageormissingorfortesting'),
+            'RemainingStocks' => $request->input('RemainingStocks'),
+            'UpcomingStocks' => $request->input('UpcomingStocks'),
+            'Remarks' => $request->input('Remarks'),
 
         ] );
 
-        return redirect()->back()->with( 'message', 'Item updated successfully' );
+        return redirect()->back()->with( 'message', 'Item updated successfully');
     }
 
-    //Delete Function
 
+    //Delete Function
     public function delete( $id ) {
 
         $PisoWifiAccessories = PisoWifi_parts_accessories::findOrFail( $id );
@@ -88,5 +94,4 @@ class PisoWifi_parts_accessories_Controller extends Controller {
 
         return redirect()->back()->with( 'message delete', 'Item deleted successfully' );
     }
-
 }

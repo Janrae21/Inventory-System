@@ -66,125 +66,14 @@
                                     <td>E-Loading Machine</td>
                                     <td>
 
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method">Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
+    
                                     </td>
                                     <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method">Select Shipment Status</option>
-                                            <option value="For Delivery">For Delivery</option>
-                                            <option value="Received">Received</option>
-                                            <option value="Return to Seller">Return to Seller</option>
-                                            <option value="Cancel">Cancel</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method"> Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method">Select Shipment Status</option>
-                                            <option value="For Delivery">For Delivery</option>
-                                            <option value="Received">Received</option>
-                                            <option value="Return to Seller">Return to Seller</option>
-                                            <option value="Cancel">Cancel</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>
 
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method"> Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method">Select Shipment Status</option>
-                                            <option value="For Delivery">For Delivery</option>
-                                            <option value="Received">Received</option>
-                                            <option value="Return to Seller">Return to Seller</option>
-                                            <option value="Cancel">Cancel</option>
-                                        </select>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
 
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method"><br>Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method"> Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method"> Select Payment Method</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
-                                            <option value="OnHand Delivery">OnHand Delivery</option>
-                                            <option value="Shoppee Payment">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-                                        <select class="form-control, col-8">
-                                            <option value=" Select Payment Method">Select Shipment Status</option>
-                                            <option value="PisoWifi">Cash on Delivery</option>
-                                            <option value="E-Loading">OnHand Delivery</option>
-                                            <option value="Gadgets">Shoppee Payment</option>
-                                        </select>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\PartsOfEloadingController;
 use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,10 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+
 });
 
 /*------------------------------------------
@@ -37,11 +42,11 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-    
+
     Route::get('/status', function () {
         return view('productstatus');
     });
@@ -83,9 +88,14 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
-    Route::get('adminHome', [HomeController::class, 'showData']);
-
     //CRUD Function//
+
+    //Orders
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+
+    //Customers
+    Route::post('/Customers',[CustomerController::class, 'store'])->name('Customers.store');
+    
 
     //PisoWifi Parts Accessories Crud//
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
@@ -96,6 +106,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     //Packaging Monitoring Crud//
     Route::post('packaging-monitoring', [PackagingMonitoringController::class, 'store']);
+    Route::get('packaging-monitoring', [PackagingMonitoringController::class, 'ShowPackaging']);
     Route::get('/view/item/{id}', [PackagingMonitoringController::class, 'viewItem'])->name('view.item');
     Route::put('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'update'])->name('packaging-monitoring.update');
     Route::delete('/packaging-monitoring/{id}', [PackagingMonitoringController::class, 'delete'])->name('packaging-monitoring.delete');

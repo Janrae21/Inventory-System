@@ -24,7 +24,7 @@
             </a>
             <ul class="side-menu top">
                 <li class="active">
-                    <a href="{{ asset('/admin/home') }}">
+                    <a href="{{ asset('/view-profile') }}">
                         <i class='bx bxs-dashboard'></i>
                         <span class="text">View Profile</span>
                     </a>
@@ -51,10 +51,6 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a href="#">
-                            <i class='bx bxs-user'></i>
-                            <span class="text">View Profile</span>
-                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -83,34 +79,126 @@
                     </div>
                 </div>
 
-                <ul class="box-info">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-3">
 
-                </ul>
-                <ul class="box-info">
-                    <div class="container">
-                        <div class="profile">
-                            <img src="https://o.remove.bg/downloads/85a94bf2-d4b1-43a7-85cb-490c7ff88316/user-removebg-preview.png"
-                                alt="Profile Picture">
-                            <h1 id="name">Janrae Fagaragan</h1>
-                            <h3 id="job-title">USERNAME</h3>
+                                <!-- Profile Image -->
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body box-profile">
+                                        <div class="text-center">
+                                            <img class="profile-user-img img-fluid img-circle admin_picture"
+                                                src="{{ asset('images/username.png') }}" alt="User profile picture">
+                                        </div>
 
-                            <ul>
-                                <li><strong>Email:</strong> <span id="email">janrae.fagaragan@flarego.com</span></li>
-                                <li><strong>Cellphone Number:</strong> <span id="phone">09887654345</span></li>
-                                <li><strong>Change Password:</strong> <span id="phone">faggy</span></li>
-                                <li><strong>Location:</strong> <span id="location">New York, USA</span></li>
-                            </ul>
-                            <button id="editButton" onclick="toggleEditMode()">Edit</button>
+                                        <h3 class="profile-username text-center admin_name"></h3>
+
+                                        <p class="text-muted text-center">Admin</p>
+                                        <center>
+                                            <input type="file" name="admin_image" id="admin_image"
+                                                style="opacity: 0;height:1px;display:none">
+                                            <a href="javascript:void(0)" class="btn btn-primary btn-block"
+                                                id="change_picture_btn"><b>Change picture</b></a>
+                                        </center>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header p-2">
+                                        <br>
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item"><a class="nav-link active">Personal
+                                                    Information</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="active tab-pane" id="personal_info">
+                                                <form class="form-horizontal" method="POST" action="">
+                                                    <div class="form-group row">
+                                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputName"
+                                                                placeholder="Name" value="{{ Auth::user()->name }}"
+                                                                name="name">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label for="inputEmail"
+                                                            class="col-sm-2 col-form-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputEmail"
+                                                                placeholder="Email" value="{{ Auth::user()->email }}"
+                                                                name="email">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label for="inputName" class="col-sm-2 col-form-label">Old
+                                                            Passord</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="inputName"
+                                                                placeholder="Enter current password" value="{{ Auth::user()->password }}" name="oldpassword">
+                                                            <span class="text-danger error-text oldpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">New
+                                                            Password</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="newpassword"
+                                                                placeholder="Enter new password" name="newpassword">
+                                                            <span class="text-danger error-text newpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group row">
+                                                        <label class="col-sm-2 col-form-label">Confirm
+                                                            New Password</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="password" class="form-control" id="cnewpassword"
+                                                                placeholder="Re-Enter new password" name="cnewpassword">
+                                                            <span class="text-danger error-text cnewpassword_error"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="offset-sm-2 col-sm-10">
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                Changes</button>
+                                                                <button type="button" class="btn btn-danger">Clear</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
-                </ul>
 
-                <div class="table-data">
+                    </div>
 
-                </div>
+                    </div>
+                </section>
+
 
             </main>
-            <!-- MAIN -->
+
         </section>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
@@ -121,3 +209,4 @@
     </body>
 
     </html>
+

@@ -684,3 +684,9 @@ main {
         opacity: 1;
     }
 }
+
+
+/*View-Profile*/
+.card{
+    border-radius: 13px;
+}

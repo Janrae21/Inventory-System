@@ -7,6 +7,7 @@ use App\Models\EloadingBestSellerModel;
 use App\Models\Category;
 
 class EloadingBestSeller_Controller extends Controller {
+    
     function showData() {
 
         $inventory = EloadingBestSellerModel::paginate( 10 );
