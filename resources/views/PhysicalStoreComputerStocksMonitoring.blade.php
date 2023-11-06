@@ -49,10 +49,16 @@
 
 
                             <!--Add Button-->
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                style="width:150px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                <i class='bx bx-plus-circle' style="font-size:24px;  color:white;">Add</i>
-                            </button>
+                            <div>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
+                                </button>
+                            </div>
 
                             <!-- Add Items Modal -->
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -124,7 +130,7 @@
 
                                                 <div class="modal-footer ">
                                                     <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Add</button>
+                                                        <button type="submit" class="btn btn-primary">Add Items</button>
                                                         <button type="submit" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
@@ -148,6 +154,49 @@
                                 </script>
                             @endif
 
+
+                            <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog" style="width: 50%">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                        <form action="" method="POST">
+                                            @csrf
+
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <select name="Status" required class="form-control">
+                                                        <option value="" disabled selected>Select What Reports?
+                                                        </option>
+                                                        <option value="">Test Reports</option>
+                                                        <option value="Ongoing">Inventory Report Summary</option>
+                                                        <option value="Pending">Inventory and Condition of Products Report</option>
+                                                        <option value="Decline">Inventory Audit Report</option>
+                                                    </select>
+
+                                                    <div class="modal-footer ">
+                                                        <div class="btn">
+                                                            <button type="submit" class="btn btn-primary">Create
+                                                                Reports</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                         <table>
@@ -156,6 +205,7 @@
                                     <th>Items Name</th>
                                     <th>Status</th>
                                     <th>Remarks</th>
+                                    <th>Remaining Stocks</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -167,8 +217,11 @@
                                         </td>
                                         <td style="border:none;">{{ $ps->Status }}</td>
                                         <td style="border:none;">{{ $ps->Remarks }}</td>
+                                        <td style="border: none">{{ $ps->RemainingStocks }}</td>
                                         <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"  data-target="#orderModal{{ $ps->id }}"><i class='bx bxs-cart'></i> Purchase
+                                            <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"
+                                                data-target="#orderModal{{ $ps->id }}"><i class='bx bxs-cart'></i>
+                                                Purchase
                                                 Item</a>
                                             <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                 data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
@@ -181,6 +234,147 @@
                                                     class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
+
+                                    <!-- Order Modal -->
+                                    <div class="modal fade" id="orderModal{{ $ps->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="orderModalLabel{{ $ps->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Purchase Item</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                        @csrf
+
+                                                        <div class="form-group">
+                                                            <label for="customer_id">Customer
+                                                                <a href="#addCustomerModal" data-toggle="modal"
+                                                                    data-dismiss="modal"
+                                                                    style="color: #4CA7DF; padding: 10px;">
+                                                                    <i class='bx bx-plus'></i> Add Customer</a>
+                                                            </label>
+                                                            <select name="customer_id" id="customer_id"
+                                                                class="form-control">
+                                                                <option value="" disabled selected>Select Customer
+                                                                </option>
+
+                                                            </select>
+
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="item_name">Item Name</label>
+                                                            <input type="text" name="item_name"
+                                                                id="orderModalLabel{{ $ps->id }}"
+                                                                class="form-control" value="{{ $ps->ItemsName }}">
+
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="quantity_sold">Quantity</label>
+                                                            <input type="number" name="quantity_sold" id="quantity_sold"
+                                                                class="form-control" required>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="category">Category</label>
+                                                            <input type="text" name="category" id="category"
+                                                                value="Pisowifi" class="form-control" disabled>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="payment_method">Payment Method</label>
+                                                            <select name="payment_method" id="payment_method"
+                                                                class="form-control" required>
+                                                                <option value="" disabled selected>Select Payment
+                                                                    Method</option>
+                                                                <option value="Credit Card">Credit Card</option>
+                                                                <option value="G-cash">G-cash</option>
+                                                                <option value="Other Online Banks">Other Online Banks
+                                                                </option>
+                                                                <option value="Cash on Delivery">Cash on Delivery</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="shipment_status">Shipment Status</label>
+                                                            <select name="shipment_status" id="shipment_status"
+                                                                class="form-control" required>
+                                                                <option value="" disabled selected>Select Shipment
+                                                                    Status</option>
+                                                                <option value="Pending">Pending</option>
+                                                                <option value="Shipped">Shipped</option>
+                                                                <option value="Delivered">Delivered</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary"
+                                                                style="width: 100px">Purchase</button>
+                                                            <button type="button"
+                                                                class="btn btn-secondary"style="width: 100px"
+                                                                data-dismiss="modal">Cancel</button>
+
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <!-- Add Customer Modal -->
+                                    <div id="addCustomerModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Add Customer</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="customer_name">Name</label>
+                                                            <input type="text" class="form-control" id="customer_name"
+                                                                name="name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="customer_address">Address</label>
+                                                            <input type="text" class="form-control"
+                                                                id="customer_address" name="address">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="customer_age">Age</label>
+                                                            <input type="number" class="form-control" id="customer_age"
+                                                                name="age">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="customer_email">Email</label>
+                                                            <input type="email" class="form-control"
+                                                                id="customer_email" name="email">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary"
+                                                        style="width: 100px">OK</button>
+                                                    <button type="button" class="btn btn-secondary" style="width: 100px"
+                                                        data-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <!--View Product Modal-->
                                     <div class="modal fade" id="productModal{{ $ps->id }}" tabindex="-1"
@@ -305,8 +499,8 @@
 
                                                         <div class="modal-footer">
                                                             <div class="btn">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Edit</button>
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
@@ -318,12 +512,12 @@
                                             </div>
                                         </div>
                                         @if (Session::has('message'))
-                                        <script>
-                                            swal("message", "Item Edited Successfully", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
+                                            <script>
+                                                swal("message", "Item Edited Successfully", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
                                     </div>
 
                                     <!-- Delete Confirmation Modal -->
@@ -355,12 +549,17 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

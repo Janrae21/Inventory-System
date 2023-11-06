@@ -31,7 +31,7 @@
         </li>
         <li class="drop-item">
             <a href="{{ url('/packaging-monitoring') }}">
-                <span class="text">Packaging Monitoring</span>
+                <span class="text">Packaging</span>
             </a>
         </li>
         <!-- <li class="drop-item">
@@ -42,7 +42,7 @@
         <li class="drop-item">
             <a href="{{ url('/physical-store-computer-stocks-monitoring') }}">
 
-                <span class="text">Physical Store Computer Stocks Monitoring</span>
+                <span class="text">Physical Store Computer Stocks </span>
             </a>
         </li>
         </li>

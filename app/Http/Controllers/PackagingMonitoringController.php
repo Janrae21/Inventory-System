@@ -41,12 +41,12 @@ class PackagingMonitoringController extends Controller {
         $packagingMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
         $packagingMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
         $packagingMonitoring->Remarks = $request->input( 'Remarks' );
-        $PisoWifiAccessories->created_at = now();
-        $PisoWifiAccessories->updated_at = now();
+        $packagingMonitoring->created_at = now();
+        $packagingMonitoring->updated_at = now();
 
         $packagingMonitoring->save();
 
-        return redirect()->back()->with( 'message', 'Add Items Successfully' );
+        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
     }
 
     // View Function
@@ -59,6 +59,7 @@ class PackagingMonitoringController extends Controller {
     // Update Function
     public function update( Request $request, $id ) {
         $request->validate( [
+
             'ItemsName' => 'required',
             'Status' => 'required',
             'StocksPurchased' => 'required|numeric',
@@ -66,7 +67,8 @@ class PackagingMonitoringController extends Controller {
             'Damageormissingorfortesting' => 'required|numeric',
             'RemainingStocks' => 'required|numeric',
             'UpcomingStocks' => 'required|numeric',
-            'Remark' => 'required',
+            'Remarks' => 'required',
+
         ] );
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
@@ -74,17 +76,17 @@ class PackagingMonitoringController extends Controller {
         $packagingMonitoring->update( [
 
             'ItemsName' => $request->input('ItemsName'),
-            'Status' => $request->input( 'Status' ),
-            'StocksPurchased' => $request->input( 'StocksPurchased' ),
-            'ActualStocksBasedonactualcheckingEDUD' => $request->input( 'ActualStocksBasedonactualcheckingEDUD' ),
-            'Damageormissingorfortesting' => $request->input( 'Damageormissingorfortesting' ),
-            'RemainingStocks' => $request->input( 'RemainingStocks' ),
-            'UpcomingStocks' => $request->input( 'UpcomingStocks' ),
-            'Remarks' => $request->input( 'Remarks' ),
+            'Status' => $request->input('Status'),
+            'StocksPurchased' => $request->input('StocksPurchased'),
+            'ActualStocksBasedonactualcheckingEDUD' => $request->input('ActualStocksBasedonactualcheckingEDUD'),
+            'Damageormissingorfortesting' => $request->input('Damageormissingorfortesting'),
+            'RemainingStocks' => $request->input('RemainingStocks'),
+            'UpcomingStocks' => $request->input('UpcomingStocks'),
+            'Remarks' => $request->input('Remarks'),
 
         ] );
 
-        return redirect()->back()->with( 'message', 'Item updated successfully' );
+        return redirect()->back()->with( 'message-edit', 'Item updated successfully');
     }
 
     //Delete Function

@@ -63,35 +63,13 @@
                                     <td>01-10-2021</td>
                                     <td>
                                         <button class="button" style="background:#55555; color: black;">
-                                            SELECT STATUS
+                                            STATUS
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Remove
-                                        </button>
-                                    </td>
-                                </tr>
-
-
-
-                                <tr>
-                                    <td>
-
-                                        <p>Seth Obenita</p>
-                                    </td>
-                                    <td>8</td>
-                                    <td>E-Loading Parts</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-                                        <button class="button">
-                                            SELECT STATUS
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button class="button" style="background: red; color: white; margin-left: 30px;">
-                                            Remove
-                                        </button>
+                                        <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                            data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>
+                                            Delete </a>
                                     </td>
                                 </tr>
                             </tbody>

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('item_name');
             $table->integer('quantity_sold');
-            $table->string('category');
-            $table->string('customer_name');
+            $table->string('category')->default('default_value');
+            $table->string('customer_name')->default('default_value');
             $table->string('order_number')->unique()->nullable();
             $table->string('payment_method');
             $table->string('shipment_status');

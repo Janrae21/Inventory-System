@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\EloadingBestSellerModel;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -38,6 +38,8 @@ class HomeController extends Controller
     public function adminHome(): View
     {
         return view('adminHome');
+        // $inventory = EloadingBestSellerModel::paginate( 10 );
+        // return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
     }
 
     /**
@@ -50,6 +52,13 @@ class HomeController extends Controller
  {
         return view( 'managerHome' );
     }
+
+    // function showData() {
+
+    //     $inventory = EloadingBestSellerModel::paginate( 10 );
+    //     return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
+
+    // }
 
 
 }
