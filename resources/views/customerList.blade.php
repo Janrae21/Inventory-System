@@ -57,25 +57,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-
-                                        <p>10/05/22</p>
-                                    </td>
-                                    <td>Mary Joy</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>
-
-    
-                                    </td>
-                                    <td>230201U1XKYPSP</td>
-                                    <td>
-
-                                    </td>
-                                </tr>
-
+                                @foreach ($orders as $od)
+                                    <tr>
+                                        <td>
+                                            <p>{{$od->created_at}}</p>
+                                        </td>
+                                        <td>{{ $od->customer_name }}</td>
+                                        <td>{{ $od->item_name }}</td>
+                                        <td>{{ $od->payment_method }}</td>
+                                        <td>230201U1XKYPSP</td>
+                                        <td>{{ $od->shipment_status }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{ $orders->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </main>

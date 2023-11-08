@@ -8,6 +8,7 @@ use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductStatus_Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,10 +93,15 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     //Orders
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('customer', [OrderController::class, 'index']);
+   
+
 
     //Customers
     Route::post('/Customers',[CustomerController::class, 'store'])->name('Customers.store');
-    
+
+
+
 
     //PisoWifi Parts Accessories Crud//
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
