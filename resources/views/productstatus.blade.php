@@ -53,6 +53,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 <tr>
                                     <td>
 
@@ -62,10 +63,12 @@
                                     <td>E-Loading Machine</td>
                                     <td>01-10-2021</td>
                                     <td>
-                                        <button class="button" style="background:#55555; color: black;">
-                                            STATUS
-                                        </button>
+
                                     </td>
+
+
+
+
                                     <td>
                                         <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
                                             data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>

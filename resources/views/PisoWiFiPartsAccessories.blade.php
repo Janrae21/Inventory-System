@@ -413,7 +413,7 @@
                                                         <div class="form-group">
                                                             <label>Email</label>
                                                             <input type="email" class="form-control"
-                                                                id="customer_email" name="email">
+                                                                id="email" name="email">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"

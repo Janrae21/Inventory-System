@@ -343,35 +343,38 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form>
+                                                    <form action="{{ route('Customers.store') }}" method="POST">
+                                                        @csrf
                                                         <div class="form-group">
-                                                            <label for="customer_name">Name</label>
-                                                            <input type="text" class="form-control" id="customer_name"
+                                                            <label>Name</label>
+                                                            <input type="text" class="form-control" id="name"
                                                                 name="name">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="customer_address">Address</label>
-                                                            <input type="text" class="form-control"
-                                                                id="customer_address" name="address">
+                                                            <label>Address</label>
+                                                            <input type="text" class="form-control" id="address"
+                                                                name="address">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="customer_age">Age</label>
-                                                            <input type="number" class="form-control" id="customer_age"
+                                                            <label>Age</label>
+                                                            <input type="number" class="form-control" id="age"
                                                                 name="age">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="customer_email">Email</label>
+                                                            <label>Email</label>
                                                             <input type="email" class="form-control"
-                                                                id="customer_email" name="email">
+                                                                id="email" name="email">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-primary"
+                                                                style="width: 140px">Add Customer</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
                                                         </div>
                                                     </form>
+
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary"
-                                                        style="width: 100px">OK</button>
-                                                    <button type="button" class="btn btn-secondary" style="width: 100px"
-                                                        data-dismiss="modal">Cancel</button>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

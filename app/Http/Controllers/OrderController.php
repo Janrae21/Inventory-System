@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 class OrderController extends Controller {
 
     public function index() {
-        $orders = Order::all();
-        return view( 'orders.index', compact( 'orders' ) );
+
+        $orders = Order::paginate(10);
+        return view( 'CustomerList', compact( 'orders' ) );
     }
+
+
 
     public function create() {
         return view( 'orders.create' );
@@ -20,8 +23,8 @@ class OrderController extends Controller {
     public function store( Request $request ) {
 
         $data = $request->all();
-        $data['category'] = 'default_value'; // Set the default value
-        $data['customer_name'] = 'default_value'; // Set the default value
+        $data['category'] = 'N/A';
+        $data['customer_name'] = 'N/A';
 
         $order = Order::create($data);
         return redirect()->back()->with('Message-Success', 'Order created successfully.');

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\EloadingBestSellerModel;
+use App\Models\Order;
+
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -37,7 +38,15 @@ class HomeController extends Controller
 
     public function adminHome(): View
     {
-        return view('adminHome');
+
+
+       
+
+
+
+
+        $orders = Order::paginate(10);
+        return view( 'adminHome', compact( 'orders' ) );
         // $inventory = EloadingBestSellerModel::paginate( 10 );
         // return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
     }
@@ -59,6 +68,10 @@ class HomeController extends Controller
     //     return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
 
     // }
+
+
+
+
 
 
 }
