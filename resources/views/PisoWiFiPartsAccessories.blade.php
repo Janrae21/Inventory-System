@@ -56,7 +56,7 @@
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
                                 </button>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none;">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
                                 </button>
                             </div>
@@ -147,6 +147,7 @@
                                             <script>
                                                 swal("message", "Successfuly Added Item", "success", {
                                                     button: "okay",
+                                                    style: "justify-content:center;",
                                                 });
                                             </script>
                                         @endif
@@ -181,6 +182,8 @@
                                                         <option value="Pending">Inventory and Condition of Products Report</option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
+                                                    <label for="description">Description:</label>
+                                                    <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
 
                                                     <div class="modal-footer ">
                                                         <div class="btn">
@@ -199,6 +202,7 @@
                                             <script>
                                                 swal("message", "Successfuly Added Item", "success", {
                                                     button: "okay",
+                                                    style: "justify-content:center;",
                                                 });
                                             </script>
                                         @endif
@@ -523,6 +527,7 @@
                                             <script>
                                                 swal("message", "Successfully Added Customer", "success", {
                                                     button: "okay",
+                                                    style: "justify-content:center;",
                                                 });
                                             </script>
                                         @endif
@@ -565,6 +570,7 @@
                                         <script>
                                             swal("message", "Successfully Deleted", "success", {
                                                 button: "okay",
+                                                style: "justify-content:center;",
                                             });
                                         </script>
                                     @endif

@@ -177,7 +177,9 @@
                                                         <option value="Pending">Inventory and Condition of Products Report</option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
-
+                                                    <label for="description">Description:</label>
+                                                    <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
+                                                    
                                                     <div class="modal-footer ">
                                                         <div class="btn">
                                                             <button type="submit" class="btn btn-primary">Create
