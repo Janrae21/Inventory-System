@@ -72,6 +72,7 @@ button {
     width: 10%;
     height: 40px;
     border-color: rgba(55, 55, 228, 0.869);
+    float: right;
 }
 
 

@@ -382,7 +382,7 @@
                                     <!--View Product Modal-->
                                     <div class="modal fade" id="productModal{{ $ps->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -429,7 +429,7 @@
                                     <!--Edit Item Modal-->
                                     <div class="modal fade" id="productModalEdit{{ $ps->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $ps->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -516,8 +516,8 @@
                                         </div>
                                         @if (Session::has('message'))
                                             <script>
-                                                swal("message", "Item Edited Successfully", "success", {
-                                                    button: "okay",
+                                                swal("Costumer Successfuly Created", "Item Edited Successfully", "success", {
+                                                    button: "Done",
                                                 });
                                             </script>
                                         @endif
@@ -526,7 +526,7 @@
                                     <!-- Delete Confirmation Modal -->
                                     <div class="modal fade" id="deleteModal{{ $ps->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="deleteModalLabel{{ $ps->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">

@@ -39,12 +39,6 @@ class HomeController extends Controller
     public function adminHome(): View
     {
 
-
-       
-
-
-
-
         $orders = Order::paginate(10);
         return view( 'adminHome', compact( 'orders' ) );
         // $inventory = EloadingBestSellerModel::paginate( 10 );

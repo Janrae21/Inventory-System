@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-
 * {
     margin: 0;
     padding: 0;
@@ -18,8 +17,6 @@ li {
 li a {
     text-decoration: none;
 }
-
-
 
 :root {
     --poppins: 'Poppins', sans-serif;
@@ -383,9 +380,8 @@ button {
     width: 10%;
     height: 40px;
     border-color: rgba(55, 55, 228, 0.869);
+    float: right;
 }
-
-
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {
         display: none;

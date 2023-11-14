@@ -11,6 +11,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductStatus_Controller;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +35,6 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
-
-
 });
 
 /*------------------------------------------
@@ -48,9 +47,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 
-    Route::get('/status', function () {
-        return view('productstatus');
-    });
     Route::get('/ranking', function () {
         return view('ranking');
     });
@@ -72,18 +68,11 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/status', function () {
         return view('productstatus');
     });
-    Route::get('/ranking', function () {
-        return view('ranking');
-    });
+
     Route::get('/customer', function () {
         return view('customerList');
     });
-    Route::get('/status', function () {
-        return view('productstatus');
-    });
-    Route::get('/ranking', function () {
-        return view('ranking');
-    });
+
 
     Route::get('/view-profile', function () {
         return view('view-profile');
@@ -91,15 +80,17 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     //CRUD Function//
 
-    //Orders
+    //Orders,customer,status
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('customer', [OrderController::class, 'index']);
-   
+    Route::get('status',[OrderController::class,'ShowStatus']);
+    Route::delete('/status/{id}', [OrderController::class, 'delete'])->name('status.delete');
 
 
     //Customers
     Route::post('/Customers',[CustomerController::class, 'store'])->name('Customers.store');
 
+    //PisoWifi Parts Accessories & Customer
 
 
 
@@ -145,4 +136,5 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+
 });

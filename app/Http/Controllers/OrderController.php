@@ -10,11 +10,15 @@ class OrderController extends Controller {
 
     public function index() {
 
-        $orders = Order::paginate(10);
+        $orders = Order::paginate( 10 );
         return view( 'CustomerList', compact( 'orders' ) );
     }
 
+    public function ShowStatus() {
 
+        $orders = Order::paginate( 10 );
+        return view( 'productstatus', compact( 'orders' ) );
+    }
 
     public function create() {
         return view( 'orders.create' );
@@ -23,16 +27,25 @@ class OrderController extends Controller {
     public function store( Request $request ) {
 
         $data = $request->all();
-        $data['category'] = 'N/A';
-        $data['customer_name'] = 'N/A';
+        $data[ 'category' ] = 'N/A';
+        $data[ 'customer_name' ] = 'N/A';
 
-        $order = Order::create($data);
-        return redirect()->back()->with('Message-Success', 'Order created successfully.');
+        $order = Order::create( $data );
+        return redirect()->back()->with( 'Message-Success', 'Order created successfully.' );
     }
-
 
     public function show( Order $order ) {
         return view( 'orders.show', compact( 'order' ) );
+    }
+
+    //Delete Function
+
+    public function delete( $id ) {
+
+        $order = Order::findOrFail( $id );
+        $order->delete();
+
+        return redirect()->back()->with( 'message delete', 'Item deleted successfully' );
     }
 
     // public function edit( Order $order )

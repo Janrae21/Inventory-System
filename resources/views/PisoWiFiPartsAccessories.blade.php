@@ -247,7 +247,7 @@
                                     <!-- View Modal -->
                                     <div class="modal fade" id="productModal{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -295,7 +295,7 @@
                                     <!-- Order Modal -->
                                     <div class="modal fade" id="orderModal{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="orderModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -317,6 +317,7 @@
                                                                     style="color: #4CA7DF; padding: 10px;">
                                                                     <i class='bx bx-plus'></i> Add Customer</a>
                                                             </label>
+
                                                             <select name="customer_id" id="customer_id"
                                                                 class="form-control">
                                                                 <option value="" disabled selected>Select Customer
@@ -382,7 +383,7 @@
                                     </div>
 
                                     <!-- Add Customer Modal -->
-                                    <div id="addCustomerModal" class="modal fade" role="dialog">
+                                    <div id="addCustomerModal" class="modal fade" role="dialog" data-backdrop="static">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -433,7 +434,7 @@
                                     <!--Edit Item Modal-->
                                     <div class="modal fade" id="productModalEdit{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -521,8 +522,8 @@
                                         </div>
                                         @if (Session::has('message-Customer'))
                                             <script>
-                                                swal("message", "Successfully Added Customer", "success", {
-                                                    button: "okay",
+                                                swal("Costumer Successfully Created", "Successfully Added Customer", "success", {
+                                                    button: "Done",
                                                 });
                                             </script>
                                         @endif
@@ -531,7 +532,7 @@
                                     <!-- Delete Confirmation Modal -->
                                     <div class="modal fade" id="deleteModal{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="deleteModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -563,9 +564,9 @@
                                     </div>
                                     @if (Session::has('message delete'))
                                         <script>
-                                            swal("message", "Successfully Deleted", "success", {
-                                                button: "okay",
-                                            });
+                                            swal("Costumer Successfully Created", "Successfully Deleted", "success", {
+                                                button: "Done",
+                                             });
                                         </script>
                                     @endif
                                 @endforeach

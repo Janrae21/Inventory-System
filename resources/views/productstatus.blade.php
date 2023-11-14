@@ -53,32 +53,67 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                <tr>
-                                    <td>
-
-                                        <p>Mary Joy Reambonanza</p>
-                                    </td>
-                                    <td>1</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-
-                                    </td>
-
+                                @foreach ($orders as $od)
+                                    <tr>
+                                        <td>{{ $od->item_name }}</td>
+                                        <td>{{ $od->quantity_sold }}</td>
+                                        <td>{{ $od->category }}</td>
+                                        <td>{{ $od->created_at }}</td>
+                                        <td>{{ $od->shipment_status }}</td>
+                                        <td><a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#deleteModal{{ $od->id }}"><i
+                                                    class='bx bxs-trash'></i> Delete </a></td>
+                                    </tr>
 
 
+                                    <!--Delete for Product Status-->
 
-                                    <td>
-                                        <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                            data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>
-                                            Delete </a>
-                                    </td>
-                                </tr>
+                                    <!-- Delete Confirmation Modal -->
+                                    <div class="modal fade" id="deleteModal{{ $od->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="deleteModalLabel{{ $od->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $od->id }}">
+                                                        Confirm
+                                                        Deletion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this item?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form action="{{ route('status.delete', $od->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"
+                                                            style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary" style="width: 90px"
+                                                            data-dismiss="modal">Cancel</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                            });
+                                        </script>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{ $orders->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
+
             </main>
 
             <!-- MAIN -->
