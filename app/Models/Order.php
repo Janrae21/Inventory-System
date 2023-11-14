@@ -4,20 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Order extends Model
 {
-    protected $fillable = [
-        'id',
-        // Other fillable fields
-        'item_name',
-        'customer_name',
-        'quantity_sold',
-        'order_number',
-        'payment_method',
-        'shipment_status',
-        // ...
-    ];
     use HasFactory;
 
+    protected $guarded = [];
+
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customers::class);
+    }
 }

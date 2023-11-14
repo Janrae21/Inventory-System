@@ -55,7 +55,7 @@
         <li>
             <a href="{{ asset('/customer') }}">
                 <i class='bx bxs-group'></i>
-                <span class="text">Customer Lists</span>
+                <span class="text">Customers</span>
             </a>
         </li>
         <li>

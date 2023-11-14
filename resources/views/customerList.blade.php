@@ -36,7 +36,7 @@
             <main>
                 <div class="head-title">
                     <div class="left">
-                        <h1>Customer Lists</h1>
+                        <h1>Customers</h1>
                     </div>
                     <a href="#" class="btn-download">
                         <i class='bx bxs-cloud-download'></i>
@@ -48,31 +48,31 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Order Date</th>
-                                    <th>Customer's Name</th>
-                                    <th>Product Name</th>
-                                    <th>Payment Method</th>
-                                    <th>Order Number</th>
-                                    <th>Shipment Status</th>
+                                    {{-- <th>Order Date</th> --}}
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    {{-- <th>Order Number</th> --}}
+                                    {{-- <th>Shipment Status</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($orders as $od)
+                                @foreach ($customers as $od)
                                     <tr>
-                                        <td>
+                                        {{-- <td>
                                             <p>{{$od->created_at}}</p>
-                                        </td>
-                                        <td>{{ $od->customer_name }}</td>
-                                        <td>{{ $od->item_name }}</td>
-                                        <td>{{ $od->payment_method }}</td>
-                                        <td>230201U1XKYPSP</td>
-                                        <td>{{ $od->shipment_status }}</td>
+                                        </td> --}}
+                                        <td>{{ $od->name }}</td>
+                                        <td>{{ $od->email }}</td>
+                                        <td>{{ $od->address }}</td>
+                                        {{-- <td>230201U1XKYPSP</td>
+                                        <td>{{ $od->shipment_status }}</td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <br>
-                        {{ $orders->links('pagination::bootstrap-5') }}
+                        {{ $customers->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
             </main>

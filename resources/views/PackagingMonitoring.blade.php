@@ -247,7 +247,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                    <form action="/orders" method="POST">
                                                         @csrf
 
                                                         <div class="form-group">

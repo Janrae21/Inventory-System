@@ -115,14 +115,14 @@
                     <li>
                         <i class='bx bxs-dollar-circle'></i>
                         <span class="text">
-                            <h3>232</h3>
+                            <h3>{{ $orders }}</h3>
                             <p>Total Purchased Products</p>
                         </span>
                     </li>
                     <li>
                         <i class='bx bxs-group'></i>
                         <span class="text">
-                            <h3>58</h3>
+                            <h3>{{ $customers }}</h3>
                             <p>Total List of New Customer</p>
                         </span>
                     </li>
@@ -142,7 +142,7 @@
                             {{-- @foreach ($orders as $od)
                                 <h3>{{ $od->id }}</h3>
                             @endforeach --}}
-                            <h3></h3>
+                            <h3>{{ $customers }}</h3>
                             <p>Total Customers</p>
                         </span>
                     </li>
