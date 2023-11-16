@@ -2,37 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Customers;
 use App\Models\Order;
+use App\Models\PisoWifi_parts_accessories;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller {
+class OrderController extends Controller
+{
+    public function index()
+    {
+        // $orders = Order::with('customer')->paginate(10);
+        $customers = Customers::paginate(10);
 
-    public function index() {
-
-        $orders = Order::paginate(10);
-        return view( 'CustomerList', compact( 'orders' ) );
+        return view('CustomerList', compact('customers'));
     }
 
-
-
-    public function create() {
-        return view( 'orders.create' );
+    public function create()
+    {
+        return view('orders.create');
     }
 
-    public function store( Request $request ) {
-
+    public function store(Request $request)
+    {
         $data = $request->all();
-        $data['category'] = 'N/A';
-        $data['customer_name'] = 'N/A';
 
-        $order = Order::create($data);
+        $product = PisoWifi_parts_accessories::where('id', $data['product_id'])->first();
+
+        $product->RemainingStocks = $product->RemainingStocks - $data['quantity_sold'];
+
+        $product->save();
+
+        unset($data['product_id']);
+
+        Order::create($data);
+
         return redirect()->back()->with('Message-Success', 'Order created successfully.');
     }
 
-
-    public function show( Order $order ) {
-        return view( 'orders.show', compact( 'order' ) );
+    public function show(Order $order)
+    {
+        return view('orders.show', compact('order'));
     }
 
     // public function edit( Order $order )

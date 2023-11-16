@@ -112,10 +112,16 @@
                                 <div class="card">
                                     <div class="card-header p-2">
                                         <br>
-                                        <ul class="nav nav-pills">
+
+                                        <h1>
+                                            <center>
+                                                Personal Information
+                                            </center>                                            
+                                        </h1>
+                                        {{-- <ul class="nav nav-pills">
                                             <li class="nav-item"><a class="nav-link active">Personal
                                                     Information</a></li>
-                                        </ul>
+                                        </ul> --}}
                                     </div>
                                     <div class="card-body">
                                         <div class="tab-content">
@@ -139,16 +145,16 @@
                                                                 name="email">
                                                         </div>
                                                     </div>
-                                                    <br>
+                                                    {{-- <br>
                                                     <div class="form-group row">
                                                         <label for="inputName" class="col-sm-2 col-form-label">Old
-                                                            Passord</label>
+                                                            Password</label>
                                                         <div class="col-sm-10">
                                                             <input type="password" class="form-control" id="inputName"
-                                                                placeholder="Enter current password" value="{{ Auth::user()->password }}" name="oldpassword">
+                                                                placeholder="Enter current password" name="oldpassword">
                                                             <span class="text-danger error-text oldpassword_error"></span>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                     <br>
                                                     <div class="form-group row">
                                                         <label class="col-sm-2 col-form-label">New
@@ -173,7 +179,6 @@
                                                         <div class="offset-sm-2 col-sm-10">
                                                             <button type="submit" class="btn btn-primary">Save
                                                                 Changes</button>
-                                                                <button type="button" class="btn btn-danger">Clear</button>
                                                         </div>
                                                     </div>
 
@@ -209,4 +214,3 @@
     </body>
 
     </html>
-

@@ -179,11 +179,13 @@
                                                         </option>
                                                         <option value="">Test Reports</option>
                                                         <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report</option>
+                                                        <option value="Pending">Inventory and Condition of Products Report
+                                                        </option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
                                                     <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
+                                                    <textarea type="text" id="description" name="description" class="form-control"
+                                                        placeholder="Enter report description" required></textarea>
 
                                                     <div class="modal-footer ">
                                                         <div class="btn">
@@ -311,7 +313,7 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                    <form action="/orders" method="POST">
                                                         @csrf
 
                                                         <div class="form-group">
@@ -323,9 +325,11 @@
                                                             </label>
                                                             <select name="customer_id" id="customer_id"
                                                                 class="form-control">
-                                                                <option value="" disabled selected>Select Customer
-                                                                <option value=""></option>
-                                                                </option>
+                                                                <option disabled selected>Select Customer</option>
+                                                                @foreach ($customers as $item)
+                                                                    <option value="{{ $item->id }}">
+                                                                        {{ $item->name }}</option>
+                                                                @endforeach
 
                                                             </select>
 
@@ -342,10 +346,14 @@
                                                                 class="form-control" required>
                                                         </div>
 
+                                                        <div>
+                                                            <input type="number" name="product_id" value="{{ $pisoWifi->id }}" hidden>
+                                                        </div>
+
                                                         <div class="form-group">
-                                                            <label for="category">Category</label>
+                                                            <label for="category" hidden>Category</label>
                                                             <input type="text" name="category" id="category"
-                                                                value="Pisowifi" class="form-control" disabled>
+                                                                value="Pisowifi" class="form-control" hidden>
                                                         </div>
 
                                                         <div class="form-group">
@@ -416,8 +424,8 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Email</label>
-                                                            <input type="email" class="form-control"
-                                                                id="email" name="email">
+                                                            <input type="email" class="form-control" id="email"
+                                                                name="email">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"

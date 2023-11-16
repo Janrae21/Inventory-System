@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EloadingBestSeller_Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PackagingMonitoringController;
 use App\Http\Controllers\PartsOfEloadingController;
 use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\ProductStatus_Controller;
+use App\Http\Controllers\ProductControlller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,10 +32,6 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-
-
 });
 
 /*------------------------------------------
@@ -45,12 +41,7 @@ All Admin Routes List
 --------------------------------------------*/
 
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-
-    Route::get('/status', function () {
-        return view('productstatus');
-    });
     Route::get('/ranking', function () {
         return view('ranking');
     });
@@ -69,18 +60,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/eloading-best-seller', function () {
         return view('EloadingBestSeller');
     });
-    Route::get('/status', function () {
-        return view('productstatus');
-    });
     Route::get('/ranking', function () {
         return view('ranking');
     });
     Route::get('/customer', function () {
         return view('customerList');
     });
-    Route::get('/status', function () {
-        return view('productstatus');
-    });
+    Route::get('/status', [ProductControlller::class, 'index']);
     Route::get('/ranking', function () {
         return view('ranking');
     });
@@ -89,19 +75,12 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
-    //CRUD Function//
-
     //Orders
-    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+    Route::post('orders', [OrderController::class, 'store']);
     Route::get('customer', [OrderController::class, 'index']);
-   
-
 
     //Customers
-    Route::post('/Customers',[CustomerController::class, 'store'])->name('Customers.store');
-
-
-
+    Route::post('/Customers', [CustomerController::class, 'store'])->name('Customers.store');
 
     //PisoWifi Parts Accessories Crud//
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
@@ -135,7 +114,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/view/item/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'viewItem'])->name('view.item');
     Route::put('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'update'])->name('physical-store-computer-stocks-monitoring.update');
     Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'delete'])->name('physical-store-computer-stocks-monitoring.delete');
-
 });
 
 /*------------------------------------------

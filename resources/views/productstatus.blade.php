@@ -43,38 +43,33 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th> Purchased By </th>
                                     <th>Product Name</th>
                                     <th>Quantity</th>
                                     <th>Category</th>
-                                    <th>Ordered Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                                <tr>
-                                    <td>
 
-                                        <p>Mary Joy Reambonanza</p>
-                                    </td>
-                                    <td>1</td>
-                                    <td>E-Loading Machine</td>
-                                    <td>01-10-2021</td>
-                                    <td>
-
-                                    </td>
-
-
-
-
-                                    <td>
-                                        <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                            data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>
-                                            Delete </a>
-                                    </td>
-                                </tr>
+                                @foreach ($productStatus as $item)
+                                    <tr>
+                                        <td> {{ $item->customer->name }} </td>
+                                        <td>
+                                            <p>{{ $item->item_name }}</p>
+                                        </td>
+                                        <td> {{ $item->quantity_sold }} </td>
+                                        <td> {{ $item->category }} </td>
+                                        <td>{{ $item->shipment_status }}</td>
+                                        <td>
+                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>
+                                                Delete </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
