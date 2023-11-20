@@ -150,6 +150,7 @@
                                 <script>
                                     swal("message", "Successfuly Added Item", "success", {
                                         button: "okay",
+                                        style: "justify-content:center;",
                                     });
                                 </script>
                             @endif
@@ -180,10 +181,10 @@
                                                     </select>
                                                     <label for="description">Description:</label>
                                                     <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
-                                                    
+
                                                     <div class="modal-footer ">
                                                         <div class="btn">
-                                                            <button type="submit" class="btn btn-primary">Create
+                                                            <button type="submit" class="btn btn-primary" >Create
                                                                 Reports</button>
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
@@ -251,7 +252,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                    <form action="/orders" method="POST">
                                                         @csrf
 
                                                         <div class="form-group">
@@ -261,21 +262,41 @@
                                                                     style="color: #4CA7DF; padding: 10px;">
                                                                     <i class='bx bx-plus'></i> Add Customer</a>
                                                             </label>
+
                                                             <select name="customer_id" id="customer_id"
                                                                 class="form-control">
-                                                                <option value="" disabled selected>Select Customer
-                                                                </option>
+                                                                <option >Select Customer</option>
+                                                                @foreach ($customers as $item)
+                                                                    <option value="{{ $item->id }}">
+                                                                        {{ $item->name }}</option>
+                                                                @endforeach
 
                                                             </select>
 
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="item_name">Item Name</label>
-                                                            <input type="text" name="item_name"
+                                                            <label for="item_name" >Item Name</label>
+                                                            <input type="text" name="item_name" required
                                                                 id="orderModalLabel{{ $ps->id }}"
                                                                 class="form-control" value="{{ $ps->ItemsName }}">
 
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_type"></label>
+                                                            <input type="text" name="product_type"
+                                                                value="physical" hidden>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_id" hidden></label>
+                                                            <input type="text" name="product_id"
+                                                                value="{{ $ps->id }}" hidden>
+                                                        </div>
+
+
+
+
                                                         <div class="form-group">
                                                             <label for="quantity_sold">Quantity</label>
                                                             <input type="number" name="quantity_sold" id="quantity_sold"
@@ -283,16 +304,16 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="category">Category</label>
+                                                            <label for="category" hidden>Category</label>
                                                             <input type="text" name="category" id="category"
-                                                                value="Pisowifi" class="form-control" disabled>
+                                                                value="Physical-Store-Computer" class="form-control" hidden>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="payment_method">Payment Method</label>
                                                             <select name="payment_method" id="payment_method"
                                                                 class="form-control" required>
-                                                                <option value="" disabled selected>Select Payment
+                                                                <option value="" disabled selected required>Select Payment
                                                                     Method</option>
                                                                 <option value="Credit Card">Credit Card</option>
                                                                 <option value="G-cash">G-cash</option>
@@ -309,8 +330,8 @@
                                                                 <option value="" disabled selected>Select Shipment
                                                                     Status</option>
                                                                 <option value="Pending">Pending</option>
-                                                                <option value="Shipped">Shipped</option>
-                                                                <option value="Delivered">Delivered</option>
+                                                                {{-- <option value="Shipped">Shipped</option>
+                                                                <option value="Delivered">Delivered</option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
@@ -327,11 +348,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
 
                                     <!-- Add Customer Modal -->
                                     <div id="addCustomerModal" class="modal fade" role="dialog">

@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 
-class ProductControlller extends Controller
-{
-    public function index()
-    {
-        $orders = Order::with('customer')->paginate(10);
+class ProductControlller extends Controller {
+    public function index() {
+        // $orders = Order::paginate( 10 );
+        $orders = Order::with( 'customer' )->get();
 
-        return view('productstatus', [
+        return view( 'productstatus', [
             'productStatus' => $orders,
-        ]);
+        ] );
     }
+
+    //Delete Function
+
+
 }

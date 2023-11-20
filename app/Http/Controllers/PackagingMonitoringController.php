@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PackagingMonitoringModel;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 
 class PackagingMonitoringController extends Controller {
@@ -11,9 +12,15 @@ class PackagingMonitoringController extends Controller {
     public function ShowPackaging() {
 
         $packaging = PackagingMonitoringModel::paginate( 10 );
-        return view( 'PackagingMonitoring', [ 'packagingmonitoring'=> $packaging ] );
-    }
 
+        $customers = Customers::all();
+
+        return view('PackagingMonitoring', [
+            'packagingmonitoring' => $packaging,
+            'customers' => $customers,
+        ]);
+
+    }
 
     // Store Function
     public function store( Request $request ) {

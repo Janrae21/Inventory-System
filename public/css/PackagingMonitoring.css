@@ -263,11 +263,8 @@ tr:nth-child(even){
     font-weight: 700;
 }
 
-td,th{
-    border: 1px solid #bebebe;
-    text-align: center;
-    padding: 10px;
-}
+
+
 .custom-select {
     /* wrapper style */
     position: relative;
@@ -435,7 +432,6 @@ button {
 }
 
 
-
 @keyframes drop {
     0% {
         opacity: 0;
@@ -444,6 +440,10 @@ button {
     100% {
         opacity: 1;
     }
+}
+
+label{
+    margin-bottom: 0;
 }
 
 

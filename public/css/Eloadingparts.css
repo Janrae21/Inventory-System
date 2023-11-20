@@ -437,8 +437,8 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
+}
 
-  tr:nth-child(even) {
-    background-color: #b5e1eb;
-  }
+label{
+    margin-bottom: 0;
+}

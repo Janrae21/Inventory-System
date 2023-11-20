@@ -61,8 +61,9 @@
                                 </button>
                             </div>
 
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-bs-keyboard="false"
+                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+                                data-bs-backdrop="static">
                                 <div class="modal-dialog" style="width: 50%">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -159,7 +160,7 @@
                             </div>
 
 
-                            <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
+                            <div class="modal fade" id="report" data-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog" style="width: 50%">
                                     <div class="modal-content">
@@ -200,7 +201,7 @@
                                             </div>
                                         </form>
 
-                                        @if (Session::has('message'))
+                                        @if (Session::has('message-add'))
                                             <script>
                                                 swal("message", "Successfuly Added Item", "success", {
                                                     button: "okay",
@@ -253,7 +254,7 @@
                                     <!-- View Modal -->
                                     <div class="modal fade" id="productModal{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="productModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-backdrop="static">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -301,7 +302,7 @@
                                     <!-- Order Modal -->
                                     <div class="modal fade" id="orderModal{{ $pisoWifi->id }}" tabindex="-1"
                                         role="dialog" aria-labelledby="orderModalLabel{{ $pisoWifi->id }}"
-                                        aria-hidden="true">
+                                        aria-hidden="true" data-bs-backdrop="static">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -324,8 +325,8 @@
                                                                     <i class='bx bx-plus'></i> Add Customer</a>
                                                             </label>
                                                             <select name="customer_id" id="customer_id"
-                                                                class="form-control">
-                                                                <option disabled selected>Select Customer</option>
+                                                                class="form-control" required>
+                                                                <option>Select Customer</option>
                                                                 @foreach ($customers as $item)
                                                                     <option value="{{ $item->id }}">
                                                                         {{ $item->name }}</option>
@@ -340,6 +341,19 @@
                                                                 id="orderModalLabel{{ $pisoWifi->id }}"
                                                                 class="form-control" value="{{ $pisoWifi->ItemsName }}">
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_type" hidden></label>
+                                                            <input type="text" name="product_type"
+                                                                value="pisowifi_parts" hidden>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_id" hidden></label>
+                                                            <input type="text" name="product_id"
+                                                                value="{{ $pisoWifi->id }}" hidden>
+                                                        </div>
+
                                                         <div class="form-group">
                                                             <label for="quantity_sold">Quantity</label>
                                                             <input type="number" name="quantity_sold" id="quantity_sold"
@@ -347,19 +361,21 @@
                                                         </div>
 
                                                         <div>
-                                                            <input type="number" name="product_id" value="{{ $pisoWifi->id }}" hidden>
+                                                            <input type="number" name="product_id"
+                                                                value="{{ $pisoWifi->id }}" hidden>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="category" hidden>Category</label>
                                                             <input type="text" name="category" id="category"
-                                                                value="Pisowifi" class="form-control" hidden>
+                                                                value="Pisowifi-Parts-Accessories" class="form-control"
+                                                                hidden>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="payment_method">Payment Method</label>
                                                             <select name="payment_method" id="payment_method"
-                                                                class="form-control">
+                                                                class="form-control" required>
                                                                 <option value="" disabled selected>Select Payment
                                                                     Method</option>
                                                                 <option value="Credit Card">Credit Card</option>
@@ -373,9 +389,9 @@
                                                         <div class="form-group">
                                                             <label for="shipment_status">Shipment Status</label>
                                                             <select name="shipment_status" id="shipment_status"
-                                                                class="form-control">
-                                                                <option value="" disabled selected>Select Shipment
-                                                                    Status</option>
+                                                                class="form-control" required>
+                                                                <option disabled selected>Select Shipment
+                                                                </option>
                                                                 <option value="Pending">Pending</option>
                                                                 <option value="Shipped">Shipped</option>
                                                                 <option value="Delivered">Delivered</option>
@@ -383,9 +399,10 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
-                                                                style="width: 100px">Purchase</button>
+                                                                style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
+                                                                data-dismiss="modal"
+                                                                style="width: 90px; border-radius:9px; font-size:15px">Cancel</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -410,28 +427,30 @@
                                                         <div class="form-group">
                                                             <label>Name</label>
                                                             <input type="text" class="form-control" id="name"
-                                                                name="name">
+                                                                name="name" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Address</label>
                                                             <input type="text" class="form-control" id="address"
-                                                                name="address">
+                                                                name="address" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Age</label>
                                                             <input type="number" class="form-control" id="age"
-                                                                name="age">
+                                                                name="age" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Email</label>
                                                             <input type="email" class="form-control" id="email"
-                                                                name="email">
+                                                                name="email" required>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
-                                                                style="width: 140px">Add Customer</button>
+                                                                style="width: 120px; border-radius:9px; font-size:15px">Add
+                                                                Customer</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
+                                                                data-dismiss="modal"
+                                                                style="width: 120px; border-radius:9px; font-size:15px">Cancel</button>
                                                         </div>
                                                     </form>
 
@@ -440,6 +459,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+
 
 
                                     <!--Edit Item Modal-->
@@ -527,6 +548,19 @@
                                                         </div>
                                                     </form>
 
+                                                    @if (Session::has('message-edit'))
+                                                        <script>
+                                                            swal("message", "Successfuly Edit Item", "success", {
+                                                                button: "okay",
+                                                                style: "justify-content:center;",
+                                                            });
+                                                        </script>
+                                                    @endif
+
+
+
+
+
                                                 </div>
 
                                             </div>
@@ -570,18 +604,23 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
+
+
+
+
                                                 </div>
                                             </div>
                                         </div>
+                                        @if (Session::has('message-delete'))
+                                            <script>
+                                                swal("message", "Successfully Item Deleted", "success", {
+                                                    button: "okay",
+                                                    style: "justify-content:center;",
+                                                });
+                                            </script>
+                                        @endif
+
                                     </div>
-                                    @if (Session::has('message delete'))
-                                        <script>
-                                            swal("message", "Successfully Deleted", "success", {
-                                                button: "okay",
-                                                style: "justify-content:center;",
-                                            });
-                                        </script>
-                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

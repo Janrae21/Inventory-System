@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\physical_Store_Computer_StocksMonitoring;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 
 class physical_Store_Computer_Stocks_Monitoring extends Controller {
@@ -9,11 +10,15 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller {
     public function showMonitoring() {
 
         $Data = physical_Store_Computer_StocksMonitoring::paginate( 8 );
-        return view( 'PhysicalStoreComputerStocksMonitoring', [ '_physical_store_computer_stocks_monitoring' => $Data ] );
+        $customers = Customers::all();
+
+        return view('PhysicalStoreComputerStocksMonitoring', [
+            '_physical_store_computer_stocks_monitoring' => $Data,
+            'customers' => $customers,
+        ]);
     }
 
     // Add Function
-
     public function store( Request $request ) {
 
         $request->validate( [

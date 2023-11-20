@@ -13,17 +13,6 @@ class PackagingMonitoringModel extends Model
     public $timestamps = false;
 
 
-    protected $fillable = [
-
-        'ItemsName',
-        'Status',
-        'RemainingStocks',
-        'StocksPurchased',
-        'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorfortesting',
-        'UpcomingStocks',
-        'Remarks',
-    ];
-
-
+    protected $guarded = [];
+    
 }

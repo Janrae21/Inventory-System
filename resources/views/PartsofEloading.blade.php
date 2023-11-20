@@ -179,7 +179,7 @@
                                                     </select>
                                                     <label for="description">Description:</label>
                                                     <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
-                                                    
+
                                                     <div class="modal-footer ">
                                                         <div class="btn">
                                                             <button type="submit" class="btn btn-primary">Create
@@ -253,7 +253,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                    <form action="/orders" method="POST">
                                                         @csrf
 
                                                         <div class="form-group">
@@ -264,9 +264,12 @@
                                                                     <i class='bx bx-plus'></i> Add Customer</a>
                                                             </label>
                                                             <select name="customer_id" id="customer_id"
-                                                                class="form-control">
-                                                                <option value="" disabled selected>Select Customer
-                                                                </option>
+                                                                class="form-control" required>
+                                                                <option>Select Customer</option>
+                                                                @foreach ($customers as $item)
+                                                                    <option value="{{ $item->id }}">
+                                                                        {{ $item->name }}</option>
+                                                                @endforeach
 
                                                             </select>
 
@@ -278,6 +281,20 @@
                                                                 class="form-control" value="{{ $pe->ItemsName }}">
 
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_id" hidden></label>
+                                                            <input type="text" name="product_id"
+                                                                value="{{ $pe->id }}" hidden>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_type" hidden></label>
+                                                            <input type="text" name="product_type"
+                                                                value="eloading" hidden>
+                                                        </div>
+
+
                                                         <div class="form-group">
                                                             <label for="quantity_sold">Quantity</label>
                                                             <input type="number" name="quantity_sold" id="quantity_sold"
@@ -285,15 +302,15 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="category">Category</label>
+                                                            <label for="category" hidden>Category</label>
                                                             <input type="text" name="category" id="category"
-                                                                value="Pisowifi" class="form-control" disabled>
+                                                                value="Eloading-Parts-And-Accessories" class="form-control" hidden>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="payment_method">Payment Method</label>
                                                             <select name="payment_method" id="payment_method"
-                                                                class="form-control">
+                                                                class="form-control" required>
                                                                 <option value="" disabled selected>Select Payment
                                                                     Method</option>
                                                                 <option value="Credit Card">Credit Card</option>
@@ -306,7 +323,7 @@
                                                         <div class="form-group">
                                                             <label for="shipment_status">Shipment Status</label>
                                                             <select name="shipment_status" id="shipment_status"
-                                                                class="form-control">
+                                                                class="form-control" required>
                                                                 <option value="" disabled selected>Select Shipment
                                                                     Status</option>
                                                                 <option value="Pending">Pending</option>
@@ -316,9 +333,9 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
-                                                                style="width: 100px">Purchase</button>
+                                                                style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
+                                                                data-dismiss="modal" style="width: 90px; border-radius:9px; font-size:15px">Cancel</button>
 
                                                         </div>
 
@@ -345,22 +362,22 @@
                                                         <div class="form-group">
                                                             <label>Name</label>
                                                             <input type="text" class="form-control" id="name"
-                                                                name="name">
+                                                                name="name" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Address</label>
                                                             <input type="text" class="form-control" id="address"
-                                                                name="address">
+                                                                name="address" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Age</label>
                                                             <input type="number" class="form-control" id="age"
-                                                                name="age">
+                                                                name="age" required>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Email</label>
                                                             <input type="email" class="form-control"
-                                                                id="email" name="email">
+                                                                id="email" name="email" required>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"

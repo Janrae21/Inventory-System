@@ -15,18 +15,7 @@ class physical_Store_Computer_StocksMonitoring extends Model
     public $timestamps = false;
 
 
-    protected $fillable = [
-
-        'ItemsName',
-        'Status',
-        'RemainingStocks',
-        'StocksPurchased',
-        'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorfortesting',
-        'UpcomingStocks',
-        'Remarks',
-
-    ];
+    protected $guarded = [];
 
 
 

@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 use App\Models\PartsOfEloadingModel;
+use App\Models\Customers;
 use Illuminate\Http\Request;
 
 class PartsOfEloadingController extends Controller {
 
     public function showEloading() {
         $DataEloading = PartsOfEloadingModel::paginate( 10 );
+        $customers = Customers::all();
 
-        return view( 'PartsOfEloading', [ '_parts_of_eloading' => $DataEloading ] );
+        return view('PartsOfEloading', [
+            '_parts_of_eloading' => $DataEloading,
+            'customers' => $customers,
+        ]);
+
     }
 
     public function store( Request $request ) {
