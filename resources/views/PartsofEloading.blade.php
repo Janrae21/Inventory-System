@@ -128,10 +128,10 @@
                                                 </div>
 
                                                 <div class="modal-footer ">
-                                                    <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Add Items
+                                                    <div class="btn"  style="display:flex; justify-content:flex-end;">
+                                                        <button type="submit" class="btn btn-primary" style="width: 110px; border-radius:8px; font-size:13px; height:45px;">Add Items
                                                         </button>
-                                                        <button type="submit" class="btn btn-secondary"
+                                                        <button type="submit" class="btn btn-secondary" style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
 
@@ -169,27 +169,29 @@
 
                                             <div class="modal-body">
                                                 <div class="form-group">
+                                                    <label>What Reports?</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select What Reports?
+                                                        <option value="" disabled selected>Select
                                                         </option>
                                                         <option value="">Test Reports</option>
                                                         <option value="Ongoing">Inventory Report Summary</option>
                                                         <option value="Pending">Inventory and Condition of Products Report</option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
-
+                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="description">Description:</label>
+                                                        <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
+                                                    </div>
                                                     <div class="modal-footer ">
-                                                        <div class="btn">
-                                                            <button type="submit" class="btn btn-primary">Create
+                                                        <div class="btn"  style="display:flex; justify-content:flex-end; padding:5px;">
+                                                            <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                                 Reports</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button type="button" class="btn btn-secondary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
                                                                 data-bs-dismiss="modal">Close</button>
                                                         </div>
 
                                                     </div>
-                                                </div>
                                             </div>
                                         </form>
 
@@ -408,33 +410,41 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Status:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->Status }}" disabled>
-
-                                                    <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->StocksPurchased }}" disabled>
-
-                                                    <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}" disabled>
-
-                                                    <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->Damageormissingorfortesting }}" disabled>
-
-                                                    <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->RemainingStocks }}" disabled>
-
-                                                    <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->UpcomingStocks }}" disabled>
-
-                                                    <p>Remarks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pe->Remarks }}" disabled>
+                                                    <div class ="form-group">
+                                                         <label>Status:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->Status }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Stocks Purchased:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->StocksPurchased }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Actual Stocks Based on Actual Checking:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Damage or Missing or Foresting:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->Damageormissingorfortesting }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Remaining Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Upcoming Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->UpcomingStocks }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Remarks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pe->Remarks }}" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

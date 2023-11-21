@@ -124,10 +124,10 @@
                                                 </div>
 
                                                 <div class="modal-footer ">
-                                                    <div class="btn">
-                                                        <button type="submit" class="btn btn-primary" style="width: 90px; border-radius:9px; font-size:15px">Add Items</button>
+                                                    <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                        <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add Items</button>
                                                         <button type="submit" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal" style="width: 90px; border-radius:9px; font-size:15px">Close</button>
+                                                            data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                     </div>
 
                                                 </div>
@@ -142,6 +142,7 @@
                                     <script>
                                         swal("message", "Successfuly Added Item", "success", {
                                             button: "okay",
+                                            style: "justify-content: center; align-items: center; width:100px; height:45px;"
                                         });
                                     </script>
                                 @endif
@@ -164,8 +165,9 @@
 
                                             <div class="modal-body">
                                                 <div class="form-group">
+                                                    <label>What Reports?</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select What Reports?
+                                                        <option value="" disabled selected>Select
                                                         </option>
                                                         <option value="">Test Reports</option>
                                                         <option value="Ongoing">Inventory Report Summary</option>
@@ -173,19 +175,21 @@
                                                         </option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
-
-                                                    <div class="modal-footer ">
-                                                        <div class="btn">
-                                                            <button type="submit" class="btn btn-primary">Create
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="description">Description:</label>
+                                                        <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
+                                                </div>
+                                                <div class="modal-footer ">
+                                                        <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                            <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                                 Reports</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button type="button" class="btn btn-secondary"  style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
                                                                 data-bs-dismiss="modal">Close</button>
                                                         </div>
 
-                                                    </div>
                                                 </div>
+                                               
                                             </div>
                                         </form>
 
@@ -405,33 +409,41 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Status:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->Status }}" disabled>
-
-                                                    <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->StocksPurchased }}" disabled>
-
-                                                    <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}" disabled>
-
-                                                    <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->Damageormissingorfortesting }}" disabled>
-
-                                                    <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->RemainingStocks }}" disabled>
-
-                                                    <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->UpcomingStocks }}" disabled>
-
-                                                    <p>Remarks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pm->Remarks }}" disabled>
+                                                    <div class="form-group">
+                                                        <label>Status:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->Status }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Stocks Purchased:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->StocksPurchased }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Actual Stocks Based on Actual Checking:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Damage or Missing or Foresting:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->Damageormissingorfortesting }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Remaining Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Upcoming Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->UpcomingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Remarks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pm->Remarks }}" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -440,6 +452,7 @@
                                         <script>
                                             swal("message", "Successfull Edited Item", "success", {
                                                 button: "okay",
+                                                style: "justify-content: center; align-items: center;"
                                             });
                                         </script>
                                     @endif

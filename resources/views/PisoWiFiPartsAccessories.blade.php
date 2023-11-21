@@ -47,20 +47,20 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-
+            
+                                <div class="table-buttons" >
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                        <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                        style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
+                                    </button>
+                                </div>
+    
 
                             <!--Add Product Modal-->
-                            <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
-                                </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none;">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
-                                </button>
-                            </div>
-
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
                                 data-bs-backdrop="static">
@@ -68,7 +68,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" style ="button"
                                                 aria-label="Close"></button>
                                         </div>
 
@@ -132,11 +132,10 @@
                                                     <input type="text" name="Remarks" required class="form-control">
                                                 </div>
 
-                                                <div class="modal-footer ">
-                                                    <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Add Items</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                <div class="modal-footer" >
+                                                    <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                        <button type="submit" class="btn btn-primary" style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add Items</button>
+                                                        <button type="button" class="btn btn-secondary" style="width: 110px; border-radius:8px; font-size:13px; height:45px;" data-bs-dismiss="modal">Close</button>
                                                     </div>
 
                                                 </div>
@@ -165,7 +164,7 @@
                                 <div class="modal-dialog" style="width: 50%">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
+                                            <h5 class="modal-title" id="staticBackdropLabel" >Create Reports</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
@@ -175,8 +174,9 @@
 
                                             <div class="modal-body">
                                                 <div class="form-group">
+                                                    <label>What Reports?</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select What Reports?
+                                                        <option value="" disabled selected>Select
                                                         </option>
                                                         <option value="">Test Reports</option>
                                                         <option value="Ongoing">Inventory Report Summary</option>
@@ -184,20 +184,21 @@
                                                         </option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control"
-                                                        placeholder="Enter report description" required></textarea>
-
+                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="description">Description:</label>
+                                                        <textarea type="text" id="description" name="description" class="form-control"
+                                                             placeholder="Enter report description" required></textarea>
+                                                    </div>
                                                     <div class="modal-footer ">
-                                                        <div class="btn">
-                                                            <button type="submit" class="btn btn-primary">Create
+                                                        <div class="btn"  style="display:flex; justify-content:flex-end; padding:5px;">
+                                                            <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                                 Reports</button>
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
+                                                                data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                         </div>
 
                                                     </div>
-                                                </div>
                                             </div>
                                         </form>
 
@@ -266,34 +267,42 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Status:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->Status }}" disabled>
-
-                                                    <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->StocksPurchased }}" disabled>
-
-                                                    <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}"
-                                                        disabled>
-
-                                                    <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->Damageormissingorfortesting }}" disabled>
-
-                                                    <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->RemainingStocks }}" disabled>
-
-                                                    <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->UpcomingStocks }}" disabled>
-
-                                                    <p>Remarks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $pisoWifi->Remarks }}" disabled>
+                                                    <div class ="form-group">
+                                                        <label>Status:</label>
+                                                            <input class="form-control" type="text"
+                                                                value="{{ $pisoWifi->Status }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Stocks Purchased: </label>
+                                                            <input class="form-control" type="text"
+                                                                value="{{ $pisoWifi->StocksPurchased }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Actual Stocks Based on Actual Checking:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}"
+                                                            disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Damage or Missing or Foresting:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pisoWifi->Damageormissingorfortesting }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Remaining Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pisoWifi->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Upcoming Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pisoWifi->UpcomingStocks }}" disabled>
+                                                    </div>
+                                                    <div class ="form-group">
+                                                        <label>Remarks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $pisoWifi->Remarks }}" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
