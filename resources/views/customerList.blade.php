@@ -47,11 +47,20 @@
                     <div class="order">
                         <div class="head">
 
-                            <div>
+                            {{-- <div>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    style="height:50px, border-radius:5px; background-color: green; border-style: none; padding: 10px; ">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Add Customer</i>
                                 </button>
+                            </div> --}}
+
+                            <div style="width: 100%; text-align: right">
+                                <div class="table-buttons" >
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        style="width: 120px; height:40px; border-radius: 5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Customer</i>
+                                    </button>
+                                </div>
                             </div>
 
 
@@ -96,12 +105,20 @@
                                                         name="email" required>
                                                 </div>
 
-                                                <div class="modal-footer">
+                                                <div class="modal-footer ">
+                                                    <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                        <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add Customer</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                    </div>
+
+                                                </div>
+                                                {{-- <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary"
                                                         style="width: 140px">Add Customer</button>
                                                     <button type="button" class="btn btn-secondary"
                                                         data-dismiss="modal" style="width: 100px">Cancel</button>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </form>
 

@@ -48,16 +48,18 @@
                     <div class="order">
                         <div class="head">
             
+                            <div style="width: 100%; text-align: right">
                                 <div class="table-buttons" >
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                        <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Product</i>
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                        style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none;">
-                                        <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create Report</i>
                                     </button>
                                 </div>
+                            </div>
     
 
                             <!--Add Product Modal-->
@@ -78,23 +80,23 @@
                                             <div class="modal-body">
 
                                                 <div class="form-group mb-3">
-                                                    <label>Items Name</label>
+                                                    <label>Item Name</label>
                                                     <input type="text" name="ItemsName" required class="form-control">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label>Select Status</label>
-                                                    <select name="Status" required class="form-control">
-                                                        <option value="">Select Status</option>
+                                                    <select name="Status" required class="form-control" disabled>
+                                                        <option>Select Status</option>
                                                         <option value="Ongoing">Ongoing</option>
-                                                        <option value="Pending">Pending</option>
+                                                        <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
-                                                    <input type="text" name="StocksPurchased" required
+                                                    <input type="number" name="StocksPurchased" required
                                                         class="form-control">
                                                 </div>
 
@@ -102,27 +104,27 @@
                                                     <label>Actual Stocks
                                                         Based on actual
                                                         checking(EDUD)</label>
-                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorfortesting" required
+                                                    <input type="number" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
 
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
+                                                    <input type="number" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
-                                                    <input type="text" name="UpcomingStocks" required
+                                                    <input type="number" name="UpcomingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -220,7 +222,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Items Name</th>
+                                    <th>Item Name</th>
                                     <th>Status</th>
                                     <th>Remarks</th>
                                     <th>Remaining Stocks</th>
@@ -398,10 +400,10 @@
                                                         <div class="form-group">
                                                             <label for="shipment_status">Shipment Status</label>
                                                             <select name="shipment_status" id="shipment_status"
-                                                                class="form-control" required>
+                                                                class="form-control" required disabled>
                                                                 <option disabled selected>Select Shipment
                                                                 </option>
-                                                                <option value="Pending">Pending</option>
+                                                                <option value="Pending" selected>Pending</option>
                                                                 <option value="Shipped">Shipped</option>
                                                                 <option value="Delivered">Delivered</option>
                                                             </select>
@@ -495,7 +497,7 @@
 
                                                         <div class="modal-body">
                                                             <div class="form-group mb-3">
-                                                                <label>Items Name</label>
+                                                                <label>Item Name</label>
                                                                 <input type="text" name="ItemsName" required
                                                                     value="{{ $pisoWifi->ItemsName }}"
                                                                     class="form-control">
@@ -504,7 +506,7 @@
                                                             <div class="form-group">
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
-                                                                    <option>Select Status</option>
+                                                                    <option disabled>Select Status</option>
                                                                     <option value="Ongoing"
                                                                         {{ $pisoWifi->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                         Ongoing</option>
@@ -518,27 +520,27 @@
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="StocksPurchased"
                                                                 value="{{ $pisoWifi->StocksPurchased }}">
 
                                                             <p>Actual Stocks Based on Actual Checking:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="ActualStocksBasedonactualcheckingEDUD"
                                                                 value="{{ $pisoWifi->ActualStocksBasedonactualcheckingEDUD }}">
 
                                                             <p>Damage or Missing or Foresting:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="Damageormissingorfortesting"
                                                                 value="{{ $pisoWifi->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="RemainingStocks"
                                                                 value="{{ $pisoWifi->RemainingStocks }}">
 
                                                             <p>Upcoming Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="UpcomingStocks"
                                                                 value="{{ $pisoWifi->UpcomingStocks }}">
 
@@ -547,13 +549,22 @@
                                                                 value="{{ $pisoWifi->Remarks }}">
                                                         </div>
 
-                                                        <div class="modal-footer">
+                                                        {{-- <div class="modal-footer">
                                                             <div class="btn">
                                                                 <button type="submit" class="btn btn-primary">Save
                                                                     Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
+                                                        </div> --}}
+
+                                                        <div class="modal-footer ">
+                                                            <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>
+        
                                                         </div>
                                                     </form>
 
