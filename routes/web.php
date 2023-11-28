@@ -114,6 +114,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::put('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'update'])->name('physical-store-computer-stocks-monitoring.update');
     Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'delete'])->name('physical-store-computer-stocks-monitoring.delete');
 });
+Route::get('/sales-by-category', [OrderController::class, 'getSalesByCategory']);
 
 /*------------------------------------------
 --------------------------------------------
