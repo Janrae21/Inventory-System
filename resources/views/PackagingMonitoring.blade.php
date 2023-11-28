@@ -46,7 +46,7 @@
                     <div class="order">
                         <div class="head">
                             <!--Add Button-->
-                            <div>
+                            {{-- <div>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
@@ -55,6 +55,19 @@
                                     style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
                                 </button>
+                            </div> --}}
+
+                            <div style="width: 100%; text-align: right">
+                                <div class="table-buttons" >
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Product</i>
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create Report</i>
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -79,17 +92,17 @@
 
                                                 <div class="form-group">
                                                     <label>Select Status</label>
-                                                    <select name="Status" required class="form-control">
+                                                    <select name="Status" required disabled class="form-control">
                                                         <option value="">Select Status</option>
                                                         <option value="Ongoing" >Ongoing</option>
-                                                        <option value="Pending">Pending</option>
+                                                        <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
-                                                    <input type="text" name="StocksPurchased" required
+                                                    <input type="number" name="StocksPurchased" required
                                                         class="form-control">
                                                 </div>
 
@@ -97,24 +110,24 @@
                                                     <label>Actual Stocks
                                                         Based on actual
                                                         checking(EDUD)</label>
-                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorfortesting" required
+                                                    <input type="number" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
+                                                    <input type="number" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
-                                                    <input type="text" name="UpcomingStocks" required
+                                                    <input type="number" name="UpcomingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -140,10 +153,9 @@
                                 </div>
                                 @if (Session::has('message-Add'))
                                     <script>
-                                        swal("message", "Successfuly Added Item", "success", {
-                                            button: "okay",
-                                            style: "justify-content: center; align-items: center; width:100px; height:45px;"
-                                        });
+                                    swal("Product Added", "A new product was successfully added!", "success", {
+                                        button: "okay",
+                                    });
                                     </script>
                                 @endif
 
@@ -220,7 +232,7 @@
                                         <td style="border: none">{{ $pm->Status }}</td>
                                         <td style="border: none">{{ $pm->Remarks }}</td>
                                         <td style="border: none">{{ $pm->RemainingStocks }}</td>
-                                        <td style="width: 30%; border: none">
+                                        <td style="width: 40%; border: none">
                                             <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"
                                                 data-target="#orderModal{{ $pm->id }}"><i class='bx bxs-cart'></i>
                                                 Purchase
@@ -266,7 +278,7 @@
                                                                 class="form-control" required>
                                                                 <option>Select Customer</option>
                                                                 @foreach ($customers as $item)
-                                                                    <option value="{{ $item->id }}">
+                                                                    <option value="{{ $item->id }}" style="background-color: white">
                                                                         {{ $item->name }}</option>
                                                                 @endforeach
 
@@ -416,27 +428,27 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Stocks Purchased:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pm->StocksPurchased }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Actual Stocks Based on Actual Checking:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Damage or Missing or Foresting:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pm->Damageormissingorfortesting }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Remaining Stocks:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pm->RemainingStocks }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Upcoming Stocks:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pm->UpcomingStocks }}" disabled>
                                                     </div>
                                                     <div class="form-group">
@@ -450,10 +462,9 @@
                                     </div>
                                     @if (Session::has('message'))
                                         <script>
-                                            swal("message", "Successfull Edited Item", "success", {
-                                                button: "okay",
-                                                style: "justify-content: center; align-items: center;"
-                                            });
+                                                swal("Updated", "Item was edited successfully!", "success", {
+                                                    button: "okay",
+                                                });
                                         </script>
                                     @endif
 
@@ -502,27 +513,27 @@
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="StocksPurchased"
                                                                 value="{{ $pm->StocksPurchased }}">
 
                                                             <p>Actual Stocks Based on Actual Checking:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="ActualStocksBasedonactualcheckingEDUD"
                                                                 value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}">
 
                                                             <p>Damage or Missing or Foresting:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="Damageormissingorfortesting"
                                                                 value="{{ $pm->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="RemainingStocks"
                                                                 value="{{ $pm->RemainingStocks }}">
 
                                                             <p>Upcoming Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="UpcomingStocks" value="{{ $pm->UpcomingStocks }}">
 
                                                             <p>Remarks:</p>
@@ -530,14 +541,23 @@
                                                                 value="{{ $pm->Remarks }}">
                                                         </div>
 
-                                                        <div class="modal-footer">
+
+                                                        <div class="modal-footer ">
+                                                            <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>
+        
+                                                        </div>
+                                                        {{-- <div class="modal-footer">
                                                             <div class="btn">
                                                                 <button type="submit" class="btn btn-primary">Save
                                                                     Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                     </form>
 
                                                 </div>
@@ -546,7 +566,7 @@
                                         </div>
                                         @if (Session::has('message-edit'))
                                             <script>
-                                                swal("message", "Item Edited Successfully", "success", {
+                                                swal("Updated", "Item was edited successfully!", "success", {
                                                     button: "okay",
                                                 });
                                             </script>
@@ -556,7 +576,7 @@
 
                                     @if (Session::has('message'))
                                         <script>
-                                            swal("message", "Deleted Item", "success", {
+                                            swal("Deleted", "Item was deleted successfully!", "success", {
                                                 button: "okay",
                                             });
                                         </script>

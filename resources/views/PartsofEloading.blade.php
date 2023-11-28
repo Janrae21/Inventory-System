@@ -47,7 +47,7 @@
                         <div class="head">
 
                             <!--Add Product Modal-->
-                            <div>
+                            {{-- <div>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
@@ -56,6 +56,19 @@
                                     style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
                                 </button>
+                            </div> --}}
+
+                            <div style="width: 100%; text-align: right">
+                                <div class="table-buttons" >
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Product</i>
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create Report</i>
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -80,23 +93,23 @@
 
                                                 <div class="form-group">
                                                     <label>Select Status</label>
-                                                    <select name="Status" required class="form-control">
+                                                    <select name="Status" required disabled class="form-control">
                                                         <option>Select Status</option>
                                                         <option value="Ongoing">Ongoing</option>
-                                                        <option value="Pending">Pending</option>
+                                                        <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
+                                                    <input type="number" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
-                                                    <input type="text" name="StocksPurchased" required
+                                                    <input type="number" name="StocksPurchased" required
                                                         class="form-control">
                                                 </div>
 
@@ -104,20 +117,20 @@
                                                     <label>Actual Stocks
                                                         Based on actual
                                                         checking(EDUD)</label>
-                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorfortesting" required
+                                                    <input type="number" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
-                                                    <input type="text" name="UpcomingStocks" required
+                                                    <input type="number" name="UpcomingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -147,7 +160,7 @@
                             </div>
                             @if (Session::has('message-Add'))
                                 <script>
-                                    swal("message", "Successfuly Added Item", "success", {
+                                    swal("Product Added", "A new product was successfully added!", "success", {
                                         button: "okay",
                                     });
                                 </script>
@@ -207,11 +220,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Items Name</th>
-                                    <th>Status</th>
-                                    <th>Remarks</th>
-                                    <th>Remaining Stocks</th>
-                                    <th>Action</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Items Name</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Status</th>
+                                    <th  style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remaining Stocks</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
 
                                 </tr>
                             </thead>
@@ -269,7 +282,7 @@
                                                                 class="form-control" required>
                                                                 <option>Select Customer</option>
                                                                 @foreach ($customers as $item)
-                                                                    <option value="{{ $item->id }}">
+                                                                    <option value="{{ $item->id }}" style="background-color: white">
                                                                         {{ $item->name }}</option>
                                                                 @endforeach
 
@@ -432,7 +445,7 @@
                                                     </div>
                                                     <div class ="form-group">
                                                         <label>Remaining Stocks:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pe->RemainingStocks }}" disabled>
                                                     </div>
                                                     <div class ="form-group">
@@ -496,27 +509,27 @@
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="StocksPurchased"
                                                                 value="{{ $pe->StocksPurchased }}">
 
                                                             <p>Actual Stocks Based on Actual Checking:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="ActualStocksBasedonactualcheckingEDUD"
                                                                 value="{{ $pe->ActualStocksBasedonactualcheckingEDUD }}">
 
                                                             <p>Damage or Missing or Foresting:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="Damageormissingorfortesting"
                                                                 value="{{ $pe->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="RemainingStocks"
                                                                 value="{{ $pe->RemainingStocks }}">
 
                                                             <p>Upcoming Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="UpcomingStocks" value="{{ $pe->UpcomingStocks }}">
 
                                                             <p>Remarks:</p>
@@ -524,13 +537,22 @@
                                                                 value="{{ $pe->Remarks }}">
                                                         </div>
 
-                                                        <div class="modal-footer">
+                                                        {{-- <div class="modal-footer">
                                                             <div class="btn">
                                                                 <button type="submit" class="btn btn-primary">Save
                                                                     Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
+                                                        </div> --}}
+
+                                                        <div class="modal-footer ">
+                                                            <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>
+        
                                                         </div>
                                                     </form>
 
@@ -540,7 +562,7 @@
                                         </div>
                                         @if (Session::has('message'))
                                             <script>
-                                                swal("message", "Successfully Edited", "success", {
+                                                swal("Updated", "Item was edited successfully!", "success", {
                                                     button: "okay",
                                                 });
                                             </script>
@@ -581,7 +603,7 @@
                                     </div>
                                     @if (Session::has('message delete'))
                                         <script>
-                                            swal("message", "Successfully Deleted", "success", {
+                                            swal("Deleted", "Item was deleted successfully!", "success", {
                                                 button: "okay",
                                             });
                                         </script>

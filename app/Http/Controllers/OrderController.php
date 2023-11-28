@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
-use App\Models\PackagingMonitoringModel;
-use App\Models\physical_Store_Computer_StocksMonitoring;
 use App\Models\Order;
+use App\Models\PackagingMonitoringModel;
 use App\Models\PartsOfEloadingModel;
+use App\Models\physical_Store_Computer_StocksMonitoring;
 use App\Models\PisoWifi_parts_accessories;
 use Illuminate\Http\Request;
 
@@ -16,6 +16,7 @@ class OrderController extends Controller
     {
         // $orders = Order::with('customer')->paginate(10);
         $customers = Customers::paginate(10);
+
         return view('CustomerList', compact('customers'));
     }
 
@@ -27,23 +28,17 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $product_type = "";
+        $product_type = '';
 
-        if( $data['product_type'] === 'pisowifi_parts'){
-
+        if ($data['product_type'] === 'pisowifi_parts') {
             $product_type = new PisoWifi_parts_accessories;
-
-        }else if($data['product_type'] === 'eloading'){
+        } elseif ($data['product_type'] === 'eloading') {
             $product_type = new PartsOfEloadingModel;
-
-
-        }else if($data['product_type'] === 'packaging'){
+        } elseif ($data['product_type'] === 'packaging') {
             $product_type = new PackagingMonitoringModel;
-
-        }else{
+        } else {
             $product_type = new physical_Store_Computer_StocksMonitoring;
         }
-
 
         $product = $product_type::where('id', $data['product_id'])->first();
 
@@ -52,6 +47,8 @@ class OrderController extends Controller
 
         unset($data['product_id']);
         unset($data['product_type']);
+
+        $data['shipment_status'] = 'Pending';
 
         Order::create($data);
 

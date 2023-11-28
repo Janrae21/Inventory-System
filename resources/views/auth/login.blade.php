@@ -27,7 +27,7 @@
                         <div class="input-field">
                             <i class="fas fa-user"></i>
 
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            <input id="email" placeholder="Email" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
@@ -38,7 +38,7 @@
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input id="password" type="password"
+                            <input id="password" type="password" placeholder="Password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="current-password">
 
