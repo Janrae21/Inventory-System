@@ -41,35 +41,32 @@ All Admin Routes List
 --------------------------------------------*/
 
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('/admin/home', [HomeController::class, 'adminHome', 'productStatus'])->name('admin.home');
+
     Route::get('/ranking', function () {
         return view('ranking');
     });
-    Route::get('/pisowifi-parts-accessories', function () {
-        return view('PisoWifiPartsAccessories');
-    });
-    Route::get('/Parts-of-eloading', function () {
-        return view('PartsOfEloading');
-    });
-    Route::get('/physical-store-computer-stocks-monitoring', function () {
-        return view('PhysicalStoreComputerStocksMonitoring');
-    });
-    Route::get('/packaging-monitoring', function () {
-        return view('PackagingMonitoring');
-    });
+    // Route::get('/pisowifi-parts-accessories', function () {
+    //     return view('PisoWifiPartsAccessories');
+    // });
+    // Route::get('/Parts-of-eloading', function () {
+    //     return view('PartsOfEloading');
+    // });
+    // Route::get('/physical-store-computer-stocks-monitoring', function () {
+    //     return view('PhysicalStoreComputerStocksMonitoring');
+    // });
+    // Route::get('/packaging-monitoring', function () {
+    //     return view('PackagingMonitoring');
+    // });
     Route::get('/eloading-best-seller', function () {
         return view('EloadingBestSeller');
     });
-    Route::get('/ranking', function () {
-        return view('ranking');
-    });
+
     Route::get('/customer', function () {
         return view('customerList');
     });
     Route::get('/status', [ProductControlller::class, 'index']);
-    Route::get('/ranking', function () {
-        return view('ranking');
-    });
+    Route::delete('/status/{id}', [ProductControlller::class, 'delete'])->name('status.delete');
 
     Route::get('/view-profile', function () {
         return view('view-profile');
@@ -81,6 +78,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     //Customers
     Route::post('/Customers', [CustomerController::class, 'store'])->name('Customers.store');
+    Route::put('/Customers/{id}', [CustomerController::class, 'update'])->name('Customers.update');
+    Route::delete('/Customers/{id}', [CustomerController::class, 'delete'])->name('Customers.delete');
 
     //PisoWifi Parts Accessories Crud//
     Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);

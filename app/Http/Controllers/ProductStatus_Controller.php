@@ -11,4 +11,8 @@ class ProductStatus_Controller extends Controller
         $orders = Order::paginate(10);
         return view( 'productstatus', compact( 'orders' ) );
     }
+
+
+   
+
 }

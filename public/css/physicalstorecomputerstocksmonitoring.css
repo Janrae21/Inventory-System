@@ -456,12 +456,6 @@ table {
     width: 100%;
 }
 
-td,th{
-    border: 1px solid #bebebe;
-    text-align: center;
-    padding: 10px;
-}
-
-tr:nth-child(even){
-    background-color: #b5e1eb;
+label{
+    margin-bottom: 0;
 }

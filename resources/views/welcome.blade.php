@@ -25,7 +25,7 @@
                             <i class="fas fa-user"></i>
 
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter your email address">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                             <i class="fas fa-lock"></i>
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="current-password">
+                                autocomplete="current-password" placeholder="Enter your password">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

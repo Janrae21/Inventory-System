@@ -1,64 +1,76 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Validator;
+
+use App\Models\Customers;
 use App\Models\PackagingMonitoringModel;
 use Illuminate\Http\Request;
 
-class PackagingMonitoringController extends Controller {
-
+class PackagingMonitoringController extends Controller
+{
     // ShowPackaging Data
-    public function ShowPackaging() {
+    public function ShowPackaging()
+    {
+        $packaging = PackagingMonitoringModel::paginate(10);
 
-        $packaging = PackagingMonitoringModel::paginate( 10 );
-        return view( 'PackagingMonitoring', [ 'packagingmonitoring'=> $packaging ] );
+        $customers = Customers::all();
+
+        return view('PackagingMonitoring', [
+            'packagingmonitoring' => $packaging,
+            'customers' => $customers,
+        ]);
     }
 
-
     // Store Function
-    public function store( Request $request ) {
+    public function store(Request $request)
+    {
+        $request['Status'] = 'Pending';
 
-        $request->validate( [
+        PackagingMonitoringModel::create($request->toArray());
+        // $request->validate( [
 
-            'ItemsName' => 'required',
-            'Status' => 'required',
-            'RemainingStocks' => 'required|numeric',
-            'StocksPurchased' => 'required|numeric',
-            'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-            'Damageormissingorfortesting' => 'required|numeric',
-            'UpcomingStocks' => 'required|numeric',
-            'Remarks' => 'required',
+        //     'ItemsName' => 'required',
+        //     'Status' => 'required',
+        //     'RemainingStocks' => 'required|numeric',
+        //     'StocksPurchased' => 'required|numeric',
+        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
+        //     'Damageormissingorfortesting' => 'required|numeric',
+        //     'UpcomingStocks' => 'required|numeric',
+        //     'Remarks' => 'required',
 
-        ] );
+        // ] );
 
-        $packagingMonitoring = new PackagingMonitoringModel();
+        // $packagingMonitoring = new PackagingMonitoringModel();
 
-        $packagingMonitoring->ItemsName = $request->input( 'ItemsName' );
-        $packagingMonitoring->Status = $request->input( 'Status' );
-        $packagingMonitoring->RemainingStocks = $request->input( 'RemainingStocks' );
-        $packagingMonitoring->StocksPurchased = $request->input( 'StocksPurchased' );
-        $packagingMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
-        $packagingMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
-        $packagingMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
-        $packagingMonitoring->Remarks = $request->input( 'Remarks' );
-        $packagingMonitoring->created_at = now();
-        $packagingMonitoring->updated_at = now();
+        // $packagingMonitoring->ItemsName = $request->input( 'ItemsName' );
+        // $packagingMonitoring->Status = $request->input( 'Status' );
+        // $packagingMonitoring->RemainingStocks = $request->input( 'RemainingStocks' );
+        // $packagingMonitoring->StocksPurchased = $request->input( 'StocksPurchased' );
+        // $packagingMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
+        // $packagingMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
+        // $packagingMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
+        // $packagingMonitoring->Remarks = $request->input( 'Remarks' );
+        // $packagingMonitoring->created_at = now();
+        // $packagingMonitoring->updated_at = now();
 
-        $packagingMonitoring->save();
+        // $packagingMonitoring->save();
 
-        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
+        return redirect()->back()->with('message-Add', 'Add Items Successfully');
     }
 
     // View Function
-    public function viewItem( $id ) {
-        $pm = PackagingMonitoringModel::findOrFail( $id );
-        return view( 'product_view', ['PackagingMonitoringModel' => $pm ] );
+    public function viewItem($id)
+    {
+        $pm = PackagingMonitoringModel::findOrFail($id);
 
+        return view('product_view', ['PackagingMonitoringModel' => $pm]);
     }
 
     // Update Function
-    public function update( Request $request, $id ) {
-        $request->validate( [
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        $request->validate([
 
             'ItemsName' => 'required',
             'Status' => 'required',
@@ -69,11 +81,11 @@ class PackagingMonitoringController extends Controller {
             'UpcomingStocks' => 'required|numeric',
             'Remarks' => 'required',
 
-        ] );
+        ]);
 
-        $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
+        $packagingMonitoring = PackagingMonitoringModel::findOrFail($id);
 
-        $packagingMonitoring->update( [
+        $packagingMonitoring->update([
 
             'ItemsName' => $request->input('ItemsName'),
             'Status' => $request->input('Status'),
@@ -84,18 +96,17 @@ class PackagingMonitoringController extends Controller {
             'UpcomingStocks' => $request->input('UpcomingStocks'),
             'Remarks' => $request->input('Remarks'),
 
-        ] );
+        ]);
 
-        return redirect()->back()->with( 'message-edit', 'Item updated successfully');
+        return redirect()->back()->with('message-edit', 'Item updated successfully');
     }
 
     //Delete Function
-    public function delete( $id ) {
-
-        $packagingMonitoring = PackagingMonitoringModel::findOrFail( $id );
+    public function delete($id)
+    {
+        $packagingMonitoring = PackagingMonitoringModel::findOrFail($id);
         $packagingMonitoring->delete();
 
-        return redirect()->back()->with( 'message', 'Item deleted successfully' );
+        return redirect()->back()->with('message', 'Item deleted successfully');
     }
-
 }

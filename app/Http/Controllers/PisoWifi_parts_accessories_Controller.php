@@ -21,33 +21,38 @@ class PisoWifi_parts_accessories_Controller extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $request['Status'] = 'Pending';
 
-            'ItemsName' => 'required',
-            'Status' => 'required',
-            'RemainingStocks' => 'required|numeric',
-            'StocksPurchased' => 'required|numeric',
-            'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-            'Damageormissingorfortesting' => 'required|numeric',
-            'UpcomingStocks' => 'required|numeric',
-            'Remarks' => 'required',
+        PisoWifi_parts_accessories::create($request->toArray());
+        // dd($request->toArray());
 
-        ]);
+        // $request->validate([
 
-        $PisoWifiAccessories = new PisoWifi_parts_accessories();
+        //     'ItemsName' => 'required',
+        //     'Status' => 'required',
+        //     'RemainingStocks' => 'required|numeric',
+        //     'StocksPurchased' => 'required|numeric',
+        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
+        //     'Damageormissingorfortesting' => 'required|numeric',
+        //     'UpcomingStocks' => 'required|numeric',
+        //     'Remarks' => 'required',
 
-        $PisoWifiAccessories->ItemsName = $request->input('ItemsName');
-        $PisoWifiAccessories->Status = $request->input('Status');
-        $PisoWifiAccessories->RemainingStocks = $request->input('RemainingStocks');
-        $PisoWifiAccessories->StocksPurchased = $request->input('StocksPurchased');
-        $PisoWifiAccessories->ActualStocksBasedonactualcheckingEDUD = $request->input('ActualStocksBasedonactualcheckingEDUD');
-        $PisoWifiAccessories->Damageormissingorfortesting = $request->input('Damageormissingorfortesting');
-        $PisoWifiAccessories->UpcomingStocks = $request->input('UpcomingStocks');
-        $PisoWifiAccessories->Remarks = $request->input('Remarks');
-        $PisoWifiAccessories->created_at = now();
-        $PisoWifiAccessories->updated_at = now();
+        // ]);
 
-        $PisoWifiAccessories->save();
+        // $PisoWifiAccessories = new PisoWifi_parts_accessories();
+
+        // $PisoWifiAccessories->ItemsName = $request->input('ItemsName');
+        // $PisoWifiAccessories->Status = $request->input('Status');
+        // $PisoWifiAccessories->RemainingStocks = $request->input('RemainingStocks');
+        // $PisoWifiAccessories->StocksPurchased = $request->input('StocksPurchased');
+        // $PisoWifiAccessories->ActualStocksBasedonactualcheckingEDUD = $request->input('ActualStocksBasedonactualcheckingEDUD');
+        // $PisoWifiAccessories->Damageormissingorfortesting = $request->input('Damageormissingorfortesting');
+        // $PisoWifiAccessories->UpcomingStocks = $request->input('UpcomingStocks');
+        // $PisoWifiAccessories->Remarks = $request->input('Remarks');
+        // $PisoWifiAccessories->created_at = now();
+        // $PisoWifiAccessories->updated_at = now();
+
+        // $PisoWifiAccessories->save();
 
         return redirect()->back()->with('message-Add', 'Add Items Successfully');
     }
@@ -77,7 +82,6 @@ class PisoWifi_parts_accessories_Controller extends Controller
         $PisoWifiAccessories = PisoWifi_parts_accessories::findOrFail($id);
 
         $PisoWifiAccessories->update([
-
             'ItemsName' => $request->input('ItemsName'),
             'Status' => $request->input('Status'),
             'StocksPurchased' => $request->input('StocksPurchased'),
@@ -89,15 +93,16 @@ class PisoWifi_parts_accessories_Controller extends Controller
 
         ]);
 
-        return redirect()->back()->with('message', 'Item updated successfully');
+        return redirect()->back()->with('message-edit', 'Item updated successfully');
     }
 
     //Delete Function
+
     public function delete($id)
     {
         $PisoWifiAccessories = PisoWifi_parts_accessories::findOrFail($id);
         $PisoWifiAccessories->delete();
 
-        return redirect()->back()->with('message delete', 'Item deleted successfully');
+        return redirect()->back()->with('message-delete', 'Item Successfully Deleted');
     }
 }

@@ -33,4 +33,40 @@ class CustomerController extends Controller {
         return redirect()->back()->with( 'message-Customer', 'Customer Added Successfully' );
 
     }
+
+
+    // Update Function
+    public function update( Request $request, $id ) {
+        $request->validate( [
+
+            'Iname' => 'required',
+            'address' => 'required',
+            'age' => 'required|numeric',
+            'email' => 'required',
+
+        ] );
+
+        $customer = Customers::findOrFail( $id );
+
+        $customer->update( [
+
+            'name' => $request->input('name'),
+            'address' => $request->input('address'),
+            'age' => $request->input('age'),
+            'email' => $request->input('email'),
+
+        ] );
+
+        return redirect()->back()->with( 'message-edit', 'Item updated successfully');
+    }
+
+
+    //Delete Function
+    public function delete( $id ) {
+
+        $customer = Customers::findOrFail( $id );
+        $customer->delete();
+
+        return redirect()->back()->with( 'message-delete', 'Item deleted successfully' );
+    }
 }

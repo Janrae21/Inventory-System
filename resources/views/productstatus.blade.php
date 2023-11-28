@@ -38,8 +38,11 @@
                         <span class="text">Download Excel</span>
                     </a>
                 </div>
+
                 <div class="table-data">
                     <div class="order">
+
+
                         <table>
                             <thead>
                                 <tr>
@@ -56,7 +59,7 @@
 
                                 @foreach ($productStatus as $item)
                                     <tr>
-                                        <td> {{ $item->customer->name }} </td>
+                                        <td> {{ ! is_null($item->customer) ? $item->customer->name : "" }} </td>
                                         <td>
                                             <p>{{ $item->item_name }}</p>
                                         </td>
@@ -65,13 +68,57 @@
                                         <td>{{ $item->shipment_status }}</td>
                                         <td>
                                             <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal"><i class='bx bxs-trash'></i>
-                                                Delete </a>
+                                                data-toggle="modal" data-target="#deleteModal{{ $item->id }}"><i
+                                                    class='bx bxs-trash'></i> Delete </a>
                                         </td>
                                     </tr>
+
+                                    <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
+                                        role="dialog" aria-labelledby="deleteModalLabel{{ $item->id }}"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteModalLabel{{ $item->id }}">
+                                                        Confirm
+                                                        Deletion</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Are you sure you want to delete this Customer?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <form
+                                                        action="{{ route('status.delete', $item->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger"
+                                                            style="width: 90px">Delete</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if (Session::has('message delete'))
+                                        <script>
+                                            swal("message", "Successfully Deleted", "success", {
+                                                button: "okay",
+                                                style:"justify-content:center",
+                                            });
+                                        </script>
+                                    @endif
+
                                 @endforeach
                             </tbody>
                         </table>
+                        <br>
+                        {{-- {{ $productStatus->links('pagination::bootstrap-5') }} --}}
                     </div>
                 </div>
             </main>

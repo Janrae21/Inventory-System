@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customers;
 use App\Models\Order;
+use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -35,13 +36,23 @@ class HomeController extends Controller
      */
     public function adminHome(): View
     {
-        $orders = Order::count();
+
         $customers = Customers::count();
 
-        return view('adminHome', compact('orders', 'customers'));
-        // $inventory = EloadingBestSellerModel::paginate( 10 );
-        // return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
+
+        $todayDate = Carbon::now()->format('d-m-y');
+        $thisMonth = Carbon::now()->format('m');
+
+
+        $Total_Purchased_Orders = Order::count();
+        $todayOrder = Order::whereDate('created_at', $todayDate)->count();
+        $thisMonthOrder = Order::whereMonth('created_at', $thisMonth)->count();
+
+        return view('adminHome', compact('Total_Purchased_Orders', 'customers','todayOrder','thisMonthOrder'));
+
     }
+
+
 
     /**
      * Show the application dashboard.
@@ -53,10 +64,5 @@ class HomeController extends Controller
         return view('managerHome');
     }
 
-    // function showData() {
 
-    //     $inventory = EloadingBestSellerModel::paginate( 10 );
-    //     return view( 'adminHome', [ '_eloading_best_seller'=> $inventory ] );
-
-    // }
 }

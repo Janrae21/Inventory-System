@@ -49,7 +49,7 @@
 
 
                             <!--Add Button-->
-                            <div>
+                            {{-- <div>
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
@@ -58,6 +58,19 @@
                                     style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
                                     <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
                                 </button>
+                            </div> --}}
+
+                            <div style="width: 100%; text-align: right">
+                                <div class="table-buttons" >
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Product</i>
+                                    </button>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create Report</i>
+                                    </button>
+                                </div>
                             </div>
 
                             <!-- Add Items Modal -->
@@ -84,17 +97,17 @@
 
                                                 <div class="form-group">
                                                     <label>Select Status</label>
-                                                    <select name="Status" required class="form-control">
+                                                    <select name="Status" required class="form-control" disabled>
                                                         <option value="">Select Status</option>
                                                         <option value="Ongoing">Ongoing</option>
-                                                        <option value="Pending">Pending</option>
+                                                        <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
-                                                    <input type="text" name="StocksPurchased" required
+                                                    <input type="number" name="StocksPurchased" required
                                                         class="form-control">
                                                 </div>
 
@@ -102,24 +115,24 @@
                                                     <label>Actual Stocks
                                                         Based on actual
                                                         checking(EDUD)</label>
-                                                    <input type="text" name="ActualStocksBasedonactualcheckingEDUD"
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="text" name="Damageormissingorfortesting" required
+                                                    <input type="number" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="text" name="RemainingStocks" required
+                                                    <input type="number" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
-                                                    <input type="text" name="UpcomingStocks" required
+                                                    <input type="number" name="UpcomingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -129,9 +142,9 @@
                                                 </div>
 
                                                 <div class="modal-footer ">
-                                                    <div class="btn">
-                                                        <button type="submit" class="btn btn-primary">Add Items</button>
-                                                        <button type="submit" class="btn btn-secondary"
+                                                    <div class="btn"  style="display:flex; justify-content:flex-end; padding:5px;">
+                                                        <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;" >Add Items</button>
+                                                        <button type="submit" class="btn btn-secondary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
 
@@ -148,8 +161,9 @@
                             </div>
                             @if (Session::has('message-Add'))
                                 <script>
-                                    swal("message", "Successfuly Added Item", "success", {
+                                    swal("Product Added", "Successfuly Added Item!", "success", {
                                         button: "okay",
+                                        style: "justify-content:center;",
                                     });
                                 </script>
                             @endif
@@ -170,27 +184,29 @@
 
                                             <div class="modal-body">
                                                 <div class="form-group">
+                                                <label>What Reports?</label>
                                                     <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select What Reports?
+                                                        <option value="" disabled selected>Select
                                                         </option>
                                                         <option value="">Test Reports</option>
                                                         <option value="Ongoing">Inventory Report Summary</option>
                                                         <option value="Pending">Inventory and Condition of Products Report</option>
                                                         <option value="Decline">Inventory Audit Report</option>
                                                     </select>
-                                                    <label for="description">Description:</label>
+                                                </div>
+                                                        <div class="form-group">
+                                                        <label for="description">Description:</label>
+                                                    </div>
                                                     <textarea type="text" id="description" name="description" class="form-control" placeholder="Enter report description" required></textarea>
-                                                    
+
                                                     <div class="modal-footer ">
-                                                        <div class="btn">
-                                                            <button type="submit" class="btn btn-primary">Create
+                                                        <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                            <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                                 Reports</button>
-                                                            <button type="button" class="btn btn-secondary"
+                                                            <button type="button" class="btn btn-secondary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
                                                                 data-bs-dismiss="modal">Close</button>
                                                         </div>
-
                                                     </div>
-                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -251,7 +267,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="{{ route('orders.store') }}" method="POST">
+                                                    <form action="/orders" method="POST">
                                                         @csrf
 
                                                         <div class="form-group">
@@ -261,21 +277,41 @@
                                                                     style="color: #4CA7DF; padding: 10px;">
                                                                     <i class='bx bx-plus'></i> Add Customer</a>
                                                             </label>
+
                                                             <select name="customer_id" id="customer_id"
                                                                 class="form-control">
-                                                                <option value="" disabled selected>Select Customer
-                                                                </option>
+                                                                <option >Select Customer</option>
+                                                                @foreach ($customers as $item)
+                                                                    <option value="{{ $item->id }}" style="background-color: white">
+                                                                        {{ $item->name }}</option>
+                                                                @endforeach
 
                                                             </select>
 
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="item_name">Item Name</label>
-                                                            <input type="text" name="item_name"
+                                                            <label for="item_name" >Item Name</label>
+                                                            <input type="text" name="item_name" required
                                                                 id="orderModalLabel{{ $ps->id }}"
                                                                 class="form-control" value="{{ $ps->ItemsName }}">
 
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_type"></label>
+                                                            <input type="text" name="product_type"
+                                                                value="physical" hidden>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="product_id" hidden></label>
+                                                            <input type="text" name="product_id"
+                                                                value="{{ $ps->id }}" hidden>
+                                                        </div>
+
+
+
+
                                                         <div class="form-group">
                                                             <label for="quantity_sold">Quantity</label>
                                                             <input type="number" name="quantity_sold" id="quantity_sold"
@@ -283,16 +319,16 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="category">Category</label>
+                                                            <label for="category" hidden>Category</label>
                                                             <input type="text" name="category" id="category"
-                                                                value="Pisowifi" class="form-control" disabled>
+                                                                value="Physical-Store-Computer" class="form-control" hidden>
                                                         </div>
 
                                                         <div class="form-group">
                                                             <label for="payment_method">Payment Method</label>
                                                             <select name="payment_method" id="payment_method"
                                                                 class="form-control" required>
-                                                                <option value="" disabled selected>Select Payment
+                                                                <option value="" disabled selected required>Select Payment
                                                                     Method</option>
                                                                 <option value="Credit Card">Credit Card</option>
                                                                 <option value="G-cash">G-cash</option>
@@ -309,8 +345,8 @@
                                                                 <option value="" disabled selected>Select Shipment
                                                                     Status</option>
                                                                 <option value="Pending">Pending</option>
-                                                                <option value="Shipped">Shipped</option>
-                                                                <option value="Delivered">Delivered</option>
+                                                                {{-- <option value="Shipped">Shipped</option>
+                                                                <option value="Delivered">Delivered</option> --}}
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer">
@@ -327,11 +363,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
-
-
-
 
                                     <!-- Add Customer Modal -->
                                     <div id="addCustomerModal" class="modal fade" role="dialog">
@@ -396,33 +427,41 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Status:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->Status }}" disabled>
-
-                                                    <p>Stocks Purchased:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->StocksPurchased }}" disabled>
-
-                                                    <p>Actual Stocks Based on Actual Checking:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}" disabled>
-
-                                                    <p>Damage or Missing or Foresting:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->Damageormissingorfortesting }}" disabled>
-
-                                                    <p>Remaining Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->RemainingStocks }}" disabled>
-
-                                                    <p>Upcoming Stocks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->UpcomingStocks }}" disabled>
-
-                                                    <p>Remarks:</p>
-                                                    <input class="form-control" type="text"
-                                                        value="{{ $ps->Remarks }}" disabled>
+                                                    <div class="form-group">
+                                                        <label>Status:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->Status }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Stocks Purchased:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->StocksPurchased }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Actual Stocks Based on Actual Checking:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Damage or Missing or Foresting:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->Damageormissingorfortesting }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Remaining Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Upcoming Stocks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->UpcomingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Remarks:</label>
+                                                        <input class="form-control" type="text"
+                                                            value="{{ $ps->Remarks }}" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -474,27 +513,27 @@
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="StocksPurchased"
                                                                 value="{{ $ps->StocksPurchased }}">
 
                                                             <p>Actual Stocks Based on Actual Checking:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="ActualStocksBasedonactualcheckingEDUD"
                                                                 value="{{ $ps->ActualStocksBasedonactualcheckingEDUD }}">
 
                                                             <p>Damage or Missing or Foresting:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="Damageormissingorfortesting"
                                                                 value="{{ $ps->Damageormissingorfortesting }}">
 
                                                             <p>Remaining Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="RemainingStocks"
                                                                 value="{{ $ps->RemainingStocks }}">
 
                                                             <p>Upcoming Stocks:</p>
-                                                            <input class="form-control" type="text"
+                                                            <input class="form-control" type="number"
                                                                 name="UpcomingStocks" value="{{ $ps->UpcomingStocks }}">
 
                                                             <p>Remarks:</p>
@@ -502,13 +541,22 @@
                                                                 value="{{ $ps->Remarks }}">
                                                         </div>
 
-                                                        <div class="modal-footer">
+                                                        {{-- <div class="modal-footer">
                                                             <div class="btn">
                                                                 <button type="submit" class="btn btn-primary">Save
                                                                     Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                             </div>
+                                                        </div> --}}
+
+                                                        <div class="modal-footer ">
+                                                            <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>
+        
                                                         </div>
                                                     </form>
 
@@ -518,9 +566,7 @@
                                         </div>
                                         @if (Session::has('message'))
                                             <script>
-                                                swal("message", "Item Edited Successfully", "success", {
-                                                    button: "okay",
-                                                });
+                                                swal("Updated", "Item Edited Successfully!", "success");
                                             </script>
                                         @endif
                                     </div>
@@ -560,7 +606,7 @@
                                     </div>
                                     @if (Session::has('message delete'))
                                         <script>
-                                            swal("message", "Successfully Deleted", "success", {
+                                            swal("Deleted!", "Successfully Deleted", "success", {
                                                 button: "okay",
                                             });
                                         </script>
