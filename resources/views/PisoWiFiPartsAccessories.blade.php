@@ -39,10 +39,15 @@
                         <h1>Product - Piso WiFi Parts & Accessories</h1>
 
                     </div>
-                    <a href="#" class="btn-download">
+                    <form action="{{route('PisoWifi_parts_accessories.data.export')}}" method="POST" target="_blank">
+                    @csrf
+                   
+                    <button type="submit"  class="btn-download" style="width:150px;">
                         <i class='bx bxs-cloud-download'></i>
-                        <span class="text">Download Excel</span>
-                    </a>
+                        <span class="text" style="font-size: 10px">Download Excel</span>
+                    </button>
+
+                </form>
                 </div>
                 <div class="table-data">
                     <div class="order">

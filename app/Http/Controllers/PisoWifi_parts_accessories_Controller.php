@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PisoWifi_parts_AccessoriesExport;
 use App\Models\PisoWifi_parts_accessories;
 use Illuminate\Http\Request;
 
@@ -105,4 +107,12 @@ class PisoWifi_parts_accessories_Controller extends Controller
 
         return redirect()->back()->with('message-delete', 'Item Successfully Deleted');
     }
+
+    public function exportExcel() 
+    {   return Excel::download(new PisoWifi_parts_AccessoriesExport, 'PisoWifi_parts_Accessories.Data.xlsx');
+    
+    }
+
+
+
 }

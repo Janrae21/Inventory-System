@@ -72,6 +72,13 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
+    //Export Data of Products
+    Route::post('packaging-monitoring/export/', [PackagingMonitoringController::class, 'export'])->name('packagingdata.export');
+    Route::post('pisowifi-parts-accessories/export/', [PisoWifi_parts_accessories_Controller::class, 'exportExcel'])->name('PisoWifi_parts_accessories.data.export');
+    Route::post('Parts-of-eloading/export/', [PartsOfEloadingController::class, 'export'])->name('Parts-of-eloading.data.export');    
+    Route::post('physical-store-computer-stocks-monitoring/export/', [physical_Store_Computer_Stocks_Monitoring::class, 'export'])->name('physical_Stock.data');
+
+    
     //Orders
     Route::post('orders', [OrderController::class, 'store']);
     Route::get('customer', [OrderController::class, 'index']);

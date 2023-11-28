@@ -69,4 +69,7 @@ class CustomerController extends Controller {
 
         return redirect()->back()->with( 'message-delete', 'Item deleted successfully' );
     }
+
+    
+
 }

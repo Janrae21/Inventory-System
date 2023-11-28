@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PackagingExport;
 use App\Models\PackagingMonitoringModel;
 use Illuminate\Http\Request;
 
@@ -108,5 +110,11 @@ class PackagingMonitoringController extends Controller
         $packagingMonitoring->delete();
 
         return redirect()->back()->with('message', 'Item deleted successfully');
+    }
+
+
+    public function export() 
+    {   return Excel::download(new PackagingExport, 'packagingData.xlsx');
+    
     }
 }
