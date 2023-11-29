@@ -171,15 +171,13 @@
                                 </tr>
                             </thead>
 
-                            <tr>
-                                <td>
-                                    <p>Test
-                                    <p>
-                                <td>Test</td>
-                                <td>Test</td>
-
-                                </td>
-                            </tr>
+                            @foreach ($recentAddedProducts as $product)
+                                <tr>
+                                    <td>{{ $product->ItemsName }}</td>
+                                    <td>{{ $product->StocksPurchased }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($product->created_at)->format('Y-m-d') }}</td>
+                                </tr>
+                            @endforeach
                         </table>
                         <br>
 
@@ -202,15 +200,14 @@
                             </thead>
                             <tbody>
 
-                                {{-- @foreach ($productStatus as $item)
-                                <tr>
-                                    <td> {{ !is_null($item->customer) ? $item->customer->name : '' }} </td>
-                                    <td>
-                                        <p>{{ $item->item_name }}</p>
-                                    </td>
-                                    <td> {{ $item->quantity_sold }} </td>
-                                    <td> {{ $item->category }} </td>
-                                    @endforeach --}}
+                                @foreach ($recentProducts as $product)
+                                    <tr>
+                                        <td>{{ $product->item_name }}</td>
+                                        <td>{{ $product->quantity_sold }}</td>
+                                        <td>{{ $product->category }}</td>
+                                        <td>{{ $product->created_at -> format('Y-m-d')}}</td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
