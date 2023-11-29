@@ -309,7 +309,7 @@
 
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group" hidden>
                                                     <label for="product_type"></label>
                                                     <input type="text" name="product_type" value="physical" hidden>
                                                 </div>
@@ -318,8 +318,6 @@
                                                     <label for="product_id" hidden></label>
                                                     <input type="text" name="product_id" value="{{ $ps->id }}" hidden>
                                                 </div>
-
-
 
 
                                                 <div class="form-group">
@@ -351,19 +349,24 @@
                                                 <div class="form-group">
                                                     <label for="shipment_status">Shipment Status</label>
                                                     <select name="shipment_status" id="shipment_status"
-                                                        class="form-control" required>
-                                                        <option value="" disabled selected>Select Shipment
-                                                            Status</option>
-                                                        <option value="Pending">Pending</option>
-                                                        {{-- <option value="Shipped">Shipped</option>
-                                                                <option value="Delivered">Delivered</option> --}}
+                                                        class="form-control" required disabled>
+                                                        <option disabled selected>Select Shipment
+                                                        </option>
+                                                        <option value="Pending" selected>Pending</option>
+                                                        <option value="Shipped">Shipped</option>
+                                                        <option value="Delivered">Delivered</option>
                                                     </select>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary"
-                                                        style="width: 100px">Purchase</button>
-                                                    <button type="button" class="btn btn-secondary" style="width: 100px"
-                                                        data-dismiss="modal">Cancel</button>
+                                                <div class="modal-footer ">
+                                                    <div class="btn"
+                                                        style="display:flex; justify-content:flex-end; padding:5px;">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
+                                                          </button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                    </div>
 
                                                 </div>
 
@@ -539,14 +542,6 @@
                                                         value="{{ $ps->Remarks }}">
                                                 </div>
 
-                                                {{-- <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div> --}}
 
                                                 <div class="modal-footer ">
                                                     <div class="btn"
