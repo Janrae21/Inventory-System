@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EloadingBestSeller_Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -46,18 +47,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/ranking', function () {
         return view('ranking');
     });
-    // Route::get('/pisowifi-parts-accessories', function () {
-    //     return view('PisoWifiPartsAccessories');
-    // });
-    // Route::get('/Parts-of-eloading', function () {
-    //     return view('PartsOfEloading');
-    // });
-    // Route::get('/physical-store-computer-stocks-monitoring', function () {
-    //     return view('PhysicalStoreComputerStocksMonitoring');
-    // });
-    // Route::get('/packaging-monitoring', function () {
-    //     return view('PackagingMonitoring');
-    // });
+    
     Route::get('/eloading-best-seller', function () {
         return view('EloadingBestSeller');
     });
@@ -72,6 +62,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
+    Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
+    
     //Export Data of Products
     Route::post('packaging-monitoring/export/', [PackagingMonitoringController::class, 'export'])->name('packagingdata.export');
     Route::post('pisowifi-parts-accessories/export/', [PisoWifi_parts_accessories_Controller::class, 'exportExcel'])->name('PisoWifi_parts_accessories.data.export');
