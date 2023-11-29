@@ -12,16 +12,7 @@ class PartsOfEloadingModel extends Model
     public $incrementing = true;
     public $timestamps = false;
 
-    // Add this if your column names don't follow snake_case
-    protected $fillable = [
 
-        'ItemsName',
-        'Status',
-        'RemainingStocks',
-        'StocksPurchased',
-        'ActualStocksBasedonactualcheckingEDUD',
-        'Damageormissingorfortesting',
-        'UpcomingStocks',
-        'Remarks',
-    ];
+    protected $guarded = [];
+
 }

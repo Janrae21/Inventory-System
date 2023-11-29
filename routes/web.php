@@ -77,6 +77,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::post('pisowifi-parts-accessories/export/', [PisoWifi_parts_accessories_Controller::class, 'exportExcel'])->name('PisoWifi_parts_accessories.data.export');
     Route::post('Parts-of-eloading/export/', [PartsOfEloadingController::class, 'export'])->name('Parts-of-eloading.data.export');    
     Route::post('physical-store-computer-stocks-monitoring/export/', [physical_Store_Computer_Stocks_Monitoring::class, 'export'])->name('physical_Stock.data');
+    Route::post('Customers/export/', [CustomerController::class, 'export'])->name('Customers.export');
+    Route::post('status/export/', [ProductControlller::class, 'export'])->name('status.export');            
 
     
     //Orders

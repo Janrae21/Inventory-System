@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Customers;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CustomerExport;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller {
@@ -70,6 +71,10 @@ class CustomerController extends Controller {
         return redirect()->back()->with( 'message-delete', 'Item deleted successfully' );
     }
 
+    public function export() 
+    {   return Excel::download(new ProductStatusExport, 'ProductStatusData.xlsx');
     
+    }
+
 
 }
