@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Customers;
 use App\Models\Order;
+use App\Models\PackagingMonitoringModel;
+use App\Models\physical_Store_Computer_StocksMonitoring;
+use App\Models\PisoWifi_parts_accessories;
+use App\Models\PartsOfEloadingModel;
 use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
@@ -41,20 +45,61 @@ class HomeController extends Controller
         $customers = Customers::count();
 
 
-        $todayDate = Carbon::now()->format('d-m-y');
+        $todayDate = Carbon::now()->format('Y-m-d');
         $thisMonth = Carbon::now()->format('m');
-
-        $orders = Order::select('category', DB::raw('COUNT(*) as count'))
-        ->groupBy('category')
-        ->get(['category', 'count']);
-
+        
         $Total_Purchased_Orders = Order::count();
         $todayOrder = Order::whereDate('created_at', $todayDate)->count();
         $thisMonthOrder = Order::whereMonth('created_at', $thisMonth)->count();
 
+        // bargraph
+        $orders = Order::select('category', DB::raw('COUNT(*) as count'))
+        ->groupBy('category')
+        ->get(['category', 'count']);
+
+        //recently added products
+        $recentProducts = Order::select('item_name', 'quantity_sold', 'category', 'created_at')
+        ->orderBy('created_at', 'desc')
+        ->take(5)
+        ->get();
+
+        //recently added product
+        $packagingProducts =PackagingMonitoringModel::select('ItemsName', 'StocksPurchased', 'created_at')
+        ->latest('created_at')
+        ->take(5)
+        ->get();
+
+        $pisowifiProducts = PisoWifi_parts_accessories::select('ItemsName', 'StocksPurchased',  'created_at')
+            ->latest('created_at')
+            ->take(5)
+            ->get();
+
+        $physicalStoreProducts = physical_Store_Computer_StocksMonitoring::select('ItemsName', 'StocksPurchased',  'created_at')
+            ->latest('created_at')
+            ->take(5)
+            ->get();
+
+        $eloadingProducts = PartsOfEloadingModel::select('ItemsName', 'StocksPurchased','created_at')
+            ->latest('created_at')
+            ->take(5)
+            ->get();
+
+        //combination of all selected products from different table
+        $recentAddedProducts = collect()
+            ->concat($packagingProducts)
+            ->concat($pisowifiProducts)
+            ->concat($physicalStoreProducts)
+            ->concat($eloadingProducts)
+            ->sortBy('created_at')
+            ->take(10);
+
+
+
+
+
         
 
-        return view('adminHome', compact('Total_Purchased_Orders', 'customers','todayOrder','thisMonthOrder', 'orders'));
+        return view('adminHome', compact('Total_Purchased_Orders', 'customers','todayOrder','thisMonthOrder', 'orders','recentProducts', 'recentAddedProducts'));
 
     }
 
