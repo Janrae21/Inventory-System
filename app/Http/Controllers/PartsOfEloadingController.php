@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PartsOfEloadingExport;
 use App\Models\PartsOfEloadingModel;
 use Illuminate\Http\Request;
 
@@ -101,4 +103,10 @@ class PartsOfEloadingController extends Controller
 
         return redirect()->back()->with('message delete', 'Item deleted successfully');
     }
+
+     public function export() 
+    {   return Excel::download(new PartsOfEloadingExport, 'Parts_of_Eloading.Data.xlsx');
+    
+    }
+    
 }

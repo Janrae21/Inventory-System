@@ -28,12 +28,13 @@ switchMode.addEventListener("change", function () {
 var barChartOptions = {
     series: [
         {
-            data: [47, 48, 45, 41, 37],
+            data: [87, 48, 45, 41, 37],
         },
     ],
     chart: {
         type: "bar",
         height: 350,
+        
         toolbar: {
             show: false,
         },
@@ -42,7 +43,7 @@ var barChartOptions = {
     plotOptions: {
         bar: {
             distributed: true,
-            borderRadius: 4,
+            borderRadius: 5,
             horizontal: false,
             columnWidth: "40%",
         },

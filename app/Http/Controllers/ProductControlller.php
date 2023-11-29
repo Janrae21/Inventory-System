@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProductStatusExport;
 use App\Models\Order;
 
 class ProductControlller extends Controller {
@@ -14,7 +15,10 @@ class ProductControlller extends Controller {
         ] );
     }
 
-    //Delete Function
+    public function export() 
+    {   return Excel::download(new ProductStatusExport, 'ProductStatusData.xlsx');
+    
+    }
 
 
 }
