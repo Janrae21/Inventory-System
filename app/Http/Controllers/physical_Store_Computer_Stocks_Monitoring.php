@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Customers;
 use App\Models\physical_Store_Computer_StocksMonitoring;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PhysicalStocksExport;
 use Illuminate\Http\Request;
 
 class physical_Store_Computer_Stocks_Monitoring extends Controller
@@ -102,5 +104,10 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
         $physicalStockMonitoring->delete();
 
         return redirect()->back()->with('message delete', 'Item deleted successfully');
+    }
+
+    public function export() 
+    {   return Excel::download(new PhysicalStocksExport, 'Physical_stock.Data.xlsx');
+    
     }
 }
