@@ -226,20 +226,34 @@
         });
 
         var data = sales.map(function (order) {
-            return order.count;
+        return order.quantity_sold;
         });
 
         new Chart(document.getElementById("bar-chart"), {
-            type: "bar",
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: "Count",
-                    data: data,
-                    fill: false,
-                    backgroundColor: ["#246dec", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"]
-                }]
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+            label: "Count",
+            data: data,
+            fill: false,
+            backgroundColor: ["#246dec", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"]
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                callback: function(value) {
+                    if (value % 1 === 0) {
+                    return value;
+                    }
+                }
+                }
             }
+            }
+        }
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/http-client/4.3.1/http-client.min.js"
