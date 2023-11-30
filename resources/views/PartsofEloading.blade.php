@@ -187,20 +187,23 @@
                                                 aria-label="Close"></button>
                                         </div>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('report.create') }}" method="POST">
                                             @csrf
 
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label>What Reports?</label>
-                                                    <select name="Status" required class="form-control">
+                                                    <select name="Select" required class="form-control">
                                                         <option value="" disabled selected>Select
                                                         </option>
-                                                        <option value="">Test Reports</option>
-                                                        <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report
+                                                        <option value="Test Reports">Test Reports</option>
+                                                        <option value="Inventory Report Summary">Inventory Report Summary
                                                         </option>
-                                                        <option value="Decline">Inventory Audit Report</option>
+                                                        <option value="Inventory and Condition of Products Report">
+                                                            Inventory and Condition of Products Report
+                                                        </option>
+                                                        <option value="Inventory Audit Report">Inventory Audit Report
+                                                        </option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
@@ -215,15 +218,13 @@
                                                             style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                             Reports</button>
                                                         <button type="button" class="btn btn-secondary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                            data-bs-dismiss="modal"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </form>
-
-
 
                                     </div>
 

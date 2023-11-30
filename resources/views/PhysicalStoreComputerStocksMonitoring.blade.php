@@ -52,19 +52,6 @@
                     <div class="order">
                         <div class="head">
 
-
-                            <!--Add Button-->
-                            {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
-                                </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
-                                </button>
-                            </div> --}}
-
                             <div style="width: 100%; text-align: right">
                                 <div class="table-buttons">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
@@ -190,28 +177,30 @@
                                                 aria-label="Close"></button>
                                         </div>
 
-                                        <form action="" method="POST">
+                                        <form action="{{ route('report.create') }}" method="POST">
                                             @csrf
 
                                             <div class="modal-body">
                                                 <div class="form-group">
                                                     <label>What Reports?</label>
-                                                    <select name="Status" required class="form-control">
+                                                    <select name="Select" required class="form-control">
                                                         <option value="" disabled selected>Select
                                                         </option>
-                                                        <option value="">Test Reports</option>
-                                                        <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report
+                                                        <option value="Test Reports">Test Reports</option>
+                                                        <option value="Inventory Report Summary">Inventory Report Summary
                                                         </option>
-                                                        <option value="Decline">Inventory Audit Report</option>
+                                                        <option value="Inventory and Condition of Products Report">
+                                                            Inventory and Condition of Products Report
+                                                        </option>
+                                                        <option value="Inventory Audit Report">Inventory Audit Report
+                                                        </option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="description">Description:</label>
+                                                    <textarea type="text" id="description" name="description" class="form-control"
+                                                        placeholder="Enter report description" required></textarea>
                                                 </div>
-                                                <textarea type="text" id="description" name="description" class="form-control"
-                                                    placeholder="Enter report description" required></textarea>
-
                                                 <div class="modal-footer ">
                                                     <div class="btn"
                                                         style="display:flex; justify-content:flex-end; padding:5px;">
@@ -219,9 +208,10 @@
                                                             style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
                                                             Reports</button>
                                                         <button type="button" class="btn btn-secondary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                            data-bs-dismiss="modal"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </form>

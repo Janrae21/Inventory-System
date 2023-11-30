@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EloadingBestSeller_Controller;
 use App\Http\Controllers\HomeController;
@@ -48,7 +49,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/ranking', function () {
         return view('ranking');
     });
-    
+
     Route::get('/eloading-best-seller', function () {
         return view('EloadingBestSeller');
     });
@@ -63,17 +64,24 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
-    Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
     
+    Route::post('/create-report', [ReportController::class, 'createReport'])->name('report.create');
+
+
+
+
+    //Update Data In View Profile
+    Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
+
     //Export Data of Products
     Route::post('packaging-monitoring/export/', [PackagingMonitoringController::class, 'export'])->name('packagingdata.export');
     Route::post('pisowifi-parts-accessories/export/', [PisoWifi_parts_accessories_Controller::class, 'exportExcel'])->name('PisoWifi_parts_accessories.data.export');
-    Route::post('Parts-of-eloading/export/', [PartsOfEloadingController::class, 'export'])->name('Parts-of-eloading.data.export');    
+    Route::post('Parts-of-eloading/export/', [PartsOfEloadingController::class, 'export'])->name('Parts-of-eloading.data.export');
     Route::post('physical-store-computer-stocks-monitoring/export/', [physical_Store_Computer_Stocks_Monitoring::class, 'export'])->name('physical_Stock.data');
     Route::post('Customers/export/', [CustomerController::class, 'export'])->name('Customers.export');
-    Route::post('status/export/', [ProductControlller::class, 'export'])->name('status.export');            
+    Route::post('status/export/', [ProductControlller::class, 'export'])->name('status.export');
 
-    
+
     //Orders
     Route::post('orders', [OrderController::class, 'store']);
     Route::get('customer', [OrderController::class, 'index']);
