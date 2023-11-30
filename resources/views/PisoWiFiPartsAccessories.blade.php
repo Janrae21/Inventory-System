@@ -101,39 +101,39 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Stocks Purchased</label>
-                                                <input type="number" name="StocksPurchased" required
-                                                    class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Actual Stocks
-                                                    Based on actual
-                                                    checking(EDUD)</label>
-                                                <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
-                                                    required class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
+                                                        required class="form-control">
+                                                </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Damage or missing or
-                                                    for Testing</label>
-                                                <input type="number" name="Damageormissingorfortesting" required
-                                                    class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" required
+                                                        class="form-control">
+                                                </div>
 
 
-                                            <div class="form-group mb-3">
-                                                <label>Remaining Stocks</label>
-                                                <input type="number" name="RemainingStocks" required
-                                                    class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Upcoming Stocks</label>
-                                                <input type="number" name="UpcomingStocks" required
-                                                    class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="number" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
 
                                             <div class="form-group mb-3">
                                                 <label>Remarks
