@@ -419,16 +419,12 @@
                                                         <option value="Delivered">Delivered</option>
                                                     </select>
                                                 </div>
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
-                                                            </button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                    </div>
+                                                <div class="modal-footer" style="display:flex; justify-content:flex-end; padding:5px;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        data-dismiss="modal">Cancel</button>
 
                                                 </div>
                                             </form>

@@ -39,7 +39,7 @@
                 </div>
                 <form action="{{route('packagingdata.export')}}" method="POST" target="_blank">
                     @csrf
-                   
+
                     <button type="submit"  class="btn-download" style="width:150px;">
                         <i class='bx bxs-cloud-download'></i>
                         <span class="text" style="font-size: 10px">Download Excel</span>
@@ -50,17 +50,6 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <!--Add Button-->
-                        {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
-                                </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
-                                </button>
-                            </div> --}}
 
                         <div style="width: 100%; text-align: right">
                             <div class="table-buttons">
@@ -307,7 +296,7 @@
                                                         value="{{ $pm->ItemsName }}">
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group" hidden>
                                                     <label for="product_type"></label>
                                                     <input type="text" name="product_type" value="packaging" hidden>
                                                 </div>
@@ -347,19 +336,20 @@
                                                 <div class="form-group">
                                                     <label for="shipment_status">Shipment Status</label>
                                                     <select name="shipment_status" id="shipment_status"
-                                                        class="form-control" required>
-                                                        <option value="" disabled selected>Select Shipment
-                                                            Status</option>
-                                                        <option value="Pending">Pending</option>
+                                                        class="form-control" required disabled>
+                                                        <option disabled selected>Select Shipment
+                                                        </option>
+                                                        <option value="Pending" selected>Pending</option>
                                                         <option value="Shipped">Shipped</option>
                                                         <option value="Delivered">Delivered</option>
                                                     </select>
                                                 </div>
-                                                <div class="modal-footer">
+                                                
+                                                <div class="modal-footer" style="display:flex; justify-content:flex-end; padding:5px;">
                                                     <button type="submit" class="btn btn-primary"
-                                                        style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
+                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase</button>
                                                     <button type="button" class="btn btn-secondary"
-                                                        style="width: 90px; border-radius:9px; font-size:15px"
+                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
                                                         data-dismiss="modal">Cancel</button>
 
                                                 </div>

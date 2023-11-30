@@ -35,17 +35,14 @@
                     <div class="left">
                         <h1>Ranking</h1>
                     </div>
-                    <a href="#" class="btn-download">
-                        <i class='bx bxs-cloud-download'></i>
-                        <span class="text">Download Excel</span>
-                    </a>
+                    
                 </div>
                 <div class="table-data">
 
                     <div class="todo">
                         <div class="order">
                             <div class="head">
-                               <h3>Monthly Sold Products</h3> 
+                               <h3>Monthly Sold Products</h3>
                             </div>
                             <table>
                                 <thead>
