@@ -64,6 +64,13 @@
                 <span class="text">Ranking</span>
             </a>
         </li>
+
+        <li>
+            <a href="{{ asset('/view-profile') }}">
+                <i class='bx bxs-group'></i>
+                <span class="text">View Profile</span>
+            </a>
+        </li>
     </ul>
 </section>
 <script src="{{ asset('js/sidebar.js') }}"></script>

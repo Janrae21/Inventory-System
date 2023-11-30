@@ -53,11 +53,26 @@ class HomeController extends Controller
         $thisMonthOrder = Order::whereMonth('created_at', $thisMonth)->count();
 
         // bargraph
-        $orders = Order::select('category', DB::raw('COUNT(*) as count'))
-        ->groupBy('category')
-        ->get(['category', 'count']);
+        $now = now()->format('Y-m-d');
+        $orders = Order::select(DB::raw("'".$now."' AS date"), 'category', DB::raw('SUM(quantity_sold) AS quantity_sold'))
+                    ->whereDate('created_at', '=', $now)
+                    ->groupBy('date', 'category')
+                    ->orderBy('quantity_sold', 'desc')
+                    ->take(5)
+                    ->get(['date', 'category', 'quantity_sold']);
+        
+        // Check if there are no sales for the current day
+        if ($orders->isEmpty()) {
+            $orders = collect([
+                [
+                    'date' => $now,
+                    'category' => 'No Sale',
+                    'quantity_sold' => 0
+                ]
+            ]);
+        }
 
-        //recently added products
+        //recently purchased products
         $recentProducts = Order::select('item_name', 'quantity_sold', 'category', 'created_at')
         ->orderBy('created_at', 'desc')
         ->take(5)

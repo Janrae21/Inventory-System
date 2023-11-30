@@ -26,35 +26,6 @@ class PisoWifi_parts_accessories_Controller extends Controller
         $request['Status'] = 'Pending';
 
         PisoWifi_parts_accessories::create($request->toArray());
-        // dd($request->toArray());
-
-        // $request->validate([
-
-        //     'ItemsName' => 'required',
-        //     'Status' => 'required',
-        //     'RemainingStocks' => 'required|numeric',
-        //     'StocksPurchased' => 'required|numeric',
-        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-        //     'Damageormissingorfortesting' => 'required|numeric',
-        //     'UpcomingStocks' => 'required|numeric',
-        //     'Remarks' => 'required',
-
-        // ]);
-
-        // $PisoWifiAccessories = new PisoWifi_parts_accessories();
-
-        // $PisoWifiAccessories->ItemsName = $request->input('ItemsName');
-        // $PisoWifiAccessories->Status = $request->input('Status');
-        // $PisoWifiAccessories->RemainingStocks = $request->input('RemainingStocks');
-        // $PisoWifiAccessories->StocksPurchased = $request->input('StocksPurchased');
-        // $PisoWifiAccessories->ActualStocksBasedonactualcheckingEDUD = $request->input('ActualStocksBasedonactualcheckingEDUD');
-        // $PisoWifiAccessories->Damageormissingorfortesting = $request->input('Damageormissingorfortesting');
-        // $PisoWifiAccessories->UpcomingStocks = $request->input('UpcomingStocks');
-        // $PisoWifiAccessories->Remarks = $request->input('Remarks');
-        // $PisoWifiAccessories->created_at = now();
-        // $PisoWifiAccessories->updated_at = now();
-
-        // $PisoWifiAccessories->save();
 
         return redirect()->back()->with('message-Add', 'Add Items Successfully');
     }
@@ -108,9 +79,9 @@ class PisoWifi_parts_accessories_Controller extends Controller
         return redirect()->back()->with('message-delete', 'Item Successfully Deleted');
     }
 
-    public function exportExcel() 
+    public function exportExcel()
     {   return Excel::download(new PisoWifi_parts_AccessoriesExport, 'PisoWifi_parts_Accessories.Data.xlsx');
-    
+
     }
 
 
