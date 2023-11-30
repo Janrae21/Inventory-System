@@ -112,36 +112,29 @@
                                             </div>
 
                                             <div class="form-group mb-3">
-                                                <label>Stocks Purchased</label>
-                                                <input type="number" name="StocksPurchased" required
-                                                    class="form-control">
-                                            </div>
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" id="stocksPurchased" required class="form-control">
+                                                </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Actual Stocks
-                                                    Based on actual
-                                                    checking(EDUD)</label>
-                                                <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
-                                                    required class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks Based on actual checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD" id="actualStocks" required class="form-control">
+                                                </div>
 
-                                            <div class="form-group mb-3">
-                                                <label>Damage or missing or
-                                                    for Testing</label>
-                                                <input type="number" name="Damageormissingorfortesting" required
-                                                    class="form-control">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <label>Remaining Stocks</label>
-                                                <input type="number" name="RemainingStocks" required
-                                                    class="form-control">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <label>Upcoming Stocks</label>
-                                                <input type="number" name="UpcomingStocks" required
-                                                    class="form-control">
-                                            </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" id="damage" required class="form-control">
+                                                </div>
 
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" id="remainingStocks" required class="form-control">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="number" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
                                             <div class="form-group mb-3">
                                                 <label>Remarks</label>
                                                 <input type="text" name="Remarks" required class="form-control">
@@ -624,7 +617,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="{{ asset('js/Eloading.js') }}"></script>
+    <script src="{{ asset('js/physicalStore.js') }}"></script>
 </body>
 
 </html>
