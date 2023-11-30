@@ -10,6 +10,7 @@ use App\Http\Controllers\PartsOfEloadingController;
 use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
 use App\Http\Controllers\ProductControlller;
+use App\Http\Controllers\rankingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -125,3 +126,4 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
+Route::get('/ranking', [RankingController::class, 'ranking'])->name('ranking');

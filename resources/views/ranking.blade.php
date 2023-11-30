@@ -8,6 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -44,7 +45,7 @@
                     <div class="todo">
                         <div class="order">
                             <div class="head">
-                                {{-- <h3>Top Sales Products</h3> --}}
+                               <h3>Monthly Sold Products</h3> 
                             </div>
                             <table>
                                 <thead>
@@ -55,57 +56,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Piso Wifi</td>
-                                        <td>54</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>E-Loading Machine</td>
-                                        <td>48</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Piso Wifi</td>
-                                        <td>45</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Cellphone</td>
-                                        <td>41</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>E-Loading Parts</td>
-                                        <td>37</td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>6</td>
-                                        <td>Piso Wifi</td>
-                                        <td>35</td>
-                                    </tr>
-                        0            <tr>
-                                        <td>7</td>
-                                        <td>E-Loading Machine</td>
-                                        <td>32</td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td>Piso Wifi</td>
-                                        <td>30</td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td>Cellphone</td>
-                                        <td>26</td>
-                                    </tr>
-                                    <tr>
-                                        <td>10</td>
-                                        <td>E-Loading Parts</td>
-                                        <td>21</td>
-                                    </tr>
+                                @foreach($monthlyQuantitySold as $index => $product)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $product->item_name }}</td>
+                        <td>{{ $product->total_quantity_sold }}</td>
+                    </tr>
+                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -115,7 +72,7 @@
                         <div class="charts">
                             <div class="charts-card">
                                 <p class="chart-title">Top 5 Sales Product</p>
-                                <div id="bar-chart"></div>
+                                <canvas id="bar-chart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -135,32 +92,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($topCustomers as $index => $customer)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Seth Obenita</td>
-                                        <td>15</td>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $customer->customer_name }}</td>
+                                        <td>{{ $customer->total_quantity_sold }}</td>
                                     </tr>
-                                    <tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Rogina Rolloque</td>
-                                        <td>12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Mary Joy Reambonanza</td>
-                                        <td>11</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>John Doe</td>
-                                        <td>7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Jean Ros</td>
-                                        <td>5</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -169,7 +107,7 @@
                             <div class="charts">
                                 <div class="charts-card">
                                     <p class="chart-title">Top 5 Customer</p>
-                                    <div id="chart"></div>
+                                    <canvas id="chart"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -177,6 +115,81 @@
             </main>
             <!-- MAIN -->
         </section>
+
+        <script>
+                var sales = {!! $ordersRank !!};
+
+                var labels = sales.map(function (ranking) {
+                    return ranking.category;
+                });
+
+                var data = sales.map(function (ranking) {
+                return ranking.quantity_sold;
+                });
+                new Chart(document.getElementById("bar-chart"), {
+                    type: "bar",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Count",
+                            data: data,
+                            fill: false,
+                            backgroundColor: ["#246dec", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"]
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                callback: function(value) {
+                                    if (value % 1 === 0) {
+                                    return value;
+                                }
+                        }
+                    }
+            }
+            }
+                    }
+                });
+        </script>
+        <script>
+        // Top Customer Chart
+            var customerSales = {!! $topCustomers !!};
+            var customerLabels = customerSales.map(function (ranking) {
+                return ranking.customer_name;
+            });
+            var customerData = customerSales.map(function (ranking) {
+                return ranking.total_quantity_sold;
+            });
+            new Chart(document.getElementById("chart"), {
+                type: "bar",
+                data: {
+                    labels: customerLabels,
+                    datasets: [{
+                        label: "Count",
+                        data: customerData,
+                        fill: false,
+                        backgroundColor: ["#246dec", "#cc3c43", "#367952", "#f5b74f", "#4f35a1"]
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                            callback: function(value) {
+                                if (value % 1 === 0) {
+                                return value;
+                                }
+                            }
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="{{ asset('js/ranking.js') }}"></script>
