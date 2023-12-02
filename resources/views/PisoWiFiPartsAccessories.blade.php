@@ -38,9 +38,231 @@
                     <div class="left">
                         <h1>Product - Piso WiFi Parts & Accessories</h1>
 
+                    <button type="submit" class="btn-download" style="width:150px;">
+                        <i class='bx bxs-cloud-download'></i>
+                        <span class="text" style="font-size: 10px">Download Excel</span>
+                    </button>
+
+                </form>
+            </div>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <div style="width: 100%; text-align: right" class="show-when-web">
+                            <div class="table-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
+                                        Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
+                                        Report</i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!--Add Product Modal-->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+                            data-bs-backdrop="static">
+                            <div class="modal-dialog" style="width: 50%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" style="button"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="{{ url('pisowifi-parts-accessories') }}" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+
+                                            <div class="form-group mb-3">
+                                                <label>Item Name</label>
+                                                <input type="text" name="ItemsName" required class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Select Status</label>
+                                                <select name="Status" required class="form-control" disabled>
+                                                    <option>Select Status</option>
+                                                    <option value="Ongoing">Ongoing</option>
+                                                    <option value="Pending" selected>Pending</option>
+                                                    <option value="Decline">Decline</option>
+                                                </select>
+                                            </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
+                                                        required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" required
+                                                        class="form-control">
+                                                </div>
+
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="number" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                            <div class="form-group mb-3">
+                                                <label>Remarks
+                                                </label>
+                                                <input type="text" name="Remarks" required class="form-control">
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add
+                                                        Items</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                    @if (Session::has('message-Add'))
+                                    <script>
+                                    swal("message", "Successfuly Added Item", "success", {
+                                        button: "okay",
+                                        style: "justify-content:center;",
+                                    });
+                                    </script>
+                                    @endif
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal fade" id="report" data-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="width: 50%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>What Reports?</label>
+                                                <select name="Status" required class="form-control">
+                                                    <option value="" disabled selected>Select
+                                                    </option>
+                                                    <option value="">Test Reports</option>
+                                                    <option value="Ongoing">Inventory Report Summary</option>
+                                                    <option value="Pending">Inventory and Condition of Products Report
+                                                    </option>
+                                                    <option value="Decline">Inventory Audit Report</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Description:</label>
+                                                <textarea type="text" id="description" name="description"
+                                                    class="form-control" placeholder="Enter report description"
+                                                    required></textarea>
+                                            </div>
+                                            <div class="modal-footer ">
+                                                <div class="btn"
+                                                    style="display:flex; justify-content:flex-end; padding:5px;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
+                                                        Reports</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    @if (Session::has('message-add'))
+                                    <script>
+                                    swal("message", "Successfuly Added Item", "success", {
+                                        button: "okay",
+                                        style: "justify-content:center;",
+                                    });
+                                    </script>
+                                    @endif
+
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
-                    <form action="{{ route('PisoWifi_parts_accessories.data.export') }}" method="POST" target="_blank">
-                        @csrf
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Status</th>
+                                <th>Remarks</th>
+                                <th>Remaining Stocks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pisowifi_parts_accessories as $pisoWifi)
+                            <tr>
+                                <td style="border: none">
+                                    {{ $pisoWifi->ItemsName }}
+                                </td>
+                                <td style="border: none">{{ $pisoWifi->Status }}</td>
+                                <td style="border: none">{{ $pisoWifi->Remarks }}</td>
+                                <td style="border: none">{{ $pisoWifi->RemainingStocks }}</td>
+                                <td style="width: 30%; border: none">
+                                    <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                        data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                    <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
+                                            class='bx bxs-show'></i> View</a>
+                                    <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModalEdit{{ $pisoWifi->id }}"><i
+                                            class='bx bxs-pencil'></i> Edit</a>
+                                    <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#deleteModal{{ $pisoWifi->id }}"><i
+                                            class='bx bxs-trash'></i> Delete </a>
+                                </td>
+                            </tr>
 
                         <button type="submit" class="btn-download" style="width:150px;">
                             <i class='bx bxs-cloud-download'></i>
@@ -684,4 +906,4 @@
         <script src="{{ asset('js/pisowifi.js') }}"></script>
     </body>
 
-    </html>
+</html>

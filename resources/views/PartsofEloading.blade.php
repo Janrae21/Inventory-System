@@ -63,24 +63,218 @@
                                 </button>
                             </div> --}}
 
-                            <div style="width: 100%; text-align: right">
-                                <div class="table-buttons">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
-                                            Product</i>
-                                    </button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
-                                            Report</i>
-                                    </button>
+                        <div style="width: 100%; text-align: right" class="show-when-web">
+                            <div class="table-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
+                                        Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
+                                        Report</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="{{ url('Parts-of-eloading') }}" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+
+                                            <div class="form-group mb-3">
+                                                <label>Items Name</label>
+                                                <input type="text" name="ItemsName" required class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Select Status</label>
+                                                <select name="Status" required disabled class="form-control">
+                                                    <option>Select Status</option>
+                                                    <option value="Ongoing">Ongoing</option>
+                                                    <option value="Pending" selected>Pending</option>
+                                                    <option value="Decline">Decline</option>
+                                                </select>
+                                            </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
+                                                        required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="number" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                            <div class="form-group mb-3">
+                                                <label>Remarks
+                                                </label>
+                                                <input type="text" name="Remarks" required class="form-control">
+                                            </div>
+
+                                            <div class="modal-footer ">
+                                                <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px;">Add
+                                                        Items
+                                                    </button>
+                                                    <button type="submit" class="btn btn-secondary"
+                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
 
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                        </div>
+                        @if (Session::has('message-Add'))
+                        <script>
+                        swal("Product Added", "A new product was successfully added!", "success", {
+                            button: "okay",
+                        });
+                        </script>
+                        @endif
+
+
+                        <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="width: 50%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>What Reports?</label>
+                                                <select name="Status" required class="form-control">
+                                                    <option value="" disabled selected>Select
+                                                    </option>
+                                                    <option value="">Test Reports</option>
+                                                    <option value="Ongoing">Inventory Report Summary</option>
+                                                    <option value="Pending">Inventory and Condition of Products Report
+                                                    </option>
+                                                    <option value="Decline">Inventory Audit Report</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Description:</label>
+                                                <textarea type="text" id="description" name="description"
+                                                    class="form-control" placeholder="Enter report description"
+                                                    required></textarea>
+                                            </div>
+                                            <div class="modal-footer ">
+                                                <div class="btn"
+                                                    style="display:flex; justify-content:flex-end; padding:5px;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
+                                                        Reports</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Items Name
+                                </th>
+                                <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Status</th>
+                                <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks</th>
+                                <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remaining
+                                    Stocks</th>
+                                <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($_parts_of_eloading as $pe)
+                            <tr>
+                                <td style="border:none;">
+                                    {{ $pe->ItemsName }}
+                                </td>
+                                <td style="border:none;">{{ $pe->Status }}</td>
+                                <td style="border:none;">{{ $pe->Remarks }}</td>
+                                <td style="border: none">{{ $pe->RemainingStocks }}</td>
+                                <td style="width: 30%; border: none">
+                                    <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($pe->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                        data-toggle="modal" data-target="#orderModal{{ $pe->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                    <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i
+                                            class='bx bxs-show'></i> View</a>
+                                    <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModalEdit{{ $pe->id }}"><i
+                                            class='bx bxs-pencil'></i> Edit</a>
+                                    <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#deleteModal{{ $pe->id }}"><i
+                                            class='bx bxs-trash'></i> Delete </a>
+                                </td>
+
+                            </tr>
+                            <!-- Order Modal -->
+                            <div class="modal fade" id="orderModal{{ $pe->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="orderModalLabel{{ $pe->id }}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>

@@ -38,15 +38,24 @@
                     <div class="left">
                         <h1>Customers</h1>
                     </div>
-                    <form action="{{route('Customers.export')}}" method="POST" target="_blank">
-                    @csrf
+                    <form action="{{ route('Customers.export') }}" method="POST" target="_blank">
+                        @csrf
 
-                    <button type="submit" class="btn-download" style="width:150px;">
-                        <i class='bx bxs-cloud-download'></i>
-                        <span class="text" style="font-size: 10px">Download Excel</span>
-                    </button>
+                        <button type="submit" class="btn-download" style="width:150px;">
+                            <i class='bx bxs-cloud-download'></i>
+                            <span class="text" style="font-size: 10px">Download Excel</span>
+                        </button>
 
-                </form>
+                    </form>
+                </div>
+
+                <div style="width: 100%">
+                    <div class="table-buttons" style="float: right; margin-bottom: 10px">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="show-when-mobile"
+                            style="width: 120px; height:40px; border-radius: 5px; border: 1px solid #9ACEA2;">
+                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Customer</i>
+                        </button>
+                    </div>
                 </div>
                 <div class="table-data">
                     <div class="order">
@@ -60,10 +69,11 @@
                             </div> --}}
 
                             <div style="width: 100%; text-align: right">
-                                <div class="table-buttons" >
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                <div class="table-buttons">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="show-when-web"
                                         style="width: 120px; height:40px; border-radius: 5px; border: 1px solid #9ACEA2;">
-                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Customer</i>
+                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
+                                            Customer</i>
                                     </button>
                                 </div>
                             </div>
@@ -72,7 +82,7 @@
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
                                 data-bs-backdrop="static">
-                                <div class="modal-dialog" style="width: 50%">
+                                <div class="modal-dialog" style="width: 95%">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Add Customers</h5>
@@ -94,27 +104,31 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Address</label>
-                                                    <input type="text" class="form-control" id="address"
-                                                        name="address" required>
+                                                    <input type="text" class="form-control" id="address" name="address"
+                                                        required>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Age</label>
-                                                    <input type="number" class="form-control" id="age"
-                                                        name="age" required>
+                                                    <input type="number" class="form-control" id="age" name="age"
+                                                        required>
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Email</label>
-                                                    <input type="email" class="form-control" id="email"
-                                                        name="email" required>
+                                                    <input type="email" class="form-control" id="email" name="email"
+                                                        required>
                                                 </div>
 
                                                 <div class="modal-footer ">
-                                                    <div class="btn" style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add Customer</button>
+                                                    <div class="btn"
+                                                        style="display:flex; justify-content:flex-end; padding:5px;">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add
+                                                            Customer</button>
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal" style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            data-bs-dismiss="modal"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                     </div>
 
                                                 </div>
@@ -163,7 +177,8 @@
                                         <td>
 
                                             <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#CustomersModalEdit{{ $od->id }}"><i
+                                                data-toggle="modal"
+                                                data-target="#CustomersModalEdit{{ $od->id }}"><i
                                                     class='bx bxs-pencil'></i> Edit</a>
                                             <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
                                                 data-toggle="modal" data-target="#deleteModal{{ $od->id }}"><i

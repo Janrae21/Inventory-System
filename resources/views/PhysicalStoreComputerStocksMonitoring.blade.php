@@ -31,20 +31,231 @@
             @endcomponent
             <!-- NAVBAR -->
 
-            <!-- MAIN -->
-            <main>
-                <div class="head-title">
-                    <div class="left">
-                        <h1>Product- Physical Store Computer Stocks Monitoring</h1>
+                </div>
+                <form action="{{route('physical_Stock.data')}}" method="POST" target="_blank">
+                    @csrf
+
+                    <button type="submit" class="btn-download" style="width:150px;">
+                        <i class='bx bxs-cloud-download'></i>
+                        <span class="text" style="font-size: 10px">Download Excel</span>
+                    </button>
+
+                </form>
+            </div>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+
+
+                        <!--Add Button-->
+                        {{-- <div>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
+                                </button>
+                            </div> --}}
+
+                        <div style="width: 100%; text-align: right" class="show-when-web">
+                            <div class="table-buttons">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
+                                        Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
+                                        Report</i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Add Items Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Add Items</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="{{ url('physical-store-computer-stocks-monitoring') }}" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+
+                                            <div class="form-group mb-3">
+                                                <label>Items Name</label>
+                                                <input type="text" name="ItemsName" required class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Select Status</label>
+                                                <select name="Status" required class="form-control" disabled>
+                                                    <option value="">Select Status</option>
+                                                    <option value="Ongoing">Ongoing</option>
+                                                    <option value="Pending" selected>Pending</option>
+                                                    <option value="Decline">Decline</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" id="stocksPurchased" required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks Based on actual checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD" id="actualStocks" required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" id="damage" required class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" id="remainingStocks" required class="form-control">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Upcoming Stocks</label>
+                                                    <input type="number" name="UpcomingStocks" required
+                                                        class="form-control">
+                                                </div>
+                                            <div class="form-group mb-3">
+                                                <label>Remarks</label>
+                                                <input type="text" name="Remarks" required class="form-control">
+                                            </div>
+
+                                            <div class="modal-footer ">
+                                                <div class="btn"
+                                                    style="display:flex; justify-content:flex-end; padding:5px;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add
+                                                        Items</button>
+                                                    <button type="submit" class="btn btn-secondary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        @if (Session::has('message-Add'))
+                        <script>
+                        swal("Product Added", "Successfuly Added Item!", "success", {
+                            button: "okay",
+                            style: "justify-content:center;",
+                        });
+                        </script>
+                        @endif
+
+
+                        <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" style="width: 50%">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <form action="" method="POST">
+                                        @csrf
+
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>What Reports?</label>
+                                                <select name="Status" required class="form-control">
+                                                    <option value="" disabled selected>Select
+                                                    </option>
+                                                    <option value="">Test Reports</option>
+                                                    <option value="Ongoing">Inventory Report Summary</option>
+                                                    <option value="Pending">Inventory and Condition of Products Report
+                                                    </option>
+                                                    <option value="Decline">Inventory Audit Report</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description">Description:</label>
+                                            </div>
+                                            <textarea type="text" id="description" name="description"
+                                                class="form-control" placeholder="Enter report description"
+                                                required></textarea>
+
+                                            <div class="modal-footer ">
+                                                <div class="btn"
+                                                    style="display:flex; justify-content:flex-end; padding:5px;">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
+                                                        Reports</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
                     <form action="{{ route('physical_Stock.data') }}" method="POST" target="_blank">
                         @csrf
 
-                        <button type="submit" class="btn-download" style="width:150px;">
-                            <i class='bx bxs-cloud-download'></i>
-                            <span class="text" style="font-size: 10px">Download Excel</span>
-                        </button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Items Name</th>
+                                <th>Status</th>
+                                <th>Remarks</th>
+                                <th>Remaining Stocks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($_physical_store_computer_stocks_monitoring as $ps)
+                            <tr>
+                                <td style="border:none;">
+                                    {{ $ps->ItemsName }}
+                                </td>
+                                <td style="border:none;">{{ $ps->Status }}</td>
+                                <td style="border:none;">{{ $ps->Remarks }}</td>
+                                <td style="border: none">{{ $ps->RemainingStocks }}</td>
+                                <td style="width: 30%; border: none">
+                                    <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($ps->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                        data-toggle="modal" data-target="#orderModal{{ $ps->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
+                                    <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
+                                            class='bx bxs-show'></i> View</a>
+                                    <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#productModalEdit{{ $ps->id }}"><i
+                                            class='bx bxs-pencil'></i> Edit</a>
+                                    <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                        data-toggle="modal" data-target="#deleteModal{{ $ps->id }}"><i
+                                            class='bx bxs-trash'></i> Delete </a>
+                                </td>
+                            </tr>
 
                     </form>
                 </div>
@@ -625,16 +836,16 @@
                 </div>
             </main>
 
-            <!-- MAIN -->
-        </section>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
-        <!-- CONTENT -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="{{ asset('js/Eloading.js') }}"></script>
-    </body>
+        <!-- MAIN -->
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- CONTENT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/physicalStore.js') }}"></script>
+</body>
 
     </html>
