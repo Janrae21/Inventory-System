@@ -130,4 +130,18 @@
     position: absolute;
 }
 
+.show-when-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 900px){
+    #sidebar {
+        width: 0;
+    }
+
+    .show-when-mobile {
+        display: block;
+    }
+}
+
 

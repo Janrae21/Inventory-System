@@ -326,9 +326,18 @@ main {
         width: 200px;
     }
 
-    #content {
+    /* #content {
         width: calc(100% - 60px);
         left: 200px;
+    } */
+
+    #content {
+        width: 100%;
+        left: 0;        
+    }
+
+    .box-info {
+        padding: 0;;
     }
 
     #content nav .nav-link {
