@@ -244,10 +244,9 @@
                                 <td style="border: none">{{ $pm->Remarks }}</td>
                                 <td style="border: none">{{ $pm->RemainingStocks }}</td>
                                 <td style="width: 40%; border: none">
-                                    <a style="width: 135px; padding: 10px; cursor:pointer;" data-toggle="modal"
-                                        data-target="#orderModal{{ $pm->id }}"><i class='bx bxs-cart'></i>
-                                        Purchase
-                                        Item</a>
+                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
+                                    @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif" 
+                                    data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
                                     <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
                                         data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
                                             class='bx bxs-show'></i> View</a>
