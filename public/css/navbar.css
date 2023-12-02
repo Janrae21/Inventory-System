@@ -5,7 +5,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    grid-gap: 24px;
+    /* grid-gap: 24px; */
     font-family: var(--lato);
     /* position: sticky; */
     top: 0;
@@ -51,16 +51,15 @@
 .profile-group  #switch-mode:checked+.switch-mode::before {
     left: calc(100% - (25px - 4px) - 2px);
 }
-.profile-group::before {
+/* .profile-group::before {
     content: '';
-    /* position: absolute; */
     width: 40px;
     height: 40px;
     bottom: -40px;
     right: 0;
     border-radius: 50%;
     box-shadow: -20px -20px 0 var(--light);
-}
+} */
 
 .profile-group a {
     color: var(--dark);

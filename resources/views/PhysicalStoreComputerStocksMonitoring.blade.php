@@ -65,7 +65,7 @@
                                 </button>
                             </div> --}}
 
-                        <div style="width: 100%; text-align: right">
+                        <div style="width: 100%; text-align: right" class="show-when-web">
                             <div class="table-buttons">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                     style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
