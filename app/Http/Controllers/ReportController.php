@@ -11,9 +11,10 @@ class ReportController extends Controller
     public function createReport(Request $request)
     {
         $request->validate([
-            'Select' => 'required',
+            'Status' => 'required',
             'description' => 'required',
         ]);
+
 
         $data = [
             'select' => $request->input('Select'),

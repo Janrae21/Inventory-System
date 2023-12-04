@@ -64,11 +64,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
         return view('view-profile');
     });
 
-    
+
     Route::post('/create-report', [ReportController::class, 'createReport'])->name('report.create');
-
-
-
 
     //Update Data In View Profile
     Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
@@ -133,5 +130,9 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+
+
+
+
 });
 Route::get('/ranking', [RankingController::class, 'ranking'])->name('ranking');

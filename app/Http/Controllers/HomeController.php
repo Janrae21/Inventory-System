@@ -47,7 +47,7 @@ class HomeController extends Controller
 
         $todayDate = Carbon::now()->format('Y-m-d');
         $thisMonth = Carbon::now()->format('m');
-        
+
         $Total_Purchased_Orders = Order::count();
         $todayOrder = Order::whereDate('created_at', $todayDate)->count();
         $thisMonthOrder = Order::whereMonth('created_at', $thisMonth)->count();
@@ -60,7 +60,7 @@ class HomeController extends Controller
                     ->orderBy('quantity_sold', 'desc')
                     ->take(5)
                     ->get(['date', 'category', 'quantity_sold']);
-        
+
         // Check if there are no sales for the current day
         if ($orders->isEmpty()) {
             $orders = collect([
@@ -112,7 +112,7 @@ class HomeController extends Controller
 
 
 
-        
+
 
         return view('adminHome', compact('Total_Purchased_Orders', 'customers','todayOrder','thisMonthOrder', 'orders','recentProducts', 'recentAddedProducts'));
 

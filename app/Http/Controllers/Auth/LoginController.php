@@ -54,7 +54,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-            
+
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {

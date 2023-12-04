@@ -182,7 +182,7 @@
                                             aria-label="Close"></button>
                                     </div>
 
-                                    <form action="" method="POST">
+                                    <form action="{{route('report.create')}}" method="POST">
                                         @csrf
 
                                         <div class="modal-body">
@@ -254,8 +254,8 @@
                                 <td style="border: none">{{ $pisoWifi->Remarks }}</td>
                                 <td style="border: none">{{ $pisoWifi->RemainingStocks }}</td>
                                 <td style="width: 30%; border: none">
-                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
-                                        @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif" 
+                                    <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                         data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
                                     <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                         data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i

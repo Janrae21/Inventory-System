@@ -61,13 +61,6 @@
                     <div class="order">
                         <div class="head">
 
-                            {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="height:50px, border-radius:5px; background-color: green; border-style: none; padding: 10px; ">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Customer</i>
-                                </button>
-                            </div> --}}
-
                             <div style="width: 100%; text-align: right">
                                 <div class="table-buttons">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="show-when-web"
@@ -132,12 +125,7 @@
                                                     </div>
 
                                                 </div>
-                                                {{-- <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary"
-                                                        style="width: 140px">Add Customer</button>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal" style="width: 100px">Cancel</button>
-                                                </div> --}}
+                                                
                                             </div>
                                         </form>
 

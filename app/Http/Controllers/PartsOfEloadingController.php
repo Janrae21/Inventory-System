@@ -26,35 +26,9 @@ class PartsOfEloadingController extends Controller
         $request['Status'] = 'Pending';
 
         PartsOfEloadingModel::create($request->toArray());
-        // $request->validate( [
 
-        //     'ItemsName' => 'required',
-        //     'Status' => 'required',
-        //     'RemainingStocks' => 'required|numeric',
-        //     'StocksPurchased' => 'required|numeric',
-        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-        //     'Damageormissingorfortesting' => 'required|numeric',
-        //     'UpcomingStocks' => 'required|numeric',
-        //     'Remarks' => 'required',
 
-        // ] );
-
-        // $partsofEloading = new PartsOfEloadingModel();
-
-        // $partsofEloading->ItemsName = $request->input( 'ItemsName' );
-        // $partsofEloading->Status = $request->input( 'Status' );
-        // $partsofEloading->RemainingStocks = $request->input( 'RemainingStocks' );
-        // $partsofEloading->StocksPurchased = $request->input( 'StocksPurchased' );
-        // $partsofEloading->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
-        // $partsofEloading->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
-        // $partsofEloading->UpcomingStocks = $request->input( 'UpcomingStocks' );
-        // $partsofEloading->Remarks = $request->input( 'Remarks' );
-        // $partsofEloading->created_at = now();
-        // $partsofEloading->updated_at = now();
-
-        // $partsofEloading->save();
-
-        // return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
+        return redirect()->back()->with( 'message-Add', 'Add Items Successfully' );
     }
 
     public function viewItem($id)
@@ -104,9 +78,9 @@ class PartsOfEloadingController extends Controller
         return redirect()->back()->with('message delete', 'Item deleted successfully');
     }
 
-     public function export() 
+     public function export()
     {   return Excel::download(new PartsOfEloadingExport, 'Parts_of_Eloading.Data.xlsx');
-    
+
     }
-    
+
 }

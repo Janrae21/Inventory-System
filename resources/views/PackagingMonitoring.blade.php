@@ -39,7 +39,7 @@
                 </div>
                 <form action="{{route('packagingdata.export')}}" method="POST" target="_blank">
                     @csrf
-                   
+
                     <button type="submit"  class="btn-download" style="width:150px;">
                         <i class='bx bxs-cloud-download'></i>
                         <span class="text" style="font-size: 10px">Download Excel</span>
@@ -178,7 +178,7 @@
                                             aria-label="Close"></button>
                                     </div>
 
-                                    <form action="" method="POST">
+                                    <form action="{{route('report.create')}}" method="POST">
                                         @csrf
 
                                         <div class="modal-body">
@@ -187,11 +187,11 @@
                                                 <select name="Status" required class="form-control">
                                                     <option value="" disabled selected>Select
                                                     </option>
-                                                    <option value="">Test Reports</option>
-                                                    <option value="Ongoing">Inventory Report Summary</option>
-                                                    <option value="Pending">Inventory and Condition of Products Report
+                                                    <option value="Test Reports">Test Reports</option>
+                                                    <option value="Inventory Report Summary">Inventory Report Summary</option>
+                                                    <option value="Inventory and Condition of Products Report">Inventory and Condition of Products Report
                                                     </option>
-                                                    <option value="Decline">Inventory Audit Report</option>
+                                                    <option value="Inventory Audit Report">Inventory Audit Report</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -244,8 +244,8 @@
                                 <td style="border: none">{{ $pm->Remarks }}</td>
                                 <td style="border: none">{{ $pm->RemainingStocks }}</td>
                                 <td style="width: 40%; border: none">
-                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
-                                    @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif" 
+                                    <a style="width: 135px; padding: 10px; cursor:pointer;
+                                    @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                     data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i class='bx bxs-cart'></i> Purchase Item</a>
                                     <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
                                         data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
