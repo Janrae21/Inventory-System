@@ -4,12 +4,11 @@ version: '3'
 
 services:
     web:
-        # build:
-        #     context: ./vendor/laravel/sail/runtimes/8.2
-        #     dockerfile: Dockerfile
-        #     args:
-        #         user: pninventory
-        #         uid:
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.2
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
         image: sail-8.2/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
