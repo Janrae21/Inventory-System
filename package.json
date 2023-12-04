@@ -2,7 +2,19 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "serve": "php artisan serve",
+        "db:migration": "docker compose run --rm -it app php artisan migrate",
+        "db:migrate:refresh": "docker compose run --rm -it app php artisan  migrate:refresh",
+        "db:seed": "docker compose run --rm -it app php artisan  db:seed",
+        "laravel:c": "docker compose run --rm -it app php artisan tinker",
+        "start:docker": "docker compose --profile dev up --build --force-recreate --remove-orphans",
+        "start": "concurrently \"npm run dev\" \"php artisan serve\" ",
+        "staging": "docker compose --profile staging up --build --remove-orphans",
+        "stop": "docker compose down",
+        "test": "./vendor/bin/sail php artisan test --testsuite=Unit,Feature --stop-on-failure",
+        "test:only": "./vendor/bin/sail php artisan test --testsuite=Unit,Feature --stop-on-failure --group=only",
+        "logs": "docker compose logs --follow"
     },
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
