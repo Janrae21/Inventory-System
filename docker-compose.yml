@@ -5,20 +5,19 @@ version: '3'
 services:
     web:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.2
+            context: .
             dockerfile: Dockerfile
             args:
-                WWWGROUP: '${WWWGROUP}'
-        image: sail-8.2/app
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
+                user: 'laravel'
+                uid: 1000
+        image: laravel
+        container_name: laravel-app
+        working_dir: /var/www
         ports:
             - 8000:8000
             - 5173:5173
         command: 'npx concurrently "npm run dev" "php artisan serve --host=0.0.0.0 --port=8000"'
         environment:
-            WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
@@ -27,7 +26,7 @@ services:
             - './bootstrap/cache:/var/www/html/bootstrap/cache'
             - './storage:/var/www/html/storage'
         networks:
-            - sail
+            - laravel
         depends_on:
             - pgsql
         env_file:
@@ -44,10 +43,10 @@ services:
         volumes:
             - 'sail-pgsql:/var/lib/postgresql/data'
         networks:
-            - sail
+            - laravel
 
 networks:
-    sail:
+    laravel:
         driver: bridge
 
 volumes:
