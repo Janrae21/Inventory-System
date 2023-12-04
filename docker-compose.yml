@@ -33,13 +33,9 @@ services:
             - .env
 
     mysql:
-        image: 'postgres:15'
+        image: 'mysql:latest'
         environment:
-            PGPASSWORD: 'postgres'
-            POSTGRES_DB: 'pninventory_production'
-            POSTGRES_USER: 'postgres'
-            POSTGRES_HOST_AUTH_METHOD: 'md5'
-            POSTGRES_PASSWORD: 'postgres'
+            MYSQL_ROOT_PASSWORD: 'Asdf@1234'
         volumes:
             - 'mysql:/var/lib/mysql'
         networks:
