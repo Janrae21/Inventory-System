@@ -43,7 +43,7 @@ All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
 
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
+Route::middleware(['auth', 'user-access:inv_admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome', 'productStatus'])->name('admin.home');
 
     Route::get('/ranking', function () {
