@@ -23,6 +23,12 @@ class CreateUsersSeeder extends Seeder
                'password'=> bcrypt('123456'),
             ],
             [
+               'name'=>'Ecommerce Team',
+               'email'=>'Ecommerce@test.com',
+               'type'=> 2,
+               'password'=> bcrypt('123456'),
+            ],
+            [
                'name'=>'User',
                'email'=>'user@test.com',
                'type'=>0,
