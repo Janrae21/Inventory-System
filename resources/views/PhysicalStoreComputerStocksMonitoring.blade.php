@@ -59,11 +59,11 @@
                                     <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                         Product</i>
                                 </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#report"
                                     style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
                                     <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
                                         Report</i>
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
 
@@ -92,6 +92,7 @@
                                                 <label>Select Status</label>
                                                 <select name="Status" required class="form-control" disabled>
                                                     <option value="">Select Status</option>
+                                                    <option value="Ok">Ok</option>
                                                     <option value="Ongoing">Ongoing</option>
                                                     <option value="Pending" selected>Pending</option>
                                                     <option value="Decline">Decline</option>
@@ -178,11 +179,11 @@
                                                 <select name="Status" required class="form-control">
                                                     <option value="" disabled selected>Select
                                                     </option>
-                                                    <option value="">Test Reports</option>
-                                                    <option value="Ongoing">Inventory Report Summary</option>
-                                                    <option value="Pending">Inventory and Condition of Products Report
+                                                    <option value="Test Reports">Test Reports</option>
+                                                    <option value="Inventory Report Summary">Inventory Report Summary</option>
+                                                    <option value="Inventory and Condition of Products Report">Inventory and Condition of Products Report
                                                     </option>
-                                                    <option value="Decline">Inventory Audit Report</option>
+                                                    <option value="Inventory Audit Report">Inventory Audit Report</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -336,16 +337,12 @@
                                                         <option value="Delivered">Delivered</option>
                                                     </select>
                                                 </div>
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
-                                                          </button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 90px; border-radius:9px; font-size:15px"
+                                                        data-dismiss="modal">Cancel</button>
 
                                                 </div>
 
@@ -482,6 +479,9 @@
                                                         <label>Select Status</label>
                                                         <select name="Status" required class="form-control">
                                                             <option>Select Status</option>
+                                                            <option value="Ok"
+                                                                {{ $ps->Status === 'Ok' ? 'selected' : '' }}>
+                                                                Ok</option>
                                                             <option value="Ongoing"
                                                                 {{ $ps->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                 Ongoing</option>
@@ -521,17 +521,12 @@
                                                         value="{{ $ps->Remarks }}">
                                                 </div>
 
-
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
-                                                            Changes</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary"
+                                                        style="width: 110px; border-radius:9px; font-size:15px">Save Changes</button>
+                                                    <button type="button" class="btn btn-secondary"
+                                                        style="width: 110px; border-radius:9px; font-size:15px"
+                                                        data-dismiss="modal">Cancel</button>
 
                                                 </div>
                                             </form>

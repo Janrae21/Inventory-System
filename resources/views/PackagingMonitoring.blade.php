@@ -50,18 +50,6 @@
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <!--Add Button-->
-                        {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
-                                </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
-                                </button>
-                            </div> --}}
-
                         <div style="width: 100%; text-align: right">
                             <div class="table-buttons">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
@@ -69,11 +57,11 @@
                                     <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                         Product</i>
                                 </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#report"
                                     style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
                                     <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
                                         Report</i>
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
 
@@ -101,6 +89,7 @@
                                                 <label>Select Status</label>
                                                 <select name="Status" required disabled class="form-control">
                                                     <option value="">Select Status</option>
+                                                    <option value="Ok">Ok</option>
                                                     <option value="Ongoing">Ongoing</option>
                                                     <option value="Pending" selected>Pending</option>
                                                     <option value="Decline">Decline</option>
@@ -201,14 +190,16 @@
                                                     required></textarea>
                                             </div>
                                             <div class="modal-footer ">
-                                                <div class="btn"
-                                                    style="display:flex; justify-content:flex-end; padding:5px;">
-                                                    <button type="submit" class="btn btn-primary"
-                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
-                                                        Reports</button>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                        data-bs-dismiss="modal">Close</button>
+                                                <div class="modal-footer">
+                                                    <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add
+                                                            Items</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+
                                                 </div>
 
                                             </div>
@@ -301,12 +292,12 @@
                                                         value="{{ $pm->ItemsName }}">
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group" hidden>
                                                     <label for="product_type"></label>
                                                     <input type="text" name="product_type" value="packaging" hidden>
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group" hidden>
                                                     <label for="product_id" hidden></label>
                                                     <input type="text" name="product_id" value="{{ $pm->id }}" hidden>
                                                 </div>
@@ -318,7 +309,7 @@
                                                         class="form-control" required>
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group" hidden>
                                                     <label for="category" hidden>Category</label>
                                                     <input type="text" name="category" id="category" value="Packaging"
                                                         class="form-control" hidden>
@@ -351,9 +342,9 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary"
-                                                        style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
+                                                        style="width: 110px; border-radius:9px; font-size:15px">Save Changes</button>
                                                     <button type="button" class="btn btn-secondary"
-                                                        style="width: 90px; border-radius:9px; font-size:15px"
+                                                        style="width: 110px; border-radius:9px; font-size:15px"
                                                         data-dismiss="modal">Cancel</button>
 
                                                 </div>
@@ -504,6 +495,9 @@
                                                         <label>Select Status</label>
                                                         <select name="Status" required class="form-control">
                                                             <option>Select Status</option>
+                                                            <option value="Ok"
+                                                                {{ $pm->Status === 'Ok' ? 'selected' : '' }}>
+                                                                Ok</option>
                                                             <option value="Ongoing"
                                                                 {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                 Ongoing</option>
@@ -556,14 +550,7 @@
                                                     </div>
 
                                                 </div>
-                                                {{-- <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div> --}}
+
                                             </form>
 
                                         </div>
