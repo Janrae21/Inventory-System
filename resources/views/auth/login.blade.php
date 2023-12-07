@@ -54,10 +54,9 @@
                 </div>
 
                 <div class="panels-container">
-                    <div class="panel right-panel">
-
+                    <div class="panel left-panel">
                         <div class="content">
-                            <h3>One of us ?</h3>
+                            <h2>Welcome to FTCIS</h2>
                             <p>
                                 ADOPISOFT
                                 The leading software provider for piso wifi vending machines. Founded in 2017, it has
@@ -65,9 +64,6 @@
                                 revolutionized the piso wifi industry. Currently, there are over 140,000(and still growing)
                                 active machines powered by Adopisoft.
                             </p>
-                            <button class="btn transparent" id="sign-in-btn">
-                                Sign in
-                            </button>
                         </div>
                         <img src="" class="image" alt="" />
                     </div>
