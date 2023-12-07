@@ -15,7 +15,7 @@ class PartsOfEloadingController extends Controller
         $DataEloading = PartsOfEloadingModel::paginate(10);
         $customers = Customers::all();
 
-        return view('PartsOfEloading', [
+        return view('PartsofEloading', [
             '_parts_of_eloading' => $DataEloading,
             'customers' => $customers,
         ]);
