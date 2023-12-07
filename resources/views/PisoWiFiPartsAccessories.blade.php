@@ -52,25 +52,26 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-
-                            <div style="width: 100%; text-align: right">
-                                <div class="table-buttons">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                        <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
-                                            Product</i>
-                                    </button>
-                                    {{-- <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                    <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
-                                        Report</i>
-                                </button> --}}
+                            @if (auth()->user()->type === 'admin')
+                                <div style="width: 100%; text-align: right">
+                                    <div class="table-buttons">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                            style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
+                                                Product</i>
+                                        </button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                            style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
+                                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
+                                                Report</i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
 
                             <!--Add Product Modal-->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-bs-keyboard="false"
                                 tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
                                 data-bs-backdrop="static">
                                 <div class="modal-dialog" style="width: 50%">
@@ -95,7 +96,6 @@
                                                     <label>Select Status</label>
                                                     <select name="Status" required class="form-control" disabled>
                                                         <option>Select Status</option>
-                                                        <option value="OK">Ok</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
@@ -141,21 +141,18 @@
                                                     </label>
                                                     <input type="text" name="Remarks" required class="form-control">
                                                 </div>
-                                                <div class="modal-footer ">
-                                                    <div class="modal-footer">
-                                                        <div class="btn" style="display:flex; justify-content:flex-end;">
-                                                            <button type="submit" class="btn btn-primary"
-                                                                style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add
-                                                                Items</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                        </div>
 
+                                                <div class="modal-footer">
+                                                    <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                        <button type="submit" class="btn btn-primary"
+                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add
+                                                            Items</button>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
+                                                            data-bs-dismiss="modal">Close</button>
                                                     </div>
 
                                                 </div>
-
 
                                             </div>
                                         </form>
@@ -186,7 +183,7 @@
                                                 aria-label="Close"></button>
                                         </div>
 
-                                        <form action="{{ route('report.create') }}" method="POST">
+                                        <form action="" method="POST">
                                             @csrf
 
                                             <div class="modal-body">
@@ -256,21 +253,31 @@
                                         <td style="border: none">{{ $pisoWifi->Status }}</td>
                                         <td style="border: none">{{ $pisoWifi->Remarks }}</td>
                                         <td style="border: none">{{ $pisoWifi->RemainingStocks }}</td>
-                                        <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px; cursor:pointer;
+
+                                        @if (auth()->user()->type === 'admin')
+                                            <td style="width: 30%; border: none">
+                                                <a style="width: 135px; padding: 10px; cursor:pointer;
                                         @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-cart'></i> Purchase Item</a>
-                                            <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModalEdit{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal{{ $pisoWifi->id }}"><i
-                                                    class='bx bxs-trash'></i> Delete </a>
-                                        </td>
+                                                    data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-cart'></i> Purchase Item</a>
+                                                <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                                    data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-show'></i> View</a>
+                                                <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                                    data-toggle="modal"
+                                                    data-target="#productModalEdit{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-pencil'></i> Edit</a>
+                                                <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                    data-toggle="modal" data-target="#deleteModal{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-trash'></i> Delete </a>
+                                            </td>
+                                        @else
+                                            <td style="width: 30%; border: none">
+                                                <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                                    data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-show'></i> View</a>
+                                            </td>
+                                        @endif
                                     </tr>
 
                                     <!-- View Modal -->
@@ -428,20 +435,17 @@
                                                             </select>
                                                         </div>
                                                         <div class="modal-footer ">
-                                                            <div class="modal-footer">
-                                                                <div class="btn" style="display:flex; justify-content:flex-end;">
-                                                                    <button type="submit" class="btn btn-primary"
-                                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Purchase
-                                                                        Items</button>
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                </div>
-
+                                                            <div class="btn"
+                                                                style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
+                                                                </button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                             </div>
 
                                                         </div>
-
                                                     </form>
                                                 </div>
                                             </div>
@@ -534,9 +538,6 @@
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
                                                                     <option disabled>Select Status</option>
-                                                                    <option value="OK"
-                                                                        {{ $pisoWifi->Status === 'Ok' ? 'selected' : '' }}>
-                                                                        Ok</option>
                                                                     <option value="Ongoing"
                                                                         {{ $pisoWifi->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                         Ongoing</option>
@@ -579,6 +580,15 @@
                                                                 value="{{ $pisoWifi->Remarks }}">
                                                         </div>
 
+                                                        {{-- <div class="modal-footer">
+                                                            <div class="btn">
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>--}}
+
                                                         <div class="modal-footer ">
                                                             <div class="btn"
                                                                 style="display:flex; justify-content:flex-end; padding:5px;">
@@ -601,10 +611,6 @@
                                                             });
                                                         </script>
                                                     @endif
-
-
-
-
 
                                                 </div>
 
@@ -649,6 +655,8 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             style="width: 90px" data-dismiss="modal">Cancel</button>
                                                     </form>
+
+
 
 
                                                 </div>

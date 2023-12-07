@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Customers;
 use App\Models\Order;
 use App\Models\PackagingMonitoringModel;
+use App\Models\PartsOfEloadingModel;
 use App\Models\physical_Store_Computer_StocksMonitoring;
 use App\Models\PisoWifi_parts_accessories;
-use App\Models\PartsOfEloadingModel;
 use Illuminate\Support\Carbon;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
@@ -44,7 +44,6 @@ class HomeController extends Controller
 
         $customers = Customers::count();
 
-
         $todayDate = Carbon::now()->format('Y-m-d');
         $thisMonth = Carbon::now()->format('m');
 
@@ -55,11 +54,11 @@ class HomeController extends Controller
         // bargraph
         $now = now()->format('Y-m-d');
         $orders = Order::select(DB::raw("'".$now."' AS date"), 'category', DB::raw('SUM(quantity_sold) AS quantity_sold'))
-                    ->whereDate('created_at', '=', $now)
-                    ->groupBy('date', 'category')
-                    ->orderBy('quantity_sold', 'desc')
-                    ->take(5)
-                    ->get(['date', 'category', 'quantity_sold']);
+            ->whereDate('created_at', '=', $now)
+            ->groupBy('date', 'category')
+            ->orderBy('quantity_sold', 'desc')
+            ->take(5)
+            ->get(['date', 'category', 'quantity_sold']);
 
         // Check if there are no sales for the current day
         if ($orders->isEmpty()) {
@@ -67,34 +66,34 @@ class HomeController extends Controller
                 [
                     'date' => $now,
                     'category' => 'No Sale',
-                    'quantity_sold' => 0
-                ]
+                    'quantity_sold' => 0,
+                ],
             ]);
         }
 
         //recently purchased products
         $recentProducts = Order::select('item_name', 'quantity_sold', 'category', 'created_at')
-        ->orderBy('created_at', 'desc')
-        ->take(5)
-        ->get();
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
 
         //recently added product
-        $packagingProducts =PackagingMonitoringModel::select('ItemsName', 'StocksPurchased', 'created_at')
-        ->latest('created_at')
-        ->take(5)
-        ->get();
-
-        $pisowifiProducts = PisoWifi_parts_accessories::select('ItemsName', 'StocksPurchased',  'created_at')
+        $packagingProducts = PackagingMonitoringModel::select('ItemsName', 'StocksPurchased', 'created_at')
             ->latest('created_at')
             ->take(5)
             ->get();
 
-        $physicalStoreProducts = physical_Store_Computer_StocksMonitoring::select('ItemsName', 'StocksPurchased',  'created_at')
+        $pisowifiProducts = PisoWifi_parts_accessories::select('ItemsName', 'StocksPurchased', 'created_at')
             ->latest('created_at')
             ->take(5)
             ->get();
 
-        $eloadingProducts = PartsOfEloadingModel::select('ItemsName', 'StocksPurchased','created_at')
+        $physicalStoreProducts = physical_Store_Computer_StocksMonitoring::select('ItemsName', 'StocksPurchased', 'created_at')
+            ->latest('created_at')
+            ->take(5)
+            ->get();
+
+        $eloadingProducts = PartsOfEloadingModel::select('ItemsName', 'StocksPurchased', 'created_at')
             ->latest('created_at')
             ->take(5)
             ->get();
@@ -108,17 +107,9 @@ class HomeController extends Controller
             ->sortBy('created_at')
             ->take(10);
 
-
-
-
-
-
-
-        return view('adminHome', compact('Total_Purchased_Orders', 'customers','todayOrder','thisMonthOrder', 'orders','recentProducts', 'recentAddedProducts'));
+        return view('adminHome', compact('Total_Purchased_Orders', 'customers', 'todayOrder', 'thisMonthOrder', 'orders', 'recentProducts', 'recentAddedProducts'));
 
     }
-
-
 
     /**
      * Show the application dashboard.
@@ -127,8 +118,8 @@ class HomeController extends Controller
      */
     public function managerHome(): View
     {
-        return view('managerHome');
+        $orders = Order::all();
+
+        return view('adminHome', compact('orders'));
     }
-
-
 }
