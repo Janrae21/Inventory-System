@@ -672,8 +672,6 @@
         <script src="{{ asset('js/packaging.js') }}"></script>
     </body>
 
-    <<<<<<< HEAD </html>
-        =======
 
     </html>
-    >>>>>>> 24a9a82d89adc5e1f4dcd8b5886fad3af3bce75b
+
