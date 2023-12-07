@@ -110,6 +110,12 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
+                                                    <label>Treshold Product</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control" value="10">
+                                                </div>
+
+                                                <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
                                                     <input type="number" name="StocksPurchased" id="stocksPurchased"
                                                         required class="form-control">
@@ -251,10 +257,21 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 40%; border: none">
-                                                <a style="width: 135px; padding: 10px; cursor:pointer; 
+                                                @if ($pm->treshold >= $pm->RemainingStocks)
+                                                    <a style="width: 135px; padding: 10px; cursor:pointer;  @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                                        onclick="confirmSendEmail()"><i class='bx bxs-cart'></i> Purchase
+                                                        Item</a>
+                                                @else
+                                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
+                                            @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                                        data-toggle="modal"
+                                                        data-target="#orderModal{{ $pm->id }}"><i
+                                                            class='bx bxs-cart'></i> Purchase Item</a>
+                                                @endif
+                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer; 
                                     @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a>
+                                                        class='bx bxs-cart'></i> Purchase Item</a> --}}
                                                 <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
@@ -543,6 +560,13 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="StocksPurchased" required
+                                                                    class="form-control" value="{{ $pm->treshold }}">
+                                                            </div>
+
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="number"
                                                                 name="StocksPurchased"
@@ -662,7 +686,12 @@
             </main>
 
             <!-- MAIN -->
-        </section>
+        </section>        
+        <script>
+            function confirmSendEmail() {
+                console.log('Send email');
+            }
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
