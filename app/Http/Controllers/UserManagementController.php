@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserManagementController extends Controller
 {
@@ -13,7 +15,10 @@ class UserManagementController extends Controller
      */
     public function index()
     {
-        //
+
+        $users = User::paginate(10);
+
+        return view('user-management', compact('users'));
     }
 
     /**
@@ -29,12 +34,16 @@ class UserManagementController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
+        $request['password'] = Hash::make($request['password']);
+
+        User::create($request->all());
+
+        return back();
     }
 
     /**
@@ -62,7 +71,6 @@ class UserManagementController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -79,6 +87,8 @@ class UserManagementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result = User::where('id', $id)->delete();
+
+        return $result;
     }
 }

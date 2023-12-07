@@ -76,6 +76,13 @@
         </li>
 
         <li>
+            <a href="{{ url('/user-management') }}">
+                <i class='bx bxs-bar-chart-alt-2'></i>
+                <span class="text">User Management</span>
+            </a>
+        </li>
+
+        <li>
             <a href="{{ asset('/view-profile') }}">
                 <i class='bx bxs-group'></i>
                 <span class="text">View Profile</span>
