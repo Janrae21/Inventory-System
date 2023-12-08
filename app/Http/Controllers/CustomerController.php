@@ -71,9 +71,9 @@ class CustomerController extends Controller {
         return redirect()->back()->with( 'message-delete', 'Item deleted successfully' );
     }
 
-    public function export() 
-    {   return Excel::download(new ProductStatusExport, 'ProductStatusData.xlsx');
-    
+    public function export()
+    {   return Excel::download(new CustomerExport, 'CustomerExportData.xlsx');
+
     }
 
 

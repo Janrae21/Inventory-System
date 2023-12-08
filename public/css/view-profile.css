@@ -145,6 +145,7 @@ body {
 
 #sidebar .side-menu.top li.active a {
     color: #6DD5ED;
+    text-decoration: none;
 }
 
 #sidebar.hide .side-menu li a {
@@ -381,6 +382,7 @@ main {
     font-family: var(--poppins);
     max-height: calc(100vh - 56px);
     overflow-y: auto;
+    height: 200rem;
 }
 
 #content main .head-title {
@@ -416,6 +418,8 @@ main {
 #content main .head-title .left .breadcrumb li a.active {
     color: var(--blue);
     pointer-events: unset;
+    text-decoration: none;
+
 }
 
 

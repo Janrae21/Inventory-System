@@ -29,10 +29,6 @@
         </a>
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <a href="{{ asset('view-profile') }}">
-                <i class='bx bxs-user'></i>
-                <span class="text">View Profile</span>
-            </a>
 
             <a class="show-when-mobile">
                 <input type="checkbox" id="switch-mode" hidden>

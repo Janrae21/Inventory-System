@@ -77,7 +77,7 @@
 
         <li>
             <a href="{{ asset('/view-profile') }}">
-                <i class='bx bxs-group'></i>
+                <i class='bx bxs-user-account'></i>
                 <span class="text">View Profile</span>
             </a>
         </li>
