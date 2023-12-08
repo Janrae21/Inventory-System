@@ -593,14 +593,7 @@
                                                                 value="{{ $pisoWifi->Remarks }}">
                                                         </div>
 
-                                                        {{-- <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                            </div>--}}
+
 
                                                         <div class="modal-footer ">
                                                             <div class="btn"

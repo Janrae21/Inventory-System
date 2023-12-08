@@ -29,33 +29,6 @@ class PackagingMonitoringController extends Controller
         $request['Status'] = 'Pending';
 
         PackagingMonitoringModel::create($request->toArray());
-        // $request->validate( [
-
-        //     'ItemsName' => 'required',
-        //     'Status' => 'required',
-        //     'RemainingStocks' => 'required|numeric',
-        //     'StocksPurchased' => 'required|numeric',
-        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-        //     'Damageormissingorfortesting' => 'required|numeric',
-        //     'UpcomingStocks' => 'required|numeric',
-        //     'Remarks' => 'required',
-
-        // ] );
-
-        // $packagingMonitoring = new PackagingMonitoringModel();
-
-        // $packagingMonitoring->ItemsName = $request->input( 'ItemsName' );
-        // $packagingMonitoring->Status = $request->input( 'Status' );
-        // $packagingMonitoring->RemainingStocks = $request->input( 'RemainingStocks' );
-        // $packagingMonitoring->StocksPurchased = $request->input( 'StocksPurchased' );
-        // $packagingMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
-        // $packagingMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
-        // $packagingMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
-        // $packagingMonitoring->Remarks = $request->input( 'Remarks' );
-        // $packagingMonitoring->created_at = now();
-        // $packagingMonitoring->updated_at = now();
-
-        // $packagingMonitoring->save();
 
         return redirect()->back()->with('message-Add', 'Add Items Successfully');
     }
@@ -113,8 +86,8 @@ class PackagingMonitoringController extends Controller
     }
 
 
-    public function export() 
+    public function export()
     {   return Excel::download(new PackagingExport, 'packagingData.xlsx');
-    
+
     }
 }

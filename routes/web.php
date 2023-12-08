@@ -124,6 +124,7 @@ Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store
 Route::get('/sales-by-category', [OrderController::class, 'getSalesByCategory']);
 Route::resource('user-management', UserManagementController::class);
 
+
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List

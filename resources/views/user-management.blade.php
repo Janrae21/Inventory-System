@@ -55,12 +55,6 @@
                     <div class="order">
                         <div class="head">
 
-                            {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="height:50px, border-radius:5px; background-color: green; border-style: none; padding: 10px; ">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Customer</i>
-                                </button>
-                            </div> --}}
 
                             <div style="width: 100%; text-align: right">
                                 <div class="table-buttons">
@@ -130,12 +124,7 @@
                                                     </div>
 
                                                 </div>
-                                                {{-- <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary"
-                                                        style="width: 140px">Add Customer</button>
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal" style="width: 100px">Cancel</button>
-                                                </div> --}}
+
                                             </div>
                                         </form>
 
@@ -173,99 +162,15 @@
                                         <td>
 
                                             <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#CustomersModalEdit{{ $od->id }}"><i
+                                                data-toggle="modal" data-target="#ModalEdit{{ $od->id }}"><i
                                                     class='bx bxs-pencil'></i> Edit</a>
+
                                             <a style="color: #FF6767; padding: 10px; cursor: pointer;"
                                                 onclick="deleteUser({{ $od->id }})" data-toggle="modal"
                                                 data-target="#deleteModal{{ $od->id }}"><i class='bx bxs-trash'></i>
                                                 Delete </a>
                                         </td>
                                     </tr>
-
-                                    <div class="modal fade" id="CustomersModalEdit{{ $od->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="CustomersModalEdit{{ $od->id }}"
-                                        aria-hidden="true" data-bs-backdrop="static">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="CustomersModalEdit{{ $od->id }}">
-                                                        {{ $od->name }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('Customers.update', $od->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-
-
-                                                        <div class="modal-body">
-                                                            <div class="form-group mb-3">
-                                                                <label>Items Name</label>
-                                                                <input type="text" name="ItemsName" required
-                                                                    value="{{ $od->name }}" class="form-control">
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                        @if (Session::has('message-edit'))
-                                            <script>
-                                                swal("message", "Item Edited Successfully", "success", {
-                                                    button: "okay",
-                                                });
-                                            </script>
-                                        @endif
-                                    </div>
-
-                                    <!-- Delete Confirmation Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $od->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="deleteModalLabel{{ $od->id }}"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel{{ $od->id }}">
-                                                        Confirm
-                                                        Deletion</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Are you sure you want to delete this item?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form action="{{ route('user-management.destroy', $od->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            style="width: 90px">Delete</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 @endforeach
                             </tbody>
                         </table>
