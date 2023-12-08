@@ -270,7 +270,7 @@
                                                 <a style="width: 135px; padding: 10px; cursor:pointer;
                                         @if ($pe->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pe->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a>
+                                                        class='bx bxs-cart'></i> Purchase Item</a> --}}
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
@@ -675,7 +675,6 @@
 
             <!-- MAIN -->
         </section>
-
 
         <script>
             function confirmSendEmail() {

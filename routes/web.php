@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductControlller;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\rankingController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\UserManagementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -121,6 +122,7 @@ Route::put('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Co
 Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store_Computer_Stocks_Monitoring::class, 'delete'])->name('physical-store-computer-stocks-monitoring.delete');
 // });
 Route::get('/sales-by-category', [OrderController::class, 'getSalesByCategory']);
+Route::resource('user-management', UserManagementController::class);
 
 /*------------------------------------------
 --------------------------------------------

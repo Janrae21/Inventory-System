@@ -696,7 +696,6 @@
             <!-- MAIN -->
         </section>
 
-
         <script>
             function confirmSendEmail() {
                 console.log('Send email');
