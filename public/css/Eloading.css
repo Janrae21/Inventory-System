@@ -80,6 +80,7 @@ main {
     font-family: var(--poppins);
     max-height: calc(100vh - 56px);
     overflow-y: auto;
+    height: 200rem;
 }
 
 #content main .head-title {

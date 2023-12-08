@@ -50,17 +50,6 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
-                            <!--Add Button-->
-                            {{-- <div>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
-                                </button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
-                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
-                                </button>
-                            </div> --}}
 
                             @if (auth()->user()->type === 'admin')
                                 <div style="width: 100%; text-align: right" class="show-">
@@ -260,7 +249,7 @@
                                                 <a style="width: 135px; padding: 10px; cursor:pointer;
                                     @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a> --}}
+                                                        class='bx bxs-cart'></i> Purchase Item</a>
                                                 <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
