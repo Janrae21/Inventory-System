@@ -1,37 +1,37 @@
-const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
 
-allSideMenu.forEach(item=> {
-	const li = item.parentElement;
+allSideMenu.forEach((item) => {
+    const li = item.parentElement;
 
-	item.addEventListener('click', function () {
-		allSideMenu.forEach(i=> {
-			i.parentElement.classList.remove('active');
-		})
-		li.classList.add('active');
-	})
+    item.addEventListener("click", function () {
+        allSideMenu.forEach((i) => {
+            i.parentElement.classList.remove("active");
+        });
+        li.classList.add("active");
+    });
 });
 
-const switchMode = document.getElementById('switch-mode');
+const switchMode = document.getElementById("switch-mode");
 
-switchMode.addEventListener('change', function () {
-	if(this.checked) {
-		document.body.classList.add('dark');
-	} else {
-		document.body.classList.remove('dark');
-	}
-})
+switchMode.addEventListener("change", function () {
+    if (this.checked) {
+        document.body.classList.add("dark");
+    } else {
+        document.body.classList.remove("dark");
+    }
+});
 
-const dropBtn = document.querySelector('.dropdown-btn'),
-dropdown = document.querySelectorAll('.drop-item');
+const dropBtn = document.querySelector(".dropdown-btn"),
+    dropdown = document.querySelectorAll(".drop-item");
 
-dropBtn.addEventListener('click', () => {
-	dropdown.forEach(drop => {
-		if(drop.classList.contains('show-item')) {
-			drop.classList.remove('show-item');
-		} else {
-			drop.classList.add('show-item');
-		}
-	});
+dropBtn.addEventListener("click", () => {
+    dropdown.forEach((drop) => {
+        if (drop.classList.contains("show-item")) {
+            drop.classList.remove("show-item");
+        } else {
+            drop.classList.add("show-item");
+        }
+    });
 });
 
 $(document).ready(function () {
@@ -41,7 +41,10 @@ $(document).ready(function () {
         var itemId = $(this).data("id");
 
         // Set the form action with the correct URL
-        $("#editItemForm").attr("action", "/eloading-best-seller/update/" + itemId);
+        $("#editItemForm").attr(
+            "action",
+            "/eloading-best-seller/update/" + itemId
+        );
 
         // Fetch item data by ID via AJAX and populate the modal fields
         $.ajax({
@@ -78,5 +81,3 @@ $(document).ready(function () {
             });
     });
 });
-
-

@@ -257,18 +257,7 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 40%; border: none">
-                                                @if ($pm->treshold >= $pm->RemainingStocks)
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer;  @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        onclick="confirmSendEmail()"><i class='bx bxs-cart'></i> Purchase
-                                                        Item</a>
-                                                @else
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
-                                            @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        data-toggle="modal"
-                                                        data-target="#orderModal{{ $pm->id }}"><i
-                                                            class='bx bxs-cart'></i> Purchase Item</a>
-                                                @endif
-                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer; 
+                                                <a style="width: 135px; padding: 10px; cursor:pointer;
                                     @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i
                                                         class='bx bxs-cart'></i> Purchase Item</a> --}}
@@ -686,7 +675,7 @@
             </main>
 
             <!-- MAIN -->
-        </section>        
+        </section>
         <script>
             function confirmSendEmail() {
                 console.log('Send email');
@@ -701,4 +690,4 @@
         <script src="{{ asset('js/packaging.js') }}"></script>
     </body>
 
-    </html>
+

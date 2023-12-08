@@ -32,25 +32,22 @@ dropBtn.addEventListener("click", () => {
         }
     });
 });
-const stocksPurchasedInput = document.getElementById('stocksPurchased');
-    const actualStocksInput = document.getElementById('actualStocks');
-    const damageInput = document.getElementById('damage');
-    const remainingStocksInput = document.getElementById('remainingStocks');
+const stocksPurchasedInput = document.getElementById("stocksPurchased");
+const actualStocksInput = document.getElementById("actualStocks");
+const damageInput = document.getElementById("damage");
+const remainingStocksInput = document.getElementById("remainingStocks");
 
-  
-    stocksPurchasedInput.addEventListener('input', updateRemainingStocks);
-    actualStocksInput.addEventListener('input', updateRemainingStocks);
-	
-    // Function to update the remaining stocks and damage
-    function updateRemainingStocks() {
-        const stocksPurchased = parseInt(stocksPurchasedInput.value) || 0;
-        const actualStocks = parseInt(actualStocksInput.value) || 0;
+stocksPurchasedInput.addEventListener("input", updateRemainingStocks);
+actualStocksInput.addEventListener("input", updateRemainingStocks);
 
-        const damage = stocksPurchased - actualStocks;
-        const remainingStocks = stocksPurchased - damage;
+// Function to update the remaining stocks and damage
+function updateRemainingStocks() {
+    const stocksPurchased = parseInt(stocksPurchasedInput.value) || 0;
+    const actualStocks = parseInt(actualStocksInput.value) || 0;
 
-        damageInput.value = damage;
-        remainingStocksInput.value = remainingStocks;
-    }
+    const damage = stocksPurchased - actualStocks;
+    const remainingStocks = stocksPurchased - damage;
 
-
+    damageInput.value = damage;
+    remainingStocksInput.value = remainingStocks;
+}

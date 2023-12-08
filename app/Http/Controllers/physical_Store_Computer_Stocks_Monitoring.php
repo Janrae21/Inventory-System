@@ -27,33 +27,6 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
         $request['Status'] = 'Pending';
 
         physical_Store_Computer_StocksMonitoring::create($request->toArray());
-        // $request->validate( [
-
-        //     'ItemsName' => 'required',
-        //     'Status' => 'required',
-        //     'StocksPurchased' => 'required|numeric',
-        //     'ActualStocksBasedonactualcheckingEDUD' => 'required|numeric',
-        //     'Damageormissingorfortesting' => 'required|numeric',
-        //     'RemainingStocks' => 'required|numeric',
-        //     'UpcomingStocks' => 'required|numeric',
-        //     'Remarks' => 'required',
-
-        // ] );
-
-        // $physicalStockMonitoring = new physical_Store_Computer_StocksMonitoring();
-
-        // $physicalStockMonitoring->ItemsName = $request->input( 'ItemsName' );
-        // $physicalStockMonitoring->Status = $request->input( 'Status' );
-        // $physicalStockMonitoring->RemainingStocks = $request->input( 'RemainingStocks' );
-        // $physicalStockMonitoring->StocksPurchased = $request->input( 'StocksPurchased' );
-        // $physicalStockMonitoring->ActualStocksBasedonactualcheckingEDUD = $request->input( 'ActualStocksBasedonactualcheckingEDUD' );
-        // $physicalStockMonitoring->Damageormissingorfortesting = $request->input( 'Damageormissingorfortesting' );
-        // $physicalStockMonitoring->UpcomingStocks = $request->input( 'UpcomingStocks' );
-        // $physicalStockMonitoring->Remarks = $request->input( 'Remarks' );
-        // $physicalStockMonitoring->created_at = now();
-        // $physicalStockMonitoring->updated_at = now();
-
-        // $physicalStockMonitoring->save();
 
         return redirect()->back()->with('message-Add', 'Add Items Successfully');
     }
@@ -106,8 +79,8 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
         return redirect()->back()->with('message delete', 'Item deleted successfully');
     }
 
-    public function export() 
+    public function export()
     {   return Excel::download(new PhysicalStocksExport, 'Physical_stock.Data.xlsx');
-    
+
     }
 }

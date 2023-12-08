@@ -262,18 +262,10 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 30%; border: none">
-
-                                                @if ($pisoWifi->treshold >= $pisoWifi->RemainingStocks)
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer;  @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        onclick="confirmSendEmail()"><i class='bx bxs-cart'></i> Purchase
-                                                        Item</a>
-                                                @else
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
-                                            @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        data-toggle="modal"
-                                                        data-target="#orderModal{{ $pisoWifi->id }}"><i
-                                                            class='bx bxs-cart'></i> Purchase Item</a>
-                                                @endif
+                                                <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                                    data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i
+                                                        class='bx bxs-cart'></i> Purchase Item</a>
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
@@ -606,9 +598,9 @@
                                                                 <button type="submit" class="btn btn-primary">Save
                                                                     Changes</button>
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div> --}}
+                                                                    data-bs-dismiss="modal"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>--}}
 
                                                         <div class="modal-footer ">
                                                             <div class="btn"
@@ -632,10 +624,6 @@
                                                             });
                                                         </script>
                                                     @endif
-
-
-
-
 
                                                 </div>
 
@@ -708,7 +696,6 @@
             <!-- MAIN -->
         </section>
 
-        
         <script>
             function confirmSendEmail() {
                 console.log('Send email');

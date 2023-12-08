@@ -25,7 +25,7 @@
         <ul class="side-menu top">
             <li class="active">
                 <a href="{{ asset('/view-profile') }}">
-                    <i class='bx bxs-dashboard'></i>
+                    <i class='bx bxs-user-account'></i>
                     <span class="text">View Profile</span>
                 </a>
             </li>

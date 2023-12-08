@@ -259,17 +259,10 @@
                                         <td style="border: none">{{ $ps->RemainingStocks }}</td>
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 30%; border: none">
-                                                @if ($ps->treshold >= $ps->RemainingStocks)
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer;  @if ($ps->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        onclick="confirmSendEmail()"><i
-                                                            class='bx bxs-cart'></i> Purchase Item</a>
-                                                @else
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer; 
-                                                @if ($ps->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                        data-toggle="modal"
-                                                        data-target="#orderModal{{ $ps->id }}"><i
-                                                            class='bx bxs-cart'></i> Purchase Item</a>
-                                                @endif
+                                                <a style="width: 135px; padding: 10px; cursor:pointer;
+                                        @if ($ps->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
+                                                    data-toggle="modal" data-target="#orderModal{{ $ps->id }}"><i
+                                                        class='bx bxs-cart'></i> Purchase Item</a>
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
