@@ -103,30 +103,36 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
+                                                    <label>Treshold Product</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control" value="10">
+                                                </div>
+
+                                                <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
-                                                    <input type="number" name="StocksPurchased" id="stocksPurchased" required
-                                                        class="form-control" >
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Actual Stocks
                                                         Based on actual
                                                         checking(EDUD)</label>
-                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD" id="actualStocks"
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
-                                                    <input type="number" name="Damageormissingorfortesting" id="damage" required
+                                                    <input type="number" name="Damageormissingorfortesting" required
                                                         class="form-control">
                                                 </div>
 
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="number" name="RemainingStocks" id="remainingStocks" required
+                                                    <input type="number" name="RemainingStocks" required
                                                         class="form-control">
                                                 </div>
 
@@ -550,6 +556,13 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="StocksPurchased" required
+                                                                    class="form-control"
+                                                                    value="{{ $pisoWifi->treshold }}">
+                                                            </div>
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="number"
                                                                 name="StocksPurchased"
@@ -580,6 +593,14 @@
                                                                 value="{{ $pisoWifi->Remarks }}">
                                                         </div>
 
+                                                        {{-- <div class="modal-footer">
+                                                            <div class="btn">
+                                                                <button type="submit" class="btn btn-primary">Save
+                                                                    Changes</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>--}}
 
                                                         <div class="modal-footer ">
                                                             <div class="btn"
@@ -674,6 +695,13 @@
             </main>
             <!-- MAIN -->
         </section>
+
+
+        <script>
+            function confirmSendEmail() {
+                console.log('Send email');
+            }
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

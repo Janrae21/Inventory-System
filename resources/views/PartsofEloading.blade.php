@@ -111,37 +111,47 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
-                                                    <label>Stocks Purchased</label>
-                                                    <input type="number" name="StocksPurchased" id="stocksPurchased"
-                                                        required class="form-control">
-                                                </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Actual Stocks Based on actual checking(EDUD)</label>
-                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
-                                                        id="actualStocks" required class="form-control">
-                                                </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Damage or missing or for Testing</label>
-                                                    <input type="number" name="Damageormissingorfortesting" id="damage"
-                                                        required class="form-control">
+                                                    <label>Treshold Product</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control" value="10">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
-                                                    <input type="number" name="RemainingStocks" id="remainingStocks"
+                                                    <input type="number" name="RemainingStocks" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Stocks Purchased</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control">
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Actual Stocks
+                                                        Based on actual
+                                                        checking(EDUD)</label>
+                                                    <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
                                                         required class="form-control">
                                                 </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Damage or missing or
+                                                        for Testing</label>
+                                                    <input type="number" name="Damageormissingorfortesting" required
+                                                        class="form-control">
+                                                </div>
+
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
                                                     <input type="number" name="UpcomingStocks" required
                                                         class="form-control">
                                                 </div>
 
-
                                                 <div class="form-group mb-3">
-                                                    <label>Remarks</label>
+                                                    <label>Remarks
+                                                    </label>
                                                     <input type="text" name="Remarks" required class="form-control">
                                                 </div>
 
@@ -543,6 +553,13 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="StocksPurchased" required
+                                                                    class="form-control" value="{{ $pe->treshold }}">
+                                                            </div>
+
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="number"
                                                                 name="StocksPurchased"
@@ -658,6 +675,13 @@
 
             <!-- MAIN -->
         </section>
+
+
+        <script>
+            function confirmSendEmail() {
+                console.log('Send email');
+            }
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

@@ -50,6 +50,17 @@
                 <div class="table-data">
                     <div class="order">
                         <div class="head">
+                            <!--Add Button-->
+                            {{-- <div>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                    style="width:100px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Add Product</i>
+                                </button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#report"
+                                    style="width:120px; height:50px, border-radius:5px; background-color: green; border-style:none">
+                                    <i class='bx bx-plus' style="font-size:15px; color:white;">Create Report</i>
+                                </button>
+                            </div> --}}
 
                             @if (auth()->user()->type === 'admin')
                                 <div style="width: 100%; text-align: right" class="show-">
@@ -96,6 +107,12 @@
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
                                                     </select>
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label>Treshold Product</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control" value="10">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -182,11 +199,11 @@
                                                     <select name="Status" required class="form-control">
                                                         <option value="" disabled selected>Select
                                                         </option>
-                                                        <option value="Test Reports">Test Reports</option>
-                                                        <option value="Inventory Report Summary">Inventory Report Summary</option>
-                                                        <option value="Inventory and Condition of Products Report">Inventory and Condition of Products Report
+                                                        <option value="">Test Reports</option>
+                                                        <option value="Ongoing">Inventory Report Summary</option>
+                                                        <option value="Pending">Inventory and Condition of Products Report
                                                         </option>
-                                                        <option value="Inventory Audit Report">Inventory Audit Report</option>
+                                                        <option value="Decline">Inventory Audit Report</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
@@ -532,6 +549,13 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="StocksPurchased" required
+                                                                    class="form-control" value="{{ $pm->treshold }}">
+                                                            </div>
+
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="number"
                                                                 name="StocksPurchased"
@@ -652,6 +676,11 @@
 
             <!-- MAIN -->
         </section>
+        <script>
+            function confirmSendEmail() {
+                console.log('Send email');
+            }
+        </script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
@@ -661,6 +690,4 @@
         <script src="{{ asset('js/packaging.js') }}"></script>
     </body>
 
-
-    </html>
 

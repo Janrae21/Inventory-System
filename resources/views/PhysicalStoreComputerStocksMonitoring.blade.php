@@ -115,6 +115,12 @@
                                                 </div>
 
                                                 <div class="form-group mb-3">
+                                                    <label>Treshold Product</label>
+                                                    <input type="number" name="StocksPurchased" required
+                                                        class="form-control" value="10">
+                                                </div>
+
+                                                <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
                                                     <input type="number" name="StocksPurchased" id="stocksPurchased"
                                                         required class="form-control">
@@ -251,28 +257,28 @@
                                         <td style="border:none;">{{ $ps->Status }}</td>
                                         <td style="border:none;">{{ $ps->Remarks }}</td>
                                         <td style="border: none">{{ $ps->RemainingStocks }}</td>
-
                                         @if (auth()->user()->type === 'admin')
-                                        <td style="width: 30%; border: none">
-                                            <a style="width: 135px; padding: 10px; cursor:pointer;
+                                            <td style="width: 30%; border: none">
+                                                <a style="width: 135px; padding: 10px; cursor:pointer;
                                         @if ($ps->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                data-toggle="modal" data-target="#orderModal{{ $ps->id }}"><i
-                                                    class='bx bxs-cart'></i> Purchase Item</a>
-                                            <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
-                                                    class='bx bxs-show'></i> View</a>
-                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModalEdit{{ $ps->id }}"><i
-                                                    class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal{{ $ps->id }}"><i
-                                                    class='bx bxs-trash'></i> Delete </a>
-                                        </td>
+                                                    data-toggle="modal" data-target="#orderModal{{ $ps->id }}"><i
+                                                        class='bx bxs-cart'></i> Purchase Item</a>
+                                                <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
+                                                    data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
+                                                        class='bx bxs-show'></i> View</a>
+                                                <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
+                                                    data-toggle="modal"
+                                                    data-target="#productModalEdit{{ $ps->id }}"><i
+                                                        class='bx bxs-pencil'></i> Edit</a>
+                                                <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
+                                                    data-toggle="modal" data-target="#deleteModal{{ $ps->id }}"><i
+                                                        class='bx bxs-trash'></i> Delete </a>
+                                            </td>
                                         @else
                                             <td style="width: 30%; border: none">
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
-                                                data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
-                                                    class='bx bxs-show'></i> View</a>
+                                                    data-toggle="modal" data-target="#productModal{{ $ps->id }}"><i
+                                                        class='bx bxs-show'></i> View</a>
                                             </td>
                                         @endif
                                     </tr>
@@ -542,6 +548,13 @@
                                                                 </select>
                                                             </div>
 
+                                                            <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="StocksPurchased" required
+                                                                    class="form-control" value="{{ $ps->treshold }}">
+                                                            </div>
+
+
                                                             <p>Stocks Purchased:</p>
                                                             <input class="form-control" type="number"
                                                                 name="StocksPurchased"
@@ -648,6 +661,12 @@
 
             <!-- MAIN -->
         </section>
+
+        <script>
+            function confirmSendEmail() {
+                console.log('Send email');
+            }
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
