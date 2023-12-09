@@ -33,15 +33,15 @@
                     <div class="left">
                         <h1>Product Status</h1>
                     </div>
-                    <form action="{{route('status.export')}}" method="POST" target="_blank">
-                    @csrf
+                    <form action="{{ route('status.export') }}" method="POST" target="_blank">
+                        @csrf
 
-                    <button type="submit" class="btn-download" style="width:150px;">
-                        <i class='bx bxs-cloud-download'></i>
-                        <span class="text" style="font-size: 10px">Download Excel</span>
-                    </button>
+                        <button type="submit" class="btn-download" style="width:150px;">
+                            <i class='bx bxs-cloud-download'></i>
+                            <span class="text" style="font-size: 10px">Download Excel</span>
+                        </button>
 
-                </form>
+                    </form>
                 </div>
 
                 <div class="table-data">
@@ -51,10 +51,8 @@
                             <thead>
                                 <tr>
                                     <th> Purchased By </th>
-                                    <th>Product Name</th>
-                                    <th>Quantity</th>
-                                    <th>Category</th>
-                                    <th>Status</th>
+                                    <th>Total Quantity</th>
+                                    <th>Date</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -63,61 +61,86 @@
 
                                 @foreach ($productStatus as $item)
                                     <tr>
-                                        <td> {{ ! is_null($item->customer) ? $item->customer->name : "" }} </td>
+                                        <td> {{ !is_null($item->customer) ? $item->customer->name : '' }} </td>
                                         <td>
-                                            <p>{{ $item->item_name }}</p>
+                                            <p>{{ $item->total_purchased }}</p>
                                         </td>
-                                        <td> {{ $item->quantity_sold }} </td>
-                                        <td> {{ $item->category }} </td>
-                                        <td>{{ $item->shipment_status }}</td>
+                                        <td> {{ date('F d Y', strtotime($item->purchase_date)) }} </td>
                                         <td>
-                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal{{ $item->id }}"><i
-                                                    class='bx bxs-trash'></i> Delete </a>
+                                            <button style="color: #b5a55d; padding: 10px; cursor:pointer;"
+                                                data-bs-toggle="modal" data-bs-target="#staticBackdrop{{ $item->id }}" onclick="selectItem({{ $item }})"><i
+                                                    class='bx bxs-show'></i> View</button>
                                         </td>
                                     </tr>
 
-                                    <div class="modal fade" id="deleteModal{{ $item->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="deleteModalLabel{{ $item->id }}"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
+                                    <div class="modal fade" id="staticBackdrop{{ $item->id }}" data-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true" data-bs-backdrop="static">
+                                        <div class="modal-dialog" style="width: 100%">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel{{ $item->id }}">
-                                                        Confirm
-                                                        Deletion</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    <h5 class="modal-title" id="staticBackdropLabel">View Product</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="selectItem('')"
+                                                        aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    Are you sure you want to delete this Customer?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form
-                                                        action="{{ route('status.delete', $item->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            style="width: 90px">Delete</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if (Session::has('message delete'))
-                                        <script>
-                                            swal("message", "Successfully Deleted", "success", {
-                                                button: "okay",
-                                                style:"justify-content:center",
-                                            });
-                                        </script>
-                                    @endif
 
+
+                                                <div class="modal-body">
+
+
+                                                    <div class="form-group mb-3">
+                                                        <label>Customer Name</label>
+                                                        <input type="text" class="form-control" value="{{ $item->customer->name }}" disabled required>
+                                                    </div>
+
+                                                    <div class="form-group mb-3">
+                                                        <label>Date</label>
+                                                        <input type="date" class="form-control" value="{{ $item->purchase_date }}" disabled required>
+                                                    </div>
+
+                                                    <div class="form-group mb-3" id="product-details">
+                                                        <label>Products</label>
+
+                                                        <div class="grid-container">
+                                                            @foreach (json_decode($item->item_names, true) as $value)
+                                                                <ul class="grid-item">
+                                                                    <li> <b> {{ $value }} </b> </li>
+                                                                </ul>
+                                                            @endforeach
+                                                        </div>
+
+                                                        <div class="grid-container">
+                                                            @foreach (json_decode($item->quantity, true) as $value)
+                                                                <ul class="grid-item">
+                                                                    <li>{{ $value }}</li>
+                                                                </ul>
+                                                            @endforeach
+                                                        </div>
+
+                                                        <div class="grid-container">
+                                                            @foreach (json_decode($item->status, true) as $value)
+                                                                <ul class="grid-item">
+                                                                    <li>{{ $value }}</li>
+                                                                </ul>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                @if (Session::has('message-Customer'))
+                                                    <script>
+                                                        swal("message", "Successfuly Added Customers", "success", {
+                                                            button: "okay",
+                                                            style: "justify-content:center;",
+                                                        });
+                                                    </script>
+                                                @endif
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -129,6 +152,13 @@
 
             <!-- MAIN -->
         </section>
+
+        <script>
+            const selectItem = (selected) => {
+                console.log(selected);
+            }
+
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -140,3 +170,11 @@
     </body>
 
     </html>
+
+
+{{-- CUSTOMER NAME
+CATEGORY--------QUANTITY
+Product name (1) __________5
+Product name (2)________5
+Date
+STATUS --}}

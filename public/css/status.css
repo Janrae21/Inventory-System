@@ -424,6 +424,17 @@ select {
     }
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(222, 222, 222, 0.8);
+    padding: 5px;
+    text-align: center;
+  }
+
 @media screen and (max-width: 576px) {
     #content nav form .form-input input {
         display: none;
