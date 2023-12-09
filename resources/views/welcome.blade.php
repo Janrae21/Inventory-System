@@ -20,6 +20,7 @@
                 <div class="signin-signup">
                     <form class="sign-in-form" method="POST" action="{{ route('login') }}">
                         @csrf
+                        <h1>Hello World by Ado</h1>
                         <h2 class="title">Sign in</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>

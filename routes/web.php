@@ -131,5 +131,9 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
+
+
+
+
 });
 Route::get('/ranking', [RankingController::class, 'ranking'])->name('ranking');
