@@ -1,6 +1,8 @@
 <?php
 
+use App\Mail\SendProductReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('make-report/{product_name}/{user}', function ($product_name, $user) {
+    Mail::to('nowayout12340@gmail.com')->send(new SendProductReport($product_name, $user));
 
-
+    return back();
+});
