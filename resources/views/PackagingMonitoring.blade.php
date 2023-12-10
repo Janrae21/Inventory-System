@@ -246,7 +246,15 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 40%; border: none">
-                                                <a style="width: 135px; padding: 10px; cursor:pointer;
+
+                                                @if ($pm->RemainingStocks > 0)
+                                                    <a style="width: 135px; padding: 10px; cursor:pointer;"
+                                                        data-toggle="modal"
+                                                        data-target="#orderModal{{ $pm->id }}"><i
+                                                            class='bx bxs-cart'></i> Purchase Item</a>
+                                                @endif
+
+                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer;
                                     @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i
                                                         class='bx bxs-cart'></i> Purchase Item</a>
@@ -365,6 +373,24 @@
                                                                 <option value="Delivered">Delivered</option>
                                                             </select>
                                                         </div>
+
+                                                        
+                                                        @if ($pm->treshold >= $pm->RemainingStocks)
+                                                            <div class="form-group">
+                                                                <p style="color: red">
+                                                                    Reached the treshold limit, if you want to send report
+                                                                    click the button below
+                                                                </p>
+
+                                                                <div style="width: 100%; text-align: center">
+                                                                    <a href="/api/make-report/{{ $pm->ItemsName }}/{{ auth()->user()->name }}"
+                                                                        class="btn-submit"
+                                                                        style="width: 140px; border: 1px solid #C8C8C8; padding: 10px; cursor: pointer; border-radius: 5px">Submit
+                                                                        Report</a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
                                                                 style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
@@ -678,5 +704,3 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="{{ asset('js/packaging.js') }}"></script>
     </body>
-
-
