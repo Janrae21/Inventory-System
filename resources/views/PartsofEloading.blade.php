@@ -267,7 +267,13 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 30%; border: none">
-                                                <a style="width: 135px; padding: 10px; cursor:pointer;
+                                                @if ($pe->RemainingStocks > 0)
+                                                    <a style="width: 135px; padding: 10px; cursor:pointer;"
+                                                        data-toggle="modal"
+                                                        data-target="#orderModal{{ $pe->id }}"><i
+                                                            class='bx bxs-cart'></i> Purchase Item</a>
+                                                @endif
+                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer;
                                         @if ($pe->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
                                                     data-toggle="modal" data-target="#orderModal{{ $pe->id }}"><i
                                                         class='bx bxs-cart'></i> Purchase Item</a> --}}
@@ -385,6 +391,24 @@
                                                                 <option value="Delivered">Delivered</option>
                                                             </select>
                                                         </div>
+
+
+                                                        @if ($pe->treshold >= $pe->RemainingStocks)
+                                                            <div class="form-group">
+                                                                <p style="color: red">
+                                                                    Reached the treshold limit, if you want to send report
+                                                                    click the button below
+                                                                </p>
+
+                                                                <div style="width: 100%; text-align: center">
+                                                                    <a href="/api/make-report/{{ $pe->ItemsName }}/{{ auth()->user()->name }}"
+                                                                        class="btn-submit"
+                                                                        style="width: 140px; border: 1px solid #C8C8C8; padding: 10px; cursor: pointer; border-radius: 5px">Submit
+                                                                        Report</a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
                                                         <div class="modal-footer ">
                                                             <div class="btn"
                                                                 style="display:flex; justify-content:flex-end; padding:5px;">

@@ -356,6 +356,11 @@ select {
 
 }
 
+.btn-submit:hover {
+    background-color: #ebf1ff;
+    ;
+}
+
 .btn-secondary:hover {
     background-color: #d62929;
 }

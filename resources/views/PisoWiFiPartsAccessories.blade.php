@@ -262,10 +262,14 @@
 
                                         @if (auth()->user()->type === 'admin')
                                             <td style="width: 30%; border: none">
-                                                <a style="width: 135px; padding: 10px; cursor:pointer;
-                                        @if ($pisoWifi->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                    data-toggle="modal" data-target="#orderModal{{ $pisoWifi->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a>
+
+                                                @if ($pisoWifi->RemainingStocks > 0)
+                                                    <a style="width: 135px; padding: 10px; cursor:pointer;"
+                                                        data-toggle="modal"
+                                                        data-target="#orderModal{{ $pisoWifi->id }}"><i
+                                                            class='bx bxs-cart'></i> Purchase Item</a>
+                                                @endif
+
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pisoWifi->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
@@ -440,6 +444,22 @@
                                                                 <option value="Delivered">Delivered</option>
                                                             </select>
                                                         </div>
+
+                                                        @if ($pisoWifi->treshold >= $pisoWifi->RemainingStocks)
+                                                            <div class="form-group">
+                                                                <p style="color: red">
+                                                                    Reached the treshold limit, if you want to send report
+                                                                    click the button below
+                                                                </p>
+
+                                                                <div style="width: 100%; text-align: center">
+                                                                    <a href="/api/make-report/{{ $pisoWifi->ItemsName }}/{{ auth()->user()->name }}"
+                                                                        class="btn-submit"
+                                                                        style="width: 140px; border: 1px solid #C8C8C8; padding: 10px; cursor: pointer; border-radius: 5px">Submit
+                                                                        Report</a>
+                                                                </div>
+                                                            </div>
+                                                        @endif
                                                         <div class="modal-footer ">
                                                             <div class="btn"
                                                                 style="display:flex; justify-content:flex-end; padding:5px;">
@@ -600,7 +620,7 @@
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                            </div>--}}
+                                                            </div> --}}
 
                                                         <div class="modal-footer ">
                                                             <div class="btn"
@@ -695,12 +715,6 @@
             </main>
             <!-- MAIN -->
         </section>
-
-        <script>
-            function confirmSendEmail() {
-                console.log('Send email');
-            }
-        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
