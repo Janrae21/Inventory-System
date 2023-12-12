@@ -17,51 +17,15 @@
 </head>
 
 <body>
-    <!-- SIDEBAR -->
-    <section id="sidebar">
-        <a href="{{ asset('/admin/home') }}" class="brand">
-            <img src="{{ asset('images/logo.png') }}">
-        </a>
-        <ul class="side-menu top">
-            <li class="active">
-                <a href="{{ asset('/view-profile') }}">
-                    <i class='bx bxs-user-account'></i>
-                    <span class="text">View Profile</span>
-                </a>
-            </li>
-
-        </ul>
-    </section>
-    <!-- SIDEBAR -->
+      
+        @component('components.SidebarComponent')
+        @endcomponent
 
     <!-- CONTENT -->
     <section id="content">
         <!-- NAVBAR -->
-        <nav>
-            <i class='bx bx-menu'></i>
-            <form action="#">
-                <!-- Empty -->
-            </form>
-            <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-        </nav>
+            @component('components.NavbarComponent')
+            @endcomponent
         <!-- NAVBAR -->
 
         <!-- MAIN -->
@@ -82,8 +46,6 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-
-
                         <div class="col-md-9">
                             <div class="card">
                                 <div class="card-header p-2">
@@ -145,7 +107,7 @@
                                                 <div class="form-group row">
                                                     <div class="offset-sm-2 col-sm-10">
                                                         <button type="submit" class="btn btn-primary"
-                                                            style="width: 150px; height:45px; border-radius:8px; font-size:13px;">Save
+                                                            style="width: 150px; height:45px; border-radius:8px; font-size:13px; margin-top:20px;">Save
                                                             Changes</button>
                                                     </div>
                                                 </div>
