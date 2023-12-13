@@ -17,7 +17,7 @@ class OrderController extends Controller
         // $orders = Order::with('customer')->paginate(10);
         $customers = Customers::paginate(10);
 
-        return view('CustomerList', compact('customers'));
+        return view('customerList', compact('customers'));
     }
 
     public function create()
