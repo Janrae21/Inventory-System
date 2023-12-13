@@ -50,10 +50,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th> Purchased By </th>
-                                    <th>Total Quantity</th>
-                                    <th>Date</th>
-                                    <th>Action</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)"> Purchased By </th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Total Quantity</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Date</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
 
                                 </tr>
                             </thead>
@@ -90,7 +90,7 @@
 
                                                     <div class="form-group mb-3">
                                                         <label>Customer Name</label>
-                                                        <input type="text" class="form-control" value="{{ $item->customer->name }}" disabled required>
+                                                        <input type="text" class="form-control" value="{{ $item->customer->name ?? "" }}" disabled required>
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -102,7 +102,7 @@
                                                         <label>Products</label>
 
                                                         <div class="grid-container">
-                                                            @foreach (json_decode($item->item_names, true) as $value)
+                                                            @foreach (explode(',', $item->item_names)  as $value)
                                                                 <ul class="grid-item">
                                                                     <li> <b> {{ $value }} </b> </li>
                                                                 </ul>
@@ -110,7 +110,7 @@
                                                         </div>
 
                                                         <div class="grid-container">
-                                                            @foreach (json_decode($item->quantity, true) as $value)
+                                                            @foreach (explode(',', $item->item_names)  as $value)
                                                                 <ul class="grid-item">
                                                                     <li>{{ $value }}</li>
                                                                 </ul>
@@ -118,7 +118,7 @@
                                                         </div>
 
                                                         <div class="grid-container">
-                                                            @foreach (json_decode($item->status, true) as $value)
+                                                            @foreach (explode(',', $item->item_names)  as $value)
                                                                 <ul class="grid-item">
                                                                     <li>{{ $value }}</li>
                                                                 </ul>
@@ -126,15 +126,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                @if (Session::has('message-Customer'))
-                                                    <script>
-                                                        swal("message", "Successfuly Added Customers", "success", {
-                                                            button: "okay",
-                                                            style: "justify-content:center;",
-                                                        });
-                                                    </script>
-                                                @endif
 
                                             </div>
 

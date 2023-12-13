@@ -161,16 +161,73 @@
                                         <td>{{ $od->email }}</td>
                                         <td>
 
-                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#ModalEdit{{ $od->id }}"><i
+                                            <a style="color: #4CA7DF; padding: 10px; cursor: pointer;" href="#"
+                                                data-bs-toggle="modal" data-bs-target="#editModal{{ $od->id }}"><i
                                                     class='bx bxs-pencil'></i> Edit</a>
+
 
                                             <a style="color: #FF6767; padding: 10px; cursor: pointer;"
                                                 onclick="deleteUser({{ $od->id }})" data-toggle="modal"
                                                 data-target="#deleteModal{{ $od->id }}"><i class='bx bxs-trash'></i>
                                                 Delete </a>
                                         </td>
+
                                     </tr>
+
+
+
+                                    <div class="modal fade" id="editModal{{ $od->id }}" tabindex="-1"
+                                        aria-labelledby="editModalLabel" aria-hidden="true" data-bs-backdrop="static">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editModalLabel">Edit User</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+
+                                                <form action="{{ route('user-management.update', $od->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('PUT')
+
+                                                    <div class="modal-body">
+                                                        <div class="form-group mb-3">
+                                                            <label>Name</label>
+                                                            <input type="text" class="form-control" id="name"
+                                                                name="name" value="{{ $od->name }}" required>
+                                                        </div>
+
+                                                        <div class="form-group mb-3">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control" id="email"
+                                                                name="email" value="{{ $od->email }}" required>
+                                                        </div>
+
+                                                        <div class="form-group mb-3">
+                                                            <label>Type</label>
+                                                            <select name="type" id="type">
+                                                                <option selected disabled>Select option</option>
+                                                                <option value="0"
+                                                                    {{ $od->type == 0 ? 'selected' : '' }}>User (Guest)
+                                                                </option>
+                                                                <option value="1"
+                                                                    {{ $od->type == 1 ? 'selected' : '' }}>Inventory Team
+                                                                </option>
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="submit" class="btn btn-primary">Update
+                                                                User</button>
+                                                            <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>

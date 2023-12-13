@@ -51,7 +51,8 @@
 
                 <div style="width: 100%">
                     <div class="table-buttons" style="float: right; margin-bottom: 10px">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="show-when-mobile"
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                            class="show-when-mobile"
                             style="width: 120px; height:40px; border-radius: 5px; border: 1px solid #9ACEA2;">
                             <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add Customer</i>
                         </button>
@@ -63,7 +64,8 @@
 
                             <div style="width: 100%; text-align: right">
                                 <div class="table-buttons">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="show-when-web"
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        class="show-when-web"
                                         style="width: 120px; height:40px; border-radius: 5px; border: 1px solid #9ACEA2;">
                                         <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                             Customer</i>
@@ -125,7 +127,7 @@
                                                     </div>
 
                                                 </div>
-                                                
+
                                             </div>
                                         </form>
 
@@ -164,10 +166,9 @@
                                         <td>{{ $od->address }}</td>
                                         <td>
 
-                                            <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                data-toggle="modal"
-                                                data-target="#CustomersModalEdit{{ $od->id }}"><i
-                                                    class='bx bxs-pencil'></i> Edit</a>
+                                            <a style="color: #4CA7DF; padding: 10px; cursor: pointer;" href="#"
+                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $od->id }}"><i
+                                                class='bx bxs-pencil'></i> Edit</a>
                                             <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
                                                 data-toggle="modal" data-target="#deleteModal{{ $od->id }}"><i
                                                     class='bx bxs-trash'></i>
@@ -175,90 +176,55 @@
                                         </td>
                                     </tr>
 
-                                    <div class="modal fade" id="CustomersModalEdit{{ $od->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="CustomersModalEdit{{ $od->id }}"
-                                        aria-hidden="true" data-bs-backdrop="static">
-                                        <div class="modal-dialog" role="document">
+                                    <div class="modal fade" id="editModal{{ $od->id }}"
+                                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                        aria-labelledby="CustomersModalEditLabel" aria-hidden="true">
+
+                                        <!-- Modal content -->
+                                        <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="CustomersModalEdit{{ $od->id }}">
-                                                        {{ $od->name }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                    <h5 class="modal-title" id="editModal">Edit Customer
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('Customers.update', $od->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('PUT')
 
+                                                <form action="{{ route('Customers.update', $od->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('PUT')
 
-                                                        <div class="modal-body">
-                                                            <div class="form-group mb-3">
-                                                                <label>Items Name</label>
-                                                                <input type="text" name="ItemsName" required
-                                                                    value="{{ $od->name }}" class="form-control">
-                                                            </div>
-
+                                                    <div class="modal-body">
+                                                        <div class="form-group mb-3">
+                                                            <label>Name</label>
+                                                            <input type="text" class="form-control" id="name" required
+                                                               value="{{$od->name}}" name="name" required>
                                                         </div>
 
-                                                        <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
+                                                        <div class="form-group mb-3">
+                                                            <label>Email</label>
+                                                            <input type="email" class="form-control" id="email" name="email"
+                                                              value="{{$od->email}}"  required>
                                                         </div>
-                                                    </form>
+                                                        <div class="form-group mb-3">
+                                                            <label>Address</label>
+                                                            <input type="text" class="form-control" id="address" name="address"
+                                                              value="{{$od->address}}"  required>
+                                                        </div>
 
-                                                </div>
+                                                    </div>
 
-                                            </div>
-                                        </div>
-                                        @if (Session::has('message-edit'))
-                                            <script>
-                                                swal("message", "Item Edited Successfully", "success", {
-                                                    button: "okay",
-                                                });
-                                            </script>
-                                        @endif
-                                    </div>
-
-                                    <!-- Delete Confirmation Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $od->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="deleteModalLabel{{ $od->id }}"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel{{ $od->id }}">
-                                                        Confirm
-                                                        Deletion</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Are you sure you want to delete this item?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form action="{{ route('Customers.delete', $od->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            style="width: 90px">Delete</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
-                                                    </form>
-                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button style="width: 110px; height:45px; border-radius:8px; font-size:13px" type="submit" class="btn btn-primary">Update
+                                                            Customer</button>
+                                                        <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
+
                                 @endforeach
                             </tbody>
                         </table>
@@ -270,6 +236,10 @@
 
             <!-- MAIN -->
         </section>
+
+
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
         <!-- CONTENT -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

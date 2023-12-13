@@ -56,6 +56,7 @@ class PackagingMonitoringController extends Controller
             'UpcomingStocks' => 'required|numeric',
             'Remarks' => 'required',
 
+
         ]);
 
         $packagingMonitoring = PackagingMonitoringModel::findOrFail($id);
@@ -70,6 +71,7 @@ class PackagingMonitoringController extends Controller
             'RemainingStocks' => $request->input('RemainingStocks'),
             'UpcomingStocks' => $request->input('UpcomingStocks'),
             'Remarks' => $request->input('Remarks'),
+            'treshold' => $request->input('treshold'),
 
         ]);
 

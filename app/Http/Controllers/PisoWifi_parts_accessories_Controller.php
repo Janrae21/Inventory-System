@@ -63,7 +63,7 @@ class PisoWifi_parts_accessories_Controller extends Controller
             'RemainingStocks' => $request->input('RemainingStocks'),
             'UpcomingStocks' => $request->input('UpcomingStocks'),
             'Remarks' => $request->input('Remarks'),
-
+            'treshold' => $request->input('treshold'),
         ]);
 
         return redirect()->back()->with('message-edit', 'Item updated successfully');

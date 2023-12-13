@@ -59,11 +59,7 @@
                                             <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                                 Product</i>
                                         </button>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                            style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
-                                                Report</i>
-                                        </button>
+
                                     </div>
                                 </div>
                             @endif
@@ -92,6 +88,7 @@
                                                     <label>Select Status</label>
                                                     <select name="Status" required disabled class="form-control">
                                                         <option>Select Status</option>
+                                                        <option value="Ok">Ok</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
@@ -100,7 +97,7 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Treshold Product</label>
-                                                    <input type="number" name="StocksPurchased" required
+                                                    <input type="number" name="treshold" required
                                                         class="form-control" value="10">
                                                 </div>
 
@@ -144,14 +141,14 @@
                                                 </div>
 
                                                 <div class="modal-footer ">
-                                                    <div class="btn" style="display:flex; justify-content:flex-end;">
+                                                    <div class="btn"
+                                                        style="display:flex; justify-content:flex-end; padding:5px;">
                                                         <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px;">Add
-                                                            Items
-                                                        </button>
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add
+                                                            Items</button>
                                                         <button type="submit" class="btn btn-secondary"
-                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                            data-bs-dismiss="modal"
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                     </div>
 
                                                 </div>
@@ -165,66 +162,13 @@
 
                             </div>
                             @if (Session::has('message-Add'))
-                                <script>
+                                <script class="swal-button">
                                     swal("Product Added", "A new product was successfully added!", "success", {
                                         button: "okay",
                                     });
                                 </script>
                             @endif
 
-
-                            <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog" style="width: 50%">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-
-                                        <form action="" method="POST">
-                                            @csrf
-
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label>What Reports?</label>
-                                                    <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select
-                                                        </option>
-                                                        <option value="">Test Reports</option>
-                                                        <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report
-                                                        </option>
-                                                        <option value="Decline">Inventory Audit Report</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control"
-                                                        placeholder="Enter report description" required></textarea>
-                                                </div>
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
-                                                            Reports</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </form>
-
-
-
-                                    </div>
-
-                                </div>
-                            </div>
 
                         </div>
 
@@ -261,10 +205,7 @@
                                                         data-target="#orderModal{{ $pe->id }}"><i
                                                             class='bx bxs-cart'></i> Purchase Item</a>
                                                 @endif
-                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer;
-                                        @if ($pe->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                    data-toggle="modal" data-target="#orderModal{{ $pe->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a>
+
                                                 <a style="color: #b5a55d; padding: 10px; cursor:pointer;" href="#"
                                                     data-toggle="modal" data-target="#productModal{{ $pe->id }}"><i
                                                         class='bx bxs-show'></i> View</a>
@@ -402,13 +343,26 @@
                                                                 style="display:flex; justify-content:flex-end; padding:5px;">
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
+                                                                    </button>
+                                                                <button type="submit" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            </div>
+
+                                                        </div>
+
+                                                        {{-- <div class="modal-footer ">
+                                                            <div class="btn"
+                                                                style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
                                                                 </button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                             </div>
 
-                                                        </div>
+                                                        </div> --}}
 
                                                     </form>
                                                 </div>
@@ -553,6 +507,9 @@
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
                                                                     <option>Select Status</option>
+                                                                    <option value="Ok"
+                                                                        {{ $pe->Status === 'Ok' ? 'selected' : '' }}>
+                                                                        Ok</option>
                                                                     <option value="Ongoing"
                                                                         {{ $pe->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                         Ongoing</option>
@@ -601,14 +558,7 @@
                                                                 value="{{ $pe->Remarks }}">
                                                         </div>
 
-                                                        {{-- <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div> --}}
+
 
                                                         <div class="modal-footer ">
                                                             <div class="btn"
@@ -629,7 +579,7 @@
                                             </div>
                                         </div>
                                         @if (Session::has('message'))
-                                            <script>
+                                            <script class="swal-button">
                                                 swal("Updated", "Item was edited successfully!", "success", {
                                                     button: "okay",
                                                 });

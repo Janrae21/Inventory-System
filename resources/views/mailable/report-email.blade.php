@@ -352,7 +352,7 @@
                 <tr>
                     <td valign="middle" class="hero bg_white" style="padding: 20px">
                         <h2 style="margin: 0">
-                            Hello Raymond Jay Yorong,
+                            Hello Janrae Fagaragan,
                         </h2>
                         <h3 style="font-size: 15px">You received a Report Email from <b> {{ $reporter }} </b>
                         </h3>

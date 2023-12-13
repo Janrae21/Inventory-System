@@ -292,6 +292,20 @@ main {
     margin: 0 auto;
 }
 
+.swal-button {
+    background-color: #7cd1f9;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+    width: 60px;
+}
+
 select {
     /* Select Reset */
     outline: none;

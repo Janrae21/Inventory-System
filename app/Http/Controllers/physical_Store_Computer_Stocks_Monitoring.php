@@ -64,6 +64,7 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
             'RemainingStocks' => $request->input('RemainingStocks'),
             'UpcomingStocks' => $request->input('UpcomingStocks'),
             'Remarks' => $request->input('Remarks'),
+            'treshold' => $request->input('treshold'),
 
         ]);
 

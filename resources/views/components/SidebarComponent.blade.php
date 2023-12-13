@@ -74,13 +74,14 @@
                 <span class="text">Ranking</span>
             </a>
         </li>
-
-        <li>
-            <a href="{{ url('/user-management') }}">
-                <i class='bx bxs-bar-chart-alt-2'></i>
-                <span class="text">User Management</span>
-            </a>
-        </li>
+        @if (auth()->user()->type === 'admin')
+            <li>
+                <a href="{{ url('/user-management') }}">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                    <span class="text">User Management</span>
+                </a>
+            </li>
+        @endif
 
         <li>
             <a href="{{ asset('/view-profile') }}">

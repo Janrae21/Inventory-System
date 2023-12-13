@@ -1,19 +1,20 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\EloadingBestSeller_Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PackagingMonitoringController;
-use App\Http\Controllers\PartsOfEloadingController;
-use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
-use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
-use App\Http\Controllers\ProductControlller;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\rankingController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductControlller;
 use App\Http\Controllers\UserManagementController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PartsOfEloadingController;
+use App\Http\Controllers\EloadingBestSeller_Controller;
+use App\Http\Controllers\PackagingMonitoringController;
+use App\Http\Controllers\PisoWifi_parts_accessories_Controller;
+use App\Http\Controllers\physical_Store_Computer_Stocks_Monitoring;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,22 +31,6 @@ Route::redirect('/', 'admin/home');
 Route::redirect('/home', 'admin/home');
 Auth::routes();
 
-/*------------------------------------------
---------------------------------------------
-All Normal Users Routes List
---------------------------------------------
---------------------------------------------*/
-// Route::middleware(['auth', 'user-access:user'])->group(function () {
-//     Route::get('/home', [HomeController::class, 'managerHome'])->name('home');
-// });
-
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
-
-// Route::middleware(['auth', 'user-access:admin,user'])->group(function () {
 Route::get('/admin/home', [HomeController::class, 'adminHome', 'productStatus'])->name('admin.home');
 
 Route::get('/ranking', function () {
@@ -86,7 +71,14 @@ Route::get('customer', [OrderController::class, 'index']);
 //Customers
 Route::post('/Customers', [CustomerController::class, 'store'])->name('Customers.store');
 Route::put('/Customers/{id}', [CustomerController::class, 'update'])->name('Customers.update');
-Route::delete('/Customers/{id}', [CustomerController::class, 'delete'])->name('Customers.delete');
+
+
+
+
+
+
+
+
 
 //PisoWifi Parts Accessories Crud//
 Route::get('pisowifi-parts-accessories', [PisoWifi_parts_accessories_Controller::class, 'PisoWifiShow']);
@@ -123,6 +115,13 @@ Route::delete('/physical-store-computer-stocks-monitoring/{id}', [physical_Store
 // });
 Route::get('/sales-by-category', [OrderController::class, 'getSalesByCategory']);
 Route::resource('user-management', UserManagementController::class);
+Route::get('user-management/{id}/edit', 'UserController@edit');
+
+
+
+
+
+
 
 
 /*------------------------------------------

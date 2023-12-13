@@ -60,11 +60,7 @@
                                             <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                                 Product</i>
                                         </button>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                            style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
-                                                Report</i>
-                                        </button>
+
                                     </div>
                                 </div>
                             @endif
@@ -95,7 +91,7 @@
                                                 <div class="form-group">
                                                     <label>Select Status</label>
                                                     <select name="Status" required class="form-control" disabled>
-                                                        <option>Select Status</option>
+                                                        <option selected disabled>Select Status</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
@@ -104,8 +100,8 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Treshold Product</label>
-                                                    <input type="number" name="StocksPurchased" required
-                                                        class="form-control" value="10">
+                                                    <input type="number" name="treshold" required class="form-control"
+                                                        value="10">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -149,25 +145,20 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <div class="btn" style="display:flex; justify-content:flex-end;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px; ">Add
-                                                            Items</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 110px; border-radius:8px; font-size:13px; height:45px;"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                    </div>
-
+                                                    <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="submit" class="btn btn-primary">Add
+                                                        Items</button>
+                                                    <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
                                                 </div>
+
 
                                             </div>
                                         </form>
 
                                         @if (Session::has('message-Add'))
                                             <script>
-                                                swal("message", "Successfuly Added Item", "success", {
+                                                swal("Product Added", "A new product was successfully added!", "success", {
                                                     button: "okay",
-                                                    style: "justify-content:center;",
                                                 });
                                             </script>
                                         @endif
@@ -178,67 +169,6 @@
 
                             </div>
 
-
-                            <div class="modal fade" id="report" data-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog" style="width: 50%">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-
-                                        <form action="" method="POST">
-                                            @csrf
-
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label>What Reports?</label>
-                                                    <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select
-                                                        </option>
-                                                        <option value="">Test Reports</option>
-                                                        <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report
-                                                        </option>
-                                                        <option value="Decline">Inventory Audit Report</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control"
-                                                        placeholder="Enter report description" required></textarea>
-                                                </div>
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
-                                                            Reports</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        @if (Session::has('message-add'))
-                                            <script>
-                                                swal("message", "Successfuly Added Item", "success", {
-                                                    button: "okay",
-                                                    style: "justify-content:center;",
-                                                });
-                                            </script>
-                                        @endif
-
-                                    </div>
-
-                                </div>
-
-                            </div>
                         </div>
                         <table>
                             <thead>
@@ -470,7 +400,6 @@
                                                                     data-bs-dismiss="modal"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
                                                             </div>
-
                                                         </div>
                                                     </form>
                                                 </div>
@@ -637,7 +566,7 @@
                                                     </form>
 
                                                     @if (Session::has('message-edit'))
-                                                        <script>
+                                                        <script class="swal-button">
                                                             swal("message", "Successfuly Edit Item", "success", {
                                                                 button: "okay",
                                                                 style: "justify-content:center;",

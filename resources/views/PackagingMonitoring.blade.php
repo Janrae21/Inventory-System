@@ -8,13 +8,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-            integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
         <link href="{{ asset('images/logo.png') }}" rel="icon">
         <link href="{{ asset('css/PackagingMonitoring.css') }}" rel="stylesheet">
         <title>Packaging-Monitoring</title>
@@ -59,11 +61,7 @@
                                             <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Add
                                                 Product</i>
                                         </button>
-                                        <button type="button" data-bs-toggle="modal" data-bs-target="#report"
-                                            style="width: 120px; height:50px, border-radius:5px; border: 1px solid #9ACEA2;">
-                                            <i class='bx bx-plus' style="font-size:15px; color:rgb(102, 102, 102);">Create
-                                                Report</i>
-                                        </button>
+
                                     </div>
                                 </div>
                             @endif
@@ -92,6 +90,7 @@
                                                     <label>Select Status</label>
                                                     <select name="Status" required disabled class="form-control">
                                                         <option value="">Select Status</option>
+                                                        <option value="Ok">Ok</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
@@ -100,7 +99,7 @@
 
                                                 <div class="form-group mb-3">
                                                     <label>Treshold Product</label>
-                                                    <input type="number" name="StocksPurchased" required
+                                                    <input type="number" name="treshold" required
                                                         class="form-control" value="10">
                                                 </div>
 
@@ -159,7 +158,7 @@
 
                                 </div>
                                 @if (Session::has('message-Add'))
-                                    <script>
+                                    <script class="swal-button">
                                         swal("Product Added", "A new product was successfully added!", "success", {
                                             button: "okay",
                                         });
@@ -167,525 +166,487 @@
                                 @endif
 
 
-                            </div>
-
-                            <div class="modal fade" id="report" data-bs-backdrop="static" data-bs-keyboard="false"
-                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog" style="width: 50%">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Create Reports</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-
-                                        <form action="" method="POST">
-                                            @csrf
-
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label>What Reports?</label>
-                                                    <select name="Status" required class="form-control">
-                                                        <option value="" disabled selected>Select
-                                                        </option>
-                                                        <option value="">Test Reports</option>
-                                                        <option value="Ongoing">Inventory Report Summary</option>
-                                                        <option value="Pending">Inventory and Condition of Products Report
-                                                        </option>
-                                                        <option value="Decline">Inventory Audit Report</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="description">Description:</label>
-                                                    <textarea type="text" id="description" name="description" class="form-control"
-                                                        placeholder="Enter report description" required></textarea>
-                                                </div>
-                                                <div class="modal-footer ">
-                                                    <div class="btn"
-                                                        style="display:flex; justify-content:flex-end; padding:5px;">
-                                                        <button type="submit" class="btn btn-primary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Create
-                                                            Reports</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </form>
-
-                                    </div>
-
-                                </div>
 
                             </div>
-
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Items Name</th>
-                                    <th>Status</th>
-                                    <th>Remarks</th>
-                                    <th>Remaining Stocks</th>
-                                    <th>Action</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($packagingmonitoring as $pm)
+                            <table>
+                                <thead>
                                     <tr>
-                                        <td style="border: none">
-                                            {{ $pm->ItemsName }}
-                                        </td>
-                                        <td style="border: none">{{ $pm->Status }}</td>
-                                        <td style="border: none">{{ $pm->Remarks }}</td>
-                                        <td style="border: none">{{ $pm->RemainingStocks }}</td>
+                                        <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Items
+                                            Name
+                                        </th>
+                                        <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Status
+                                        </th>
+                                        <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks
+                                        </th>
+                                        <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">
+                                            Remaining
+                                            Stocks</th>
+                                        <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action
+                                        </th>
 
-                                        @if (auth()->user()->type === 'admin')
-                                            <td style="width: 40%; border: none">
-
-                                                @if ($pm->RemainingStocks > 0)
-                                                    <a style="width: 135px; padding: 10px; cursor:pointer;"
-                                                        data-toggle="modal"
-                                                        data-target="#orderModal{{ $pm->id }}"><i
-                                                            class='bx bxs-cart'></i> Purchase Item</a>
-                                                @endif
-
-                                                {{-- <a style="width: 135px; padding: 10px; cursor:pointer;
-                                    @if ($pm->RemainingStocks == 0) pointer-events: none; opacity: 0.5; @endif"
-                                                    data-toggle="modal" data-target="#orderModal{{ $pm->id }}"><i
-                                                        class='bx bxs-cart'></i> Purchase Item</a>
-                                                <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
-                                                    data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
-                                                        class='bx bxs-show'></i> View</a>
-                                                <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;" href="#"
-                                                    data-toggle="modal"
-                                                    data-target="#productModalEdit{{ $pm->id }}"><i
-                                                        class='bx bxs-pencil'></i> Edit</a>
-                                                <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                    data-toggle="modal" data-target="#deleteModal{{ $pm->id }}"><i
-                                                        class='bx bxs-trash'></i> Delete </a>
-                                            </td>
-                                        @else
-                                            <td style="width: 40%; border: none">
-                                                <a style="color: #b5a55d; padding: 10px ; cursor:pointer;" href="#"
-                                                    data-toggle="modal" data-target="#productModal{{ $pm->id }}"><i
-                                                        class='bx bxs-show'></i> View</a>
-                                            </td>
-                                        @endif
                                     </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($packagingmonitoring as $pm)
+                                        <tr>
+                                            <td style="border:none;">
+                                                {{ $pm->ItemsName }}
+                                            </td>
+                                            <td style="border:none;">{{ $pm->Status }}</td>
+                                            <td style="border:none;">{{ $pm->Remarks }}</td>
+                                            <td style="border: none">{{ $pm->RemainingStocks }}</td>
 
-                                    <!-- Order Modal -->
-                                    <div class="modal fade" id="orderModal{{ $pm->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="orderModalLabel{{ $pm->id }}"
-                                        aria-hidden="true" data-bs-backdrop="static">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Purchase Item</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="/orders" method="POST">
-                                                        @csrf
+                                            @if (auth()->user()->type === 'admin')
+                                                <td style="width: 30%; border: none">
+                                                    @if ($pm->RemainingStocks > 0)
+                                                        <a style="width: 135px; padding: 10px; cursor:pointer;"
+                                                            data-toggle="modal"
+                                                            data-target="#orderModal{{ $pm->id }}"><i
+                                                                class='bx bxs-cart'></i> Purchase Item</a>
+                                                    @endif
 
-                                                        <div class="form-group">
-                                                            <label for="customer_id">Customer
-                                                                <a href="#addCustomerModal" data-toggle="modal"
-                                                                    data-dismiss="modal"
-                                                                    style="color: #4CA7DF; padding: 10px;">
-                                                                    <i class='bx bx-plus'></i> Add Customer</a>
-                                                            </label>
+                                                    <a style="color: #b5a55d; padding: 10px; cursor:pointer;"
+                                                        href="#" data-toggle="modal"
+                                                        data-target="#productModal{{ $pm->id }}"><i
+                                                            class='bx bxs-show'></i> View</a>
+                                                    <a style="color: #4CA7DF; padding: 10px ; cursor: pointer;"
+                                                        href="#" data-toggle="modal"
+                                                        data-target="#productModalEdit{{ $pm->id }}"><i
+                                                            class='bx bxs-pencil'></i> Edit</a>
+                                                    <a style="color: #FF6767; padding: 10px; cursor: pointer;"
+                                                        href="#" data-toggle="modal"
+                                                        data-target="#deleteModal{{ $pm->id }}"><i
+                                                            class='bx bxs-trash'></i> Delete </a>
+                                                </td>
+                                            @else
+                                                <td style="width: 30%; border: none">
+                                                    <a style="color: #b5a55d; padding: 10px; cursor:pointer;"
+                                                        href="#" data-toggle="modal"
+                                                        data-target="#productModal{{ $pm->id }}"><i
+                                                            class='bx bxs-show'></i> View</a>
+                                                </td>
+                                            @endif
 
-                                                            <select name="customer_id" id="customer_id"
-                                                                class="form-control" required>
-                                                                <option>Select Customer</option>
-                                                                @foreach ($customers as $item)
-                                                                    <option value="{{ $item->id }}"
-                                                                        style="background-color: white">
-                                                                        {{ $item->name }}</option>
-                                                                @endforeach
+                                        </tr>
 
-                                                            </select>
+                                        <!-- Order Modal -->
+                                        <div class="modal fade" id="orderModal{{ $pm->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="orderModalLabel{{ $pm->id }}"
+                                            aria-hidden="true" data-bs-backdrop="static">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Purchase Item</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="/orders" method="POST">
+                                                            @csrf
 
-
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="item_name">Item Name</label>
-                                                            <input type="text" name="item_name"
-                                                                id="orderModalLabel{{ $pm->id }}"
-                                                                class="form-control" value="{{ $pm->ItemsName }}">
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="product_type"></label>
-                                                            <input type="text" name="product_type" value="packaging"
-                                                                hidden>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="product_id" hidden></label>
-                                                            <input type="text" name="product_id"
-                                                                value="{{ $pm->id }}" hidden>
-                                                        </div>
-
-
-                                                        <div class="form-group">
-                                                            <label for="quantity_sold">Quantity</label>
-                                                            <input type="number" name="quantity_sold" id="quantity_sold"
-                                                                class="form-control" required>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="category" hidden>Category</label>
-                                                            <input type="text" name="category" id="category"
-                                                                value="Packaging" class="form-control" hidden>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="payment_method">Payment Method</label>
-                                                            <select name="payment_method" id="payment_method"
-                                                                class="form-control" required>
-                                                                <option value="" disabled selected>Select Payment
-                                                                    Method</option>
-                                                                <option value="Credit Card">Credit Card</option>
-                                                                <option value="G-cash">G-cash</option>
-                                                                <option value="Other Online Banks">Other Online Banks
-                                                                </option>
-                                                                <option value="Cash on Delivery">Cash on Delivery</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="shipment_status">Shipment Status</label>
-                                                            <select name="shipment_status" id="shipment_status"
-                                                                class="form-control" required>
-                                                                <option value="" disabled selected>Select Shipment
-                                                                    Status</option>
-                                                                <option value="Pending">Pending</option>
-                                                                <option value="Shipped">Shipped</option>
-                                                                <option value="Delivered">Delivered</option>
-                                                            </select>
-                                                        </div>
-
-                                                        
-                                                        @if ($pm->treshold >= $pm->RemainingStocks)
                                                             <div class="form-group">
-                                                                <p style="color: red">
-                                                                    Reached the treshold limit, if you want to send report
-                                                                    click the button below
-                                                                </p>
+                                                                <label for="customer_id">Customer
+                                                                    <a href="#addCustomerModal" data-toggle="modal"
+                                                                        data-dismiss="modal"
+                                                                        style="color: #4CA7DF; padding: 10px;">
+                                                                        <i class='bx bx-plus'></i> Add Customer</a>
+                                                                </label>
 
-                                                                <div style="width: 100%; text-align: center">
-                                                                    <a href="/api/make-report/{{ $pm->ItemsName }}/{{ auth()->user()->name }}"
-                                                                        class="btn-submit"
-                                                                        style="width: 140px; border: 1px solid #C8C8C8; padding: 10px; cursor: pointer; border-radius: 5px">Submit
-                                                                        Report</a>
-                                                                </div>
+                                                                <select name="customer_id" id="customer_id"
+                                                                    class="form-control" required>
+                                                                    <option>Select Customer</option>
+                                                                    @foreach ($customers as $item)
+                                                                        <option value="{{ $item->id }}"
+                                                                            style="background-color: white">
+                                                                            {{ $item->name }}</option>
+                                                                    @endforeach
+
+                                                                </select>
+
+
                                                             </div>
-                                                        @endif
+                                                            <div class="form-group">
+                                                                <label for="item_name">Item Name</label>
+                                                                <input type="text" name="item_name"
+                                                                    id="orderModalLabel{{ $pm->id }}"
+                                                                    class="form-control" value="{{ $pm->ItemsName }}">
+                                                            </div>
 
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary"
-                                                                style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                style="width: 90px; border-radius:9px; font-size:15px"
-                                                                data-dismiss="modal">Cancel</button>
+                                                            <div class="form-group" hidden>
+                                                                <label for="product_type"></label>
+                                                                <input type="text" name="product_type"
+                                                                    value="packaging" hidden>
+                                                            </div>
 
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Add Customer Modal -->
-                                    <div id="addCustomerModal" class="modal fade" role="dialog"
-                                        data-bs-backdrop="static">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Add Customer</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('Customers.store') }}" method="POST">
-                                                        @csrf
-                                                        <div class="form-group">
-                                                            <label>Name</label>
-                                                            <input type="text" class="form-control" id="name"
-                                                                name="name" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Address</label>
-                                                            <input type="text" class="form-control" id="address"
-                                                                name="address" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Age</label>
-                                                            <input type="number" class="form-control" id="age"
-                                                                name="age" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Email</label>
-                                                            <input type="email" class="form-control" id="email"
-                                                                name="email" required>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary"
-                                                                style="width: 90px; border-radius:9px; font-size:15px">Add
-                                                                Customer</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal"
-                                                                style="width: 90px; border-radius:9px; font-size:15px">Cancel</button>
-                                                        </div>
-                                                    </form>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- View Modal -->
-                                    <div class="modal fade" id="productModal{{ $pm->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
-                                        aria-hidden="true" data-bs-backdrop="static">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="productModalLabel{{ $pm->id }}">
-                                                        {{ $pm->ItemsName }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label>Status:</label>
-                                                        <input class="form-control" type="text"
-                                                            value="{{ $pm->Status }}" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Stocks Purchased:</label>
-                                                        <input class="form-control" type="number"
-                                                            value="{{ $pm->StocksPurchased }}" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Actual Stocks Based on Actual Checking:</label>
-                                                        <input class="form-control" type="number"
-                                                            value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}"
-                                                            disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Damage or Missing or Foresting:</label>
-                                                        <input class="form-control" type="number"
-                                                            value="{{ $pm->Damageormissingorfortesting }}" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Remaining Stocks:</label>
-                                                        <input class="form-control" type="number"
-                                                            value="{{ $pm->RemainingStocks }}" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Upcoming Stocks:</label>
-                                                        <input class="form-control" type="number"
-                                                            value="{{ $pm->UpcomingStocks }}" disabled>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Remarks:</label>
-                                                        <input class="form-control" type="text"
-                                                            value="{{ $pm->Remarks }}" disabled>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @if (Session::has('message'))
-                                        <script>
-                                            swal("Updated", "Item was edited successfully!", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
-
-                                    <!--Edit Item Modal-->
-                                    <div class="modal fade" id="productModalEdit{{ $pm->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
-                                        aria-hidden="true" data-bs-backdrop="static">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="productModalLabel{{ $pm->id }}">
-                                                        {{ $pm->ItemsName }}</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{ route('packaging-monitoring.update', $pm->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('PUT')
+                                                            <div class="form-group" hidden>
+                                                                <label for="product_id" hidden></label>
+                                                                <input type="text" name="product_id"
+                                                                    value="{{ $pm->id }}" hidden>
+                                                            </div>
 
 
-                                                        <div class="modal-body">
-                                                            <div class="form-group mb-3">
-                                                                <label>Items Name</label>
-                                                                <input type="text" name="ItemsName" required
-                                                                    value="{{ $pm->ItemsName }}" class="form-control">
+                                                            <div class="form-group">
+                                                                <label for="quantity_sold">Quantity</label>
+                                                                <input type="number" name="quantity_sold"
+                                                                    id="quantity_sold" class="form-control" required>
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <label>Select Status</label>
-                                                                <select name="Status" required class="form-control">
-                                                                    <option>Select Status</option>
-                                                                    <option value="Ongoing"
-                                                                        {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>
-                                                                        Ongoing</option>
-                                                                    <option value="Pending"
-                                                                        {{ $pm->Status === 'Pending' ? 'selected' : '' }}>
-                                                                        Pending</option>
-                                                                    <option value="Decline"
-                                                                        {{ $pm->Status === 'Decline' ? 'selected' : '' }}>
-                                                                        Decline</option>
+                                                                <label for="category" hidden>Category</label>
+                                                                <input type="text" name="category" id="category"
+                                                                    value="Packaging" class="form-control" hidden>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="payment_method">Payment Method</label>
+                                                                <select name="payment_method" id="payment_method"
+                                                                    class="form-control" required>
+                                                                    <option value="" disabled selected>Select Payment
+                                                                        Method</option>
+                                                                    <option value="Credit Card">Credit Card</option>
+                                                                    <option value="G-cash">G-cash</option>
+                                                                    <option value="Other Online Banks">Other Online Banks
+                                                                    </option>
+                                                                    <option value="Cash on Delivery">Cash on Delivery
+                                                                    </option>
                                                                 </select>
                                                             </div>
 
-                                                            <div class="form-group mb-3">
-                                                                <label>Treshold Product</label>
-                                                                <input type="number" name="StocksPurchased" required
-                                                                    class="form-control" value="{{ $pm->treshold }}">
+                                                            <div class="form-group">
+                                                                <label for="shipment_status">Shipment Status</label>
+                                                                <select name="shipment_status" id="shipment_status"
+                                                                    class="form-control" required>
+                                                                    <option value="" disabled selected>Select
+                                                                        Shipment
+                                                                        Status</option>
+                                                                    <option value="Pending" selected>Pending</option>
+                                                                    <option value="Shipped">Shipped</option>
+                                                                    <option value="Delivered">Delivered</option>
+                                                                </select>
                                                             </div>
 
 
-                                                            <p>Stocks Purchased:</p>
-                                                            <input class="form-control" type="number"
-                                                                name="StocksPurchased"
-                                                                value="{{ $pm->StocksPurchased }}">
+                                                            @if ($pm->treshold >= $pm->RemainingStocks)
+                                                                <div class="form-group">
+                                                                    <p style="color: red">
+                                                                        Reached the treshold limit, if you want to send
+                                                                        report
+                                                                        click the button below
+                                                                    </p>
 
-                                                            <p>Actual Stocks Based on Actual Checking:</p>
-                                                            <input class="form-control" type="number"
-                                                                name="ActualStocksBasedonactualcheckingEDUD"
-                                                                value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}">
+                                                                    <div style="width: 100%; text-align: center">
+                                                                        <a href="/api/make-report/{{ $pm->ItemsName }}/{{ auth()->user()->name }}"
+                                                                            class="btn-submit"
+                                                                            style="width: 140px; border: 1px solid #C8C8C8; padding: 10px; cursor: pointer; border-radius: 5px">Submit
+                                                                            Report</a>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
 
-                                                            <p>Damage or Missing or Foresting:</p>
-                                                            <input class="form-control" type="number"
-                                                                name="Damageormissingorfortesting"
-                                                                value="{{ $pm->Damageormissingorfortesting }}">
-
-                                                            <p>Remaining Stocks:</p>
-                                                            <input class="form-control" type="number"
-                                                                name="RemainingStocks"
-                                                                value="{{ $pm->RemainingStocks }}">
-
-                                                            <p>Upcoming Stocks:</p>
-                                                            <input class="form-control" type="number"
-                                                                name="UpcomingStocks" value="{{ $pm->UpcomingStocks }}">
-
-                                                            <p>Remarks:</p>
-                                                            <input class="form-control" type="text" name="Remarks"
-                                                                value="{{ $pm->Remarks }}">
-                                                        </div>
-
-
-                                                        <div class="modal-footer ">
-                                                            <div class="btn"
-                                                                style="display:flex; justify-content:flex-end; padding:5px;">
+                                                            <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
-                                                                    Changes</button>
+                                                                    style="width: 90px; border-radius:9px; font-size:15px">Purchase</button>
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                    style="width: 90px; border-radius:9px; font-size:15px"
+                                                                    data-dismiss="modal">Cancel</button>
+
                                                             </div>
 
-                                                        </div>
-                                                        {{-- <div class="modal-footer">
-                                                            <div class="btn">
-                                                                <button type="submit" class="btn btn-primary">Save
-                                                                    Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div> --}}
-                                                    </form>
-
+                                                        </form>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                        @if (Session::has('message-edit'))
-                                            <script>
+
+                                        <!-- Add Customer Modal -->
+                                        <div id="addCustomerModal" class="modal fade" role="dialog"
+                                            data-bs-backdrop="static">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Add Customer</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ route('Customers.store') }}" method="POST">
+                                                            @csrf
+                                                            <div class="form-group">
+                                                                <label>Name</label>
+                                                                <input type="text" class="form-control" id="name"
+                                                                    name="name" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Address</label>
+                                                                <input type="text" class="form-control" id="address"
+                                                                    name="address" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Age</label>
+                                                                <input type="number" class="form-control" id="age"
+                                                                    name="age" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Email</label>
+                                                                <input type="email" class="form-control" id="email"
+                                                                    name="email" required>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    style="width: 90px; border-radius:9px; font-size:15px">Add
+                                                                    Customer</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal"
+                                                                    style="width: 90px; border-radius:9px; font-size:15px">Cancel</button>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- View Modal -->
+                                        <div class="modal fade" id="productModal{{ $pm->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
+                                            aria-hidden="true" data-bs-backdrop="static">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="productModalLabel{{ $pm->id }}">
+                                                            {{ $pm->ItemsName }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>Status:</label>
+                                                            <input class="form-control" type="text"
+                                                                value="{{ $pm->Status }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Stocks Purchased:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pm->StocksPurchased }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Actual Stocks Based on Actual Checking:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}"
+                                                                disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Damage or Missing or Foresting:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pm->Damageormissingorfortesting }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Remaining Stocks:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pm->RemainingStocks }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Upcoming Stocks:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pm->UpcomingStocks }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Remarks:</label>
+                                                            <input class="form-control" type="text"
+                                                                value="{{ $pm->Remarks }}" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if (Session::has('message'))
+                                            <script class="swal-button">
                                                 swal("Updated", "Item was edited successfully!", "success", {
                                                     button: "okay",
                                                 });
                                             </script>
                                         @endif
-                                    </div>
+
+                                        <!--Edit Item Modal-->
+                                        <div class="modal fade" id="productModalEdit{{ $pm->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="productModalLabel{{ $pm->id }}"
+                                            aria-hidden="true" data-bs-backdrop="static">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title"
+                                                            id="productModalLabel{{ $pm->id }}">
+                                                            {{ $pm->ItemsName }}</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ route('packaging-monitoring.update', $pm->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('PUT')
 
 
-                                    @if (Session::has('message'))
-                                        <script>
-                                            swal("Deleted", "Item was deleted successfully!", "success", {
-                                                button: "okay",
-                                            });
-                                        </script>
-                                    @endif
+                                                            <div class="modal-body">
+                                                                <div class="form-group mb-3">
+                                                                    <label>Items Name</label>
+                                                                    <input type="text" name="ItemsName" required
+                                                                        value="{{ $pm->ItemsName }}"
+                                                                        class="form-control">
+                                                                </div>
 
-                                    <!-- Delete Confirmation Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $pm->id }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="deleteModalLabel{{ $pm->id }}"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel{{ $pm->id }}">
-                                                        Confirm
-                                                        Deletion</h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                                                <div class="form-group">
+                                                                    <label>Select Status</label>
+                                                                    <select name="Status" required class="form-control">
+                                                                        <option>Select Status</option>
+                                                                        <option value="Ok"
+                                                                        {{ $pm->Status === 'Ok' ? 'selected' : '' }}>
+                                                                        Ok</option>
+                                                                        <option value="Ongoing"
+                                                                            {{ $pm->Status === 'Ongoing' ? 'selected' : '' }}>
+                                                                            Ongoing</option>
+                                                                        <option value="Pending"
+                                                                            {{ $pm->Status === 'Pending' ? 'selected' : '' }}>
+                                                                            Pending</option>
+                                                                        <option value="Decline"
+                                                                            {{ $pm->Status === 'Decline' ? 'selected' : '' }}>
+                                                                            Decline</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="form-group mb-3">
+                                                                    <label>Treshold Product</label>
+                                                                    <input type="number" name="treshold" required
+                                                                        class="form-control" value="10">
+                                                                </div>
+
+                                                                {{-- <div class="form-group mb-3">
+                                                                <label>Treshold Product</label>
+                                                                <input type="number" name="treshold" required
+                                                                    class="form-control" value="{{ $pm->treshold }}">
+                                                            </div> --}}
+
+
+
+                                                                <p>Stocks Purchased:</p>
+                                                                <input class="form-control" typae="number"
+                                                                    name="StocksPurchased"
+                                                                    value="{{ $pm->StocksPurchased }}">
+
+                                                                <p>Actual Stocks Based on Actual Checking:</p>
+                                                                <input class="form-control" type="number"
+                                                                    name="ActualStocksBasedonactualcheckingEDUD"
+                                                                    value="{{ $pm->ActualStocksBasedonactualcheckingEDUD }}">
+
+                                                                <p>Damage or Missing or Foresting:</p>
+                                                                <input class="form-control" type="number"
+                                                                    name="Damageormissingorfortesting"
+                                                                    value="{{ $pm->Damageormissingorfortesting }}">
+
+                                                                <p>Remaining Stocks:</p>
+                                                                <input class="form-control" type="number"
+                                                                    name="RemainingStocks"
+                                                                    value="{{ $pm->RemainingStocks }}">
+
+                                                                <p>Upcoming Stocks:</p>
+                                                                <input class="form-control" type="number"
+                                                                    name="UpcomingStocks"
+                                                                    value="{{ $pm->UpcomingStocks }}">
+
+                                                                <p>Remarks:</p>
+                                                                <input class="form-control" type="text" name="Remarks"
+                                                                    value="{{ $pm->Remarks }}">
+                                                            </div>
+
+
+                                                            <div class="modal-footer ">
+                                                                <div
+                                                                    style="display:flex; justify-content:flex-end; padding:5px;">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
+                                                                        Changes</button>
+                                                                    <button type="submit" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal"
+                                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </form>
+
+                                                    </div>
+
                                                 </div>
-                                                <div class="modal-body">
-                                                    Are you sure you want to delete this item?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <form action="{{ route('packaging-monitoring.delete', $pm->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger"
-                                                            style="width: 90px">Delete</button>
-                                                        <button type="button" class="btn btn-secondary"
-                                                            style="width: 90px" data-dismiss="modal">Cancel</button>
-                                                    </form>
+                                            </div>
+                                            @if (Session::has('message-edit'))
+                                                <script class="swal-button">
+                                                    swal("Updated", "Item was edited successfully!", "success", {
+                                                        button: "okay",
+                                                    });
+                                                </script>
+                                            @endif
+                                        </div>
+
+
+                                        @if (Session::has('message'))
+                                            <script class="swal-button">
+                                                swal("Deleted", "Item was deleted successfully!", "success", {
+                                                    button: "okay",
+                                                });
+                                            </script>
+                                        @endif
+
+                                        <!-- Delete Confirmation Modal -->
+                                        <div class="modal fade" id="deleteModal{{ $pm->id }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="deleteModalLabel{{ $pm->id }}"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel{{ $pm->id }}">
+                                                            Confirm
+                                                            Deletion</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete this item?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action="{{ route('packaging-monitoring.delete', $pm->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger"
+                                                                style="width: 90px">Delete</button>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                style="width: 90px" data-dismiss="modal">Cancel</button>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
 
 
-                            </tbody>
-                        </table>
-                        <br>
-                        {{ $packagingmonitoring->links('pagination::bootstrap-5') }}
+                                </tbody>
+                            </table>
+                            <br>
+                            {{ $packagingmonitoring->links('pagination::bootstrap-5') }}
+                        </div>
                     </div>
-                </div>
 
             </main>
 

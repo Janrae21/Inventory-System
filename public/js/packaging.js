@@ -39,10 +39,10 @@ const stocksPurchasedInput = document.getElementById('stocksPurchased');
     const damageInput = document.getElementById('damage');
     const remainingStocksInput = document.getElementById('remainingStocks');
 
-  
+
     stocksPurchasedInput.addEventListener('input', updateRemainingStocks);
     actualStocksInput.addEventListener('input', updateRemainingStocks);
-	
+
     // Function to update the remaining stocks and damage
     function updateRemainingStocks() {
         const stocksPurchased = parseInt(stocksPurchasedInput.value) || 0;
@@ -54,3 +54,4 @@ const stocksPurchasedInput = document.getElementById('stocksPurchased');
         damageInput.value = damage;
         remainingStocksInput.value = remainingStocks;
  }
+

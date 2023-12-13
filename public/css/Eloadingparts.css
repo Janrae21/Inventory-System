@@ -76,11 +76,26 @@ button {
     border-color: rgba(55, 55, 228, 0.869);
 }
 
+.swal-button {
+    background-color: #7cd1f9;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+    width: 60px;
+}
+
 /* MAIN */
 main {
     background-color: #6DD5ED;
     height: 100%;
 }
+
 
 #content main {
     width: 100%;

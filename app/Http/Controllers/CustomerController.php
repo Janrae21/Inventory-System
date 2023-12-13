@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller {
 
-
     public function store( Request $request ) {
 
         $request->validate( [
@@ -35,46 +34,30 @@ class CustomerController extends Controller {
 
     }
 
-
-    // Update Function
     public function update( Request $request, $id ) {
         $request->validate( [
 
-            'Iname' => 'required',
+            'name' => 'required',
             'address' => 'required',
             'age' => 'required|numeric',
-            'email' => 'required',
-
+            'email' => 'required|email',
         ] );
 
         $customer = Customers::findOrFail( $id );
 
         $customer->update( [
-
-            'name' => $request->input('name'),
-            'address' => $request->input('address'),
-            'age' => $request->input('age'),
-            'email' => $request->input('email'),
-
+            'name' => $request->input( 'name' ),
+            'address' => $request->input( 'address' ),
+            'age' => $request->input( 'age' ),
+            'email' => $request->input( 'email' ),
         ] );
 
-        return redirect()->back()->with( 'message-edit', 'Item updated successfully');
+        return redirect()->back()->with( 'message-Customer', 'Customer Updated Successfully' );
     }
 
-
-    //Delete Function
-    public function delete( $id ) {
-
-        $customer = Customers::findOrFail( $id );
-        $customer->delete();
-
-        return redirect()->back()->with( 'message-delete', 'Item deleted successfully' );
-    }
-
-    public function export()
-    {   return Excel::download(new CustomerExport, 'CustomerExportData.xlsx');
+    public function export() {
+        return Excel::download( new CustomerExport, 'CustomerExportData.xlsx' );
 
     }
-
 
 }

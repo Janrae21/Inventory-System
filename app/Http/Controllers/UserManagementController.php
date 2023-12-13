@@ -6,88 +6,91 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserManagementController extends Controller
-{
+class UserManagementController extends Controller {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
 
-        $users = User::paginate(10);
+    public function index() {
 
-        return view('user-management', compact('users'));
+        $users = User::paginate( 10 );
+
+        return view( 'user-management', compact( 'users' ) );
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+
+    public function create() {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    * Store a newly created resource in storage.
+    *
+    * @return \Illuminate\Http\Response
+    */
 
-        $request['password'] = Hash::make($request['password']);
+    public function store( Request $request ) {
 
-        User::create($request->all());
+        $request[ 'password' ] = Hash::make( $request[ 'password' ] );
+
+        User::create( $request->all() );
 
         return back();
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+
+    public function show( $id ) {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    * Show the form for editing the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+
+    public function editUser( $id ) {
+        $users = User::find( $id );
+        return view( 'edit-user', compact( 'user' ) );
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    * Update the specified resource in storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+
+    public function update( Request $request, $id ) {
+        $users = User::find( $id );
+        $users->update( $request->all() );
+
+        return redirect()->route( 'user-management.index' )->with( 'message', 'User updated successfully' );
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $result = User::where('id', $id)->delete();
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+
+    public function destroy( $id ) {
+        $result = User::where( 'id', $id )->delete();
 
         return $result;
     }

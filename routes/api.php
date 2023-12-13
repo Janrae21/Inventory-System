@@ -1,7 +1,8 @@
 <?php
 
-use App\Mail\SendProductReport;
 use Illuminate\Http\Request;
+use App\Mail\SendProductReport;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('make-report/{product_name}/{user}', function ($product_name, $user) {
-    Mail::to('nowayout12340@gmail.com')->send(new SendProductReport($product_name, $user));
+
+    $inventoryUsers = User::where('type', 1)->get();
+
+    foreach ($inventoryUsers as $value) {
+        Mail::to($value->email)->send(new SendProductReport($product_name, $user));
+    }
 
     return back();
 });
