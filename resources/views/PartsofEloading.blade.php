@@ -351,19 +351,6 @@
 
                                                         </div>
 
-                                                        {{-- <div class="modal-footer ">
-                                                            <div class="btn"
-                                                                style="display:flex; justify-content:flex-end; padding:5px;">
-                                                                <button type="submit" class="btn btn-primary"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
-                                                                </button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
-                                                            </div>
-
-                                                        </div> --}}
-
                                                     </form>
                                                 </div>
                                             </div>
@@ -460,6 +447,11 @@
                                                             value="{{ $pe->RemainingStocks }}" disabled>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label>Treshold:</label>
+                                                        <input class="form-control" type="number"
+                                                            value="{{ $pe->treshold }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label>Upcoming Stocks:</label>
                                                         <input class="form-control" type="text"
                                                             value="{{ $pe->UpcomingStocks }}" disabled>
@@ -523,8 +515,8 @@
                                                             </div>
 
                                                             <div class="form-group mb-3">
-                                                                <label>Treshold Product</label>
-                                                                <input type="number" name="StocksPurchased" required
+                                                                <label>Treshold:</label>
+                                                                <input type="number" name="treshold" required
                                                                     class="form-control" value="{{ $pe->treshold }}">
                                                             </div>
 

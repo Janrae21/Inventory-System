@@ -442,8 +442,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Remaining Stocks:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $ps->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Treshold:</label>
+                                                        <input class="form-control" type="number"
+                                                            value="{{ $ps->treshold }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Upcoming Stocks:</label>
@@ -509,8 +514,8 @@
                                                             </div>
 
                                                             <div class="form-group mb-3">
-                                                                <label>Treshold Product</label>
-                                                                <input type="number" name="StocksPurchased" required
+                                                                <label>Treshold:</label>
+                                                                <input type="number" name="treshold" required
                                                                     class="form-control" value="{{ $ps->treshold }}">
                                                             </div>
 

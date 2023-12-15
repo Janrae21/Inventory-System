@@ -132,7 +132,7 @@
                                         </form>
 
                                         @if (Session::has('message-Customer'))
-                                            <script>
+                                            <script class="swal-button">
                                                 swal("message", "Successfuly Added Customers", "success", {
                                                     button: "okay",
                                                     style: "justify-content:center;",
@@ -152,10 +152,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Action</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Name</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Email</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Address</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -180,7 +180,7 @@
                                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                         aria-labelledby="CustomersModalEditLabel" aria-hidden="true">
 
-                                        <!-- Modal content -->
+                                        <!-- Edit Modal content -->
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -221,6 +221,7 @@
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
+
                                             </div>
                                         </div>
                                     </div>

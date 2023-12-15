@@ -149,9 +149,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Name</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Email</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Types</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -159,6 +160,7 @@
                                     <tr>
                                         <td>{{ $od->name }}</td>
                                         <td>{{ $od->email }}</td>
+                                        <td>{{$od->type}}</td>
                                         <td>
 
                                             <a style="color: #4CA7DF; padding: 10px; cursor: pointer;" href="#"

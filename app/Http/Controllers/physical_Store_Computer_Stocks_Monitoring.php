@@ -68,7 +68,7 @@ class physical_Store_Computer_Stocks_Monitoring extends Controller
 
         ]);
 
-        return redirect()->back()->with('message', 'Item updated successfully');
+        return redirect()->back()->with('message-edit', 'Item updated successfully');
     }
 
     //Delete Function

@@ -55,6 +55,7 @@ class CustomerController extends Controller {
         return redirect()->back()->with( 'message-Customer', 'Customer Updated Successfully' );
     }
 
+
     public function export() {
         return Excel::download( new CustomerExport, 'CustomerExportData.xlsx' );
 

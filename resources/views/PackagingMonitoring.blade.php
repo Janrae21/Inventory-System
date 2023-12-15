@@ -89,7 +89,7 @@
                                                 <div class="form-group">
                                                     <label>Select Status</label>
                                                     <select name="Status" required disabled class="form-control">
-                                                        <option value="">Select Status</option>
+                                                        <option value="" disabled selected>Select Status</option>
                                                         <option value="Ok">Ok</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
@@ -452,6 +452,11 @@
                                                             <label>Remaining Stocks:</label>
                                                             <input class="form-control" type="number"
                                                                 value="{{ $pm->RemainingStocks }}" disabled>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Treshold:</label>
+                                                            <input class="form-control" type="number"
+                                                                value="{{ $pe->treshold }}" disabled>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Upcoming Stocks:</label>

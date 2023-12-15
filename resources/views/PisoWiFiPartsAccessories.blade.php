@@ -92,6 +92,7 @@
                                                     <label>Select Status</label>
                                                     <select name="Status" required class="form-control" disabled>
                                                         <option selected disabled>Select Status</option>
+                                                        <option value="Ok">Ok</option>
                                                         <option value="Ongoing">Ongoing</option>
                                                         <option value="Pending" selected>Pending</option>
                                                         <option value="Decline">Decline</option>
@@ -173,11 +174,11 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Item Name</th>
-                                    <th>Status</th>
-                                    <th>Remarks</th>
-                                    <th>Remaining Stocks</th>
-                                    <th>Action</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Item Name</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Status</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remaining Stocks</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -258,8 +259,13 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Remaining Stocks:</label>
-                                                        <input class="form-control" type="text"
+                                                        <input class="form-control" type="number"
                                                             value="{{ $pisoWifi->RemainingStocks }}" disabled>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Treshold:</label>
+                                                        <input class="form-control" type="number"
+                                                            value="{{ $pisoWifi->treshold }}" disabled>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Upcoming Stocks:</label>
@@ -493,6 +499,9 @@
                                                                 <label>Select Status</label>
                                                                 <select name="Status" required class="form-control">
                                                                     <option disabled>Select Status</option>
+                                                                    <option value="Ok"
+                                                                        {{ $pisoWifi->Status === 'Ok' ? 'selected' : '' }}>
+                                                                        Ok</option>
                                                                     <option value="Ongoing"
                                                                         {{ $pisoWifi->Status === 'Ongoing' ? 'selected' : '' }}>
                                                                         Ongoing</option>
@@ -506,10 +515,9 @@
                                                             </div>
 
                                                             <div class="form-group mb-3">
-                                                                <label>Treshold Product</label>
-                                                                <input type="number" name="StocksPurchased" required
-                                                                    class="form-control"
-                                                                    value="{{ $pisoWifi->treshold }}">
+                                                                <label>Treshold:</label>
+                                                                <input type="number" name="treshold" required
+                                                                    class="form-control" value="{{ $pisoWifi->treshold }}">
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
