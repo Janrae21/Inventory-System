@@ -51,7 +51,7 @@ Route::get('/view-profile', function () {
     return view('view-profile');
 });
 
-Route::post('/create-report', [ReportController::class, 'createReport'])->name('report.create');
+// Route::post('/create-report', [ReportController::class, 'createReport'])->name('report.create');
 
 //Update Data In View Profile
 Route::post('/update-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
@@ -68,9 +68,11 @@ Route::post('status/export/', [ProductControlller::class, 'export'])->name('stat
 Route::post('orders', [OrderController::class, 'store']);
 Route::get('customer', [OrderController::class, 'index']);
 
+
 //Customers
 Route::post('/Customers', [CustomerController::class, 'store'])->name('Customers.store');
-Route::put('/Customers/{id}', [CustomerController::class, 'update'])->name('Customers.update');
+Route::put('/Customer/{id}', [CustomerController::class, 'update'])->name('Customers.update');
+
 
 
 

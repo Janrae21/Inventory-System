@@ -35,24 +35,28 @@ class CustomerController extends Controller {
     }
 
     public function update( Request $request, $id ) {
-        $request->validate( [
 
+        $request->validate( [
             'name' => 'required',
             'address' => 'required',
-            'age' => 'required|numeric',
-            'email' => 'required|email',
+            'email' => 'required|email|',
         ] );
-
         $customer = Customers::findOrFail( $id );
 
         $customer->update( [
             'name' => $request->input( 'name' ),
             'address' => $request->input( 'address' ),
-            'age' => $request->input( 'age' ),
             'email' => $request->input( 'email' ),
         ] );
 
         return redirect()->back()->with( 'message-Customer', 'Customer Updated Successfully' );
+    }
+
+    //Delete Function
+    public function destroy( $id ) {
+        $result = Customers::where( 'id', $id )->delete();
+
+        return $result;
     }
 
 

@@ -154,7 +154,8 @@
                                 <tr>
                                     <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Name</th>
                                     <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Email</th>
-                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Address</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Address
+                                    </th>
                                     <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
                                 </tr>
                             </thead>
@@ -167,18 +168,21 @@
                                         <td>
 
                                             <a style="color: #4CA7DF; padding: 10px; cursor: pointer;" href="#"
-                                            data-bs-toggle="modal" data-bs-target="#editModal{{ $od->id }}"><i
-                                                class='bx bxs-pencil'></i> Edit</a>
-                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;" href="#"
-                                                data-toggle="modal" data-target="#deleteModal{{ $od->id }}"><i
+                                                data-bs-toggle="modal" data-bs-target="#editModal{{ $od->id }}">
+                                                <i class='bx bxs-pencil'></i> Edit
+                                            </a>
+
+                                            <a style="color: #FF6767; padding: 10px; cursor: pointer;"
+                                                onclick="deleteUser({{ $od->id }})" data-toggle="modal"
+                                                data-target="#deleteModal{{ $od->id }}"><i
                                                     class='bx bxs-trash'></i>
                                                 Delete </a>
                                         </td>
                                     </tr>
 
-                                    <div class="modal fade" id="editModal{{ $od->id }}"
-                                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                        aria-labelledby="CustomersModalEditLabel" aria-hidden="true">
+                                    <div class="modal fade" id="editModal{{ $od->id }}" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="CustomersModalEditLabel"
+                                        aria-hidden="true">
 
                                         <!-- Edit Modal content -->
                                         <div class="modal-dialog">
@@ -197,27 +201,32 @@
                                                     <div class="modal-body">
                                                         <div class="form-group mb-3">
                                                             <label>Name</label>
-                                                            <input type="text" class="form-control" id="name" required
-                                                               value="{{$od->name}}" name="name" required>
+                                                            <input type="text" class="form-control" id="name"
+                                                                value="{{ $od->name }}" name="name" required>
+
                                                         </div>
 
                                                         <div class="form-group mb-3">
                                                             <label>Email</label>
-                                                            <input type="email" class="form-control" id="email" name="email"
-                                                              value="{{$od->email}}"  required>
+                                                            <input type="email" class="form-control" id="email"
+                                                                name="email" value="{{ $od->email }}" required>
                                                         </div>
                                                         <div class="form-group mb-3">
                                                             <label>Address</label>
-                                                            <input type="text" class="form-control" id="address" name="address"
-                                                              value="{{$od->address}}"  required>
+                                                            <input type="address" class="form-control" id="address"
+                                                                name="address" value="{{ $od->address }}" required>
                                                         </div>
 
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                        <button style="width: 110px; height:45px; border-radius:8px; font-size:13px" type="submit" class="btn btn-primary">Update
+                                                        <button
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px"
+                                                            type="submit" class="btn btn-primary">Update
                                                             Customer</button>
-                                                        <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="button" class="btn btn-secondary"
+                                                        <button
+                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                            type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                     </div>
                                                 </form>
@@ -225,6 +234,24 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+
 
                                 @endforeach
                             </tbody>
