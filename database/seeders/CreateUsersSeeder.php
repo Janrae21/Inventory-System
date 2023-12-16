@@ -24,7 +24,7 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                'name'=>'Ecommerce Team',
-               'email'=>'Ecommerce@test.com',
+               'email'=>'pitogo.adones@gmail.com',
                'type'=> 2,
                'password'=> bcrypt('123456'),
             ],
