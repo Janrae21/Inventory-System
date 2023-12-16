@@ -53,11 +53,17 @@ class CustomerController extends Controller {
     }
 
     //Delete Function
-    public function destroy( $id ) {
-        $result = Customers::where( 'id', $id )->delete();
 
-        return $result;
+
+    public function destroy($id)
+    {
+        $customer = Customers::findOrFail($id);
+        $customer->delete();
+
+        return redirect()->back()->with( 'message-Customer', 'Customer delete Successfully' );
     }
+
+
 
 
     public function export() {

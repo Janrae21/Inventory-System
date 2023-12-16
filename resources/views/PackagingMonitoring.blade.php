@@ -456,7 +456,7 @@
                                                         <div class="form-group">
                                                             <label>Treshold:</label>
                                                             <input class="form-control" type="number"
-                                                                value="{{ $pe->treshold }}" disabled>
+                                                                value="{{ $pm->treshold }}" disabled>
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Upcoming Stocks:</label>
@@ -540,8 +540,6 @@
                                                                 <input type="number" name="treshold" required
                                                                     class="form-control" value="{{ $pm->treshold }}">
                                                             </div> --}}
-
-
 
                                                                 <p>Stocks Purchased:</p>
                                                                 <input class="form-control" typae="number"

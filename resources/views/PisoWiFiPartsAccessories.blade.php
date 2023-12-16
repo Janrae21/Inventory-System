@@ -108,7 +108,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
                                                     <input type="number" name="StocksPurchased" required
-                                                        class="form-control">
+                                                        class="form-control" id="stocksPurchased">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -116,21 +116,21 @@
                                                         Based on actual
                                                         checking(EDUD)</label>
                                                     <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
-                                                        required class="form-control">
+                                                        required class="form-control" id="actualStocks">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
                                                     <input type="number" name="Damageormissingorfortesting" required
-                                                        class="form-control">
+                                                        class="form-control" id="damage">
                                                 </div>
 
 
                                                 <div class="form-group mb-3">
                                                     <label>Remaining Stocks</label>
                                                     <input type="number" name="RemainingStocks" required
-                                                        class="form-control">
+                                                        class="form-control" id="remainingStocks">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -146,10 +146,13 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="submit" class="btn btn-primary">Add
+                                                    <button
+                                                        style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        type="submit" class="btn btn-primary">Add
                                                         Items</button>
-                                                    <button style="width: 110px; height:45px; border-radius:8px; font-size:13px;" type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                        style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                        data-dismiss="modal">Close</button>
                                                 </div>
 
 
@@ -174,10 +177,13 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Item Name</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Item Name
+                                    </th>
                                     <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Status</th>
-                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks</th>
-                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remaining Stocks</th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remarks
+                                    </th>
+                                    <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Remaining
+                                        Stocks</th>
                                     <th style="border: none; border-bottom: 1px solid rgba(220, 220, 220, 0.5)">Action</th>
                                 </tr>
                             </thead>
@@ -402,9 +408,9 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
                                                                 </button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -451,9 +457,9 @@
                                                             <button type="submit" class="btn btn-primary"
                                                                 style="width: 120px; border-radius:9px; font-size:15px">Add
                                                                 Customer</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal"
-                                                                style="width: 120px; border-radius:9px; font-size:15px">Cancel</button>
+                                                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
                                                         </div>
                                                     </form>
 
@@ -517,7 +523,8 @@
                                                             <div class="form-group mb-3">
                                                                 <label>Treshold:</label>
                                                                 <input type="number" name="treshold" required
-                                                                    class="form-control" value="{{ $pisoWifi->treshold }}">
+                                                                    class="form-control"
+                                                                    value="{{ $pisoWifi->treshold }}">
                                                             </div>
 
                                                             <p>Stocks Purchased:</p>
@@ -565,9 +572,11 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
                                                                     Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+
+                                                                    <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
+
                                                             </div>
 
                                                         </div>

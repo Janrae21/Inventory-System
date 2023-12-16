@@ -143,9 +143,9 @@
                                                         <button type="submit" class="btn btn-primary"
                                                             style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add
                                                             Items</button>
-                                                        <button type="submit" class="btn btn-secondary"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;"
-                                                            data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
                                                     </div>
 
                                                 </div>
@@ -343,9 +343,9 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
                                                                 </button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
                                                             </div>
 
                                                         </div>
@@ -393,8 +393,9 @@
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
                                                                 style="width: 140px">Add Customer</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
+                                                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Cancel</button>
                                                         </div>
                                                     </form>
 
@@ -556,9 +557,9 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
                                                                     Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                    <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Close</button>
                                                             </div>
 
                                                         </div>

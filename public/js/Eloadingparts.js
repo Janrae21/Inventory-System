@@ -51,4 +51,4 @@ const stocksPurchasedInput = document.getElementById('stocksPurchased');
 
         damageInput.value = damage;
         remainingStocksInput.value = remainingStocks;
-}
+ }

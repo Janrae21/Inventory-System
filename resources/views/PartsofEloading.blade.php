@@ -100,17 +100,10 @@
                                                     <input type="number" name="treshold" required
                                                         class="form-control" value="10">
                                                 </div>
-
-                                                <div class="form-group mb-3">
-                                                    <label>Remaining Stocks</label>
-                                                    <input type="number" name="RemainingStocks" required
-                                                        class="form-control">
-                                                </div>
-
                                                 <div class="form-group mb-3">
                                                     <label>Stocks Purchased</label>
                                                     <input type="number" name="StocksPurchased" required
-                                                        class="form-control">
+                                                        class="form-control" id="stocksPurchased">
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -118,20 +111,25 @@
                                                         Based on actual
                                                         checking(EDUD)</label>
                                                     <input type="number" name="ActualStocksBasedonactualcheckingEDUD"
-                                                        required class="form-control">
+                                                        required class="form-control" id="actualStocks">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Damage or missing or
                                                         for Testing</label>
                                                     <input type="number" name="Damageormissingorfortesting" required
-                                                        class="form-control">
+                                                        class="form-control" id ="damage">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label>Remaining Stocks</label>
+                                                    <input type="number" name="RemainingStocks" required
+                                                        class="form-control" id="remainingStocks">
                                                 </div>
 
                                                 <div class="form-group mb-3">
                                                     <label>Upcoming Stocks</label>
                                                     <input type="number" name="UpcomingStocks" required
-                                                        class="form-control">
+                                                        class="form-control" >
                                                 </div>
 
                                                 <div class="form-group mb-3">
@@ -146,9 +144,9 @@
                                                         <button type="submit" class="btn btn-primary"
                                                             style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Add
                                                             Items</button>
-                                                        <button type="submit" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal"
-                                                            style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                            <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                            style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                            data-dismiss="modal">Close</button>
                                                     </div>
 
                                                 </div>
@@ -344,9 +342,9 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Purchase
                                                                     </button>
-                                                                <button type="submit" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                    <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Closel</button>
                                                             </div>
 
                                                         </div>
@@ -394,8 +392,9 @@
                                                         <div class="modal-footer">
                                                             <button type="submit" class="btn btn-primary"
                                                                 style="width: 140px">Add Customer</button>
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal" style="width: 100px">Cancel</button>
+                                                                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                data-dismiss="modal">Cancel</button>
                                                         </div>
                                                     </form>
 
@@ -558,9 +557,9 @@
                                                                 <button type="submit" class="btn btn-primary"
                                                                     style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Save
                                                                     Changes</button>
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal"
-                                                                    style="width: 110px; height:45px; border-radius:8px; font-size:13px;">Close</button>
+                                                                    <button type="button" data-bs-dismiss="modal" class="btn btn-secondary"
+                                                                    style=" width: 110px; height:45px; border-radius:8px; font-size:13px;"
+                                                                    data-dismiss="modal">Close</button>
                                                             </div>
 
                                                         </div>
